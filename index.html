@@ -679,8 +679,8 @@
 
         // ====== 新增：从 GitHub 云端加载 JSON 数据库 ======
         document.getElementById('btnLoadCloudKb').addEventListener('click', async function() {
-            // ⚠️ 请将下方的链接替换为你真实的 GitHub Raw 链接！
-            const cloudJsonUrl = 'https://raw.githubusercontent.com/你的用户名/你的仓库名/main/knowledge_base.json';
+            // 直接使用相对路径，加上时间戳防止缓存
+            const cloudJsonUrl = './knowledge_base.json?t=' + new Date().getTime();
             
             const btn = this;
             const originalText = btn.innerHTML;
@@ -711,7 +711,7 @@
                 
             } catch (err) {
                 console.error(err);
-                alert('云端知识库加载失败：\n' + err.message + '\n\n提示：如果在本地测试，请确认网络能访问 GitHub。');
+                alert('云端知识库加载失败：\n' + err.message + '\n\n提示：如果你还没合并文件，请按照提示将仓库里的 json 改名或合并。');
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
