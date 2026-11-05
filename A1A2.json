@@ -1,0 +1,392 @@
+[
+    {
+        "id": "basic-sentence-order",
+        "title": "Basic sentence order (A1)",
+        "level": "A1",
+        "structure": "Subj. + Verb；Subj. + Verb + Obj.",
+        "explanation": "Basic Chinese sentence structure. Subject‑verb and subject‑verb‑object. Simple sentences are similar to English; complex sentences differ in word order for time, location and adverbs.",
+        "examples": [
+            {"zh": "你们吃。", "pinyin": "Nǐmen chī.", "en": "You eat."},
+            {"zh": "他笑。", "pinyin": "Tā xiào.", "en": "He laughs."},
+            {"zh": "我吃肉。", "pinyin": "Wǒ chī ròu.", "en": "I eat meat."},
+            {"zh": "他说中文。", "pinyin": "Tā shuō Zhōngwén.", "en": "He speaks Chinese."}
+        ],
+        "similar": ["Connecting nouns with \"shi\" (A1)", "Placement of question words (A1)", "Simple \"noun + adjective\" sentences (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "time-words-word-order",
+        "title": "Time words and word order (A2)",
+        "level": "A1",
+        "structure": "Time + Subj. + Verb + Obj.；Subj. + Time + Verb + Obj.",
+        "explanation": "Time expressions can go either at the start of sentence or right after subject. Do NOT put time words at sentence‑end.",
+        "examples": [
+            {"zh": "昨天我去了酒吧。", "pinyin": "Zuótiān wǒ qù le jiǔbā.", "en": "Yesterday I went to the bar."},
+            {"zh": "我昨天去了酒吧。", "pinyin": "Wǒ zuótiān qù le jiǔbā.", "en": "I went to the bar yesterday."},
+            {"zh": "下个星期他要回国。", "pinyin": "Xià gè xīngqī tā yào huí guó.", "en": "Next week he is going back to his country."},
+            {"zh": "他下个星期要回国。", "pinyin": "Tā xià gè xīngqī yào huí guó.", "en": "He is going back to his country next week."}
+        ],
+        "similar": ["Basic sentence order (A1)", "Wanting to do something with \"yao\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "zai-before-verb-location",
+        "title": "Indicating location with \"zai\" before verbs (A2)",
+        "level": "A1",
+        "structure": "Subj. + 在 + Place + Verb + Obj.",
+        "explanation": "In Chinese, location phrase 在+地点 must come before the verb, unlike English which puts location after verb.",
+        "examples": [
+            {"zh": "我在上海上大学。", "pinyin": "Wǒ zài Shànghǎi shàng dàxué.", "en": "I go to college in Shanghai."},
+            {"zh": "不要在床上吃东西。", "pinyin": "Bù yào zài chuáng shàng chī dōngxi.", "en": "Don't eat food on the bed."},
+            {"zh": "很多人在地铁上吃早饭。", "pinyin": "Hěn duō rén zài dìtiě shàng chī zǎofàn.", "en": "Many people eat breakfast on the subway."},
+            {"zh": "老板在会议室见客户。", "pinyin": "Lǎobǎn zài huìyìshì jiàn kèhù.", "en": "The boss is seeing the client in the meeting room."}
+        ],
+        "similar": ["Basic sentence order (A1)", "Expressing existence in a place with \"zai\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "ye-also",
+        "title": "The \"also\" adverb \"ye\" (A1)",
+        "level": "A1",
+        "structure": "Subj. + 也 + Verb / Verb Phrase；Subj. + 也 (+ Adv.) + Adj.",
+        "explanation": "Adverb 也 means also / too / either. Always placed before verb/adjective, never at sentence end. In negative sentences still use 也 before negation.",
+        "examples": [
+            {"zh": "我也喜欢。", "pinyin": "Wǒ yě xǐhuan.", "en": "I also like it."},
+            {"zh": "我也是学生。", "pinyin": "Wǒ yě shì xuésheng.", "en": "I am a student too."},
+            {"zh": "我也不喜欢。", "pinyin": "Wǒ yě bù xǐhuan.", "en": "I don't like it either."},
+            {"zh": "你也很高。", "pinyin": "Nǐ yě hěn gāo.", "en": "You are also tall."}
+        ],
+        "similar": ["Simple \"noun + adjective\" sentences (A1)", "Expressing \"and also\" with \"hai\" (A2)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "noun-adjective-sentence",
+        "title": "Simple \"noun + adjective\" sentences (A1)",
+        "level": "A1",
+        "structure": "Noun + 很 + Adj.",
+        "explanation": "Adjective predicates use 很 before adjective, NOT 是. Sometimes 很 is only grammatical filler, not meaning \"very\".",
+        "examples": [
+            {"zh": "我很好。", "pinyin": "Wǒ hěn hǎo.", "en": "I'm good."},
+            {"zh": "你很漂亮。", "pinyin": "Nǐ hěn piàoliang.", "en": "You are pretty."},
+            {"zh": "中文很难。", "pinyin": "Zhōngwén hěn nán.", "en": "Chinese is difficult."},
+            {"zh": "他很高。", "pinyin": "Tā hěn gāo.", "en": "He is tall."}
+        ],
+        "similar": ["Connecting nouns with \"shi\" (A1)", "Age with \"sui\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "ma-tag-questions",
+        "title": "Tag questions with \"ma\" (A1)",
+        "level": "A1",
+        "structure": "⋯⋯，好 / 对 / 是 / 可以 + 吗？",
+        "explanation": "Add 吗 at sentence‑end for confirmation questions meaning right? / OK?.",
+        "examples": [
+            {"zh": "这样做，对吗？", "pinyin": "Zhèyàng zuò, duì ma?", "en": "Do it like this, right?"},
+            {"zh": "我们去你家，好吗？", "pinyin": "Wǒmen qù nǐ jiā, hǎo ma?", "en": "Let's go to your place, OK?"},
+            {"zh": "你没来过，是吗？", "pinyin": "Nǐ méi lái guo, shì ma?", "en": "You haven't been here, right?"},
+            {"zh": "我现在想去洗手间，可以吗？", "pinyin": "Wǒ xiànzài xiǎng qù xǐshǒujiān, kěyǐ ma?", "en": "I want to go to the bathroom now. Is that OK?"}
+        ],
+        "similar": ["Questions with \"ne\" (A1)", "Yes‑no questions with \"ma\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "ne-what-about",
+        "title": "Questions with \"ne\" (A1)",
+        "level": "A1",
+        "structure": "Topic + 呢？；[Missing Person / Thing] + 呢？",
+        "explanation": "Particle 呢 for \"what about…?\". Can also ask where something/someone is when context is clear.",
+        "examples": [
+            {"zh": "我吃饭了。你呢？", "pinyin": "Wǒ chīfàn le. Nǐ ne?", "en": "I've eaten. What about you?"},
+            {"zh": "这个很好，那个呢？", "pinyin": "Zhège hěn hǎo, nàge ne?", "en": "This one is good. What about that one?"},
+            {"zh": "钱呢？", "pinyin": "Qián ne?", "en": "Where's the money?"},
+            {"zh": "我的手机呢？", "pinyin": "Wǒ de shǒujī ne?", "en": "Where's my cell phone?"}
+        ],
+        "similar": ["Tag questions with \"ma\" (A1)", "Yes‑no questions with \"ma\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "question-word-placement",
+        "title": "Placement of question words (A1)",
+        "level": "A1",
+        "structure": "Subj. + Verb + 什么 + (Noun)？；Subj. + Verb + 哪里 / 哪儿？；Subj. + 是 + 谁？；Subj. + 什么时候 + Predicate？；Subj. + 为什么 + Predicate？；Subj. + 怎么 + Verb (+ Obj.)？",
+        "explanation": "Chinese wh‑question words stay in the same position as the answer, do NOT move to sentence front like English.",
+        "examples": [
+            {"zh": "你是谁？", "pinyin": "Nǐ shì shéi?", "en": "Who are you?"},
+            {"zh": "这是什么？", "pinyin": "Zhè shì shénme?", "en": "What is this?"},
+            {"zh": "你要去哪儿？", "pinyin": "Nǐ yào qù nǎr?", "en": "Where are you going?"},
+            {"zh": "你为什么学中文？", "pinyin": "Nǐ wèishénme xué Zhōngwén?", "en": "Why do you study Chinese?"}
+        ],
+        "similar": ["Basic sentence order (A1)", "How to do something with \"zenme\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "de-possession",
+        "title": "Expressing possession with \"de\" (A1)",
+        "level": "A1",
+        "structure": "Noun 1 + 的 + Noun 2",
+        "explanation": "Particle 的 marks possession, similar to English apostrophe‑s. Noun1’s Noun2.",
+        "examples": [
+            {"zh": "小李的手机", "pinyin": "Xiǎo Lǐ de shǒujī", "en": "Xiao Li's cell phone"},
+            {"zh": "我的手机", "pinyin": "Wǒ de shǒujī", "en": "My cell phone"},
+            {"zh": "公司的老板", "pinyin": "Gōngsī de lǎobǎn", "en": "the company's boss"},
+            {"zh": "北京的空气", "pinyin": "Běijīng de kōngqì", "en": "Beijing's air"}
+        ],
+        "similar": ["Expressing close possession without \"de\" (A1)", "Expressing possession with \"you\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "you-possess",
+        "title": "Expressing possession with \"you\" (A1)",
+        "level": "A1",
+        "structure": "Subj. + 有 + Obj.",
+        "explanation": "Verb 有 means “to have”. Negate with 没有, cannot use 不有.",
+        "examples": [
+            {"zh": "我有钱。", "pinyin": "Wǒ yǒu qián.", "en": "I have money."},
+            {"zh": "他有两个女儿。", "pinyin": "Tā yǒu liǎng gè nǚér.", "en": "He has two daughters."},
+            {"zh": "我没有手机。", "pinyin": "Wǒ méiyǒu shǒujī.", "en": "I don't have a cell phone."},
+            {"zh": "你们有工作吗？", "pinyin": "Nǐmen yǒu gōngzuò ma?", "en": "Do you have a job?"}
+        ],
+        "similar": ["Expressing existence with \"you\" (A1)", "Negation of \"you\" with \"mei\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "bu-negation",
+        "title": "Standard negation with \"bu\" (A1)",
+        "level": "A1",
+        "structure": "Subj. + 不 + Verb + Obj.；Subj. + 不 + Adj.",
+        "explanation": "不 negates verbs and adjectives for present / future / habitual situations. Exception: cannot negate verb 有 with 不, use 没有.",
+        "examples": [
+            {"zh": "我不喝酒。", "pinyin": "Wǒ bù hē jiǔ.", "en": "I don't drink alcohol."},
+            {"zh": "他们不想工作。", "pinyin": "Tāmen bù xiǎng gōngzuò.", "en": "They don't want to work."},
+            {"zh": "我不饿。", "pinyin": "Wǒ bù è.", "en": "I'm not hungry."},
+            {"zh": "这个不贵。", "pinyin": "Zhège bù guì.", "en": "This is not expensive."}
+        ],
+        "similar": ["Connecting nouns with \"shi\" (A1)", "Negation of \"you\" with \"mei\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "mei-negate-you",
+        "title": "Negation of \"you\" with \"mei\" (A1)",
+        "level": "A1",
+        "structure": "没 + 有 (+ Obj.)",
+        "explanation": "Negate verb 有 with 没有. Short form 没 is allowed. Never say 不有.",
+        "examples": [
+            {"zh": "我没有问题。", "pinyin": "Wǒ méiyǒu wèntí.", "en": "I don't have any questions."},
+            {"zh": "我们现在没有钱。", "pinyin": "Wǒmen xiànzài méiyǒu qián.", "en": "We don't have money now."},
+            {"zh": "我没钱。", "pinyin": "Wǒ méi qián.", "en": "I don't have money."},
+            {"zh": "他没有工作吗？", "pinyin": "Tā méiyǒu gōngzuò ma?", "en": "Does he not have a job?"}
+        ],
+        "similar": ["Expressing existence with \"you\" (A1)", "Standard negation with \"bu\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "shi-connect-nouns",
+        "title": "Connecting nouns with \"shi\" (A1)",
+        "level": "A1",
+        "structure": "Noun 1 + 是 + Noun 2",
+        "explanation": "是 links noun to noun, meaning “to be”. Cannot link noun‑adjective pairs; use 很 for adjectives.",
+        "examples": [
+            {"zh": "我是学生。", "pinyin": "Wǒ shì xuésheng.", "en": "I am a student."},
+            {"zh": "这是我男朋友。", "pinyin": "Zhè shì wǒ nánpéngyou.", "en": "This is my boyfriend."},
+            {"zh": "你是John吗？", "pinyin": "Nǐ shì John ma?", "en": "Are you John?"},
+            {"zh": "那是什么菜？", "pinyin": "Nà shì shénme cài?", "en": "What food is that?"}
+        ],
+        "similar": ["Simple \"noun + adjective\" sentences (A1)", "Standard negation with \"bu\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "zai-exist-place",
+        "title": "Expressing existence in a place with \"zai\" (A1)",
+        "level": "A1",
+        "structure": "Subj. + 在 + Place",
+        "explanation": "Verb 在 means to be in / at a location. Do not add verb 是.",
+        "examples": [
+            {"zh": "我在上海。", "pinyin": "Wǒ zài Shànghǎi.", "en": "I'm in Shanghai."},
+            {"zh": "老板在外面。", "pinyin": "Lǎobǎn zài wàimiàn.", "en": "The boss is outside."},
+            {"zh": "他不在学校。", "pinyin": "Tā bù zài xuéxiào.", "en": "He's not at school."},
+            {"zh": "谁在楼上？", "pinyin": "Shéi zài lóushàng?", "en": "Who is upstairs?"}
+        ],
+        "similar": ["Indicating location with \"zai\" before verbs (A2)", "Expressing location with \"zai... shang / xia / li\" (A2)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "you-exist",
+        "title": "Expressing existence with \"you\" (A1)",
+        "level": "A1",
+        "structure": "Place + 有 + Obj.",
+        "explanation": "Pattern Place + 有 expresses “there is / there are”, location has something.",
+        "examples": [
+            {"zh": "我家有很多小狗。", "pinyin": "Wǒ jiā yǒu hěn duō xiǎo gǒu.", "en": "There are a lot of puppies in my home."},
+            {"zh": "这里有一个问题。", "pinyin": "Zhèlǐ yǒu yī gè wèntí.", "en": "There is a problem here."},
+            {"zh": "杯子里有水吗？", "pinyin": "Bēizi lǐ yǒu shuǐ ma?", "en": "Is there any water in the cup?"},
+            {"zh": "房间里有人吗？", "pinyin": "Fángjiān lǐ yǒu rén ma?", "en": "Is there anyone in the room?"}
+        ],
+        "similar": ["Expressing possession with \"you\" (A1)", "Negation of \"you\" with \"mei\" (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "jiao-name",
+        "title": "Using the verb \"jiao\" (A1)",
+        "level": "A1",
+        "structure": "Subj. + 叫 + [Name]",
+        "explanation": "Verb 叫 means “to be called / named”.",
+        "examples": [
+            {"zh": "我叫Tom。", "pinyin": "Wǒ jiào Tom.", "en": "My name is Tom."},
+            {"zh": "他叫李小龙。", "pinyin": "Tā jiào Lǐ Xiǎolóng.", "en": "His name is Li Xiaolong."},
+            {"zh": "你叫什么名字？", "pinyin": "Nǐ jiào shénme míngzi?", "en": "What's your name?"},
+            {"zh": "这个地方叫外滩。", "pinyin": "Zhège dìfang jiào Wàitān.", "en": "This place is called the Bund."}
+        ],
+        "similar": ["Using the verb \"xing\" (A1)", "Causative verbs (B1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "qu-go",
+        "title": "Using the verb \"qu\" (A1)",
+        "level": "A1",
+        "structure": "Subj. + 去 + [Place]；Subj. + 去 + Verb",
+        "explanation": "Verb 去 means go. Directly connect place after 去; no preposition equivalent of English \"to\". Can also be followed by verb meaning go‑to‑do‑something.",
+        "examples": [
+            {"zh": "我去公司。", "pinyin": "Wǒ qù gōngsī.", "en": "I'm going to the office."},
+            {"zh": "下午我会去超市。", "pinyin": "Xiàwǔ wǒ huì qù chāoshì.", "en": "In the afternoon, I'll go to the supermarket."},
+            {"zh": "我们去吃饭吧。", "pinyin": "Wǒmen qù chīfàn ba.", "en": "Let's go eat."},
+            {"zh": "你想去旅行吗？", "pinyin": "Nǐ xiǎng qù lǚxíng ma?", "en": "Would you like to go travel?"}
+        ],
+        "similar": ["Using \"dao\" to mean \"to go to\" (A2)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "dou-all",
+        "title": "The \"all\" adverb \"dou\" (A1)",
+        "level": "A1",
+        "structure": "Subj. + 都 + Verb Phrase",
+        "explanation": "Adverb 都 means all / both / neither. Must be placed after subject and before verb, not sentence‑beginning.",
+        "examples": [
+            {"zh": "他们都在上海。", "pinyin": "Tāmen dōu zài Shànghǎi.", "en": "They are all in Shanghai."},
+            {"zh": "你们都认识John吗？", "pinyin": "Nǐmen dōu rènshi John ma?", "en": "Do you all know John?"},
+            {"zh": "我们两个都爱你。", "pinyin": "Wǒmen liǎng gè dōu ài nǐ.", "en": "The two of us both love you."},
+            {"zh": "我和我太太都不吃肉。", "pinyin": "Wǒ hé wǒ tàitai dōu bù chī ròu.", "en": "Neither my wife nor I eat meat."}
+        ],
+        "similar": ["Emphasizing quantity with \"dou\" (A2)", "Using \"ye\" and \"dou\" together (B1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "tai-excess",
+        "title": "Expressing \"excessively\" with \"tai\" (A1)",
+        "level": "A1",
+        "structure": "太 + Adj. + 了",
+        "explanation": "太……了 means too / so, can express complaint or exclamation.",
+        "examples": [
+            {"zh": "米饭太多了。", "pinyin": "Mǐfàn tài duō le.", "en": "There is too much rice."},
+            {"zh": "现在太晚了。", "pinyin": "Xiànzài tài wǎn le.", "en": "Now it's too late."},
+            {"zh": "你太好了。", "pinyin": "Nǐ tài hǎo le.", "en": "You are so great."},
+            {"zh": "小猫太可爱了！", "pinyin": "Xiǎomāo tài kě'ài le!", "en": "The kitten is so cute!"}
+        ],
+        "similar": ["Expressing \"a little too\" with \"you dian\" (A2)", "Expressing \"really\" with \"zhen\" (A2)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "he-and-nouns",
+        "title": "Expressing \"and\" with \"he\" (A1)",
+        "level": "A1",
+        "structure": "Noun 1 + 和 + Noun 2",
+        "explanation": "和 connects nouns only. Do NOT connect verbs or whole sentences with 和.",
+        "examples": [
+            {"zh": "老板喜欢咖啡和茶。", "pinyin": "Lǎobǎn xǐhuan kāfēi hé chá.", "en": "The boss likes coffee and tea."},
+            {"zh": "手机和电脑都很贵。", "pinyin": "Shǒujī hé diànnǎo dōu hěn guì.", "en": "Cell phones and computers are both expensive."},
+            {"zh": "你和我", "pinyin": "Nǐ hé wǒ", "en": "you and I"},
+            {"zh": "爷爷和奶奶都70岁。", "pinyin": "Yéye hé nǎinai dōu qīshí suì.", "en": "My grandpa and grandma are both seventy years old."}
+        ],
+        "similar": ["Combining verbs with \"bing\" (B2)", "Expressing \"and\" with \"he\" (advanced) (B2)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "haishi-or-questions",
+        "title": "Offering choices with \"haishi\" (A1)",
+        "level": "A1",
+        "structure": "Option A + 还是 + Option B？；Subj. + Verb + Option A + 还是 + Option B？",
+        "explanation": "还是 used for “or” inside questions, to present two alternatives. Not for declarative‑sentence “or”.",
+        "examples": [
+            {"zh": "辣的还是不辣的？", "pinyin": "Là de háishì bù là de?", "en": "Spicy or non‑spicy?"},
+            {"zh": "你要喝茶还是咖啡？", "pinyin": "Nǐ yào hē chá háishì kāfēi?", "en": "Do you want to drink tea or coffee?"},
+            {"zh": "上海还是北京？", "pinyin": "Shànghǎi háishì Běijīng?", "en": "Shanghai or Beijing?"},
+            {"zh": "他是美国人还是英国人？", "pinyin": "Tā shì Měiguó rén háishì Yīngguó rén?", "en": "Is he American or British?"}
+        ],
+        "similar": ["Affirmative‑negative question (A1)", "Expressing \"or\" in statements (A2)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "numbers-basic",
+        "title": "Structure of numbers (A1)",
+        "level": "A1",
+        "structure": "Single digits；十+x；x十；x百零y；x百y十z",
+        "explanation": "Rules for reading Chinese numbers from 1‑9999. Phone numbers read digit‑by‑digit; one pronounced yāo for phone numbers to avoid confusion with seven qī.",
+        "examples": [
+            {"zh": "十一", "pinyin": "shíyī", "en": "eleven"},
+            {"zh": "二十三", "pinyin": "èrshí‑sān", "en": "twenty‑three"},
+            {"zh": "一百零一", "pinyin": "yībǎi líng yī", "en": "one hundred and one"},
+            {"zh": "一千二百三十四", "pinyin": "yīqiān èrbǎi sānshí‑sì", "en": "one thousand two hundred thirty‑four"}
+        ],
+        "similar": ["Comparing \"er\" and \"liang\" (A1)", "Structure of times (basic) (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "times-basic",
+        "title": "Structure of times (basic) (A1)",
+        "level": "A1",
+        "structure": "(Date / Day) + x 点；x 点 + 半",
+        "explanation": "Tell time: hour + 点 for o’clock. 半 for half‑past. Use 上午 / 下午 for a.m./p.m. Two o’clock uses 两点 not 二点.",
+        "examples": [
+            {"zh": "九点", "pinyin": "jiǔ diǎn", "en": "9 o'clock"},
+            {"zh": "下午两点半", "pinyin": "xiàwǔ liǎng diǎn bàn", "en": "2:30 p.m."},
+            {"zh": "中午十二点", "pinyin": "zhōngwǔ shí'èr diǎn", "en": "12 o'clock noon"},
+            {"zh": "明天晚上七点", "pinyin": "míngtiān wǎnshang qī diǎn", "en": "7 o'clock p.m. tomorrow evening"}
+        ],
+        "similar": ["Structure of dates (A1)", "Structure of days of the week (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "days-week",
+        "title": "Structure of days of the week (A1)",
+        "level": "A1",
+        "structure": "星期 + Number；星期天 / 星期日",
+        "explanation": "Monday=星期一 … Saturday=星期六; Sunday=星期天 / 星期日. In Chinese calendar week starts on Monday.",
+        "examples": [
+            {"zh": "今天是星期一吗？", "pinyin": "Jīntiān shì Xīngqīyī ma?", "en": "Is today Monday?"},
+            {"zh": "星期六和星期天我们不上班。", "pinyin": "Xīngqīliù hé Xīngqītiān wǒmen bù shàngbān.", "en": "Saturday and Sunday we don't work."},
+            {"zh": "下个星期四是我的生日。", "pinyin": "Xià gè Xīngqīsì shì wǒ de shēngrì.", "en": "Next Thursday is my birthday."},
+            {"zh": "星期三我不在上海。", "pinyin": "Xīngqīsān wǒ bù zài Shànghǎi.", "en": "I'm not here in Shanghai on Wednesday."}
+        ],
+        "similar": ["Structure of dates (A1)", "Structure of numbers (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "dates-basic",
+        "title": "Structure of dates (A1)",
+        "level": "A1",
+        "structure": "x 年 + y 月 + z 日；x 年 + y 月 + z 号",
+        "explanation": "Big‑to‑small order: year‑month‑day. Spoken: 号; written/formal: 日.",
+        "examples": [
+            {"zh": "1月1日是新年。", "pinyin": "Yīyuè yī rì shì Xīnnián.", "en": "January 1st is New Year's Day."},
+            {"zh": "12月24日是平安夜。", "pinyin": "Shí‑èryuè èrshí‑sì rì shì Píng'ān Yè.", "en": "December 24th is Christmas Eve."},
+            {"zh": "10月1号我们去上海。", "pinyin": "Shíyuè yī hào wǒmen qù Shànghǎi.", "en": "We will go to Shanghai on October 1st."},
+            {"zh": "我1990年7月出生。", "pinyin": "Wǒ 1990 nián Qīyuè chūshēng.", "en": "I was born in July 1990."}
+        ],
+        "similar": ["Structure of days of the week (A1)", "Structure of numbers (A1)"],
+        "source_pages": [1,2,3]
+    },
+    {
+        "id": "measure-word-ge",
+        "title": "Measure word \"ge\" (A1)",
+        "level": "A1",
+        "structure": "Number + 个 + Noun；Verb + 个 + Noun",
+        "explanation": "个 is the most common measure‑word classifier. Can be used as fallback when forgetting more specific measure‑words. Number one can omit to mean “a / an”.",
+        "examples": [
+            {"zh": "一个人", "pinyin": "yī gè rén", "en": "one person"},
+            {"zh": "三个苹果手机", "pinyin": "sān gè Píngguǒ shǒujī", "en": "three iPhones"},
+            {"zh": "他是个老外。", "pinyin": "Tā shì gè lǎowài.", "en": "He is a foreigner."},
+            {"zh": "老师，我有个问题。", "pinyin": "Lǎoshī, wǒ yǒu gè wèntí.", "en": "Teacher, I have a question."}
+        ],
+        "similar": ["Age with \"sui\" (A1)", "Measure words for counting (A2)"],
+        "source_pages": [1,2,3]
+    }
+]

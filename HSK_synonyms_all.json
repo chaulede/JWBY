@@ -1,0 +1,922 @@
+[
+  {
+    "grammar_cn": "刚 vs 刚才",
+    "grammar_en": "Gang vs Gangcai",
+    "tags": ["HSK4", "时间副词"],
+    "pattern": "主语 + 刚 + 动词 / 刚才 + 主语 + 动词",
+    "usage": "【相同点】两者都表示动作或情况发生在不久前；都可作状语。【不同点】1. “刚”是副词，作状语，只用在主语后、动词前；“刚才”是时间名词，可以用在主语前或主语后。2. “刚”前面可以加时间词；“刚才”不能。3. 用“刚”的句子里，动词后可以跟时量词；“刚才”不能。4. “刚才”后面可以跟否定词；“刚”不能。",
+    "example_zh": "你叔叔刚/刚才打电话来说给你发了个电子邮件。",
+    "example_pinyin": "Nǐ shūshu gāng/gāngcái dǎ diànhuà lái shuō gěi nǐ fāle gè diànzǐ yóujiàn.",
+    "example_en": "Your uncle just called to say he sent you an email."
+  },
+  {
+    "grammar_cn": "差不多 vs 几乎",
+    "grammar_en": "Chabuduo vs Jihu",
+    "tags": ["HSK4", "副词"],
+    "pattern": "差不多 + 形容词/数量词 / 几乎 + 动词/形容词",
+    "usage": "【相同点】两者都是副词，表示非常接近或相似，可以作状语。【不同点】1. “差不多”可以直接用在单音节形容词前；而“几乎”后面的形容词前后必须有其他词。2. “差不多”可以放在数量词前，表示接近这个数量；“几乎”没有这种用法。3. “差不多”还可以作形容词作谓语，表示相似、差别不大；“几乎”没有这种用法。4. “几乎”可以表示不希望发生的事情差点发生但最终没有发生；“差不多”没有这种用法。",
+    "example_zh": "他汉语说得很好，差不多/几乎跟中国人一样。",
+    "example_pinyin": "Tā Hànyǔ shuō de hěn hǎo, chàbuduō/jīhū gēn Zhōngguó rén yíyàng.",
+    "example_en": "He speaks Chinese very well, almost like a Chinese person."
+  },
+  {
+    "grammar_cn": "另外 vs 另",
+    "grammar_en": "Lingwai vs Ling",
+    "tags": ["HSK4", "代词", "副词"],
+    "pattern": "另外 + 数量词 + 名词 / 另 + 量词 + 名词",
+    "usage": "【相同点】1. 两者都可以作代词，指代已提到的人或事物之外的人或事物。2. 两者都可以作副词，表示“在已提到的范围之外”。【不同点】1. “另外”常用于“另外(+数量词(+名词))”或“另外+的(+名词)”结构。第一种结构可以带“的”也可以不带，但如果“另外”换成“另”，则必须带“的”。2. “另”通常修饰单音节动词，而“另外”没有这种限制。3. “另外”可以作连词，而“另”不能。",
+    "example_zh": "他一边说谢谢，一边从手里拿出另外/另一本书。",
+    "example_pinyin": "Tā yìbiān shuō xièxie, yìbiān cóng shǒu lǐ ná chū lìngwài/lìng yì běn shū.",
+    "example_en": "He said thanks while taking out another book from his hand."
+  },
+  {
+    "grammar_cn": "原来 vs 本来",
+    "grammar_en": "Yuanlai vs Benlai",
+    "tags": ["HSK4", "副词", "形容词"],
+    "pattern": "原来/本来 + 的 + 名词 / 原来/本来 + 动词",
+    "usage": "【相同点】1. 两者都可以作形容词，表示“原来的、没有改变的”。2. 两者都可以作副词，表示“以前的情况和现在不一样”。【不同点】“原来”作副词时，可以表示“发现了以前不知道的情况”；“本来”作副词时，可以表示“按道理应该这样”。",
+    "example_zh": "这是它原来/本来的颜色，不过现在已经穿了好几年，颜色都变了。",
+    "example_pinyin": "Zhè shì tā yuánlái/běnlái de yánsè, búguò xiànzài yǐjīng chuānle hǎo jǐ nián, yánsè dōu biàn le.",
+    "example_en": "This is its original color, but it has been worn for several years now, and the color has changed."
+  },
+  {
+    "grammar_cn": "尤其 vs 特别",
+    "grammar_en": "Youqi vs Tebie",
+    "tags": ["HSK4", "副词"],
+    "pattern": "尤其（是）+ 名词/小句 / 特别（是）+ 名词/小句",
+    "usage": "【相同点】两者都可以作副词，表示在整体中或与其他人/物相比，某一方面非常突出。通常用于句子的后半部分。【不同点】1. “尤其”后面可以跟“是”，“是”也可以省略；“特别”后面通常跟“是”。2. “特别”作副词时，还可以表示“格外、非常”，而“尤其”不能。3. “特别”可以作形容词，表示“与其余不同”或“不普通”，而“尤其”不能。",
+    "example_zh": "我对音乐很感兴趣，尤其/特别是贝多芬的音乐，我喜欢极了。",
+    "example_pinyin": "Wǒ duì yīnyuè hěn gǎn xìngqù, yóuqí/tèbié shì Bèiduōfēn de yīnyuè, wǒ xǐhuān jí le.",
+    "example_en": "I am very interested in music, especially Beethoven's music, I like it very much."
+  },
+  {
+    "grammar_cn": "值得 vs 值",
+    "grammar_en": "Zhide vs Zhi",
+    "tags": ["HSK4", "动词", "形容词"],
+    "pattern": "值得 + 动词/小句 / 值 + 金额",
+    "usage": "【相同点】两者都可以表示做某事有意义，或某事值得做。【不同点】1. “值得”是动词，后面可以跟动词或小句；而“值”是形容词，后面通常不跟其他成分。2. 两者都可以作动词，但意思不同。“值得”表示价格合理，后面跟动词或动词短语；而“值”表示商品值这个价钱，后面跟金额。",
+    "example_zh": "这个调查对今后的工作很有用，花再多时间也值得/值。",
+    "example_pinyin": "Zhège diàochá duì jīnhòu de gōngzuò hěn yǒuyòng, huā zài duō shíjiān yě zhídé/zhí.",
+    "example_en": "This survey is very useful for future work, it's worth spending no matter how much time."
+  },
+  {
+    "grammar_cn": "估计 vs 可能",
+    "grammar_en": "Guji vs Keneng",
+    "tags": ["HSK4", "动词", "能愿动词"],
+    "pattern": "估计 + 动词/小句 / 可能 + 动词",
+    "usage": "【相同点】两者都表示根据一定情况做出的粗略推断。【不同点】1. “估计”是动词，可以直接作谓语，后面跟动词或小句；而“可能”是能愿动词，只用作谓语动词前的修饰语。2. “可能”可以作形容词，表示某事实现的可能性；而“估计”不能这样用。3. “可能”可以用在“很”后面，构成“很可能”，可以用在主语前或主语后，加强推断的肯定性；“估计”不能这样用。",
+    "example_zh": "今天的工作估计/可能完不成了，因为出了点儿问题。",
+    "example_pinyin": "Jīntiān de gōngzuò gūjì/kěnéng wán bù chéng le, yīnwèi chūle diǎnr wèntí.",
+    "example_en": "Today's work is estimated/may not be finished, because there is a little problem."
+  },
+  {
+    "grammar_cn": "通过 vs 经过",
+    "grammar_en": "Tongguo vs Jingguo",
+    "tags": ["HSK4", "介词", "动词"],
+    "pattern": "通过 + 方式/手段 / 经过 + 过程/名词",
+    "usage": "【相同点】两者都可以表示通过某人或某种方式达到某个目标。【不同点】1. “通过”是介词，“经过”是动词。语义上，“通过”强调方法或手段，“经过”强调过程。2. 作动词时，“通过”表示从一端到另一端穿过某地；而“经过”表示“经由……”，没有“穿过”的意思。3. “经过”还可以作名词，表示事物的发展过程，而“通过”没有这种用法。",
+    "example_zh": "通过/经过大家的努力，公司的生意越做越大。",
+    "example_pinyin": "Tōngguò/jīngguò dàjiā de nǔlì, gōngsī de shēngyì yuè zuò yuè dà.",
+    "example_en": "Through everyone's efforts, the company's business is growing bigger and bigger."
+  },
+  {
+    "grammar_cn": "不过 vs 但是",
+    "grammar_en": "Buguo vs Danshi",
+    "tags": ["HSK4", "连词", "副词"],
+    "pattern": "……，不过/但是……",
+    "usage": "【相同点】两者都用于第二个分句的开头，表示语义转折。【不同点】1. “不过”常用于口语，礼貌地提出建议或表示拒绝，而“但是”语气更硬。2. “不过”还可以作副词，表示“只、仅仅”，通常后跟数量词；“但是”没有这种用法。",
+    "example_zh": "我本来想当律师，不过/但是后来我发现自己对新闻更感兴趣。",
+    "example_pinyin": "Wǒ běnlái xiǎng dāng lǜshī, búguò/dànshì hòulái wǒ fāxiàn zìjǐ duì xīnwén gèng gǎn xìngqù.",
+    "example_en": "I originally wanted to be a lawyer, but later I found that I was more interested in journalism."
+  },
+  {
+    "grammar_cn": "往往 vs 经常",
+    "grammar_en": "Wangwang vs Jingchang",
+    "tags": ["HSK4", "副词"],
+    "pattern": "往往 + 动词 / 经常 + 动词",
+    "usage": "【相同点】两者都可以作副词，表示某种情况反复发生。【不同点】1. “往往”是对到目前为止的情况的总结，表现出一定的规律性，不带主观性，所以只能用于谈论已经发生的事情。“经常”只表示动作发生多次，不一定表现出规律性；它可以表达主观愿望，因此可以表示尚未发生但可能反复发生的事情。2. 用“往往”的句子通常要说明与所谈动作相关的情况、条件或结果，而用“经常”的句子没有这种限制。3. “经常”通常等同于“常”，而“往往”不能缩略为“往”。",
+    "example_zh": "要是缺少调查、不听别人说明情况，不理解往往/经常就可能发生。",
+    "example_pinyin": "Yàoshì quēshǎo diàochá, bù tīng biérén shuōmíng qíngkuàng, bù lǐjiě wǎngwǎng/jīngcháng jiù kěnéng fāshēng.",
+    "example_en": "If there is a lack of investigation and no listening to others' explanations, misunderstandings often/may occur."
+  },
+  {
+    "grammar_cn": "不管 vs 无论",
+    "grammar_en": "Buguan vs Wulun",
+    "tags": ["HSK4", "连词"],
+    "pattern": "不管/无论 + 疑问代词 + 都/也 + 动词",
+    "usage": "【相同点】两者都可以作连词，通常与“都/也”连用，表示在任何条件下结果或结论都不会改变。两者后面都可以跟表示任指的疑问代词或并列成分。【不同点】1. “不管”常用于口语，不能接“如何”“是否”等文言色彩的词；而“无论”常用于书面语，没有这种限制。2. “不管”后面可以跟肯定否定形式；当“无论”后面跟肯定否定形式时，通常在肯定和否定成分之间用“还是/跟/与”。",
+    "example_zh": "无论/不管干什么事情，最好都能提前做好计划。",
+    "example_pinyin": "Wúlùn/bùguǎn gàn shénme shìqíng, zuìhǎo dōu néng tíqián zuò hǎo jìhuà.",
+    "example_en": "No matter what you do, it's best to make a plan in advance."
+  },
+  {
+    "grammar_cn": "对于 vs 关于",
+    "grammar_en": "Duiyu vs Guanyu",
+    "tags": ["HSK4", "介词"],
+    "pattern": "对于 + 对象 / 关于 + 范围",
+    "usage": "【不同点】1. 这两个介词的意義不同。“对于”指出对象，这个对象常是动作的受动者或某种情况所涉及的事物；“关于”指出范围，介绍所谈论的事物。2. “对于”可以放在主语前或主语后，而“关于”只能放在主语前。3. “关于……”可以出现在书或文章的标题中，而“对于”不能这样用。",
+    "example_zh": "对于这次调查计划，经理特别满意。关于这次调查计划，经理说有很多不清楚的地方。",
+    "example_pinyin": "Duìyú zhè cì diàochá jìhuà, jīnglǐ tèbié mǎnyì. Guānyú zhè cì diàochá jìhuà, jīnglǐ shuō yǒu hěn duō bù qīngchǔ de dìfāng.",
+    "example_en": "Regarding this survey plan, the manager is very satisfied. Regarding this survey plan, the manager said there are many unclear points."
+  },
+  {
+    "grammar_cn": "大概 vs 也许",
+    "grammar_en": "Dagai vs Yexu",
+    "tags": ["HSK4", "副词"],
+    "pattern": "大概 + 数量/动词 / 也许 + 动词",
+    "usage": "【相同点】两者都是副词，表示对某种情况的推测或估计。【不同点】1. “大概”表达的判断性更强，肯定意味更重，而“也许”表示猜测，可能性较小。2. “大概”可以表示对数量的估计，而“也许”没有这种用法。3. “也许”可以表示说话人对自己未来计划的不确定，而“大概”没有这种用法。4. “大概”还可以作形容词或属性词，表示“不十分精确或不十分详尽”，而“也许”不能这样用。",
+    "example_zh": "大概有三分之二的人反对这样做。",
+    "example_pinyin": "Dàgài yǒu sān fēn zhī èr de rén fǎnduì zhèyàng zuò.",
+    "example_en": "About two-thirds of the people oppose doing this."
+  },
+  {
+    "grammar_cn": "于是 vs 因此",
+    "grammar_en": "Yushi vs Yinci",
+    "tags": ["HSK4", "连词"],
+    "pattern": "A，于是/因此 B",
+    "usage": "【相同点】两者都是连词，可用于“A，于是/因此B”结构，表示A引起B。【不同点】“于是”强调A先发生，B后发生，而“因此”强调A是原因，B是结果。",
+    "example_zh": "小时候，他经常生病，于是/因此每天都去跑步锻炼身体。",
+    "example_pinyin": "Xiǎoshíhòu, tā jīngcháng shēngbìng, yúshì/yīncǐ měitiān dōu qù pǎobù duànliàn shēntǐ.",
+    "example_en": "When he was a child, he was often sick, so he went running to exercise every day."
+  },
+  {
+    "grammar_cn": "千万 vs 一定",
+    "grammar_en": "Qianwan vs Yiding",
+    "tags": ["HSK4", "副词"],
+    "pattern": "千万 + 别/不要 / 一定 + 要/能",
+    "usage": "【相同点】两者都是副词，表示提出要求或用于嘱咐。【不同点】1. “千万”通常用于否定句，与“别”“要/不要”或“不能”连用，而“一定”通常用于肯定句，与“要/不要”或“能/不能”连用。2. “千万”语气更礼貌、温和，常表示“希望某人做某事”，而“一定”语气更强，通常表示命令。3. 副词“一定”通常在第一人称句中与“会/不会”或“能”连用，表示决心，而“千万”不能这样用。4. “一定”还可以表示“必然、确实无疑”，其否定结构“不一定”表示情况不确定，而“千万”不能这样用。5. 形容词“一定”表示“某种的、适当的”，而“千万”不能。6. “一定”可用于简略结构或单独使用来回答别人，而“千万”不能。",
+    "example_zh": "通过失败你能获得别人没有的经验，千万/一定不要因为失败就不努力了。",
+    "example_pinyin": "Tōngguò shībài nǐ néng huòdé biérén méiyǒu de jīngyàn, qiānwàn/yídìng búyào yīnwèi shībài jiù bù nǔlì le.",
+    "example_en": "Through failure, you can gain experience that others don't have, never/must not stop working hard just because of failure."
+  },
+  {
+    "grammar_cn": "恐怕 vs 怕",
+    "grammar_en": "Kongpa vs Pa",
+    "tags": ["HSK4", "动词", "副词"],
+    "pattern": "恐怕 + 动词/小句 / 怕 + 名词/动词/小句",
+    "usage": "【相同点】1. 两者都可以作动词，表示“害怕”。2. 两者都可以作副词，表示估计，常隐含“担心”之意。【不同点】1. “恐怕”只能用在动词前，不能用在名词前，而“怕”既可用在动词前，也可用在名词前。2. “恐怕”可以用在主语前或主语后，而“怕”只用在主语后。3. “怕”作动词时可以带宾语，表示“害怕”，而“恐怕”没有这种用法。4. “恐怕”作副词时可以表示估计或猜测，通常可以替换为“也许/大概”，而“怕”没有这种用法。",
+    "example_zh": "从这儿坐地铁到那儿至少得五十分钟，马克恐怕/怕来不及了。",
+    "example_pinyin": "Cóng zhèr zuò dìtiě dào nàr zhìshǎo děi wǔshí fēnzhōng, Mǎkè kǒngpà/pà láibují le.",
+    "example_en": "It takes at least fifty minutes to get there by subway from here, Mark is afraid he won't make it."
+  },
+  {
+    "grammar_cn": "趟 vs 次",
+    "grammar_en": "Tang vs Ci",
+    "tags": ["HSK4", "量词"],
+    "pattern": "动词 + 一趟/一次",
+    "usage": "【相同点】两者都表示动作发生的次数，常可互换。它们用于涉及来回走动的动作，如“来”“去”“走”“跑”“接”“送”等。【不同点】1. “趟”表示一去一回，只用于涉及来回走动的动作或行为，而“次”表示动作重复的次数，不一定是来回的。2. “次”可以用于表示其他行为的动词，如“问”“说”“看”“讨论”，而“趟”没有这种用法。3. “趟”还可以用于按固定路线、固定时间行驶的公共汽车或火车，类似于“辆”和“列”，而“次”不能这样用。",
+    "example_zh": "今年寒假我去广东玩儿了一趟/次。",
+    "example_pinyin": "Jīnnián hánjià wǒ qù Guǎngdōng wánr le yí tàng/cì.",
+    "example_en": "I went to Guangdong for a trip during this winter vacation."
+  },
+  {
+    "grammar_cn": "接着 vs 然后",
+    "grammar_en": "Jiezhe vs Ranhou",
+    "tags": ["HSK4", "副词", "连词"],
+    "pattern": "接着 + 动词 / 先……然后（再）……",
+    "usage": "【相同点】两者都表示在前一事件之后发生另一事件。【不同点】1. “接着”是副词，强调时间上的紧接，而“然后”是连词，常用于“先……然后（再）……”结构。2. “接着”的两个事件主语可以相同也可以不同，而“然后”的两个事件通常主语相同。",
+    "example_zh": "他毕业后在老家工作了一年，接着/然后又考上了北京大学，读研究生。",
+    "example_pinyin": "Tā bìyè hòu zài lǎojiā gōngzuòle yì nián, jiēzhe/ránhòu yòu kǎoshangle Běijīng Dàxué, dú yánjiūshēng.",
+    "example_en": "After graduation, he worked in his hometown for a year, and then he was admitted to Peking University to study for a master's degree."
+  },
+  {
+    "grammar_cn": "出来 vs 起来",
+    "grammar_en": "Chulai vs Qilai",
+    "tags": ["HSK4", "趋向补语", "可能补语"],
+    "pattern": "动词 + 出来/起来",
+    "usage": "【不同点】1. 两者都可以用在动词后作趋向补语或可能补语，但意思不同。“出来”表示从里到外的移动，而“起来”表示向上的移动。2. 在引申用法上，“出来”可以表示某种动作或行为使某物从无到有或从隐蔽到显现，而“起来”表示动作的开始和继续。3. “想出来”表示经过思考后产生了新信息，而“想起来”表示忘记了的信息现在被回忆起来了。",
+    "example_zh": "我的日记本掉到沙发后面了，拿不出来了，你来帮我拍一下沙发吧。",
+    "example_pinyin": "Wǒ de rìjìběn diào dào shāfā hòumiàn le, ná bù chūlái le, nǐ lái bāng wǒ pāi yíxià shāfā ba.",
+    "example_en": "My diary fell behind the sofa, I can't take it out, come help me pat the sofa."
+  },
+  {
+    "grammar_cn": "究竟 vs 到底",
+    "grammar_en": "Jiujing vs Daodi",
+    "tags": ["HSK4", "副词", "动词"],
+    "pattern": "究竟/到底 + 动词 / 动词 + 到底",
+    "usage": "【相同点】两者都可以作副词，用在疑问句或带有疑问词的句子中表示追究，加强疑问语气。如果主语是疑问代词，两者都只能放在主语前。【不同点】“到底”可以作动词，表示“一直到结束、到终点”，而“究竟”没有这种用法。",
+    "example_zh": "无论做什么事情，只有试过才知道究竟/到底能不能成功。",
+    "example_pinyin": "Wúlùn zuò shénme shìqíng, zhǐyǒu shìguò cái zhīdào jiūjìng/dàodǐ néng bù néng chénggōng.",
+    "example_en": "No matter what you do, you only know whether you can succeed or not after trying."
+  },
+  {
+    "grammar_cn": "如何 vs 怎么",
+    "grammar_en": "Ruhe vs Zenme",
+    "tags": ["HSK5", "代词"],
+    "pattern": "如何 + 动词 / 怎么 + 动词",
+    "usage": "【共同点】都是代词，都可用于询问方式。【不同点】1. “如何”多用于书面语；“怎么”可用于口语。2. “如何”不能用于询问原因；“怎么”可用于询问原因。3. “如何”可用于句末表示询问状况或征求意见；“怎么”可用于句首表示惊讶。",
+    "example_zh": "只有知道如何/怎么停止的人，才知道如何/怎么高速前进。",
+    "example_pinyin": "Zhǐyǒu zhīdào rúhé/zěnme tíngzhǐ de rén, cái zhīdào rúhé/zěnme gāosù qiánjìn.",
+    "example_en": "Only those who know how to stop know how to advance at high speed."
+  },
+  {
+    "grammar_cn": "悄悄 vs 偷偷",
+    "grammar_en": "Qiaoqiao vs Toutou",
+    "tags": ["HSK5", "副词"],
+    "pattern": "悄悄/偷偷 + 地 + 动词",
+    "usage": "【共同点】都是副词，都有做事不让人发现的意思。【不同点】“悄悄”强调声音很小；“偷偷”强调行为不愿被人知道。",
+    "example_zh": "他悄悄/偷偷地走了出去。",
+    "example_pinyin": "Tā qiāoqiāo/tōutōu de zǒu le chūqù.",
+    "example_en": "He walked out quietly/secretly."
+  },
+  {
+    "grammar_cn": "满足 vs 满意",
+    "grammar_en": "Manzu vs Manyi",
+    "tags": ["HSK5", "动词"],
+    "pattern": "满足/满意 + 要求/心意",
+    "usage": "【共同点】都是动词，都有感到够了、愿望实现的意思。【不同点】1. “满足”强调没有更多的要求了；“满意”强调符合自己的心意。2. “满足”一般不能做定语或状语；“满意”可做定语或状语。3. “满足”可与“需要、要求、条件、愿望”等词搭配；“满意”不常搭配直接宾语。",
+    "example_zh": "我对现在的生活感到非常满足/满意。",
+    "example_pinyin": "Wǒ duì xiànzài de shēnghuó gǎndào fēicháng mǎnzú/mǎnyì.",
+    "example_en": "I feel very satisfied with my current life."
+  },
+  {
+    "grammar_cn": "美丽 vs 优美",
+    "grammar_en": "Meili vs Youmei",
+    "tags": ["HSK5", "形容词"],
+    "pattern": "美丽的 + 风景/人 / 优美的 + 动作/歌声",
+    "usage": "【共同点】都是形容词，都可以形容风景、环境等。【不同点】1. “美丽”多用于形容长相、样子、打扮等好看；“优美”侧重形容动作、形象等给人美好的感受。2. “美丽”一般多形容视觉的感受；“优美”还可形容非视觉的感受。3. “美丽”有修辞的用法，有美好、高尚的意思；“优美”没有这种用法。",
+    "example_zh": "济南是一座风景美丽/优美的城市。",
+    "example_pinyin": "Jǐnán shì yí zuò fēngjǐng měilì/yōuměi de chéngshì.",
+    "example_en": "Jinan is a city with beautiful scenery."
+  },
+  {
+    "grammar_cn": "打听 vs 询问",
+    "grammar_en": "Dating vs Xunwen",
+    "tags": ["HSK5", "动词"],
+    "pattern": "打听/询问 + 情况/消息",
+    "usage": "【共同点】都是动词，都有“问”的意思。【不同点】1. “打听”多用于口语；“询问”多用于书面语。2. “打听”一般用于寻找、了解有关信息，后可跟结果补语“到”；“询问”后面一般不能带结果补语“到”；另外，还有“征求意见”的意思。3. “打听”没有其他用法；“询问”后面可跟动作的对象，还可活用为名词。",
+    "example_zh": "他打听/询问了老人的身体和生活情况。",
+    "example_pinyin": "Tā dǎting/xúnwènle lǎorén de shēntǐ hé shēnghuó qíngkuàng.",
+    "example_en": "He asked about the old man's health and life."
+  },
+  {
+    "grammar_cn": "忽然 vs 突然",
+    "grammar_en": "Huran vs Turan",
+    "tags": ["HSK5", "副词", "形容词"],
+    "pattern": "忽然 + 动词 / 突然 + 动词/形容词",
+    "usage": "【共同点】都可用在动词前，表示很快发生、没想到的意思。【不同点】“忽然”是副词，只能用在动词或小句前（可以替换成“突然”）；“突然”是形容词，可做谓语、补语、定语。",
+    "example_zh": "我们正在上课，他忽然/突然站了起来。",
+    "example_pinyin": "Wǒmen zhèngzài shàngkè, tā hūrán/tūrán zhànle qǐlái.",
+    "example_en": "We were having class, and he suddenly stood up."
+  },
+  {
+    "grammar_cn": "彼此 vs 互相",
+    "grammar_en": "Bici vs Huxiang",
+    "tags": ["HSK5", "代词", "副词"],
+    "pattern": "彼此/互相 + 动词",
+    "usage": "【共同点】都有表示双方有同样行为的意思。【不同点】1. “彼此”是代词，可以用在动词前做主语；“互相”是副词，用在动词前时前面还需要加主语。2. “彼此”还可做宾语、定语；“互相”不能做宾语、定语。3. “彼此”可以重叠，表示双方差不多；“互相”不能重叠。",
+    "example_zh": "我们彼此/互相都很了解对方。",
+    "example_pinyin": "Wǒmen bǐcǐ/hùxiāng dōu hěn liǎojiě duìfāng.",
+    "example_en": "We know each other very well."
+  },
+  {
+    "grammar_cn": "显示 vs 显得",
+    "grammar_en": "Xianshi vs Xiande",
+    "tags": ["HSK5", "动词"],
+    "pattern": "显示 + 名词/小句 / 显得 + 形容词",
+    "usage": "【共同点】都是动词，都有表现出、让人看出的意思，但一般不能换用。【不同点】1. “显示”指表现出某种态度、能力或情况；“显得”指表现出某种特性。2. “显示”一般与名词或小句搭配；“显得”一般与形容词搭配。",
+    "example_zh": "相片显示：马奔跑时始终有一蹄着地。",
+    "example_pinyin": "Xiàngpiàn xiǎnshì: mǎ bēnpǎo shí shǐzhōng yǒu yì tí zháodì.",
+    "example_en": "The photos show: when a horse runs, there is always one hoof on the ground."
+  },
+  {
+    "grammar_cn": "持续 vs 继续",
+    "grammar_en": "Chixu vs Jixu",
+    "tags": ["HSK5", "动词"],
+    "pattern": "持续 + 时间 / 继续 + 动词",
+    "usage": "【共同点】都是动词，都有延续不断的意思，但语义相差较大，不能替换。【不同点】1. “持续”表示动作连续不断，中间没有停顿；“继续”表示接着前面的动作往下做。2. “持续”能带时量补语；“继续”一般不能带时量补语。",
+    "example_zh": "小明发烧持续三天了，家里人都很着急。",
+    "example_pinyin": "Xiǎomíng fāshāo chíxù sān tiān le, jiālǐ rén dōu hěn zháojí.",
+    "example_en": "Xiaoming has had a fever for three days, the family is very anxious."
+  },
+  {
+    "grammar_cn": "发达 vs 发展",
+    "grammar_en": "Fada vs Fazhan",
+    "tags": ["HSK5", "动词", "形容词"],
+    "pattern": "发达的 + 经济 / 发展 + 经济",
+    "usage": "【共同点】意思有关联，但一般不能换用。【不同点】“发达”是形容词，形容发展水平很高；“发展”是动词，指事物的变化。",
+    "example_zh": "这个城市的经济不太发达。",
+    "example_pinyin": "Zhège chéngshì de jīngjì bú tài fādá.",
+    "example_en": "The economy of this city is not very developed."
+  },
+  {
+    "grammar_cn": "激烈 vs 强烈",
+    "grammar_en": "Jilie vs Qianglie",
+    "tags": ["HSK5", "形容词"],
+    "pattern": "激烈的 + 比赛/争论 / 强烈的 + 光线/感情",
+    "usage": "【共同点】都是形容词，都有势猛、厉害的意思。【不同点】1. “激烈”词义侧重尖锐紧张；“强烈”词义侧重强劲有力。2. “激烈”多用于形容言论、情绪或比赛、斗争等；“强烈”多用于形容光线、电流、色彩、气味或人的感情、思想、要求等。",
+    "example_zh": "我不顾父母的激烈/强烈反对，偷偷地报考了表演专业。",
+    "example_pinyin": "Wǒ búgù fùmǔ de jīliè/qiángliè fǎnduì, tōutōu de bàokǎole biǎoyǎn zhuānyè.",
+    "example_en": "Regardless of my parents' fierce/strong opposition, I secretly applied for the acting major."
+  },
+  {
+    "grammar_cn": "通常 vs 常常",
+    "grammar_en": "Tongchang vs Changchang",
+    "tags": ["HSK5", "副词", "形容词"],
+    "pattern": "通常 + 动词 / 常常 + 动词",
+    "usage": "【共同点】都表示经常发生同样的动作行为，在有些句子里可以换用，但强调的意思不同。【不同点】1. “通常”强调动作行为有规律；“常常”强调动作行为多次出现。2. “通常”是形容词，可以做定语；“常常”是副词，不可以做定语或修饰小句。",
+    "example_zh": "我通常/常常在学校外面那个超市买东西。",
+    "example_pinyin": "Wǒ tōngcháng/chángcháng zài xuéxiào wàimiàn nàge chāoshì mǎi dōngxi.",
+    "example_en": "I usually/often buy things at the supermarket outside the school."
+  },
+  {
+    "grammar_cn": "胜利 vs 成功",
+    "grammar_en": "Shengli vs Chenggong",
+    "tags": ["HSK5", "动词", "形容词"],
+    "pattern": "胜利/成功 + 地 + 动词 / 成功 + 了",
+    "usage": "【共同点】都是动词，都表示达到预想的目的。【不同点】1. “胜利”表示工作等达到预想的目的时，一般做状语；“成功”不仅用于工作、事业方面，还可用于其他方面。可以做状语，也可以做谓语。2. “胜利”还有在战争或比赛中打败对方的意思；“成功”没有打败对方的意思。3. “成功”是形容词，有让人满意的意思，可做补语；“胜利”没有让人满意的意思，不能做补语。",
+    "example_zh": "北京胜利/成功地举办了2008年夏季奥运会。",
+    "example_pinyin": "Běijīng shènglì/chénggōng de jǔbànle 2008 nián xiàjì Àoyùnhuì.",
+    "example_en": "Beijing successfully hosted the 2008 Summer Olympics."
+  },
+  {
+    "grammar_cn": "忽视 vs 轻视",
+    "grammar_en": "Hushi vs Qingshi",
+    "tags": ["HSK5", "动词"],
+    "pattern": "忽视/轻视 + 问题/实践",
+    "usage": "【共同点】都表示不注意、不重视，在有些句子里可以换用，但强调的意思不同。【不同点】“忽视”强调没有考虑到，态度上可能是无意的，也可能是有意的；“轻视”强调态度上不重视。",
+    "example_zh": "他只注重理论，忽视/轻视实践，所以失败了。",
+    "example_pinyin": "Tā zhǐ zhùzhòng lǐlùn, hūshì/qīngshì shíjiàn, suǒyǐ shībài le.",
+    "example_en": "He only focused on theory, ignored/despised practice, so he failed."
+  },
+  {
+    "grammar_cn": "目前 vs 现在",
+    "grammar_en": "Muqian vs Xianzai",
+    "tags": ["HSK5", "时间名词"],
+    "pattern": "目前/现在 + 动词",
+    "usage": "【共同点】都是时间名词，指说话的这个时候，常可换用。【不同点】“目前”一般侧重指从之前到现在为止的某段时间，不可与具体时间词连用；“现在”可以侧重指某个时间段，也可以指某个时间点，还可以强调与以前的对比，可与具体时间词连用。",
+    "example_zh": "至少目前/现在可以这么说，没有证据表明黑猩猩或儿童可以这样做。",
+    "example_pinyin": "Zhìshǎo mùqián/xiànzài kěyǐ zhème shuō, méiyǒu zhèngjù biǎomíng hēixīngxīng huò értóng kěyǐ zhèyàng zuò.",
+    "example_en": "At least for now, it can be said that there is no evidence that chimpanzees or children can do this."
+  },
+  {
+    "grammar_cn": "怀念 vs 想念",
+    "grammar_en": "Huainian vs Xiangnian",
+    "tags": ["HSK5", "动词"],
+    "pattern": "怀念/想念 + 人/环境",
+    "usage": "【共同点】都是动词，都表示对人或环境不能忘记，有思念的意思。【不同点】1. “怀念”多用于书面语，语义强调常常想起，不能忘记；“想念”多用于口语，语义强调希望见到某人。2. “怀念”多用于已去世的人或不能再见到的环境；“想念”多用于活着的人或能再见到的环境。",
+    "example_zh": "每当回忆起小学时代的学习生活，我最怀念/想念的人就是刘老师。",
+    "example_pinyin": "Měi dāng huíyì qǐ xiǎoxué shídài de xuéxí shēnghuó, wǒ zuì huáiniàn/xiǎngniàn de rén jiùshì Liú lǎoshī.",
+    "example_en": "Whenever I recall my primary school study life, the person I miss most is Teacher Liu."
+  },
+  {
+    "grammar_cn": "记录 vs 纪录",
+    "grammar_en": "Jilu vs Jilu",
+    "tags": ["HSK5", "动词", "名词"],
+    "pattern": "记录 + 内容 / 打破 + 纪录",
+    "usage": "【不同点】1. “记录”可做动词，指把听到的话或发生的事记下来；“纪录”是名词，指一定时期、一定范围内的最好成绩。2. “记录”也可做名词，指记下来的材料或做记录的人；“纪录”是名词，也可指对有新闻价值的事件的记载。",
+    "example_zh": "我已经把这次会议的内容详细地记录下来了。",
+    "example_pinyin": "Wǒ yǐjīng bǎ zhè cì huìyì de nèiróng xiángxì de jìlù xiàlái le.",
+    "example_en": "I have recorded the content of this meeting in detail."
+  },
+  {
+    "grammar_cn": "偶然 vs 偶尔",
+    "grammar_en": "Ouran vs Ou'er",
+    "tags": ["HSK5", "副词", "形容词"],
+    "pattern": "偶然/偶尔 + 动词",
+    "usage": "【共同点】都可以是副词，都有不经常的意思，有时可以互换，但意思稍有不同。【不同点】1. “偶然”词义侧重表示有些突然、没想到，跟“必然”相对；“偶尔”词义侧重强调次数少，跟“经常”相对。2. “偶然”还可以表示事情发生在意料之外的，或按一般规律看不可能发生的。可做定语、谓语，前面可带程度副词；“偶尔”还可以是属性词，只做定语，前面不能加程度副词，也不能做谓语。",
+    "example_zh": "在校园里，我偶然/偶尔也会碰到李艳。",
+    "example_pinyin": "Zài xiàoyuán lǐ, wǒ ǒurán/ǒu'ěr yě huì pèngdào Lǐ Yàn.",
+    "example_en": "On campus, I occasionally/bumping into Li Yan."
+  },
+  {
+    "grammar_cn": "平等 vs 公平",
+    "grammar_en": "Pingdeng vs Gongping",
+    "tags": ["HSK5", "形容词"],
+    "pattern": "平等/公平 + 地 + 对待",
+    "usage": "【共同点】都是形容词，意思相近，有时可换用。【不同点】1. “平等”强调人和人在社会上得到的权利或待遇一样；“公平”强调处理事情合情合理，不偏向于一方。2. “平等”多用于普遍性的、一般的情况；“公平”可用于具体的人或事。",
+    "example_zh": "作为一个母亲，在自己的亲生女儿和不是亲生的灰姑娘之间，难免会更疼爱自己亲生的女儿，很难完全平等/公平地对待她们。",
+    "example_pinyin": "Zuòwéi yí gè mǔqīn, zài zìjǐ de qīnshēng nǚ'ér hé bú shì qīnshēng de Huīgūniang zhījiān, nánmiǎn huì gèng téng'ài zìjǐ qīnshēng de nǚ'ér, hěn nán wánquán píngděng/gōngpíng de duìdài tāmen.",
+    "example_en": "As a mother, between her own biological daughter and the non-biological Cinderella, it is inevitable that she will love her own biological daughter more, and it is difficult to treat them completely equally/fairly."
+  },
+  {
+    "grammar_cn": "单独 vs 独自",
+    "grammar_en": "Dandu vs Duzi",
+    "tags": ["HSK5", "副词", "形容词"],
+    "pattern": "单独/独自 + 动词",
+    "usage": "【共同点】都可以做副词，有自己一个人的意思。【不同点】1. “单独”词义侧重不跟别的合在一起；“独自”词义侧重一个人独立做某事。2. “单独”还可以用于事物；“独自”不可以用于事物。3. “单独”可以做形容词，在句中做定语；“独自”不可以做形容词。",
+    "example_zh": "你太年轻了，恐怕不能单独/独自一人完成这个任务。",
+    "example_pinyin": "Nǐ tài niánqīng le, kǒngpà bù néng dāndú/dúzì yì rén wánchéng zhège rènwu.",
+    "example_en": "You are too young, I'm afraid you can't complete this task alone/by yourself."
+  },
+  {
+    "grammar_cn": "发言 vs 发表",
+    "grammar_en": "Fayan vs Fabiao",
+    "tags": ["HSK5", "动词"],
+    "pattern": "发言/发表 + 意见/文章",
+    "usage": "【共同点】都可以做动词，都与表达意见有关。【不同点】1. “发言”指在会议或课堂上说话；“发表”指向集体、社会正式说出自己的意见或在报刊上刊登文章。2. “发言”可以做名词，指所发表的意见；“发表”不可以做名词。3. “发言”是离合词，中间可插入其他成分，后面不能再接宾语；“发表”不是离合词。",
+    "example_zh": "他上课从不发言，很多课不及格，平时也几乎不和同学交往。",
+    "example_pinyin": "Tā shàngkè cóng bù fāyán, hěnduō kè bù jígé, píngshí yě jīhū bù hé tóngxué jiāowǎng.",
+    "example_en": "He never speaks in class, fails many courses, and hardly associates with classmates usually."
+  },
+  {
+    "grammar_cn": "严肃 vs 严格",
+    "grammar_en": "Yansu vs Yange",
+    "tags": ["HSK5", "形容词"],
+    "pattern": "严肃/严格 + 地 + 要求",
+    "usage": "【共同点】都是形容词，都表示认真、不放松，但适用范围相差较大，不能替换。【不同点】1. “严肃”强调在作风、态度等方面认真；“严格”表示在遵守制度或掌握标准时认真、不放松。2. “严肃”表示神情、气氛等使人感到既尊重又害怕；“严格”没有这种意思。",
+    "example_zh": "小林这件事影响恶劣，我们对他一定要严肃批评。",
+    "example_pinyin": "Xiǎolín zhè jiàn shì yǐngxiǎng èliè, wǒmen duì tā yídìng yào yánsù pīpíng.",
+    "example_en": "Xiao Lin's incident has a bad influence, we must criticize him seriously."
+  },
+  {
+    "grammar_cn": "总算 vs 终于",
+    "grammar_en": "Zongsuan vs Zhongyu",
+    "tags": ["HSK5", "副词"],
+    "pattern": "总算/终于 + 动词",
+    "usage": "【共同点】都是副词，都有表示经过较长时间的变化或等待以后出现了某种情况的意思。【不同点】1. “总算”事情的结果一般都是希望发生的情况；“终于”事情的结果多是希望发生的情况，但还可以是不如意的情况。2. “总算”还可以表示大体上还过得去；“终于”没有这个意思和用法。",
+    "example_zh": "这青年后来务力学艺，总算/终于有了一点儿小名气。",
+    "example_pinyin": "Zhè qīngnián hòulái wùlì xuéyì, zǒngsuàn/zhōngyú yǒule yìdiǎnr xiǎo míngqì.",
+    "example_en": "This young man later worked hard to learn skills, and finally/at last gained a little fame."
+  },
+  {
+    "grammar_cn": "损失 vs 失去",
+    "grammar_en": "Sunshi vs Shiqu",
+    "tags": ["HSK5", "动词", "名词"],
+    "pattern": "损失/失去 + 事物",
+    "usage": "【共同点】都可以做动词，都有原来有而后来没有了的意思。【不同点】1. “损失”表示减少；“失去”表示原来有的没有了。2. “损失”可以做名词；“失去”不可以。",
+    "example_zh": "每走一步，你事先都应该想清楚：为了赢得什么，你愿意损失/失去什么，这样才可能赢。",
+    "example_pinyin": "Měi zǒu yí bù, nǐ shìxiān dōu yīnggāi xiǎng qīngchǔ: wèile yíngdé shénme, nǐ yuànyì sǔnshī/shīqù shénme, zhèyàng cái kěnéng yíng.",
+    "example_en": "Every step you take, you should think clearly in advance: in order to win what, you are willing to lose what, so that you can win."
+  },
+  {
+    "grammar_cn": "挤 vs 拥挤",
+    "grammar_en": "Ji vs Yongji",
+    "tags": ["HSK5", "动词", "形容词"],
+    "pattern": "挤/拥挤 + 地方",
+    "usage": "【共同点】都可以做动词和形容词，形容词的意思都是地方小而人或物多。【不同点】1. “挤”是动词，强调用力使自己从人群中通过；“拥挤”是动词，强调挤在一起。2. “挤”一般做谓语；“拥挤”可做主语或宾语。3. “挤”指用力使东西从小孔或小缝中出来；“拥挤”没有这个意思。4. “挤”指人或物紧紧挨在一起，或事情集中在同一时间段里；“拥挤”没有这个意思。5. “挤”有排挤的意思；“拥挤”没有这个意思。",
+    "example_zh": "这么小的教室里放三十张桌子，太挤/拥挤了！",
+    "example_pinyin": "Zhème xiǎo de jiàoshì lǐ fàng sānshí zhāng zhuōzi, tài jǐ/yōngjǐ le!",
+    "example_en": "Putting thirty desks in such a small classroom is too crowded!"
+  },
+  {
+    "grammar_cn": "接近 vs 靠近",
+    "grammar_en": "Jiejin vs Kaojin",
+    "tags": ["HSK5", "动词"],
+    "pattern": "接近/靠近 + 事物/地点",
+    "usage": "【共同点】都是动词，都有“彼此间距离近或向一定目标运动，使彼此间距离变小”的意思，有时可以替换。【不同点】1. “接近”搭配的词语可以表示具体的人、事物、时间、地点和数量等；“靠近”搭配的词语可以表示具体的人、事物、地点，但一般不能用于时间、数量方面。2. “接近”还可以搭配表示抽象事物的词语；“靠近”一般不能搭配表示抽象事物的词语。3. “接近”还可以表示差距不大；“靠近”没有这个意思。",
+    "example_zh": "这个地方接近/靠近北极地区，夏季白天很长，天亮得也很早。",
+    "example_pinyin": "Zhège dìfāng jiējìn/kàojìn Běijí dìqū, xiàjì báitiān hěn cháng, tiān liàng de yě hěn zǎo.",
+    "example_en": "This place is close to the Arctic region, the summer days are very long, and it gets light very early."
+  },
+  {
+    "grammar_cn": "轻易 vs 容易",
+    "grammar_en": "Qingyi vs Rongyi",
+    "tags": ["HSK5", "形容词", "副词"],
+    "pattern": "轻易 + 动词 / 容易 + 动词/形容词",
+    "usage": "【共同点】做形容词时，都可以表示做起来不费事。【不同点】1. “轻易”侧重做事轻松，不费力气。一般做状语；“容易”除表示事情简单、不难办外，还可表示事情本身的内容不复杂。可单独做谓语。2. “容易”还表示发生某种变化的可能性大；“轻易”没有这个意思。3. “轻易”还是副词，表示随随便便的意思；“容易”没有这个用法。",
+    "example_zh": "她从小学习就好，高考时很轻易地考上了名牌大学，接着又读了研究生。",
+    "example_pinyin": "Tā cóngxiǎo xuéxí jiù hǎo, gāokǎo shí hěn qīngyì de kǎoshangle míngpái dàxué, jiēzhe yòu dúle yánjiūshēng.",
+    "example_en": "She studied well since she was a child, easily got into a prestigious university in the college entrance examination, and then went to graduate school."
+  },
+  {
+    "grammar_cn": "鼓励 vs 鼓舞",
+    "grammar_en": "Guli vs Guwu",
+    "tags": ["HSK5", "动词", "形容词"],
+    "pattern": "鼓励/鼓舞 + 某人",
+    "usage": "【共同点】都是动词，都有使人振作、增强信心的意思。【不同点】1. “鼓励”是中性词，可用在坏的方面；“鼓舞”是褒义词，只能用于好的方面。2. “鼓励”语义侧重激励对方从事某种活动，主语多是人或组织。常用“鼓励某人做某事”的兼语形式；“鼓舞”语义侧重受到某种影响而精神振奋，主语多是事物。3. “鼓舞”还是形容词，形容兴奋、振作；“鼓励”没有这个意思和用法。",
+    "example_zh": "这次谈话，使刘洋受到极大的鼓励/鼓舞。",
+    "example_pinyin": "Zhè cì tánhuà, shǐ Liú Yáng shòudào jídà de gǔlì/gǔwǔ.",
+    "example_en": "This conversation greatly encouraged/inspired Liu Yang."
+  },
+  {
+    "grammar_cn": "表现 vs 体现",
+    "grammar_en": "Biaoxian vs Tixian",
+    "tags": ["HSK5", "动词", "名词"],
+    "pattern": "表现/体现 + 特点/感情",
+    "usage": "【共同点】都是动词，都有显示出来的意思。【不同点】1. “表现”侧重反映人或事物的某种风格、感情、态度等；“体现”强调某种现象、性质或思想、精神等通过某人或事物具体表现出来。2. “表现”还有故意显示自己的优点、长处的意思，多含贬义；“体现”没有这个意思。3. “表现”还可做名词，指言语行动的状况；“体现”没有这个用法。",
+    "example_zh": "这部电影表现/体现出鲜明的时代特点。",
+    "example_pinyin": "Zhè bù diànyǐng biǎoxiàn/tǐxiàn chū xiānmíng de shídài tèdiǎn.",
+    "example_en": "This movie shows/reflects distinct characteristics of the times."
+  },
+  {
+    "grammar_cn": "反复 vs 重复",
+    "grammar_en": "Fanfu vs Chongfu",
+    "tags": ["HSK5", "副词", "动词", "名词"],
+    "pattern": "反复/重复 + 说/做",
+    "usage": "【共同点】都有不止一次的意思。【不同点】1. “反复”是副词，一遍一遍地；“重复”是动词，指又一次做同样的事情。2. “反复”是动词，指不利的情况重新出现；“重复”是动词，指同样的东西再次出现。3. “反复”是名词，指重复出现的不好的情况；“重复”没有这个用法。",
+    "example_zh": "这件事情你已经反复/重复说过好几遍了。",
+    "example_pinyin": "Zhè jiàn shìqíng nǐ yǐjīng fǎnfù/chóngfù shuōguò hǎojǐ biàn le.",
+    "example_en": "You have said this repeatedly/again and again several times."
+  },
+  {
+    "grammar_cn": "特殊 vs 特别",
+    "grammar_en": "Teshu vs Tebie",
+    "tags": ["HSK5", "形容词", "副词"],
+    "pattern": "特殊/特别 + 的 + 名词",
+    "usage": "【共同点】做形容词时，都有和一般不一样的意思。【不同点】1. “特殊”多用于书面语；“特别”口语和书面语均可使用。2. “特别”还可做副词。意思是“格外”；“特殊”没有这个用法。",
+    "example_zh": "对我来说，他是一个特殊/特别的人。",
+    "example_pinyin": "Duì wǒ lái shuō, tā shì yí gè tèshū/tèbié de rén.",
+    "example_en": "To me, he is a special person."
+  },
+  {
+    "grammar_cn": "应付 vs 处理",
+    "grammar_en": "Yingfu vs Chuli",
+    "tags": ["HSK5", "动词"],
+    "pattern": "应付/处理 + 事情/问题",
+    "usage": "【共同点】都是动词，都有对人、对事采取措施、办法的意思。【不同点】1. “应付”侧重表示采取适当的办法来对待人或事；“处理”侧重强调解决问题。2. “应付”还有办事不认真、不负责，只求表面过得去的意思；“处理”没有这个意思。3. “处理”还有安排、处置事物的意思；“应付”没有这个意思。4. “处理”还有减价出售的意思；“应付”没有这个意思。",
+    "example_zh": "依我看，以他现有的经验应付/处理不了目前的工作。",
+    "example_pinyin": "Yī wǒ kàn, yǐ tā xiànyǒu de jīngyàn yìngfù/chǔlǐ bùliǎo mùqián de gōngzuò.",
+    "example_en": "In my opinion, with his existing experience, he cannot cope with/handle the current job."
+  },
+  {
+    "grammar_cn": "人家 vs 别人",
+    "grammar_en": "Renjia vs Bieren",
+    "tags": ["HSK6", "代词"],
+    "pattern": "人家/别人 + 动词",
+    "usage": "【相同点】二者都是代词，都可以指代说话人和听话人之外的人，可泛指。【不同点】1. 人家：① 可以回指上文已经提到的特定对象，相当于“他/他们”；② 可以委婉指自己（我），语气亲昵俏皮。2. 别人：只泛指其他人，不能回指上文特定的人，也不能指代自己。",
+    "example_zh": "人家都这么说，可是我不相信。",
+    "example_pinyin": "Rénjiā dōu zhème shuō, kěshì wǒ bù xiāngxìn.",
+    "example_en": "Everyone else says so, but I don't believe it."
+  },
+  {
+    "grammar_cn": "体谅 vs 原谅",
+    "grammar_en": "Tiliang vs Yuanliang",
+    "tags": ["HSK6", "动词"],
+    "pattern": "体谅/原谅 + 某人",
+    "usage": "【相同点】都是动词，都含有谅解的含义，但一般不能互换。【不同点】1. 体谅：侧重换位思考，理解他人处境难处；前面可以加程度副词（很、非常），还可以重叠「体谅体谅」。2. 原谅：侧重宽恕别人的过失、错误；前面一般不加程度副词，不能重叠。",
+    "example_zh": "我的家离公司很远，孩子又小，老板很体谅我，允许我晚半个小时上班。",
+    "example_pinyin": "Wǒ de jiā lí gōngsī hěn yuǎn, háizi yòu xiǎo, lǎobǎn hěn tǐliàng wǒ, yǔnxǔ wǒ wǎn bàn gè xiǎoshí shàngbān.",
+    "example_en": "My home is far from the company and my kid is still little. My boss understands my situation and allows me to start work half-an-hour late."
+  },
+  {
+    "grammar_cn": "起码 vs 至少",
+    "grammar_en": "Qima vs Zhishao",
+    "tags": ["HSK6", "副词"],
+    "pattern": "起码 + 的 + 名词 / 至少 + 数量词",
+    "usage": "【相同点】都表示最低限度。【不同点】1. 起码：可以作定语修饰名词；不能受副词「最」修饰。2. 至少：只能作副词放在动词前；不能作定语；最少（错误）。",
+    "example_zh": "我们一个星期起码要上16个小时的课。",
+    "example_pinyin": "Wǒmen yí gè xīngqī qǐmǎ yào shàng shíliù gè xiǎoshí de kè.",
+    "example_en": "We have at least 16 hours of classes per week."
+  },
+  {
+    "grammar_cn": "恰巧 vs 正好",
+    "grammar_en": "Qiaqiao vs Zhenghao",
+    "tags": ["HSK6", "副词", "形容词"],
+    "pattern": "恰巧/正好 + 动词",
+    "usage": "【相同点】都可以表示事情巧合。【不同点】1. 恰巧: 副词, 侧重事情偶然碰上, 意料之外。2. 正好: 副词/形容词, 侧重数量、时间、尺寸合宜、刚刚好; 可作谓语。",
+    "example_zh": "这块布正好够做一件衬衫, 一点儿都不浪费。",
+    "example_pinyin": "Zhè kuài bù zhènghǎo gòu zuò yí jiàn chènshān, yìdiǎnr dōu bú làngfèi.",
+    "example_en": "This piece of cloth is just enough for one shirt; no waste at all."
+  },
+  {
+    "grammar_cn": "专程 vs 专门",
+    "grammar_en": "Zhuancheng vs Zhuanmen",
+    "tags": ["HSK6", "副词", "形容词"],
+    "pattern": "专程/专门 + 动词",
+    "usage": "【相同点】都有为特定目的去做某事的含义。【不同点】1. 专程：侧重特意跑一趟（出行），多用于出行、拜访。2. 专门：用途更广，既可以指特意出行，也可以指专门从事某项工作研究。",
+    "example_zh": "今天是我的生日，妈妈专程做了我喜欢吃的饭菜。",
+    "example_pinyin": "Jīntiān shì wǒ de shēngrì, māma zhuānchéng zuò le wǒ xǐhuān chī de fàncài.",
+    "example_en": "Today is my birthday. Mum specially cooked my favourite food."
+  },
+  {
+    "grammar_cn": "创立 vs 创办",
+    "grammar_en": "Chuangli vs Chuangban",
+    "tags": ["HSK6", "动词"],
+    "pattern": "创立/创办 + 组织/机构",
+    "usage": "【相同点】都是动词，指开始建立新的机构、组织。【不同点】1. 创立：偏重于开创建立，对象可以是政党、学说、理论、组织。2. 创办：偏重于开办经营，对象多为学校、企业、服务机构。",
+    "example_zh": "这个组织创立于1942年。",
+    "example_pinyin": "Zhège zǔzhī chuànglì yú 1942 nián.",
+    "example_en": "This organization was founded in 1942."
+  },
+  {
+    "grammar_cn": "日益 vs 越来越",
+    "grammar_en": "Riyi vs Yue lai yue",
+    "tags": ["HSK6", "副词"],
+    "pattern": "日益 + 双音节词 / 越来越 + 形容词",
+    "usage": "【相同点】都表示程度随着时间推移，一天比一天更加。【不同点】1. 日益：书面语；后面只能接双音节形容词/动词，不能接单音节。2. 越来越：口语书面都可用；后面单、双音节形容词都可以。",
+    "example_zh": "城乡人民的消费水平日益提高。",
+    "example_pinyin": "Chéngxiāng rénmín de xiāofèi shuǐpíng rìyì tígāo.",
+    "example_en": "Urban-rural residents' consumption levels keep rising day by day."
+  },
+  {
+    "grammar_cn": "极端 vs 极度",
+    "grammar_en": "Jiduan vs Jidu",
+    "tags": ["HSK6", "副词", "形容词"],
+    "pattern": "极端/极度 + 动词/形容词",
+    "usage": "【相同点】作副词，都表示程度非常深。【不同点】1. 极端：可以作形容词，可修饰名词（极端的想法）；也可作副词。2. 极度：只作副词，不能修饰名词。",
+    "example_zh": "你的这种观点太极端了，不能代表大多数人的看法。",
+    "example_pinyin": "Nǐ de zhè zhǒng guāndiǎn tài jíduān le, bù néng dàibiǎo dà duōshù rén de kànfǎ.",
+    "example_en": "Your viewpoint is too extreme and cannot represent most people's opinions."
+  },
+  {
+    "grammar_cn": "索性 vs 干脆",
+    "grammar_en": "Suoxing vs Gancui",
+    "tags": ["HSK6", "副词", "形容词"],
+    "pattern": "索性/干脆 + 动词",
+    "usage": "【相同点】副词，表示不再犹豫，直接做出决断。【不同点】1. 索性：侧重既然现状如此，不如干脆做某事；主语多为事情的亲历者；不能作形容词。2. 干脆：副词+形容词；除了表决断，还可以形容人性格、做事风格利落爽快。",
+    "example_zh": "他觉得这门课没有用，索性不去上课了。",
+    "example_pinyin": "Tā juéde zhè mén kè méiyǒu yòng, suǒxìng bù qù shàngkè le.",
+    "example_en": "He thought this subject was useless, so he simply stopped going to class."
+  },
+  {
+    "grammar_cn": "凡是 vs 所有",
+    "grammar_en": "Fanshi vs Suoyou",
+    "tags": ["HSK6", "连词", "形容词"],
+    "pattern": "凡是/所有 + 名词/小句",
+    "usage": "【相同点】都指全部，可泛指一类人或事物。【不同点】1. 凡是：连词，引出范围，后面多接小句；不能直接放在名词前作定语。2. 所有：形容词，直接放在名词前作定语。",
+    "example_zh": "凡是建筑工人，一律都要穿工作服上班。",
+    "example_pinyin": "Fánshì jiànzhù gōngrén, yīlù dōu yào chuān gōngzuòfú shàngbān.",
+    "example_en": "All construction workers must wear work uniforms on the job."
+  },
+  {
+    "grammar_cn": "急切 vs 急忙",
+    "grammar_en": "Jiqie vs Jimang",
+    "tags": ["HSK6", "形容词", "副词"],
+    "pattern": "急切/急忙 + 动词",
+    "usage": "【相同点】都含有着急的意思，一般不能互换。【不同点】1. 急切：形容词，侧重内心心情迫切；后面可以接名词。2. 急忙：副词，侧重行动匆忙；后面只能接动词，不能接名词。",
+    "example_zh": "大家急切地盼望试验成功。",
+    "example_pinyin": "Dàjiā jíqiè de pànwàng shìyàn chénggōng.",
+    "example_en": "Everyone eagerly hopes the experiment will succeed."
+  },
+  {
+    "grammar_cn": "仿佛 vs 好像",
+    "grammar_en": "Fangfu vs Haoxiang",
+    "tags": ["HSK6", "副词"],
+    "pattern": "仿佛/好像 + 动词/小句",
+    "usage": "【相同点】都可作副词，表示似乎、如同，用于比喻或推测。【不同点】1. 仿佛：书面色彩重；可用于句末；可以构成“仿佛……似的”。2. 好像：口语、书面通用；不能放在句末；可用于疑问句。",
+    "example_zh": "他站在那里，仿佛雕塑一般一动也不动。",
+    "example_pinyin": "Tā zhàn zài nàlǐ, fǎngfú diāosù yìbān yí dòng yě bú dòng.",
+    "example_en": "He stood there as still as a sculpture."
+  },
+  {
+    "grammar_cn": "景象 vs 气象",
+    "grammar_en": "Jingxiang vs Qixiang",
+    "tags": ["HSK6", "名词"],
+    "pattern": "景象/气象 + 名词",
+    "usage": "【相同点】都是名词，都指眼前呈现出来的画面、状态。【不同点】1. 景象：侧重肉眼看到的具体场面、景色；可用于社会生活场面。2. 气象：本义指大气天气；引申义指气势、格局，多用于宏大抽象的局面。",
+    "example_zh": "春天来了，到处都是一派生机勃勃的景象。",
+    "example_pinyin": "Chūntiān lái le, dàochù dōu shì yí pài shēngjībóbó de jǐngxiàng.",
+    "example_en": "Spring has come, everywhere presents a lively scene."
+  },
+  {
+    "grammar_cn": "搜集 vs 收集",
+    "grammar_en": "Souji vs Shouji",
+    "tags": ["HSK6", "动词"],
+    "pattern": "搜集/收集 + 资料/意见",
+    "usage": "【相同点】都是动词，把分散的东西聚拢到一起。【不同点】1. 搜集：侧重到处寻找、多方搜寻，过程辛苦，对象多为资料、线索。2. 收集：侧重把已存在的事物收拢汇集，不需要四处寻访。",
+    "example_zh": "为了写这本书，他到处搜集民间故事。",
+    "example_pinyin": "Wèile xiě zhè běn shū, tā dàochù sōují mínjiān gùshì.",
+    "example_en": "To write this book, he hunted everywhere for folktales."
+  },
+  {
+    "grammar_cn": "居然 vs 竟然",
+    "grammar_en": "Juran vs Jingran",
+    "tags": ["HSK6", "副词"],
+    "pattern": "居然/竟然 + 动词",
+    "usage": "【相同点】副词，表示结果出乎意料，感到吃惊，多数情况可以互换。【不同点】1. 居然：语气更重，可以用于好、坏两种意外情况。2. 竟然：书面感略强，多用于不好、不希望发生的意外。",
+    "example_zh": "这么难的题，他居然做对了。",
+    "example_pinyin": "Zhème nán de tí, tā jūrán zuò duì le.",
+    "example_en": "Surprisingly, he got this very difficult question right."
+  },
+  {
+    "grammar_cn": "从而 vs 进而",
+    "grammar_en": "Cong'er vs Jin'er",
+    "tags": ["HSK6", "连词"],
+    "pattern": "……，从而/进而……",
+    "usage": "【相同点】连词，承接上文，引出后续结果或进一步行动。【不同点】1. 从而：表因果、目的，上文原因带来下文结果。2. 进而：表递进，在原有基础上更进一步做下一件事。",
+    "example_zh": "多阅读可以扩大知识面，从而提高理解能力。",
+    "example_pinyin": "Duō yuèdú kěyǐ kuòdà zhīshimiàn, cóng'ér tígāo lǐjiě nénglì.",
+    "example_en": "Reading broadens knowledge, thus improving comprehension."
+  },
+  {
+    "grammar_cn": "牢固 vs 坚固",
+    "grammar_en": "Laogu vs Jiangu",
+    "tags": ["HSK6", "形容词"],
+    "pattern": "牢固/坚固 + 的 + 事物",
+    "usage": "【相同点】形容词，结实，不容易被破坏。【不同点】1. 牢固：侧重结合紧密，不易松动；可用于抽象的关系、记忆。2. 坚固：侧重材质结实抗外力，多用于建筑、器物实体。",
+    "example_zh": "两国建立了牢固的合作关系。",
+    "example_pinyin": "Liǎng guó jiànlì le láogù de hézuò guānxì.",
+    "example_en": "The two countries have built solid cooperative ties."
+  },
+  {
+    "grammar_cn": "爱护 vs 保护",
+    "grammar_en": "Aihu vs Baohu",
+    "tags": ["HSK6", "动词"],
+    "pattern": "爱护/保护 + 对象",
+    "usage": "【相同点】动词，用心对待，使不受伤害。【不同点】1. 爱护：侧重爱惜、珍惜，内心带有喜爱；对象可以是人、动植物、物品。2. 保护：侧重主动采取措施抵挡外来伤害。",
+    "example_zh": "我们要爱护花草树木。",
+    "example_pinyin": "Wǒmen yào àihù huācǎo shùmù.",
+    "example_en": "We should cherish flowers and trees."
+  },
+  {
+    "grammar_cn": "以至 vs 以致",
+    "grammar_en": "Yizhi vs Yizhi",
+    "tags": ["HSK6", "连词"],
+    "pattern": "……，以至/以致……",
+    "usage": "【相同点】连词，引出下文结果。【不同点】1. 以至：可表程度递进；结果可好可坏。2. 以致：专指不好的、消极的结果。",
+    "example_zh": "他看书看得太投入，以至连吃饭都忘了。",
+    "example_pinyin": "Tā kànshū kàn de tài tóurù, yǐzhì lián chīfàn dōu wàng le.",
+    "example_en": "He was so absorbed in reading that he even forgot to eat."
+  },
+  {
+    "grammar_cn": "难免 vs 不免",
+    "grammar_en": "Nanmian vs Bumian",
+    "tags": ["HSK6", "副词"],
+    "pattern": "难免/不免 + 动词/形容词",
+    "usage": "【相同点】副词，表示不容易避免，会产生某种情况、感受。【不同点】1. 难免：客观上事情很难避免，多用于事情、现象。2. 不免：侧重主观上不由得产生某种感受、情绪。",
+    "example_zh": "人犯错误是难免的，关键是及时改正。",
+    "example_pinyin": "Rén fàn cuòwù shì nánmiǎn de, guānjiàn shì jíshí gǎizhèng.",
+    "example_en": "It is unavoidable for people to make mistakes; the key is to correct them promptly."
+  },
+  {
+    "grammar_cn": "不免 vs 未免",
+    "grammar_en": "Bumian vs Weimian",
+    "tags": ["HSK6", "副词"],
+    "pattern": "不免/未免 + 动词/形容词",
+    "usage": "【相同点】副词，都含有难以避免的意味。【不同点】1. 不免：客观上因某种原因自然产生结果；句子前面一般要交代原因只能接肯定形式，不能接否定。2. 未免：侧重说话人对人/事作出评价、委婉地表示不赞同；前面可以不用交代原因；可接肯定、否定两种形式。",
+    "example_zh": "刚参加工作，不免会犯错误。",
+    "example_pinyin": "Gāng cānjiā gōngzuò, bùmiǎn huì fàn cuòwù.",
+    "example_en": "When you just start working, you will inevitably make mistakes."
+  },
+  {
+    "grammar_cn": "抉择 vs 选择",
+    "grammar_en": "Jueze vs Xuanze",
+    "tags": ["HSK6", "动词", "名词"],
+    "pattern": "抉择/选择 + 对象",
+    "usage": "【相同点】动词，都指从多个对象当中挑出一个。【不同点】1. 抉择：书面语，一般用于重大、关键的场合，取舍艰难；多为名词用法。2. 选择：口语书面通用，可用于大小各类事情；可带宾语。",
+    "example_zh": "人生紧要处的抉择，往往会改变命运。",
+    "example_pinyin": "Rénshēng jǐnyào chù de juézé, wǎngwǎng huì gǎibiàn mìngyùn.",
+    "example_en": "Decisions at key moments of life often change one's fate."
+  },
+  {
+    "grammar_cn": "启发 vs 启示",
+    "grammar_en": "Qifa vs Qishi",
+    "tags": ["HSK6", "动词", "名词"],
+    "pattern": "启发/启示 + 人",
+    "usage": "【相同点】动词，使人领悟道理。【不同点】1. 启发：侧重开导引导，主动激发对方思考；动词为主。2. 启示：侧重事件、现象让人有所醒悟感悟；名词用法非常常见。",
+    "example_zh": "老师用问题启发学生独立思考。",
+    "example_pinyin": "Lǎoshī yòng wèntí qǐfā xuéshēng dúlì sīkǎo.",
+    "example_en": "The teacher uses questions to inspire students to think independently."
+  },
+  {
+    "grammar_cn": "流传 vs 传播",
+    "grammar_en": "Liuchuan vs Chuanbo",
+    "tags": ["HSK6", "动词"],
+    "pattern": "流传/传播 + 消息/故事",
+    "usage": "【相同点】动词，事情、信息散布开来。【不同点】1. 流传：侧重自然地、自发地传开来，多是故事、说法；可跨时间长久留存。2. 传播：侧重人为主动向外扩散；对象可以是消息、思想、病毒等。",
+    "example_zh": "这个民间故事已经流传了上千年。",
+    "example_pinyin": "Zhège mínjiān gùshì yǐjīng liúchuán le shàng qiān nián.",
+    "example_en": "This folk-story has been passed-down for over a thousand years."
+  },
+  {
+    "grammar_cn": "刻意 vs 特意",
+    "grammar_en": "Keyi vs Tebie",
+    "tags": ["HSK6", "副词"],
+    "pattern": "刻意/特意 + 动词",
+    "usage": "【相同点】副词，表示用心、有意做某事。【不同点】1. 刻意：侧重用尽心思，有时带贬义，指过分强求。2. 特意：专门为某个目的而做，中性，突出专门为此事。",
+    "example_zh": "不必刻意追求完美。",
+    "example_pinyin": "Búbì kèyì zhuīqiú wánměi.",
+    "example_en": "You do not need to deliberately chase perfection."
+  },
+  {
+    "grammar_cn": "展现 vs 展示",
+    "grammar_en": "Zhanxian vs Zhanshi",
+    "tags": ["HSK6", "动词"],
+    "pattern": "展现/展示 + 景象/成果",
+    "usage": "【相同点】动词，把事物拿出来让人看见。【不同点】1. 展现：侧重事物自身自然呈现出来；多搭配景象、面貌、精神。2. 展示：侧重人为拿出来给别人看；搭配作品、成果、实物。",
+    "example_zh": "这幅画卷展现了古代都市的繁华面貌。",
+    "example_pinyin": "Zhè fú huàjuàn zhǎnxiàn le gǔdài dūshì de fánhuá miànmào.",
+    "example_en": "This scroll-painting reveals the prosperous outlook of an ancient city."
+  },
+  {
+    "grammar_cn": "况且 vs 何况",
+    "grammar_en": "Kuangqie vs Hekuang",
+    "tags": ["HSK6", "连词"],
+    "pattern": "况且/何况 + 小句",
+    "usage": "【相同点】连词，表示递进，进一步说明理由。【不同点】1. 况且：追加新的理由，前后都是陈述事实。2. 何况：多用反问句；以甲衬托乙，乙的情况更进一层。",
+    "example_zh": "路很远，况且天又要下雨，我们别去了。",
+    "example_pinyin": "Lù hěn yuǎn, kuàngqiě tiān yòu yào xià yǔ, wǒmen bié qù le.",
+    "example_en": "The road is long, and besides it is going to rain; let's not go."
+  },
+  {
+    "grammar_cn": "品味 vs 品尝",
+    "grammar_en": "Pinwei vs Pinchang",
+    "tags": ["HSK6", "动词", "名词"],
+    "pattern": "品味/品尝 + 食物/人生",
+    "usage": "【相同点】都和吃、感受味道有关。【不同点】1. 品味：动词/名词；除吃东西，还可以体会文学、艺术、人生；抽象含义多。2. 品尝：动词，只指吃、尝食物味道，对象仅限食品。",
+    "example_zh": "细细品味这部小说，会有很多感悟。",
+    "example_pinyin": "Xìxì pǐnwèi zhè bù xiǎoshuō, huì yǒu hěn duō gǎnwù.",
+    "example_en": "If you savour this novel carefully, you will gain many insights."
+  },
+  {
+    "grammar_cn": "现场 vs 当场",
+    "grammar_en": "Xianchang vs Dangchang",
+    "tags": ["HSK6", "名词", "副词"],
+    "pattern": "现场/当场 + 动词",
+    "usage": "【相同点】都和事情发生的时间、场所有关。【不同点】1. 现场：名词，侧重地点；可作定语：现场直播、现场会议。2. 当场：副词，侧重就在事发那一时刻，后面只能接动词。",
+    "example_zh": "事故发生以后，警察迅速赶到现场。",
+    "example_pinyin": "Shìgù fāshēng yǐhòu, jǐngchá xùnsù gǎndào xiànchǎng.",
+    "example_en": "After the accident, police quickly arrived at the scene."
+  },
+  {
+    "grammar_cn": "遗迹 vs 遗址",
+    "grammar_en": "Yiji vs Yizhi",
+    "tags": ["HSK6", "名词"],
+    "pattern": "遗迹/遗址 + 名词",
+    "usage": "【相同点】名词，古代留存下来的旧事物。【不同点】1. 遗迹：范围更广，可以是建筑残片、器物、痕迹。2. 遗址：专指古代建筑、村落等已经毁坏的地方，土地原址。",
+    "example_zh": "这座古城保留了很多历史遗迹。",
+    "example_pinyin": "Zhè zuò gǔchéng bǎoliú le hěn duō lìshǐ yíjì.",
+    "example_en": "This ancient city preserves many historical relics."
+  },
+  {
+    "grammar_cn": "精巧 vs 精致",
+    "grammar_en": "Jingqiao vs Jingzhi",
+    "tags": ["HSK6", "形容词"],
+    "pattern": "精巧/精致 + 的 + 物品/设计",
+    "usage": "【相同点】形容词，做工细致美妙。【不同点】1. 精巧：侧重构思、技艺巧妙；多形容手艺、设计。2. 精致：侧重外观精美；形容物品外观、细节。",
+    "example_zh": "这件手工艺品设计十分精巧。",
+    "example_pinyin": "Zhè jiàn shǒugōngyìpǐn shèjì shífēn jǐngqiǎo.",
+    "example_en": "This hand-crafted work has very clever design."
+  },
+  {
+    "grammar_cn": "未免 vs 难免",
+    "grammar_en": "Weimian vs Nanmian",
+    "tags": ["HSK6", "副词"],
+    "pattern": "未免/难免 + 动词/形容词",
+    "usage": "【相同点】副词，评价或预料某种情况会出现。【不同点】1. 未免：说话人主观评价，委婉不赞同，“未免太……”。2. 难免：客观推测，事情很难避免发生。",
+    "example_zh": "这么说未免太武断了。",
+    "example_pinyin": "Zhème shuō wèimiǎn tài wǔduàn le.",
+    "example_en": "Saying so is rather arbitrary."
+  },
+  {
+    "grammar_cn": "索性 vs 干脆",
+    "grammar_en": "Suoxing vs Gancui",
+    "tags": ["HSK6", "副词", "形容词"],
+    "pattern": "索性/干脆 + 动词",
+    "usage": "【相同点】副词，表示不再犹豫直接决断。【不同点】1. 索性：既然现状如此，干脆就做某事，只能作副词。2. 干脆：副词+形容词；除表决断，还可以形容人性格、做事利落爽快。",
+    "example_zh": "外面下雨，索性我们就不出去了。",
+    "example_pinyin": "Wàimiàn xià yǔ, suǒxìng wǒmen jiù bù chūqù le.",
+    "example_en": "It is raining outside, so we might as well not go out."
+  },
+  {
+    "grammar_cn": "沉浸 vs 陶醉",
+    "grammar_en": "Chenjin vs Taozui",
+    "tags": ["HSK6", "动词"],
+    "pattern": "沉浸/陶醉 + 在……中",
+    "usage": "【相同点】动词，完全投入某种情境，深深被感染。【不同点】1. 沉浸：书面，完全置身于环境、思绪；中性，可好可坏。2. 陶醉：侧重愉悦、享受，多用于美好的事物。",
+    "example_zh": "他沉浸在思考之中，没有听见敲门声。",
+    "example_pinyin": "Tā chénjìn zài sīkǎo zhīzhōng, méiyǒu tīngjiàn qiāomén shēng.",
+    "example_en": "He was immersed in thought and did not hear the knock at the door."
+  },
+  {
+    "grammar_cn": "树立 vs 建立",
+    "grammar_en": "Shuli vs Jianli",
+    "tags": ["HSK6", "动词"],
+    "pattern": "树立/建立 + 观念/关系",
+    "usage": "【相同点】动词，从无到有地形成。【不同点】1. 树立：多用于抽象好的事物：观念、理想、榜样。2. 建立：搭配更广，可抽象可具体；机构、制度、关系。",
+    "example_zh": "年轻人要树立正确的价值观。",
+    "example_pinyin": "Niánqīngrén yào shùlì zhèngquè de jiàzhíguān.",
+    "example_en": "Young people should establish correct values."
+  },
+  {
+    "grammar_cn": "抑制 vs 克制",
+    "grammar_en": "Yizhi vs Kezhi",
+    "tags": ["HSK6", "动词"],
+    "pattern": "抑制/克制 + 情绪",
+    "usage": "【相同点】动词，压住不让情绪、冲动发作。【不同点】1. 抑制：压住情绪、生理反应；可用于客观事物发展。2. 克制：侧重主观自我约束，管住自己的欲望怒火。",
+    "example_zh": "他努力抑制住内心的激动。",
+    "example_pinyin": "Tā nǔlì yìzhì zhù nèixīn de jīdòng.",
+    "example_en": "He tried hard to hold back inner excitement."
+  },
+  {
+    "grammar_cn": "慎重 vs 郑重",
+    "grammar_en": "Shenzhong vs Zhengzhong",
+    "tags": ["HSK6", "形容词"],
+    "pattern": "慎重/郑重 + 地 + 动词",
+    "usage": "【相同点】形容词，做事态度认真不轻率。【不同点】1. 慎重：侧重小心谨慎，考虑周全，多用于处理事情做决定。2. 郑重：侧重态度严肃庄重；多用于说话、宣布、仪式场合。",
+    "example_zh": "这件事关系重大，你要慎重考虑。",
+    "example_pinyin": "Zhè jiàn shì guānxì zhòngdà, nǐ yào shènzhòng kǎolǜ.",
+    "example_en": "This matter carries great importance; you need to consider it carefully."
+  },
+  {
+    "grammar_cn": "屡次 vs 一再",
+    "grammar_en": "Lüci vs Yizai",
+    "tags": ["HSK6", "副词"],
+    "pattern": "屡次/一再 + 动词",
+    "usage": "【相同点】副词，表示动作多次重复发生。【不同点】1. 屡次：侧重动作发生次数多；可用于好、坏事件。2. 一再：侧重动作反复，带有强调；多搭配请求、提醒、失败。",
+    "example_zh": "他屡次在比赛中拿到第一名。",
+    "example_pinyin": "Tā lǚcì zài bǐsài zhōng nádào dì yī míng.",
+    "example_en": "He has repeatedly won first place in competitions."
+  },
+  {
+    "grammar_cn": "缺陷 vs 缺点",
+    "grammar_en": "Quexian vs Quedian",
+    "tags": ["HSK6", "名词"],
+    "pattern": "缺陷/缺点 + 名词",
+    "usage": "【相同点】名词，指不足、不好的地方。【不同点】1. 缺陷：侧重整体事物固有的欠缺、不完备；可用于人、制度、产品。2. 缺点：侧重人性格、行为上的短处。",
+    "example_zh": "这个设计还存在一定的缺陷。",
+    "example_pinyin": "Zhège shèjì hái cúnzài yídìng de quēxiàn.",
+    "example_en": "This design still has certain inherent flaws."
+  },
+  {
+    "grammar_cn": "涌现 vs 出现",
+    "grammar_en": "Yongxian vs Chuxian",
+    "tags": ["HSK6", "动词"],
+    "pattern": "涌现/出现 + 人或事物",
+    "usage": "【相同点】动词，事物显露出来，开始被看见。【不同点】1. 涌现：大量的人、事物短时间集中大批冒出来，书面。2. 出现：通用词，人或事物显露，数量可多可少。",
+    "example_zh": "新时代涌现了一大批优秀青年人才。",
+    "example_pinyin": "Xīn shídài yǒngxiàn le yí dà pī yōuxiù qīngnián réncái.",
+    "example_en": "The new era has brought forth a large batch of outstanding young talents."
+  }
+]

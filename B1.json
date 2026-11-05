@@ -1,0 +1,2138 @@
+[
+  {
+    "id": "adj-ji-le",
+    "title": "Adjectives with \"-ji le\"",
+    "level": "B1",
+    "structure": "Subj. + Adj. + 极了",
+    "explanation": "用在形容词后表示程度极高，相当于“extremely / super”。必须加“了”。",
+    "examples": [
+      {"zh": "这个主意好极了。", "pinyin": "Zhège zhǔyi hǎo jíle.", "en": "This idea is perfect."},
+      {"zh": "味道好极了！", "pinyin": "Wèidào hǎo jíle!", "en": "The taste is perfect!"},
+      {"zh": "他的英文棒极了。", "pinyin": "Tā de Yīngwén bàng jíle.", "en": "His English is perfect."},
+      {"zh": "婚礼热闹极了。", "pinyin": "Hūnlǐ rènao jíle.", "en": "The wedding was very lively."},
+      {"zh": "昨天的派对无聊极了！", "pinyin": "Zuótiān de pàiduì wúliáo jíle!", "en": "Yesterday's party was so boring!"}
+    ],
+    "similar": ["Expressing \"excessively\" with \"tai\" (A1)", "Expressing \"really\" with \"zhen\" (A2)", "Degree complement (B1)"],
+    "source_pages": [13, 14, 15, 16]
+  },
+  {
+    "id": "bu-zenme-adj",
+    "title": "Expressing \"not very\" with \"bu zenme\"",
+    "level": "B1",
+    "structure": "Subj. + 不怎么 + Adj. / [Psychological Verb]",
+    "explanation": "“不怎么 + 形容词”表示程度不高，相当于“not very”，语气比直接说“不聪明”更委婉。",
+    "examples": [
+      {"zh": "最近不怎么忙。", "pinyin": "Zuìjìn bù zěnme máng.", "en": "It hasn't been very busy lately."},
+      {"zh": "这里的冬天不怎么冷。", "pinyin": "Zhèlǐ de dōngtiān bù zěnme lěng.", "en": "It's not very cold here in winter."},
+      {"zh": "他们好像不怎么高兴。", "pinyin": "Tāmen hǎoxiàng bù zěnme gāoxìng.", "en": "They don't seem to be very happy."},
+      {"zh": "这个学生不怎么努力。", "pinyin": "Zhège xuéshēng bù zěnme nǔlì.", "en": "This student isn't very hard-working."},
+      {"zh": "我不怎么喜欢咖啡。", "pinyin": "Wǒ bù zěnme xǐhuan kāfēi.", "en": "I'm not very into coffee."}
+    ],
+    "similar": ["Expressing \"not often\" with \"bu zenme\" (B1)", "Asking why with \"zenme\" (A2)"],
+    "source_pages": [17, 18, 19, 20, 21]
+  },
+  {
+    "id": "quan-whole",
+    "title": "Indicating the whole with \"quan\"",
+    "level": "B1",
+    "structure": "全 + Noun + 都 + Predicate；Subj. + 全都 + Predicate",
+    "explanation": "“全”表示“整个、全部”，常与“都”搭配。可放在名词前（全家、全公司），也可放在谓语前（全都到了）。",
+    "examples": [
+      {"zh": "我们全家都去过北京。", "pinyin": "Wǒmen quánjiā dōu qù guo Běijīng.", "en": "Our entire family has been to Beijing."},
+      {"zh": "全公司的人都不喜欢新老板。", "pinyin": "Quán gōngsī de rén dōu bù xǐhuan xīn lǎobǎn.", "en": "The whole company doesn't like the new boss."},
+      {"zh": "运动完以后我全身都是汗。", "pinyin": "Yùndòng wán yǐhòu wǒ quánshēn dōu shì hàn.", "en": "My whole body was sweaty after I finished exercising."},
+      {"zh": "大家全都到了。", "pinyin": "Dàjiā quán dōu dào le.", "en": "Everybody has arrived."},
+      {"zh": "作业全都做完了吗？", "pinyin": "Zuòyè quán dōu zuò wán le ma?", "en": "Have you finished all your homework?"}
+    ],
+    "similar": ["Expressing \"all\" with \"suoyou\" (B1)", "Expressing \"double negation\" (B1)"],
+    "source_pages": [22, 23, 24, 25, 26, 27, 28]
+  },
+  {
+    "id": "quan-negative",
+    "title": "Negative form of 全都：全部否定 vs 部分否定",
+    "level": "B1",
+    "structure": "全部否定：Subj. + 全都 + 不/没 + Predicate；部分否定：Subj. + 不/没 + 全都 + Predicate",
+    "explanation": "否定词在“全都”后 → “none of it / not at all”；否定词在“全都”前 → “not all”。",
+    "examples": [
+      {"zh": "他们全都没去。", "pinyin": "Tāmen quán dōu méi qù.", "en": "None of them went."},
+      {"zh": "这个周末我们全都不在家。", "pinyin": "Zhège zhōumò wǒmen quán dōu bù zài jiā.", "en": "None of us will be home this weekend."},
+      {"zh": "这些菜全都没熟。", "pinyin": "Zhèxiē cài quán dōu méi shú.", "en": "None of these dishes is fully cooked."},
+      {"zh": "他说得有道理，但我不全都同意。", "pinyin": "Tā shuō de yǒu dàolǐ, dàn wǒ bù quán dōu tóngyì.", "en": "He has a point, but I don't agree with all of it."},
+      {"zh": "菜太多了，我们没全都吃完。", "pinyin": "Cài tài duō le, wǒmen méi quán dōu chī wán.", "en": "The food was too much. We didn't finish eating it all."}
+    ],
+    "similar": ["Expressing \"all\" with \"suoyou\" (B1)", "Expressing \"no exception\" with \"yilu\" (C1)"],
+    "source_pages": [26, 27, 28]
+  },
+  {
+    "id": "adj-reduplication",
+    "title": "Reduplication of adjectives",
+    "level": "B1",
+    "structure": "AA + 的 (+ Noun)；AABB + 的 (+ Noun)；AABB + 地 + Verb；ABAB（作谓语）",
+    "explanation": "形容词重叠增强描述性。单音节用 AA，双音节用 AABB；作状语时 AABB + 地 + 动词；作谓语时可用 ABAB，相当于“一下”。并非所有形容词都能重叠。",
+    "examples": [
+      {"zh": "你的脸红红的。", "pinyin": "Nǐ de liǎn hóng hóng de.", "en": "Your face is red."},
+      {"zh": "宝宝的眼睛大大的。", "pinyin": "Bǎobao de yǎnjing dà dà de.", "en": "The baby's eyes are big."},
+      {"zh": "今晚的月亮圆圆的。", "pinyin": "Jīnwǎn de yuèliang yuán yuán de.", "en": "The moon is round tonight."},
+      {"zh": "她爸爸高高胖胖的。", "pinyin": "Tā bàba gāo gāo pàng pàng de.", "en": "Her father is tall and fat."},
+      {"zh": "我妹妹瘦瘦小小的。", "pinyin": "Wǒ mèimei shòu shòu xiǎo xiǎo de.", "en": "My little sister is thin and small."},
+      {"zh": "我们清清楚楚地看到他跟一个胖胖的男人上车了。", "pinyin": "Wǒmen qīngqīng-chǔchǔ de kàndào tā gēn yīgè pàng pàng de nánrén shàngchē le.", "en": "We clearly saw him get in the car with a fat man."},
+      {"zh": "来，喝点酒，高兴高兴。", "pinyin": "Lái, hē diǎn jiǔ, gāoxìng gāoxìng.", "en": "Come on, have a little wine and enjoy yourself."}
+    ],
+    "similar": ["Simple \"noun + adjective\" sentences (A1)", "Reduplication of verbs (A2)"],
+    "source_pages": [29, 30, 31, 32, 33, 34, 35, 36, 37]
+  },
+  {
+    "id": "adj-to-adverb-de",
+    "title": "Turning adjectives into adverbs",
+    "level": "B1",
+    "structure": "Adj. + 地 + Verb",
+    "explanation": "多数形容词加“地”变成副词，修饰动词，类似英语 -ly。",
+    "examples": [
+      {"zh": "你要努力地学习。", "pinyin": "Nǐ yào nǔlì de xuéxí.", "en": "You must study hard."},
+      {"zh": "雨天地滑，慢慢地走。", "pinyin": "Yǔtiān dì huá, màn màn de zǒu.", "en": "The floor is very slippery on rainy days. Walk slowly."},
+      {"zh": "他顺利地通过考试了。", "pinyin": "Tā shùnlì de tōngguò kǎoshì le.", "en": "He passed the exam successfully."},
+      {"zh": "他认真地对我说：“我喜欢你。”", "pinyin": "Tā rènzhēn de duì wǒ shuō: \"Wǒ xǐhuan nǐ.\"", "en": "In all seriousness, he said to me: \"I like you.\""},
+      {"zh": "她激动地对我说“谢谢”。", "pinyin": "Tā jīdòng de duì wǒ shuō \"xièxie\".", "en": "She said \"thank you\" to me excitedly."}
+    ],
+    "similar": ["Modifying nouns with adjective + \"de\" (A2)"],
+    "source_pages": [38, 39, 40, 41, 42]
+  },
+  {
+    "id": "zhenghao",
+    "title": "Expressing coincidence with \"zhenghao\"",
+    "level": "B1",
+    "structure": "Subj. + 正好 + Verb / Adj.",
+    "explanation": "“正好”表示恰好、刚好，可用于时间、大小、数量、程度等巧合。",
+    "examples": [
+      {"zh": "你来了！我正好要找你。", "pinyin": "Nǐ lái le! Wǒ zhènghǎo yào zhǎo nǐ.", "en": "You are here! I was just looking for you."},
+      {"zh": "正好你们都是单身。", "pinyin": "Zhènghǎo nǐmen dōu shì dānshēn.", "en": "You both happen to be single."},
+      {"zh": "我明天见他，正好可以问问他这件事。", "pinyin": "Wǒ míngtiān jiàn tā, zhènghǎo kěyǐ wènwen tā zhè jiàn shì.", "en": "I'm going to meet with him tomorrow. I can just ask him about this matter."},
+      {"zh": "我们正好也要去那儿，一起走吧。", "pinyin": "Wǒmen zhènghǎo yě yào qù nàr, yīqǐ zǒu ba.", "en": "We just happen to be going there. Let's go together."}
+    ],
+    "similar": [],
+    "source_pages": [43, 44, 45]
+  },
+  {
+    "id": "hai-continuation",
+    "title": "Continuation with \"hai\"",
+    "level": "B1",
+    "structure": "Subj. + 还在 + [Verb Phrase]；……，Subj. + 还是 + [Verb Phrase]",
+    "explanation": "“还”表示动作仍在继续（still）；“还是”表示尽管有情况，仍然如此。否定形式“还不/没 + 动词”常带“应该……却还没……”的语气。",
+    "examples": [
+      {"zh": "这件事情我还在考虑。", "pinyin": "Zhè jiàn shìqing wǒ hái zài kǎolǜ.", "en": "I am still thinking over this matter."},
+      {"zh": "已经中午了，他还在睡？", "pinyin": "Yǐjīng zhōngwǔ le, tā hái zài shuì?", "en": "It's already noon and he's still sleeping?"},
+      {"zh": "我让他不要买，他还是买了。", "pinyin": "Wǒ ràng tā bùyào mǎi, tā háishì mǎi le.", "en": "I told him not to buy it, but he still bought it."},
+      {"zh": "我们等了半个小时了，老师还没到。", "pinyin": "Wǒmen děng le bàn gè xiǎoshí le, lǎoshī hái méi dào.", "en": "We've been waiting for half an hour, but the teacher still hasn't arrived."},
+      {"zh": "我解释了这么多遍，你还不懂？", "pinyin": "Wǒ jiěshì le zhème duō biàn, nǐ hái bù dǒng?", "en": "I've explained it so many times, and you still don't get it?"}
+    ],
+    "similar": ["Expressing \"and also\" with \"hai\" (A2)", "Moderating positive adjectives with \"hai\" (A2)", "Advanced uses of \"hai\" (B2)"],
+    "source_pages": [47, 48, 49, 50, 51, 52]
+  },
+  {
+    "id": "jiushi-emphasis",
+    "title": "Emphasis with \"jiushi\"",
+    "level": "B1",
+    "structure": "就是 + Noun；就(是) + (不) + Verb",
+    "explanation": "“就是”可强调“正是、就是”，也可表示“只是、就因为”，常带固执/任性语气。",
+    "examples": [
+      {"zh": "那个人就是她的新男朋友。", "pinyin": "Nàge rén jiùshì tā de xīn nánpéngyou.", "en": "That guy is her new boyfriend."},
+      {"zh": "他就是你要找的人。", "pinyin": "Tā jiùshì nǐ yào zhǎo de rén.", "en": "He's just the person that you're looking for."},
+      {"zh": "他不去旅游就是不想花钱。", "pinyin": "Tā bù qù lǚyóu jiùshì bù xiǎng huāqián.", "en": "He didn't travel only because he doesn't want to spend the money."},
+      {"zh": "我就要去！", "pinyin": "Wǒ jiù yào qù!", "en": "I just want to go!"},
+      {"zh": "我父母就是不让我一个人去。", "pinyin": "Wǒ fùmǔ jiùshì bù ràng wǒ yīgèrén qù.", "en": "My parents simply won't let me go alone."}
+    ],
+    "similar": [],
+    "source_pages": [54, 55, 56, 57]
+  },
+  {
+    "id": "you-emphasize-negation",
+    "title": "Emphasizing negation with \"you\"",
+    "level": "B1",
+    "structure": "又 + 不/没 + Predicate",
+    "explanation": "“又”用于否定前，强调“并没有/又不是”，常带反驳、不耐烦语气。",
+    "examples": [
+      {"zh": "问我干吗？我又不知道。", "pinyin": "Wèn wǒ gànmá? Wǒ yòu bù zhīdào.", "en": "Why ask me? I definitely don't know."},
+      {"zh": "这些菜又没坏，为什么要扔？", "pinyin": "Zhèxiē cài yòu méi huài, wèishénme yào rēng?", "en": "These dishes haven't gone bad. Why would you throw them away?"},
+      {"zh": "不要生气，我又不是故意的。", "pinyin": "Bùyào shēngqì, wǒ yòu bù shì gùyì de.", "en": "Don't be mad. It really wasn't on purpose."},
+      {"zh": "今天又不热，开空调干吗？", "pinyin": "Jīntiān yòu bù rè, kāi kōngtiáo gànmá?", "en": "It's not hot today. Why turn on the air conditioner?"}
+    ],
+    "similar": ["Expressing \"again\" in the past with \"you\" (B1)", "Advanced use of \"you\" (B2)", "Emphasizing a negation with \"bing\" (B2)"],
+    "source_pages": [58, 59, 60, 61, 62]
+  },
+  {
+    "id": "jiu-yao-le",
+    "title": "Expressing \"about to happen\" with \"jiu yao... le\"",
+    "level": "B1",
+    "structure": "(Subj. +) 就要 + Verb + 了；还有 + Time + 就(要) + Verb + 了",
+    "explanation": "“就要……了”表示即将发生；“快要/快”也可替换。带“还有 + 时间”时强调还剩多久。",
+    "examples": [
+      {"zh": "就要下雨了。", "pinyin": "Jiù yào xiàyǔ le.", "en": "It's about to rain."},
+      {"zh": "他们就要结婚了。", "pinyin": "Tāmen jiù yào jiéhūn le.", "en": "They are about to get married."},
+      {"zh": "还有十分钟我就下班了。", "pinyin": "Háiyǒu shí fēnzhōng wǒ jiù xiàbān le.", "en": "I get off work in 10 minutes."},
+      {"zh": "还有两个星期我们就要考试了。", "pinyin": "Háiyǒu liǎng gè xīngqī wǒmen jiù yào kǎoshì le.", "en": "We're just two weeks away from the exam date."}
+    ],
+    "similar": ["Expressing \"be going to\" with \"yao\" (A1)", "Expressing \"about to happen\" with \"le\" (A2)", "Expressing \"nearly\" with \"jihu\" (B2)"],
+    "source_pages": [64, 65, 66, 67]
+  },
+  {
+    "id": "zai-future-again",
+    "title": "Expressing \"again\" in the future with \"zai\"",
+    "level": "B1",
+    "structure": "Subj. + 再 + Verb + Obj.；Subj. + 再 + Verb + Verb；再 + Verb + 一会儿",
+    "explanation": "“再”表示将来再次发生；也可表示“继续做一会儿”。",
+    "examples": [
+      {"zh": "再吃一点。", "pinyin": "Zài chī yīdiǎn.", "en": "Eat some more."},
+      {"zh": "服务员，再来两瓶啤酒。", "pinyin": "Fúwùyuán, zài lái liǎng píng píjiǔ.", "en": "Waiter, two more bottles of beer, please."},
+      {"zh": "再给我三天时间。", "pinyin": "Zài gěi wǒ sān tiān shíjiān.", "en": "Give me another three days."},
+      {"zh": "再找找。", "pinyin": "Zài zhǎozhao.", "en": "Keep looking."},
+      {"zh": "别急，再想想。", "pinyin": "Bié jí, zài xiǎngxiang.", "en": "Don't worry. Keep thinking."}
+    ],
+    "similar": ["Expressing \"again\" in the past with \"you\" (B1)", "Expressing \"the other\" with \"lingwai\" (B1)", "Sequencing with \"xian\" and \"zai\" (B1)"],
+    "source_pages": [68, 69, 70, 71, 72, 73, 74, 75]
+  },
+  {
+    "id": "you-past-again",
+    "title": "Expressing \"again\" in the past with \"you\"",
+    "level": "B1",
+    "structure": "(Subj. +) 又 + Verb + 了；(Subj. +) 又 + 不/没 + Verb",
+    "explanation": "“又”表示过去再次发生，常带不满或无奈。将来再次用“再”。",
+    "examples": [
+      {"zh": "又下雨了！", "pinyin": "Yòu xiàyǔ le!", "en": "It rained again!"},
+      {"zh": "你又迟到了。", "pinyin": "Nǐ yòu chídào le.", "en": "You're late again."},
+      {"zh": "宝宝又哭了。", "pinyin": "Bǎobao yòu kū le.", "en": "The baby is crying again."},
+      {"zh": "他又没来上课。", "pinyin": "Tā yòu méi lái shàngkè.", "en": "He didn't come to class again."},
+      {"zh": "今天又要加班了！", "pinyin": "Jīntiān yòu yào jiābān le!", "en": "We've got to work overtime again today!"}
+    ],
+    "similar": ["Emphasizing negation with \"you\" (B1)", "Expressing \"again\" in the future with \"zai\" (B1)", "Advanced use of \"you\" (B2)"],
+    "source_pages": [76, 77, 78, 79, 80, 81]
+  },
+  {
+    "id": "yuanlai",
+    "title": "Expressing \"all along / it turns out\" with \"yuanlai\"",
+    "level": "B1",
+    "structure": "原来 + 的 + Noun；Subj. + 原来 + Predicate；原来 + [New Information]",
+    "explanation": "“原来”可表示“原来、从前”，也可表示突然明白“原来如此”。",
+    "examples": [
+      {"zh": "你原来的发型也很可爱。", "pinyin": "Nǐ yuánlái de fàxíng yě hěn kě'ài.", "en": "Your original hairstyle was also very cute."},
+      {"zh": "她们原来只是邻居，现在是很好的朋友。", "pinyin": "Tāmen yuánlái zhǐ shì línjū, xiànzài shì hěn hǎo de péngyou.", "en": "Originally they were just neighbors. Now they're very good friends."},
+      {"zh": "原来是你！", "pinyin": "Yuánlái shì nǐ!", "en": "So it was you all along!"},
+      {"zh": "原来你们认识！", "pinyin": "Yuánlái nǐmen rènshi!", "en": "So you both knew each other this whole time!"},
+      {"zh": "原来是这样！", "pinyin": "Yuánlái shì zhèyàng!", "en": "Oh, so it's like that!"}
+    ],
+    "similar": ["Expressing \"no wonder\" (B1)", "Comparing \"benlai\" and \"yuanlai\" (B2)", "Expressing \"originally\" with \"benlai\" (B2)"],
+    "source_pages": [82, 83, 84, 85, 86]
+  },
+  {
+    "id": "yixiazi",
+    "title": "Expressing \"all at once\" with \"yixiazi\"",
+    "level": "B1",
+    "structure": "Subj. + 一下子 + Predicate + 了；Subj. + 一下子 + 就 + Predicate + 了",
+    "explanation": "“一下子”表示事情发生得很快、突然，口语中也可用“一下”。",
+    "examples": [
+      {"zh": "天气一下子变冷了。", "pinyin": "Tiānqì yīxiàzi biàn lěng le.", "en": "The weather suddenly got cold."},
+      {"zh": "他一下子吃了三碗米饭。", "pinyin": "Tā yīxiàzi chī le sān wǎn mǐfàn.", "en": "He ate three bowls of rice all at once."},
+      {"zh": "老师进来以后，大家一下子就安静了。", "pinyin": "Lǎoshī jìnlái yǐhòu, dàjiā yīxiàzi jiù ānjìng le.", "en": "Everyone became silent after the teacher came in."},
+      {"zh": "看到那张照片，我一下子就想起来了。", "pinyin": "Kàndào nà zhāng zhàopiàn, wǒ yīxiàzi jiù xiǎng qǐlái le.", "en": "It all came back to me when I saw that picture."}
+    ],
+    "similar": [],
+    "source_pages": [87, 88, 89, 90, 91]
+  },
+  {
+    "id": "chadian",
+    "title": "Expressing \"almost\" with \"chadian\"",
+    "level": "B1",
+    "structure": "Subj. + 差点 + Predicate (+ 了)；Subj. + 差点 + 就 + Predicate + 了",
+    "explanation": "“差点”表示“几乎、差一点”，通常用于不希望发生的事，且实际没发生。",
+    "examples": [
+      {"zh": "车差点撞到我。", "pinyin": "Chē chàdiǎn zhuàngdào wǒ.", "en": "The car almost hit me."},
+      {"zh": "我们差点相信他。", "pinyin": "Wǒmen chàdiǎn xiāngxìn tā.", "en": "We almost believed him."},
+      {"zh": "我差点忘了。", "pinyin": "Wǒ chàdiǎn wàng le.", "en": "I almost forgot."},
+      {"zh": "他差点就死了。", "pinyin": "Tā chàdiǎn jiù sǐ le.", "en": "He almost died."},
+      {"zh": "我们队差点输了。", "pinyin": "Wǒmen duì chàdiǎn shū le.", "en": "Our team almost lost."}
+    ],
+    "similar": ["Expressing \"almost\" using \"chadian mei\" (B2)", "Expressing \"nearly\" with \"jihu\" (B2)"],
+    "source_pages": [93, 94, 95, 96, 97, 98]
+  },
+  {
+    "id": "dou-le-time",
+    "title": "Expressing \"already\" with \"dou... le\"",
+    "level": "B1",
+    "structure": "都 + Time + 了；Subj. + 都 + Predicate + 了",
+    "explanation": "“都……了”强调“已经到某个时间/程度”，常带催促、惊讶。",
+    "examples": [
+      {"zh": "都九点了，快点起床！", "pinyin": "Dōu jiǔ diǎn le, kuài diǎn qǐchuáng!", "en": "It's already nine o'clock. Get out of bed!"},
+      {"zh": "都十二点了，你还不睡？", "pinyin": "Dōu shí'èr diǎn le, nǐ hái bù shuì?", "en": "It's already 12 o'clock. Aren't you going to bed?"},
+      {"zh": "饭都凉了，快吃吧。", "pinyin": "Fàn dōu liáng le, kuài chī ba.", "en": "The food is cold already. Let's eat."},
+      {"zh": "他都道歉了，你别生气了。", "pinyin": "Tā dōu dàoqiàn le, nǐ bié shēngqì le.", "en": "He already apologized. Stop being so mad at him."}
+    ],
+    "similar": ["Expressing \"already\" with \"yijing\" (A2)", "Expressing \"already\" with just \"le\" (A2)", "Expressing duration of inaction (B1)"],
+    "source_pages": [100, 101, 102, 103]
+  },
+  {
+    "id": "conglai-always",
+    "title": "Expressing \"always\" with \"conglai\"",
+    "level": "B1",
+    "structure": "Subj. + 从来 + 都 + Predicate",
+    "explanation": "“从来 + 都”表示“一向、一直”，肯定句常用“都”。否定“从来不/没”表示“从不”。",
+    "examples": [
+      {"zh": "他从来都这样。", "pinyin": "Tā cónglái dōu zhèyàng.", "en": "He's always like this."},
+      {"zh": "她从来都这么晚睡。", "pinyin": "Tā cónglái dōu zhème wǎn shuì.", "en": "She's always gone to bed so late."},
+      {"zh": "他说话从来都很大声。", "pinyin": "Tā shuōhuà cónglái dōu hěn dàshēng.", "en": "He's always spoken very loudly."},
+      {"zh": "我们下棋，从来都是他赢。", "pinyin": "Wǒmen xiàqí, cónglái dōu shì tā yíng.", "en": "He always wins when we play chess."}
+    ],
+    "similar": ["Expressing \"always\" with \"zongshi\" (A2)", "Expressing \"never\" with \"conglai\" (A2)", "Using \"always\" as a complaint with \"laoshi\" (B1)"],
+    "source_pages": [104, 105, 106, 107]
+  },
+  {
+    "id": "jieguo",
+    "title": "Expressing result with \"jieguo\"",
+    "level": "B1",
+    "structure": "Reason / Condition，结果 + Result；Situation，结果 + [Unexpected Result]",
+    "explanation": "“结果”表示“结果、最后”，可引出逻辑结果，也可引出意外/不理想的结果。",
+    "examples": [
+      {"zh": "她穿得很少，结果感冒了。", "pinyin": "Tā chuān de hěn shǎo, jiéguǒ gǎnmào le.", "en": "She didn't dress warmly enough, and as a result, she caught a cold."},
+      {"zh": "我太紧张了，结果说错了很多。", "pinyin": "Wǒ tài jǐnzhāng le, jiéguǒ shuō cuò le hěn duō.", "en": "I was too nervous. As a result, I misspoke a lot."},
+      {"zh": "我去机场接他，结果没接到他。", "pinyin": "Wǒ qù jīchǎng jiē tā, jiéguǒ méi jiēdào tā.", "en": "I went to the airport to pick him up. But in the end, I didn't find him there."},
+      {"zh": "我昨天跟朋友去喝酒，结果喝醉了。", "pinyin": "Wǒ zuótiān gēn péngyou qù hējiǔ, jiéguǒ hēzuì le.", "en": "I went to have a drink with my friends yesterday. I ended up getting drunk."}
+    ],
+    "similar": ["Cause and effect with \"yinwei\" and \"suoyi\" (A2)", "Expressing \"therefore\" with \"yinci\" (B2)", "Stating the effect before the cause (B2)"],
+    "source_pages": [108, 109, 110, 111, 112]
+  },
+  {
+    "id": "huxiang",
+    "title": "Expressing \"each other\" with \"huxiang\"",
+    "level": "B1",
+    "structure": "互相 + Verb",
+    "explanation": "“互相”表示“彼此”，多与双音节动词搭配。",
+    "examples": [
+      {"zh": "互相帮助", "pinyin": "hùxiāng bāngzhù", "en": "help each other"},
+      {"zh": "互相了解", "pinyin": "hùxiāng liǎojiě", "en": "know each other"},
+      {"zh": "互相尊重", "pinyin": "hùxiāng zūnzhòng", "en": "respect each other"},
+      {"zh": "互相支持", "pinyin": "hùxiāng zhīchí", "en": "support each other"}
+    ],
+    "similar": ["Comparing \"bici\" and \"duifang\" (B2)", "Expressing \"each other\" with \"bici\" (B2)"],
+    "source_pages": [114, 115, 117]
+  },
+  {
+    "id": "gou",
+    "title": "Expressing \"enough\" with \"gou\"",
+    "level": "B1",
+    "structure": "Subj. + 够 + Verb / Adj. (+ 了)；Subj. + 不 + 够 + Adj. / Verb",
+    "explanation": "“够”表示足够；否定“不够”表示不够。肯定句形容词后常加“了”，否定不加“了”。",
+    "examples": [
+      {"zh": "我们买了很多菜，够吃了。", "pinyin": "Wǒmen mǎi le hěn duō cài, gòu chī le.", "en": "We bought a lot of food. It's enough for us to eat."},
+      {"zh": "这些纸够用吗？", "pinyin": "Zhèxiē zhǐ gòu yòng ma?", "en": "Is this paper enough for us to use?"},
+      {"zh": "我对你够好了。", "pinyin": "Wǒ duì nǐ gòu hǎo le.", "en": "I've been good enough to you."},
+      {"zh": "他觉得他女朋友不够漂亮。", "pinyin": "Tā juéde tā nǚpéngyou bù gòu piàoliang.", "en": "He thinks his girlfriend is not pretty enough."},
+      {"zh": "这些菜不够吃，再点几个菜。", "pinyin": "Zhèxiē cài bù gòu chī, zài diǎn jǐ gè cài.", "en": "This food is not enough for us to eat. Let's order a few more dishes."}
+    ],
+    "similar": [],
+    "source_pages": [119, 120, 121, 122]
+  },
+  {
+    "id": "zhongyu",
+    "title": "Expressing \"finally\" with \"zhongyu\"",
+    "level": "B1",
+    "structure": "Subj. + 终于 + Predicate + 了",
+    "explanation": "“终于”表示经过长时间等待后终于发生，常带欣慰、轻松语气。不能单独使用。",
+    "examples": [
+      {"zh": "你终于到了！", "pinyin": "Nǐ zhōngyú dào le!", "en": "You've finally arrived!"},
+      {"zh": "我们终于见面了！", "pinyin": "Wǒmen zhōngyú jiànmiàn le!", "en": "We're finally meeting each other!"},
+      {"zh": "作业终于做完了！", "pinyin": "Zuòyè zhōngyú zuò wán le!", "en": "I've finally finished my homework!"},
+      {"zh": "这个愿望终于实现了！", "pinyin": "Zhège yuànwàng zhōngyú shíxiàn le!", "en": "This dream has finally come true!"}
+    ],
+    "similar": ["Comparing \"zongsuan\" and \"zhongyu\" (B2)"],
+    "source_pages": [124, 125, 126, 127, 128]
+  },
+  {
+    "id": "haishi-had-better",
+    "title": "Expressing \"had better\" with \"haishi\"",
+    "level": "B1",
+    "structure": "Subj. + 还是 + [Verb Phrase] + 吧",
+    "explanation": "“还是”表示经过考虑后“还是……吧”，提出建议。否定句可省略“吧”。",
+    "examples": [
+      {"zh": "还是明天去吧。", "pinyin": "Háishì míngtiān qù ba.", "en": "We'd better go tomorrow."},
+      {"zh": "你还是快点走吧。", "pinyin": "Nǐ háishì kuài diǎn zǒu ba.", "en": "You'd better leave now."},
+      {"zh": "太晚了，还是先回家吧。", "pinyin": "Tài wǎn le, háishì xiān huíjiā ba.", "en": "It's too late. We'd better go home now."},
+      {"zh": "太贵了，还是别买了。", "pinyin": "Tài guì le, háishì bié mǎi le.", "en": "It's too expensive. You'd better not buy it."}
+    ],
+    "similar": ["Offering choices with \"haishi\" (A1)", "Expressing \"should\" with \"yinggai\" (A2)", "Expressing \"had better\" with \"zuihao\" (B1)"],
+    "source_pages": [129, 130, 131, 132, 133]
+  },
+  {
+    "id": "zuihao",
+    "title": "Expressing \"had better\" with \"zuihao\"",
+    "level": "B1",
+    "structure": "Subj. + 最好 + Predicate；Subj. + 最好 + 别/不要 + Predicate",
+    "explanation": "“最好”表示建议或礼貌要求，“最好……”，否定“最好别/不要……”。",
+    "examples": [
+      {"zh": "你最好先休息一下。", "pinyin": "Nǐ zuìhǎo xiān xiūxi yīxià.", "en": "You'd better get some rest first."},
+      {"zh": "外面挺冷的，最好多穿点。", "pinyin": "Wàimiàn tǐng lěng de, zuìhǎo duō chuān diǎn.", "en": "It's pretty cold outside. Best to wear some more layers."},
+      {"zh": "最好别去。", "pinyin": "Zuìhǎo bié qù.", "en": "You'd better not go."},
+      {"zh": "雨这么大，最好别出门。", "pinyin": "Yǔ zhème dà, zuìhǎo bié chūmén.", "en": "It's raining so heavily. It's best not to leave the house."}
+    ],
+    "similar": ["Expressing \"should\" with \"yinggai\" (A2)", "Expressing \"had better\" with \"haishi\" (B1)", "Expressing \"must\" with \"dei\" (B1)"],
+    "source_pages": [134, 135, 136, 137]
+  },
+  {
+    "id": "zheyang",
+    "title": "Expressing \"this way\" with \"zheyang\"",
+    "level": "B1",
+    "structure": "这样 + Verb；……，这样 + 会/才 + Predicate；这样的话，……",
+    "explanation": "“这样”表示“这样、如此”，可引出方式、结果或假设条件“这样的话”。",
+    "examples": [
+      {"zh": "这样做不对。", "pinyin": "Zhèyàng zuò bù duì.", "en": "Doing it this way is not right."},
+      {"zh": "你要多鼓励学生，这样他们会更有自信。", "pinyin": "Nǐ yào duō gǔlì xuéshēng, zhèyàng tāmen huì gèng yǒu zìxìn.", "en": "You need to encourage your students more. This will help them become more confident."},
+      {"zh": "你要多说，这样才能越来越流利。", "pinyin": "Nǐ yào duō shuō, zhèyàng cái néng yuèláiyuè liúlì.", "en": "You need to speak more. Only in this way will you become more and more fluent."},
+      {"zh": "这样的话，你还想去吗？", "pinyin": "Zhèyàng de huà, nǐ hái xiǎng qù ma?", "en": "If this is the case, do you still want to go?"}
+    ],
+    "similar": [],
+    "source_pages": [138, 139, 140, 141, 142]
+  },
+  {
+    "id": "yi-measure-yi-measure",
+    "title": "Expressing \"one by one\" with \"yi... yi...\"",
+    "level": "B1",
+    "structure": "一 + Measure Word + 一 + Measure Word (+ Noun)；一 + Time Unit + 一 + Time Unit；一 + Measure Word (+ 又) + 一 + Measure Word",
+    "explanation": "“一 + 量词 + 一 + 量词”表示逐个、一点一点；时间单位表示“一天天/一年年”；动量词表示反复。",
+    "examples": [
+      {"zh": "别吵，一个一个说。", "pinyin": "Bié chǎo, yī gè yī gè shuō.", "en": "Don't argue. Speak one by one."},
+      {"zh": "别着急，一点一点做。", "pinyin": "Bié zháojí, yī diǎn yī diǎn zuò.", "en": "Don't worry, do it little by little."},
+      {"zh": "宝宝一天一天在长大。", "pinyin": "Bǎobao yī tiān yī tiān zài zhǎngdà.", "en": "The baby is growing up day by day."},
+      {"zh": "我一遍一遍地跟他解释，他还是不听。", "pinyin": "Wǒ yī biàn yī biàn de gēn tā jiěshì, tā háishì bù tīng.", "en": "I explained it to him again and again, but he still won't listen."}
+    ],
+    "similar": [],
+    "source_pages": [143, 144, 145, 146, 147, 148]
+  },
+  {
+    "id": "jiu-only",
+    "title": "Expressing \"only\" with \"jiu\"",
+    "level": "B1",
+    "structure": "就 + Subj. + Predicate；Subj. + 就 + [Verb Phrase]；Subj. + 就 + Number + [Measure Word] + Noun",
+    "explanation": "“就”表示“只、仅仅”，可放在主语前或谓语前，强调数量少。",
+    "examples": [
+      {"zh": "这件事就我知道。", "pinyin": "Zhè jiàn shì jiù wǒ zhīdào.", "en": "I'm the only person that knows about this."},
+      {"zh": "大家都下班了，就老板还没走。", "pinyin": "Dàjiā dōu xiàbān le, jiù lǎobǎn hái méi zǒu.", "en": "Everyone finished work and left. Only the boss hasn't left."},
+      {"zh": "我就去过一次。", "pinyin": "Wǒ jiù qù guo yī cì.", "en": "I've only been there once."},
+      {"zh": "这里就一个厕所？", "pinyin": "Zhèlǐ jiù yī gè cèsuǒ?", "en": "Does this place only have one bathroom?"}
+    ],
+    "similar": ["Comparing \"cai\" and \"jiu\" (B2)"],
+    "source_pages": [150, 151, 152, 153, 154]
+  },
+  {
+    "id": "duration-inaction",
+    "title": "Expressing duration of inaction",
+    "level": "B1",
+    "structure": "Subj. + (已经 +) Duration + 没 + Verb + 了",
+    "explanation": "表示“多久没做某事”，时间放在主语后、动词前，动词用“没”否定，句末“了”。",
+    "examples": [
+      {"zh": "他们已经两天没吃东西了。", "pinyin": "Tāmen yǐjīng liǎng tiān méi chī dōngxi le.", "en": "They haven't eaten anything for two days already."},
+      {"zh": "我们已经十年没见了。", "pinyin": "Wǒmen yǐjīng shí nián méi jiàn le.", "en": "We haven't seen each other for ten years already."},
+      {"zh": "你多长时间没刮胡子了？", "pinyin": "Nǐ duō cháng shíjiān méi guā húzi le?", "en": "How long has it been since you last shaved?"},
+      {"zh": "她半个月没出门了。", "pinyin": "Tā bàn gè yuè méi chūmén le.", "en": "It's been half a month since she's left the house."}
+    ],
+    "similar": ["Expressing duration with \"le\" (A2)", "Expressing ongoing duration with double \"le\" (A2)", "Expressing \"already\" with \"dou\" (B1)"],
+    "source_pages": [155, 156, 157, 158, 159]
+  },
+  {
+    "id": "jiu-early-soon",
+    "title": "Expressing earliness / soon with \"jiu\"",
+    "level": "B1",
+    "structure": "Subj. + Time + 就 + Verb；Subj. + [Point in Time] + 就 + Verb + 了；早就 + Verb",
+    "explanation": "“就”可表示“马上、很快”，也可表示“早于预期就……”。",
+    "examples": [
+      {"zh": "我马上就來。", "pinyin": "Wǒ mǎshàng jiù lái.", "en": "I'll be there in a second."},
+      {"zh": "米饭二十分钟就好。", "pinyin": "Mǐfàn èrshí fēnzhōng jiù hǎo.", "en": "The rice will be ready in 20 minutes."},
+      {"zh": "我们九点上课，他八点就来了。", "pinyin": "Wǒmen jiǔ diǎn shàngkè, tā bā diǎn jiù lái le.", "en": "We have class at nine, but he came in at eight."},
+      {"zh": "他十分钟就做完了。", "pinyin": "Tā shí fēnzhōng jiù zuò wán le.", "en": "It only took him ten minutes to finish doing it."},
+      {"zh": "我早就知道了！", "pinyin": "Wǒ zǎo jiù zhīdào le!", "en": "I knew that long ago!"}
+    ],
+    "similar": ["Events in quick succession with \"yi... jiu...\" (B1)", "Expressing lateness with \"cai\" (B1)", "Comparing \"cai\" and \"jiu\" (B2)"],
+    "source_pages": [160, 161, 162, 163, 164, 165, 166]
+  },
+  {
+    "id": "cai-late",
+    "title": "Expressing lateness with \"cai\"",
+    "level": "B1",
+    "structure": "Subj. + Time + 才 + Verb",
+    "explanation": "“才”表示“到……才”，强调晚于预期。后接动词一般不加“了”。",
+    "examples": [
+      {"zh": "我昨天晚上十一点才到家。", "pinyin": "Wǒ zuótiān wǎnshang shíyī diǎn cái dào jiā.", "en": "I didn't arrive at home until eleven o'clock last night."},
+      {"zh": "他二十五岁才上大学。", "pinyin": "Tā èrshíwǔ suì cái shàng dàxué.", "en": "He didn't go to college until he was 25."},
+      {"zh": "她四十岁才结婚。", "pinyin": "Tā sìshí suì cái jiéhūn.", "en": "She didn't get married until she was forty."},
+      {"zh": "你怎么才来？我们等了半个多小时。", "pinyin": "Nǐ zěnme cái lái? Wǒmen děng le bàn gè duō xiǎoshí.", "en": "How come you came here so late? We've waited for more than half an hour."}
+    ],
+    "similar": ["Expressing \"all the way until\" with \"zhidao\" (B1)", "Expressing \"when\" with \"dengdao\" (B1)", "Expressing earliness with \"jiu\" (B1)"],
+    "source_pages": [167, 168, 169, 170, 171]
+  },
+  {
+    "id": "xian-zai",
+    "title": "Sequencing with \"xian\" and \"zai\"",
+    "level": "B1",
+    "structure": "先……，再……；先 + [Verb Phrase] + 再说",
+    "explanation": "“先……再……”表示先做A再做B；“先……再说”表示先做这件事，之后再考虑。",
+    "examples": [
+      {"zh": "先洗手再吃。", "pinyin": "Xiān xǐ shǒu zài chī.", "en": "Wash your hands first, and then eat."},
+      {"zh": "我喜欢先洗澡，再睡觉。", "pinyin": "Wǒ xǐhuan xiān xǐzǎo, zài shuìjiào.", "en": "I prefer to take a bath first and then go to bed."},
+      {"zh": "先吃饭再说。", "pinyin": "Xiān chīfàn zàishuō.", "en": "Let's eat first, then we'll talk."},
+      {"zh": "先休息一下再说。", "pinyin": "Xiān xiūxi yīxià zàishuō.", "en": "Let's rest a little first, then we'll see."}
+    ],
+    "similar": ["Expressing \"again\" in the future with \"zai\" (B1)", "Expressing \"again\" in the past with \"you\" (B1)"],
+    "source_pages": [173, 174, 175, 176, 177]
+  },
+  {
+    "id": "laoshi-complaint",
+    "title": "Using \"always\" as a complaint with \"laoshi\"",
+    "level": "B1",
+    "structure": "老是 + Predicate",
+    "explanation": "“老是”表示“总是”，带不满或抱怨语气；也可用“老”。",
+    "examples": [
+      {"zh": "你怎么老是加班？", "pinyin": "Nǐ zěnme lǎoshì jiābān?", "en": "Why are you always working late?"},
+      {"zh": "你怎么老是不高兴？", "pinyin": "Nǐ zěnme lǎoshì bù gāoxìng?", "en": "How are you always unhappy?"},
+      {"zh": "别老是抱怨。", "pinyin": "Bié lǎoshì bàoyuàn.", "en": "Stop complaining all the time."},
+      {"zh": "这个机器老是出问题。", "pinyin": "Zhège jīqì lǎoshì chū wèntí.", "en": "There is always something wrong with this machine."}
+    ],
+    "similar": ["Expressing \"always\" with \"zongshi\" (A2)", "Expressing \"always\" with \"conglai\" (B1)", "Comparing \"buduan\" and \"buting\" (B2)"],
+    "source_pages": [179, 180, 181, 182]
+  },
+  {
+    "id": "cai-small-number",
+    "title": "Using \"cai\" for small numbers",
+    "level": "B1",
+    "structure": "才 + Number + [Measure Word] + Noun；才 + Verb + Number + Measure Word + Noun",
+    "explanation": "“才”强调数量少，相当于“only / just”。",
+    "examples": [
+      {"zh": "你才二十岁？", "pinyin": "Nǐ cái èrshí suì?", "en": "You're only twenty?"},
+      {"zh": "这个班才两个学生。", "pinyin": "Zhège bān cái liǎng gè xuésheng.", "en": "This class only has two students."},
+      {"zh": "这顿饭才二十块，太便宜了！", "pinyin": "Zhè dùn fàn cái èrshí kuài, tài piányi le!", "en": "This meal only cost twenty kuai. It's too cheap!"},
+      {"zh": "她才来了两个月。", "pinyin": "Tā cái lái le liǎng gè yuè.", "en": "She's been here for only two months."}
+    ],
+    "similar": ["Expressing \"small quantity\" with \"jiu\" (B1)", "Expressing lateness with \"cai\" (B1)"],
+    "source_pages": [183, 184, 185, 187]
+  },
+  {
+    "id": "ye-dou",
+    "title": "Using \"ye\" and \"dou\" together",
+    "level": "B1",
+    "structure": "Subj. + 也都 + Predicate；Subj. + 也都 + 不/没 + Predicate",
+    "explanation": "“也都”表示“也都……”，强调多个对象具有共同点。否定词放在“也都”后。",
+    "examples": [
+      {"zh": "我很好，我的家人也都很好。", "pinyin": "Wǒ hěn hǎo, wǒ de jiārén yě dōu hěn hǎo.", "en": "I'm good. So is everyone in my family."},
+      {"zh": "大人很喜欢这个餐厅，孩子们也都很喜欢。", "pinyin": "Dàren hěn xǐhuan zhège cāntīng, háizimen yě dōu hěn xǐhuan.", "en": "Adults all like this restaurant, and the children all like it too."},
+      {"zh": "我们也都没吃饭，一起去吧。", "pinyin": "Wǒmen yě dōu méi chīfàn, yīqǐ qù ba.", "en": "We all haven't eaten either. Let's go together."},
+      {"zh": "我不喜欢蝙蝠侠，我的朋友也都不喜欢他。", "pinyin": "Wǒ bù xǐhuan Biānfúxiá, wǒ de péngyou yě dōu bù xǐhuan tā.", "en": "I don't like Batman. My friends don't like him, either."}
+    ],
+    "similar": ["The \"all\" adverb \"dou\" (A1)", "The \"also\" adverb \"ye\" (A1)"],
+    "source_pages": [188, 189, 190, 191, 192]
+  },
+  {
+    "id": "zheme-name-adj",
+    "title": "Adjectives with \"zheme\" and \"name\"",
+    "level": "B1",
+    "structure": "Subj. + 这么/那么 + Adj.",
+    "explanation": "“这么/那么 + 形容词”表示“这么/那么……”，强调程度。",
+    "examples": [
+      {"zh": "他说话这么快，你们听得懂吗？", "pinyin": "Tā shuōhuà zhème kuài, nǐmen tīng de dǒng ma?", "en": "He speaks so fast. Can you guys understand?"},
+      {"zh": "我没想到这个考试这么难。", "pinyin": "Wǒ méi xiǎngdào zhège kǎoshì zhème nán.", "en": "I didn't expect this exam would be this difficult."},
+      {"zh": "雨这么大，明天再去吧。", "pinyin": "Yǔ zhème dà, míngtiān zài qù ba.", "en": "The rain is so heavy. How about we go tomorrow?"},
+      {"zh": "你那么聪明，一定能猜到。", "pinyin": "Nǐ nàme cōngming, yīdìng néng cāidào.", "en": "You're so smart. You can definitely guess it."}
+    ],
+    "similar": ["Expressing \"really\" with \"zhen\" (A2)", "Intensifying with \"duo\" (A2)", "Adjectives with \"-ji le\" (B1)"],
+    "source_pages": [194, 195, 196, 197, 198]
+  },
+  {
+    "id": "ting-quite",
+    "title": "Expressing \"quite\" with \"ting\"",
+    "level": "B1",
+    "structure": "挺 + Adj. + 的；挺 + [Verb Phrase] + 的",
+    "explanation": "“挺……的”表示“挺、相当”，口语常用。可接形容词或心理动词。",
+    "examples": [
+      {"zh": "我们都挺想你的。", "pinyin": "Wǒmen dōu tǐng xiǎng nǐ de.", "en": "We all quite miss you."},
+      {"zh": "我挺喜欢这份工作的。", "pinyin": "Wǒ tǐng xǐhuan zhè fèn gōngzuò de.", "en": "I quite like this job."},
+      {"zh": "我女儿挺怕他爸爸的。", "pinyin": "Wǒ nǚ'ér tǐng pà tā bàba de.", "en": "My daughter is quite afraid of his father."},
+      {"zh": "那件事我挺后悔的。", "pinyin": "Nà jiàn shì wǒ tǐng hòuhuǐ de.", "en": "I rather regret that incident."}
+    ],
+    "similar": ["Expressing \"excessively\" with \"tai\" (A1)", "Expressing \"really\" with \"zhen\" (A2)", "Expressing \"rather\" with \"bijiao\" (B1)"],
+    "source_pages": [199, 201, 202]
+  },
+  {
+    "id": "bijiao-rather",
+    "title": "Expressing \"rather\" with \"bijiao\"",
+    "level": "B1",
+    "structure": "Subj. + 比较 + Adj.；Subj. + 比较 + [Verb Phrase]",
+    "explanation": "“比较”作副词表示“比较、相当、rather”，可接形容词或心理动词。",
+    "examples": [
+      {"zh": "这个问题比较简单。", "pinyin": "Zhège wèntí bǐjiào jiǎndān.", "en": "This question is quite easy."},
+      {"zh": "我觉得这个价格比较贵。", "pinyin": "Wǒ juéde zhège jiàgé bǐjiào guì.", "en": "I think this price is rather expensive."},
+      {"zh": "我比较讨厌男人说脏话。", "pinyin": "Wǒ bǐjiào tǎoyàn nánrén shuō zānghuà.", "en": "I quite hate it when men use foul language."},
+      {"zh": "我父母比较反对我找外国男朋友。", "pinyin": "Wǒ fùmǔ bǐjiào fǎnduì wǒ zhǎo wàiguó nánpéngyou.", "en": "My parents rather object to me seeking a foreign boyfriend."}
+    ],
+    "similar": ["Expressing \"quite\" with \"ting\" (B1)", "Making judgments with \"suan\" (B1)"],
+    "source_pages": [203, 204, 205, 206]
+  },
+  {
+    "id": "shenme-de",
+    "title": "Ending a non-exhaustive list with \"shenme de\"",
+    "level": "B1",
+    "structure": "Noun 1, Noun 2 (+ Noun 3) + 什么的",
+    "explanation": "“什么的”表示“……之类的”，用于列举未尽。",
+    "examples": [
+      {"zh": "我奶奶不吃肉，只吃蔬菜、豆腐什么的。", "pinyin": "Wǒ nǎinai bù chī ròu, zhǐ chī shūcài, dòufu shénme de.", "en": "My grandma doesn't eat meat. She only eats vegetables, tofu, and so on."},
+      {"zh": "养狗很麻烦，你要喂它，给它洗澡，跟它玩什么的。", "pinyin": "Yǎng gǒu hěn máfan, nǐ yào wèi tā, gěi tā xǐzǎo, gēn tā wán shénme de.", "en": "Having a dog is too much trouble. You need to feed it, give it a bath, play with it, and so on."},
+      {"zh": "我喜欢实用的礼物，手表、衣服、书什么的。", "pinyin": "Wǒ xǐhuan shíyòng de lǐwù, shǒubiǎo, yīfu, shū shénme de.", "en": "I like practical presents: watches, clothes, books, and so on."},
+      {"zh": "明天去野餐，我们要不要买一些水果、零食什么的？", "pinyin": "Míngtiān qù yěcān, wǒmen yào bu yào mǎi yīxiē shuǐguǒ, língshí shénme de?", "en": "We are going on picnic tomorrow. Shall we buy some fruits, snacks, and so on?"}
+    ],
+    "similar": ["Expressing \"stuff like that\" with \"zhileide\" (B1)", "Non-exhaustive lists with \"dengdeng\" (B1)"],
+    "source_pages": [207, 208, 209, 210, 211]
+  },
+  {
+    "id": "zhileide",
+    "title": "Expressing \"stuff like that\" with \"zhileide\"",
+    "level": "B1",
+    "structure": "(像) …… 之类的 + [Category]",
+    "explanation": "“之类的”表示“……之类的”，用于列举同类事物。",
+    "examples": [
+      {"zh": "我家附近有很多像KFC之类的快餐店。", "pinyin": "Wǒ jiā fùjìn yǒu hěn duō xiàng KFC zhī lèi de kuàicān diàn.", "en": "There are many fast-food restaurants in my neighborhood, like KFC and others like it."},
+      {"zh": "你喜欢《星球大战》之类的电影吗？", "pinyin": "Nǐ xǐhuan 《Xīngqiú Dàzhàn》 zhī lèi de diànyǐng ma?", "en": "Do you like movies like Star Wars?"},
+      {"zh": "她很适合做像市场推广之类的工作。", "pinyin": "Tā hěn shìhé zuò xiàng shìchǎng tuīguǎng zhī lèi de gōngzuò.", "en": "She's very suitable for jobs like marketing and similar."},
+      {"zh": "年轻人很喜欢用像支付宝之类的电子支付方式。", "pinyin": "Niánqīngrén hěn xǐhuan yòng xiàng Zhīfùbǎo zhī lèi de diànzǐ zhīfù fāngshì.", "en": "Young people love using electronic methods of payment like Alipay and similar."}
+    ],
+    "similar": ["Ending a non-exhaustive list with \"shenme de\" (B1)", "Non-exhaustive lists with \"dengdeng\" (B1)"],
+    "source_pages": [212, 213, 214, 215, 216]
+  },
+  {
+    "id": "dengdeng",
+    "title": "Non-exhaustive lists with \"dengdeng\"",
+    "level": "B1",
+    "structure": "A1，A2 …… 等/等等；A1，A2 …… 等 + [Category] + Predicate",
+    "explanation": "“等/等等”表示“……等、等等”，较正式。可后接类别名词。",
+    "examples": [
+      {"zh": "西瓜、菠萝、葡萄等等，我都喜欢吃。", "pinyin": "Xīguā, bōluó, pútao děngděng, wǒ dōu xǐhuan chī.", "en": "Watermelons, pineapples, grapes, and so on... I like them all."},
+      {"zh": "我爸爸很喜欢运动，比如跑步、游泳、打羽毛球等等。", "pinyin": "Wǒ bàba hěn xǐhuan yùndòng, bǐrú pǎobù, yóuyǒng, dǎ yǔmáoqiú děngděng.", "en": "My father likes different sports, for example, running, swimming, playing badminton, etc."},
+      {"zh": "长城、故宫等景点都是北京有名的景点。", "pinyin": "Chángchéng, Gùgōng děng jǐngdiǎn dōu shì Běijīng yǒumíng de jǐngdiǎn.", "en": "The Great Wall, the Forbidden City, etc. are all famous tourist attractions in Beijing."},
+      {"zh": "北京、上海、广州等城市的经济都很发达。", "pinyin": "Běijīng, Shànghǎi, Guǎngzhōu děng chéngshì de jīngjì dōu hěn fādá.", "en": "Beijing, Shanghai, Guangzhou and so on are economically developed cities."}
+    ],
+    "similar": ["Expressing \"stuff like that\" with \"zhileide\" (B1)", "Listing things with \"a\" (B2)"],
+    "source_pages": [217, 218, 219, 220, 221]
+  },
+  {
+    "id": "buguo-but",
+    "title": "A softer \"but\" with \"buguo\"",
+    "level": "B1",
+    "structure": "……，不过……",
+    "explanation": "“不过”表示“但是、不过”，比“可是/但是”更口语、更委婉。",
+    "examples": [
+      {"zh": "这件衣服我很喜欢，不过有点贵。", "pinyin": "Zhè jiàn yīfu wǒ hěn xǐhuan, bùguò yǒudiǎn guì.", "en": "I like this piece of clothing, but it's a little bit expensive."},
+      {"zh": "这个学生很聪明，不过有点懒。", "pinyin": "Zhège xuéshēng hěn cōngming, bùguò yǒudiǎn lǎn.", "en": "This student is very smart, but he's a little lazy."},
+      {"zh": "他是东北人，不过他没有口音。", "pinyin": "Tā shì dōngběi rén, bùguò tā méiyǒu kǒuyīn.", "en": "He's from the northeast, but he doesn't have the accent."},
+      {"zh": "我的钱包丢了，不过没丢什么重要的东西。", "pinyin": "Wǒ de qiánbāo diū le, bùguò méi diū shénme zhòngyào de dōngxi.", "en": "I lost my wallet, but I didn't lose anything important."}
+    ],
+    "similar": ["Expressing \"although\" with \"suiran\" and \"danshi\" (B1)", "Expressing \"however\" with \"ran'er\" (B1)"],
+    "source_pages": [222, 223, 224, 225, 226]
+  },
+  {
+    "id": "yaobu-how-about",
+    "title": "Expressing \"how about\" with \"yaobu\"",
+    "level": "B1",
+    "structure": "Reason/Situation，要不 + Suggestion；要不 + Suggestion，Reason/Situation",
+    "explanation": "“要不”表示提出建议“要不……吧”，也可表示“否则”（要不然）。",
+    "examples": [
+      {"zh": "大家都有点累了，要不休息一会儿吧。", "pinyin": "Dàjiā dōu yǒudiǎn lèi le, yàobù xiūxi yīhuìr ba.", "en": "Everyone is a little tired. Let's rest for a while."},
+      {"zh": "要不我们一起去吧，一个人去没意思。", "pinyin": "Yàobù wǒmen yīqǐ qù ba, yīgèrén qù méi yìsi.", "en": "How about we go together? It's no fun to go by myself."},
+      {"zh": "这个星期我比较忙，要不下个星期见？", "pinyin": "Zhège xīngqī wǒ bǐjiào máng, yàobù xià gè xīngqī jiàn?", "en": "I'm pretty busy this week. How about we meet up next week?"},
+      {"zh": "打车吧，要不迟到的。", "pinyin": "Dǎchē ba, yàobù chídào de.", "en": "Take a taxi. Otherwise, you'll be late."}
+    ],
+    "similar": ["Suggestions with \"ba\" (A1)", "Expressing \"or\" in statements (A2)", "Expressing \"either... or...\" with \"yaome\" (B1)"],
+    "source_pages": [227, 228, 229, 230, 231, 232]
+  },
+  {
+    "id": "haiyou-in-addition",
+    "title": "Expressing \"in addition\" with \"haiyou\"",
+    "level": "B1",
+    "structure": "……，还有，……",
+    "explanation": "“还有”表示“另外、还有”，用于补充新信息。",
+    "examples": [
+      {"zh": "你需要吃药。还有，要多休息。", "pinyin": "Nǐ xūyào chī yào. Háiyǒu, yào duō xiūxi.", "en": "You need to take medicine. Also, you should get more rest."},
+      {"zh": "我要大杯，不要冰，还有，少放糖。", "pinyin": "Wǒ yào dà bēi, bùyào bīng. Háiyǒu, shǎo fàng táng.", "en": "I want a large drink, no ice. Also, just a little sugar, please."},
+      {"zh": "不要一边吃饭一边说话。还有，别吃那么快。", "pinyin": "Bùyào yībiān chīfàn yībiān shuōhuà. Háiyǒu, bié chī nàme kuài.", "en": "Don't talk while you eat. Also, don't eat so fast."},
+      {"zh": "酒店谁来订？还有，机票买了吗？", "pinyin": "Jiǔdiàn shéi lái dìng? Háiyǒu, jīpiào mǎi hǎo le ma?", "en": "Who's going to book the hotel room? Also, did you buy the plane tickets?"}
+    ],
+    "similar": ["Expressing \"and also\" with \"hai\" (A2)", "Expressing \"except\" and \"in addition\" with \"chule... yiwai\" (B1)", "Expressing \"in addition\" with \"lingwai\" (B1)"],
+    "source_pages": [233, 234, 235, 236, 237]
+  },
+  {
+    "id": "lingwai-in-addition",
+    "title": "Expressing \"in addition\" with \"lingwai\"",
+    "level": "B1",
+    "structure": "……，另外，……；另外 + [Verb Phrase]",
+    "explanation": "“另外”表示“另外、此外”，可连接句子，也可作副词修饰动词。",
+    "examples": [
+      {"zh": "这个课文太难了，我不想学。另外，我也没准备。", "pinyin": "Zhège kèwén tài nán le, wǒ bù xiǎng xué. Lìngwài, wǒ yě méi zhǔnbèi.", "en": "This lesson is too difficult and I don't want to read it. Besides, I didn't prepare for it."},
+      {"zh": "希望你不要再迟到了。另外，你应该穿得正式一点。", "pinyin": "Xīwàng nǐ bùyào zài chídào le. Lìngwài, nǐ yīnggāi chuān de zhèngshì yīdiǎn.", "en": "I hope you won't be late again. In addition, you should also dress a bit more formally."},
+      {"zh": "今天我没空，能不能另外安排时间？", "pinyin": "Jīntiān wǒ méi kòng, néng bu néng lìngwài ānpái shíjiān?", "en": "I don't have time today. Can you schedule it another time?"},
+      {"zh": "这里VIP室，要另外付费才能用。", "pinyin": "Zhèlǐ shì VIP shì, yào lìngwài fùfèi cái néng yòng.", "en": "This is the VIP room. You will have to pay extra in order to use it."}
+    ],
+    "similar": ["Expressing \"except\" and \"in addition\" with \"chule... yiwai\" (B1)", "Expressing \"in addition\" with \"haiyou\" (B1)", "Expressing \"in addition\" with \"zaishuo\" (B1)"],
+    "source_pages": [238, 239, 240, 241, 242, 243]
+  },
+  {
+    "id": "zaishuo-in-addition",
+    "title": "Expressing \"in addition\" with \"zaishuo\"",
+    "level": "B1",
+    "structure": "……，再说，……",
+    "explanation": "“再说”表示“况且、再说”，补充支持理由。",
+    "examples": [
+      {"zh": "这么晚，别走了。再说，外面正在下雪。", "pinyin": "Zhème wǎn, bié zǒu le. Zàishuō, wàimiàn zhèngzài xiàxuě.", "en": "It's so late. Stay. Besides, it's snowing outside."},
+      {"zh": "他喜欢，就让他去吧。再说，他在家也没事干。", "pinyin": "Tā xǐhuan, jiù ràng tā qù ba. Zàishuō, tā zài jiā yě méi shì gàn.", "en": "He likes it. Just let him go. Besides, he's got nothing to do at home."},
+      {"zh": "那件衣服太贵了，我没买。再说，我也不是很喜欢。", "pinyin": "Nà jiàn yīfu tài guì le, wǒ méi mǎi. Zàishuō, wǒ yě bù shì hěn xǐhuan.", "en": "That piece of clothing is too expensive. I didn't buy it. Besides, I didn't like it so much."},
+      {"zh": "别吃了，你已经吃了五个了。再说，我们还没吃呢。", "pinyin": "Bié chī le, nǐ yǐjīng chī le wǔ gè le. Zàishuō, wǒmen hái méi chī ne.", "en": "Stop eating. You've already eaten five. Besides, the rest of us haven't eaten yet."}
+    ],
+    "similar": ["Expressing \"except\" and \"in addition\" with \"chule... yiwai\" (B1)", "Expressing \"in addition\" with \"haiyou\" (B1)", "Expressing \"in addition\" with \"lingwai\" (B1)"],
+    "source_pages": [244, 245, 246, 247, 248]
+  },
+  {
+    "id": "name-then",
+    "title": "Expressing \"then…\" with \"name\"",
+    "level": "B1",
+    "structure": "Situation，那么/那 + Suggestion/Decision",
+    "explanation": "“那么/那”表示“那么、既然这样”，引出判断或决定。",
+    "examples": [
+      {"zh": "他不听，那我应该怎么办？", "pinyin": "Tā bù tīng, nà wǒ yīnggāi zěnme bàn?", "en": "He won't listen. So what should I do?"},
+      {"zh": "大家都到了，那么我们开始吧。", "pinyin": "Dàjiā dōu dào le, nàme wǒmen kāishǐ ba.", "en": "Everybody is here, so let's begin."},
+      {"zh": "雨停了，那我们走吧。", "pinyin": "Yǔ tíng le, nà wǒmen zǒu ba.", "en": "The rain has stopped, so let's leave."},
+      {"zh": "他学过十年中文？那他的中文说得很好吧？", "pinyin": "Tā xué guo shí nián Zhōngwén? Nà tā de Zhōngwén shuō de hěn hǎo ba?", "en": "He's studied Chinese for ten years? So he must speak Chinese really well, then?"}
+    ],
+    "similar": ["Cause and effect with \"yinwei\" and \"suoyi\" (A2)"],
+    "source_pages": [249, 250, 251, 252, 253]
+  },
+  {
+    "id": "lai-connect-verb",
+    "title": "Using \"lai\" to connect two verb phrases",
+    "level": "B1",
+    "structure": "通过/用 + Method + 来 + [Verb Phrase]",
+    "explanation": "“来”连接两个动词短语，表示“用来/以便”，前常接方法。",
+    "examples": [
+      {"zh": "用这种方法来赚钱，真丢人。", "pinyin": "Yòng zhè zhǒng fāngfǎ lái zhuànqián, zhēn diūrén.", "en": "It's shameful to earn money in this way."},
+      {"zh": "很多年轻人用手机APP来点外卖。", "pinyin": "Hěn duō niánqīngrén yòng shǒujī APP lái diǎn wàimài.", "en": "A lot of young people use apps on their cell phones to order food."},
+      {"zh": "你可以通过微信来关注我们。", "pinyin": "Nǐ kěyǐ tōngguò Wēixìn lái guānzhù wǒmen.", "en": "You can follow us on WeChat."},
+      {"zh": "我们需要通过培训来提高服务质量。", "pinyin": "Wǒmen xūyào tōngguò péixùn lái tígāo fúwù zhìliàng.", "en": "We need to improve our service quality through training."}
+    ],
+    "similar": ["Expressing purpose with \"weile\" (B1)", "Expressing purpose with \"hao\" (B2)", "Facilitating an outcome with \"yibian\" (B2)"],
+    "source_pages": [254, 255, 256, 257, 258]
+  },
+  {
+    "id": "zhiqian-zhihou",
+    "title": "Expressing \"before\" and \"after\" with \"zhiqian\" and \"zhihou\"",
+    "level": "B1",
+    "structure": "Event + 之前/之后，……；……，之前/之后……",
+    "explanation": "“之前/之后”表示“在……之前/之后”，比“以前/以后”稍正式。",
+    "examples": [
+      {"zh": "来中国之前，我的汉语很一般。", "pinyin": "Lái Zhōngguó zhīqián, wǒ de Hànyǔ hěn yībān.", "en": "Before I came to China, my Chinese was really mediocre."},
+      {"zh": "下班之后给我打个电话。", "pinyin": "Xiàbān zhīhòu gěi wǒ dǎ gè diànhuà.", "en": "Give me a call after you get off work."},
+      {"zh": "出国之前，他和女朋友分手了。", "pinyin": "Chūguó zhīqián, tā hé nǚpéngyou fēnshǒu le.", "en": "Before he went abroad, he broke up with his girlfriend."},
+      {"zh": "她在英国读完了大学，之后回上海了。", "pinyin": "Tā zài Yīngguó dú wán le dàxué, zhīhòu huí Shànghǎi le.", "en": "She finished university in England. Afterwards, she returned to Shanghai."}
+    ],
+    "similar": ["In the future in general with \"yihou\" (A2)", "Comparing \"yihou\" and \"zhihou\" (B2)", "Expressing \"ever since\" with \"zicong\" (B2)"],
+    "source_pages": [259, 260, 261, 262, 263, 264]
+  },
+  {
+    "id": "yilai",
+    "title": "Expressing \"ever since\" with \"yilai\"",
+    "level": "B1",
+    "structure": "Time/Event + 以来，……；Time Period + 来，……",
+    "explanation": "“以来”表示“自从……以来”；“来”只能接时间段，不接具体日期。",
+    "examples": [
+      {"zh": "今年八月以来，这里一直没下过雨。", "pinyin": "Jīnnián Bāyuè yǐlái, zhèlǐ yīzhí méi xià guo yǔ.", "en": "It hasn't rained since August of this year."},
+      {"zh": "结婚以来，我们没吵过架。", "pinyin": "Jiéhūn yǐlái, wǒmen méi chǎo guo jià.", "en": "Since we got married we haven't had a fight."},
+      {"zh": "十年来，房价一直在涨。", "pinyin": "Shí nián lái, fángjià yīzhí zài zhǎng.", "en": "For the past decade, housing prices have been continuously going up."},
+      {"zh": "几个月来，我们公司的收入一直在增加。", "pinyin": "Jǐ gè yuè lái, wǒmen gōngsī de shōurù yīzhí zài zēngjiā.", "en": "Our company's income has been steadily increasing over the past few months."}
+    ],
+    "similar": ["Comparing \"li\" and \"cong\" (B1)", "Expressing \"before\" and \"after\" with \"zhiqian\" and \"zhihou\" (B1)", "Expressing \"ever since\" with \"zicong\" (B2)"],
+    "source_pages": [265, 266, 267, 268, 269, 270]
+  },
+  {
+    "id": "shi-when",
+    "title": "Expressing \"when\" with \"shi\"",
+    "level": "B1",
+    "structure": "Time + 时，Subj. ……；Subj. + Time + 时，……",
+    "explanation": "“时”表示“……的时候”，比“的时候”更正式。",
+    "examples": [
+      {"zh": "考试时不要说话。", "pinyin": "Kǎoshì shí bùyào shuōhuà.", "en": "Don't talk when you're taking a test."},
+      {"zh": "我面试时经常会问这个问题。", "pinyin": "Wǒ miànshì shí jīngcháng huì wèn zhège wèntí.", "en": "I often ask this question during job interviews."},
+      {"zh": "我生气时不想说话。", "pinyin": "Wǒ shēngqì shí bù xiǎng shuōhuà.", "en": "I don't want to talk when I'm angry."},
+      {"zh": "飞机起飞时，他关了手机和电脑。", "pinyin": "Fēijī qǐfēi shí, tā guān le shǒujī hé diànnǎo.", "en": "When the plane took off, he turned off his cell phone and computer."}
+    ],
+    "similar": ["Expressing \"when\" with \"de shihou\" (A2)"],
+    "source_pages": [271, 272, 273, 274, 275]
+  },
+  {
+    "id": "houlai",
+    "title": "Sequencing past events with \"houlai\"",
+    "level": "B1",
+    "structure": "[Past Event 1]，后来，[Past Event 2]",
+    "explanation": "“后来”表示“后来、之后”，只能用于已经发生的两件事之间。",
+    "examples": [
+      {"zh": "他说他会来，后来说又不来了。", "pinyin": "Tā shuō tā huì lái, hòulái yòu shuō bù lái le.", "en": "He said he would come, but later he said that he's not coming."},
+      {"zh": "他们上周吵架了，后来和好了。", "pinyin": "Tāmen shàng zhōu chǎojià le, hòulái héhǎo le.", "en": "They had a fight last week, and they made up afterwards."},
+      {"zh": "他以前是厨师，后来当了老板。", "pinyin": "Tā yǐqián shì chúshī, hòulái dāng le lǎobǎn.", "en": "He used to be a chef. Afterwards, he became the owner."},
+      {"zh": "开始我父母不同意，后来他们同意了。", "pinyin": "Kāishǐ wǒ fùmǔ bù tóngyì, hòulái tāmen tóngyì le.", "en": "My parents disapproved in the beginning, but they approved later."}
+    ],
+    "similar": ["In the future in general with \"yihou\" (A2)", "Expressing \"before\" and \"after\" with \"zhiqian\" and \"zhihou\" (B1)", "Expressing \"ever since\" with \"yilai\" (B1)"],
+    "source_pages": [276, 277, 278, 279, 280, 281]
+  },
+  {
+    "id": "fenzhi",
+    "title": "Expressing fractions with \"fenzhi\"",
+    "level": "B1",
+    "structure": "Denominator + 分之 + Numerator",
+    "explanation": "“分之”表示分数，先说分母，再说分子。百分比用“百分之……”。",
+    "examples": [
+      {"zh": "我的手机电量只有百分之五了。", "pinyin": "Wǒ de shǒujī diànliàng zhǐ yǒu bǎi fēn zhī wǔ le.", "en": "My phone only has 5% power left."},
+      {"zh": "这个文件已经下载了三分之二。", "pinyin": "Zhège wénjiàn yǐjīng xiàzài le sān fēn zhī èr.", "en": "This document is two-thirds downloaded."},
+      {"zh": "这篇文章有五分之三是抄别人的。", "pinyin": "Zhè piān wénzhāng yǒu wǔ fēn zhī sān shì chāo biérén de.", "en": "Three fifths of this article has been copied from others."},
+      {"zh": "差不多三分之一的美国人有护照。", "pinyin": "Chàbuduō sān fēn zhī yī de Měiguórén yǒu hùzhào.", "en": "About one third of Americans have passports."}
+    ],
+    "similar": ["Expressing \"multiples\" with \"bei\" (B1)"],
+    "source_pages": [282, 283, 284, 285, 286, 287]
+  },
+  {
+    "id": "duo-excess",
+    "title": "Indicating a number in excess with \"duo\"",
+    "level": "B1",
+    "structure": "Number + 多 + [Measure word] (+ Noun)",
+    "explanation": "“多”放在数量词后表示“多、超过”。小于十一时“多”可在量词后；大于十一时“多”在量词前。",
+    "examples": [
+      {"zh": "我妈妈已经五十多岁了。", "pinyin": "Wǒ māma yǐjīng wǔshí duō suì le.", "en": "My mother is over fifty."},
+      {"zh": "我们走了两个多小时。", "pinyin": "Wǒmen zǒu le liǎng gè duō xiǎoshí.", "en": "We walked for more than two hours."},
+      {"zh": "这个班有两百多个学生。", "pinyin": "Zhège bān yǒu liǎngbǎi duō gè xuésheng.", "en": "There are more than two hundred students in this class."},
+      {"zh": "这本书有一千多页。", "pinyin": "Zhè běn shū yǒu yīqiān duō yè.", "en": "This book has more than a thousand pages."}
+    ],
+    "similar": ["Intensifying with \"duo\" (A2)", "Doing something more with \"duo\" (B1)", "Using \"ji\" to mean \"several\" (A2)"],
+    "source_pages": [288, 289, 290, 291, 292, 293]
+  },
+  {
+    "id": "advanced-ma",
+    "title": "Advanced yes-no questions with \"ma\"",
+    "level": "B1",
+    "structure": "Confirmation + Question + 吗？",
+    "explanation": "“知道/了解/明白/认识…… + 疑问词 + 吗？”表示确认型问句，比普通“吗”问句更具体。",
+    "examples": [
+      {"zh": "你知道这是什么吗？", "pinyin": "Nǐ zhīdào zhè shì shénme ma?", "en": "Do you know what this is?"},
+      {"zh": "你知道他是谁吗？", "pinyin": "Nǐ zhīdào tā shì shéi ma?", "en": "Do you know who he is?"},
+      {"zh": "你们明白这个标志是什么意思吗？", "pinyin": "Nǐmen míngbai zhège biāozhì shì shénme yìsi ma?", "en": "Do you all understand what this symbol means?"},
+      {"zh": "你能再说一遍你的问题是什么吗？", "pinyin": "Nǐ néng zài shuō yī biàn nǐ de wèntí shì shénme ma?", "en": "Can you repeat what your question is?"}
+    ],
+    "similar": ["Expressing \"some\" with question words (B1)"],
+    "source_pages": [294, 295, 296, 297, 298, 299]
+  },
+  {
+    "id": "zhe-aspect",
+    "title": "Aspect particle \"zhe\"",
+    "level": "B1",
+    "structure": "Verb + 着；Verb 1 + 着 + Verb 2；Subj. + 是 + Verb + 着 + 玩 + 的",
+    "explanation": "“着”表示持续状态或方式；也可用于固定口语“听着、拿着、等着”；“说着玩的”表示“开玩笑”。",
+    "examples": [
+      {"zh": "我读，你听着。", "pinyin": "Wǒ dú, nǐ tīng zhe.", "en": "I'll read, and you listen."},
+      {"zh": "你们坐着，我马上回来。", "pinyin": "Nǐmen zuò zhe, wǒ mǎshàng huílái.", "en": "Sit for a while. I'll be right back."},
+      {"zh": "她喜欢站着吃饭。", "pinyin": "Tā xǐhuan zhàn zhe chīfàn.", "en": "She likes to eat standing up."},
+      {"zh": "公司门开着，可是没人在。", "pinyin": "Gōngsī mén kāi zhe, kěshì méi rén zài.", "en": "The office door is open but no one is in there."},
+      {"zh": "你不要生气，我是说着玩的。", "pinyin": "Nǐ bùyào shēngqì, wǒ shì shuō zhe wán de.", "en": "Don't be mad. I was just joking."}
+    ],
+    "similar": ["Expressing actions in progress with \"zai\" (A2)", "Simultaneous tasks with \"yibian\" (A2)", "Expressing actions in progress (full form) (B1)"],
+    "source_pages": [300, 301, 302, 303, 304, 305, 306, 307, 308]
+  },
+  {
+    "id": "ma-self-evident",
+    "title": "Expressing the self-evident with \"ma\"",
+    "level": "B1",
+    "structure": "Statement + 嘛",
+    "explanation": "“嘛”表示“显而易见、本来如此”，语气轻松。",
+    "examples": [
+      {"zh": "你妹妹很漂亮嘛。", "pinyin": "Nǐ mèimei hěn piàoliang ma.", "en": "Your sister is pretty."},
+      {"zh": "不想去就不要去嘛。", "pinyin": "Bù xiǎng qù jiù bùyào qù ma.", "en": "If you don't wanna go, don't go."},
+      {"zh": "大家有话就说嘛。", "pinyin": "Dàjiā yǒu huà jiù shuō ma.", "en": "Guys, just say whatever you have to say."},
+      {"zh": "开慢点，安全第一嘛。", "pinyin": "Kāi màn diǎn, ānquán dìyī ma.", "en": "Drive slowly. Safety first."}
+    ],
+    "similar": ["Advanced yes-no questions with \"ma\" (B1)", "Marking a topic with \"ma\" (B2)"],
+    "source_pages": [309, 310, 311, 312, 313, 314]
+  },
+  {
+    "id": "ba-two-options",
+    "title": "Reviewing options with \"ba\"",
+    "level": "B1",
+    "structure": "Option 1 + 吧，……；Option 2 + 吧，……",
+    "explanation": "两个“吧”列举两个选择，表示犹豫不决，常带负面语气。",
+    "examples": [
+      {"zh": "冬天去吧，太冷；夏天去吧，太热。", "pinyin": "Dōngtiān qù ba, tài lěng; xiàtiān qù ba, tài rè.", "en": "If we go in the winter, it's too cold. If we go in the summer, it's too hot."},
+      {"zh": "早点去吧，要等；晚点去吧，会堵车。", "pinyin": "Zǎo diǎn qù ba, yào děng; wǎn diǎn qù ba, huì dǔchē.", "en": "If we go early, we'll have to wait. If we go later, there will be bad traffic."},
+      {"zh": "去吧，要给红包；不去吧，他没面子。", "pinyin": "Qù ba, yào gěi hóngbāo; bù qù ba, tā méi miànzi.", "en": "I need to give a red envelope if I go. If I don't go, he will lose face."},
+      {"zh": "说吧，他肯定会做错；不说吧，他肯定不高兴。", "pinyin": "Shuō ba, tā hái huì zuò cuò; bù shuō ba, tā kěndìng bù gāoxìng.", "en": "If I don't tell him, he will still do it wrong next time. If I do tell him, he will get upset."}
+    ],
+    "similar": [],
+    "source_pages": [315, 316, 317, 318]
+  },
+  {
+    "id": "de-modal-particle",
+    "title": "Using \"de\" (modal particle)",
+    "level": "B1",
+    "structure": "Statement + 的",
+    "explanation": "句末“的”表示肯定、确信的语气，常与“会/一定”搭配。",
+    "examples": [
+      {"zh": "他会好的。", "pinyin": "Tā huì hǎo de.", "en": "He will get better."},
+      {"zh": "你可以的。", "pinyin": "Nǐ kěyǐ de.", "en": "You can do this."},
+      {"zh": "她一定会来的。", "pinyin": "Tā yīdìng huì lái de.", "en": "She's definitely coming."},
+      {"zh": "我不会骗你的。", "pinyin": "Wǒ bù huì piàn nǐ de.", "en": "I won't lie to you."}
+    ],
+    "similar": ["The \"shi... de\" construction for emphasizing details (B1)", "The \"shi... de\" construction for indicating purpose (B1)", "The \"shi... de\" patterns: an overview (B1)"],
+    "source_pages": [319, 320, 321, 322, 323]
+  },
+  {
+    "id": "guanyu",
+    "title": "Expressing \"about\" with \"guanyu\"",
+    "level": "B1",
+    "structure": "关于 + Obj.，……；关于…… 的 + Noun",
+    "explanation": "“关于”表示“关于”，可作状语放句首，也可作定语加“的”。",
+    "examples": [
+      {"zh": "关于中国历史，我知道的不多。", "pinyin": "Guānyú Zhōngguó lìshǐ, wǒ zhīdào de bù duō.", "en": "As for Chinese history, I don't know a lot."},
+      {"zh": "关于这次考试，我还有几个问题要问。", "pinyin": "Guānyú zhè cì kǎoshì, wǒ hái yǒu jǐ gè wèntí yào wèn.", "en": "As for this exam, I still have a few questions that I need to ask."},
+      {"zh": "网上有很多关于这件事情的评论。", "pinyin": "Wǎngshang yǒu hěn duō guānyú zhè jiàn shìqing de pínglùn.", "en": "There are lots of comments about this matter online."},
+      {"zh": "这是一份关于中国奢侈品市场的报告。", "pinyin": "Zhè shì yī fèn guānyú Zhōngguó shēchǐpǐn shìchǎng de bàogào.", "en": "This is a report about the Chinese luxury market."}
+    ],
+    "similar": ["Expressing \"related to...\" with \"you guan de\" (B2)"],
+    "source_pages": [324, 325, 326, 327, 328]
+  },
+  {
+    "id": "zhidao-all-the-way-until",
+    "title": "Expressing \"all the way until\" with \"zhidao\"",
+    "level": "B1",
+    "structure": "直到 + Time/Event，Subj. + 才……；直到 + Time/Event，Subj. + 都 + 不/没……",
+    "explanation": "“直到……才……”表示“直到……才……”；否定“直到……都没……”表示“直到……都没……”。",
+    "examples": [
+      {"zh": "直到十二点半，我才做完作业。", "pinyin": "Zhídào shí'èr diǎn bàn, wǒ cái zuò wán zuòyè.", "en": "It wasn't until twelve thirty in the morning that I finished my homework."},
+      {"zh": "直到半个月以后，我的感冒才好。", "pinyin": "Zhídào bàn gè yuè yǐhòu, wǒ de gǎnmào cái hǎo.", "en": "It took me half a month to recover from the cold."},
+      {"zh": "直到他搬到上海，我们都没见过。", "pinyin": "Zhídào tā bān dào Shànghǎi, wǒmen dōu méi jiàn guo.", "en": "We didn't meet until he moved to Shanghai."},
+      {"zh": "直到电影结束，他都没来。", "pinyin": "Zhídào diànyǐng jiéshù, tā dōu méi lái.", "en": "He didn't show up until the movie was over."}
+    ],
+    "similar": ["Expressing \"until\" with \"dao\" (B1)", "Expressing \"when\" with \"dengdao\" (B1)", "Expressing lateness with \"cai\" (B1)"],
+    "source_pages": [329, 330, 331, 332, 333, 334]
+  },
+  {
+    "id": "gei-for",
+    "title": "Expressing \"for\" with \"gei\"",
+    "level": "B1",
+    "structure": "Subj. + 给 + Recipient + [Verb Phrase]",
+    "explanation": "“给 + 人 + 动词”表示“为/给某人做某事”。",
+    "examples": [
+      {"zh": "给客人倒茶。", "pinyin": "Gěi kèrén dàochá.", "en": "Pour tea for the guests."},
+      {"zh": "妈妈在给孩子们做饭。", "pinyin": "Māma zài gěi háizimen zuòfàn.", "en": "Mom cooks for the kids."},
+      {"zh": "请给我拿一双筷子。", "pinyin": "Qǐng gěi wǒ ná yī shuāng kuàizi.", "en": "Please get a pair of chopsticks for me."},
+      {"zh": "这个周末我们给儿子开生日派对。", "pinyin": "Zhège zhōumò wǒmen gěi érzi kāi shēngrì pàiduì.", "en": "We're going to hold a birthday party for our son this weekend."}
+    ],
+    "similar": ["Expressing \"for\" with \"wei\" (B1)", "Using \"dui\" with verbs (B1)", "Verbs followed by \"gei\" (B1)"],
+    "source_pages": [335, 336, 337, 338, 339]
+  },
+  {
+    "id": "wei-for",
+    "title": "Expressing \"for\" with \"wei\"",
+    "level": "B1",
+    "structure": "为 + Party + Verb / Adj.",
+    "explanation": "“为 + 人/组织 + 动词”表示“为……”，比“给”正式。",
+    "examples": [
+      {"zh": "我们都为你高兴。", "pinyin": "Wǒmen dōu wèi nǐ gāoxìng.", "en": "We are all happy for you."},
+      {"zh": "谁为我考虑过？", "pinyin": "Shéi wèi wǒ kǎolǜ guo?", "en": "Who has ever considered me?"},
+      {"zh": "她是为美国政府工作的。", "pinyin": "Tā shì wèi Měiguó zhèngfǔ gōngzuò de.", "en": "She works for the United States government."},
+      {"zh": "这个生日蛋糕是为你准备的。", "pinyin": "Zhège shēngrì dàngāo shì wèi nǐ zhǔnbèi de.", "en": "This birthday cake has been prepared for you."}
+    ],
+    "similar": ["Expressing \"for\" with \"gei\" (B1)", "Expressing purpose with \"weile\" (B1)", "Explaining purpose with \"wei... er...\" (C1)"],
+    "source_pages": [340, 341, 342, 343, 344]
+  },
+  {
+    "id": "budao-less-than",
+    "title": "Expressing \"less than\" with \"budao\"",
+    "level": "B1",
+    "structure": "Subj. + 不到 + Number + [Measure Word] + Noun；Subj. + 不到 + Time + 就 + Predicate + 了",
+    "explanation": "“不到”表示“不到、少于”；“不到……就……”表示“不到……就……”。",
+    "examples": [
+      {"zh": "我女儿不到三岁。", "pinyin": "Wǒ nǚ'ér bùdào sān suì.", "en": "My daughter is not yet three years old."},
+      {"zh": "这件衣服花了不到一百块。", "pinyin": "Zhè jiàn yīfu huā le bùdào yībǎi kuài.", "en": "On this piece of clothing I spent less than 100 RMB."},
+      {"zh": "她的病不到一个星期就好了。", "pinyin": "Tā de bìng bùdào yī gè xīngqī jiù hǎo le.", "en": "Her sickness got better in less than a week."},
+      {"zh": "他们认识不到两个月就结婚了。", "pinyin": "Tāmen rènshi bùdào liǎng gè yuè jiù jiéhūn le.", "en": "After knowing each other for less than two months they got married."}
+    ],
+    "similar": ["Expressing earliness with \"jiu\" (B1)"],
+    "source_pages": [345, 346, 347, 348]
+  },
+  {
+    "id": "wang-towards",
+    "title": "Expressing \"toward\" with \"wang\"",
+    "level": "B1",
+    "structure": "往 + Direction/Place + Verb；Verb + 往 + Direction/Place；往下 + Verb",
+    "explanation": "“往”表示方向“往……”，可放动词前；书面也可放动词后；“往下”表示“继续下去”。",
+    "examples": [
+      {"zh": "一直往前走。", "pinyin": "Yīzhí wǎng qián zǒu.", "en": "Go straight ahead."},
+      {"zh": "往左拐。", "pinyin": "Wǎng zuǒ guǎi.", "en": "Turn left."},
+      {"zh": "那个小偷往东跑了。", "pinyin": "Nàge xiǎotōu wǎng dōng pǎo le.", "en": "That thief ran towards the east."},
+      {"zh": "往下说。", "pinyin": "Wǎng xià shuō.", "en": "Keep talking."}
+    ],
+    "similar": ["Expressing \"towards\" with \"xiang\" (B1)", "Comparing \"chao\" \"xiang\" and \"wang\" (B2)"],
+    "source_pages": [349, 350, 351, 352, 353]
+  },
+  {
+    "id": "xiang-towards",
+    "title": "Expressing \"towards\" with \"xiang\"",
+    "level": "B1",
+    "structure": "向 + Direction/Person + Verb",
+    "explanation": "“向”表示方向“朝/向……”，也可表示对象“向某人……”。",
+    "examples": [
+      {"zh": "向东走。", "pinyin": "Xiàng dōng zǒu.", "en": "Walk to the east."},
+      {"zh": "老师正向我们走来。", "pinyin": "Lǎoshī zhèng xiàng wǒmen zǒu lái.", "en": "The teacher is currently walking towards us."},
+      {"zh": "你必须向他道歉！", "pinyin": "Nǐ bìxū xiàng tā dàoqiàn!", "en": "You must apologize to him!"},
+      {"zh": "这件事你应该向老板汇报一下。", "pinyin": "Zhè jiàn shì nǐ yīnggāi xiàng lǎobǎn huìbào yīxià.", "en": "You should report this matter to the boss!"}
+    ],
+    "similar": ["Expressing \"toward\" with \"wang\" (B1)", "Using \"dui\" with verbs (B1)", "Verbs followed by \"gei\" (B1)"],
+    "source_pages": [354, 355, 356, 357, 358]
+  },
+  {
+    "id": "zai-idiomatic",
+    "title": "Idiomatic phrases with \"zai\"",
+    "level": "B1",
+    "structure": "在 + Topic + 上/下/方面，Subj. ……",
+    "explanation": "“在……上/下/方面”表示“在……方面/情况下/关于……”。",
+    "examples": [
+      {"zh": "在这个问题上，我们的看法是一样的。", "pinyin": "Zài zhège wèntí shàng, wǒmen de kànfǎ shì yīyàng de.", "en": "In regards to this problem, our opinions are the same."},
+      {"zh": "在这样的环境下长大，孩子会快乐吗？", "pinyin": "Zài zhèyàng de huánjìng xià zhǎngdà, háizi huì kuàilè ma?", "en": "Do you think kids will be happy growing up in this kind of environment?"},
+      {"zh": "在事业方面，我老板很成功。", "pinyin": "Zài shìyè fāngmiàn, wǒ lǎobǎn hěn chénggōng.", "en": "With regards to career, my boss is very successful."},
+      {"zh": "在技术方面，他是专家。", "pinyin": "Zài jìshù fāngmiàn, tā shì zhuānjiā.", "en": "When it comes to technology, he's an expert."}
+    ],
+    "similar": ["Expressing location with \"zai... shang / xia / li\" (A2)", "Expressing various aspects with \"yi fangmian\" (B1)"],
+    "source_pages": [359, 360, 361, 362, 363, 364]
+  },
+  {
+    "id": "dui-verbs",
+    "title": "Using \"dui\" with verbs",
+    "level": "B1",
+    "structure": "Subj. + 对 + Person + Verb；对……感兴趣/负责/满意/失望/好奇",
+    "explanation": "“对 + 对象 + 动词”表示“对/向……”，常用于心理动词或固定搭配。",
+    "examples": [
+      {"zh": "宝宝对我笑了。", "pinyin": "Bǎobao duì wǒ xiào le.", "en": "The baby smiled at me."},
+      {"zh": "你不应该这样对父母说话。", "pinyin": "Nǐ bù yīnggāi zhèyàng duì fùmǔ shuōhuà.", "en": "You shouldn't talk to your parents this way."},
+      {"zh": "我儿子对学外语很感兴趣。", "pinyin": "Wǒ érzi duì xué wàiyǔ hěn gǎn xìngqù.", "en": "My son is very interested in learning foreign languages."},
+      {"zh": "老板对你不满意。", "pinyin": "Lǎobǎn duì nǐ bù mǎnyì.", "en": "The boss is not very satisfied with you."}
+    ],
+    "similar": ["Expressing \"for\" with \"gei\" (B1)", "Expressing \"toward\" with \"wang\" (B1)", "Expressing \"towards\" with \"xiang\" (B1)"],
+    "source_pages": [365, 366, 367, 368, 369, 370, 371]
+  },
+  {
+    "id": "kanqilai",
+    "title": "Appearance with \"kanqilai\"",
+    "level": "B1",
+    "structure": "Subj. + 看起来 + Adj.；Subj. + 看起来 + 像 + Noun Phrase",
+    "explanation": "“看起来”表示“看起来……”，可接形容词或“像……”。",
+    "examples": [
+      {"zh": "蛋糕看起来很好吃。", "pinyin": "Dàngāo kànqǐlái hěn hǎochī.", "en": "The cake looks really tasty."},
+      {"zh": "你男朋友看起来很成熟。", "pinyin": "Nǐ nánpéngyou kànqǐlái hěn chéngshú.", "en": "Your boyfriend looks very mature."},
+      {"zh": "你妈妈真年轻！看起来像你姐姐。", "pinyin": "Nǐ māma zhēn niánqīng! Kànqǐlái xiàng nǐ jiějie.", "en": "Your mother is so young! She looks like your older sister."},
+      {"zh": "你们俩看起来像情侣。", "pinyin": "Nǐmen liǎ kànqǐlái xiàng qínglǚ.", "en": "You two look like a couple."}
+    ],
+    "similar": ["Direction complement \"-qilai\" (B1)", "Expressing \"it seems\" with \"haoxiang\" (B1)", "Advanced uses of direction complement \"-qilai\" (B2)"],
+    "source_pages": [372, 373, 374, 375]
+  },
+  {
+    "id": "causative-verbs",
+    "title": "Causative verbs",
+    "level": "B1",
+    "structure": "Subj. + [Causative Verb] + Person + Predicate",
+    "explanation": "“让/叫/请/使”表示使役，“让/叫”口语，“使”书面。",
+    "examples": [
+      {"zh": "你为什么不让我去？", "pinyin": "Nǐ wèishénme bù ràng wǒ qù?", "en": "Why won't you let me go?"},
+      {"zh": "这部电影让人很感动。", "pinyin": "Zhè bù diànyǐng ràng rén hěn gǎndòng.", "en": "This movie really moves people."},
+      {"zh": "他偷偷约别的女孩，你叫怎么想？", "pinyin": "Tā tōutōu yuē bié de nǚhái, nǐ jiào wǒ zěnme xiǎng?", "en": "He secretly asked other girls out. Tell me what I'm supposed to think."},
+      {"zh": "他的演讲使听众们非常激动。", "pinyin": "Tā de yǎnjiǎng shǐ tīngzhòngmen fēicháng jīdòng.", "en": "His speech made the audience very excited."}
+    ],
+    "similar": ["Using the verb \"jiao\" (A1)"],
+    "source_pages": [376, 377, 378, 379, 380, 381]
+  },
+  {
+    "id": "kan-it-depends",
+    "title": "Expressing \"it depends\" with \"kan\"",
+    "level": "B1",
+    "structure": "这/那 + 要看/得看 + [Unclear Situation]；[Unknown Outcome] + 要看/得看 + [Unclear Situation]",
+    "explanation": "“要看/得看”表示“取决于……”。",
+    "examples": [
+      {"zh": "这得看你的时间。", "pinyin": "Zhè děi kàn nǐ de shíjiān.", "en": "This depends on when you are available."},
+      {"zh": "那要看他愿不愿意。", "pinyin": "Nà yào kàn tā yuàn bu yuànyì.", "en": "That depends on whether he is willing or not."},
+      {"zh": "去不去得看我的心情。", "pinyin": "Qù bu qù děi kàn wǒ de xīnqíng.", "en": "Whether or not I go depends on my mood."},
+      {"zh": "什么时候去要看公司的安排。", "pinyin": "Shénme shíhou qù yào kàn gōngsī de ānpái.", "en": "When we go depends on the company's arrangements."}
+    ],
+    "similar": [],
+    "source_pages": [382, 383, 384, 385, 386]
+  },
+  {
+    "id": "haoxiang-seems",
+    "title": "Expressing \"it seems\" with \"haoxiang\"",
+    "level": "B1",
+    "structure": "Subj. + 好像……",
+    "explanation": "“好像”表示“好像、似乎”。",
+    "examples": [
+      {"zh": "他好像是英国人。", "pinyin": "Tā hǎoxiàng shì Yīngguórén.", "en": "He seems to be British."},
+      {"zh": "她好像生病了。", "pinyin": "Tā hǎoxiàng shēngbìng le.", "en": "It seems like she's sick."},
+      {"zh": "好像要下雨了。", "pinyin": "Hǎoxiàng yào xiàyǔ le.", "en": "It seems like it's going to rain."},
+      {"zh": "好像有人敲门。", "pinyin": "Hǎoxiàng yǒu rén qiāomén.", "en": "It seems that someone is knocking at the door."}
+    ],
+    "similar": ["Appearance with \"kanqilai\" (B1)", "Assessing situations with \"kanlai\" (B2)", "Expressing \"as if\" with \"sihu\" (C1)"],
+    "source_pages": [387, 388, 389, 390, 391]
+  },
+  {
+    "id": "yiwei",
+    "title": "Expressing \"mistakenly think that\" with \"yiwei\"",
+    "level": "B1",
+    "structure": "Subj. + 以为……",
+    "explanation": "“以为”表示“本来以为（但错了）”。",
+    "examples": [
+      {"zh": "我以为他是德国人。", "pinyin": "Wǒ yǐwéi tā shì Déguórén.", "en": "I thought he was German."},
+      {"zh": "我们以为你不在家。", "pinyin": "Wǒmen yǐwéi nǐ bù zài jiā.", "en": "We thought you weren't at home."},
+      {"zh": "你以为你是谁？", "pinyin": "Nǐ yǐwéi nǐ shì shéi?", "en": "Who do you think you are?"},
+      {"zh": "不要以为他是你的朋友。", "pinyin": "Bùyào yǐwéi tā shì nǐ de péngyou.", "en": "Don't think that he's your friend."}
+    ],
+    "similar": [],
+    "source_pages": [392, 393, 394, 395]
+  },
+  {
+    "id": "jingguo",
+    "title": "Expressing \"through\" with \"jingguo\"",
+    "level": "B1",
+    "structure": "经过 + Event/Time，……",
+    "explanation": "“经过”表示“经过、通过（过程）”，可作动词“路过”，也可作介词。",
+    "examples": [
+      {"zh": "我每天上班都经过这里。", "pinyin": "Wǒ měitiān shàngbān dōu jīngguò zhèlǐ.", "en": "I pass by this place every day on the way to work."},
+      {"zh": "经过自己的努力，她考上了北京大学。", "pinyin": "Jīngguò zìjǐ de nǔlì, tā kǎoshàng le Běijīng Dàxué.", "en": "Through her own hard work, she was admitted into Peking University."},
+      {"zh": "经过两个月的准备，他顺利地通过了这次面试。", "pinyin": "Jīngguò liǎng gè yuè de zhǔnbèi, tā shùnlì de tōngguò le zhè cì miànshì.", "en": "After two months of preparation, he successfully passed the job interview."},
+      {"zh": "经过一个星期的调查，警察认为他没有罪。", "pinyin": "Jīngguò yī gè xīngqī de diàochá, jǐngchá rènwéi tā méiyǒu zuì.", "en": "After one week of investigation, the police believe that he's not guilty."}
+    ],
+    "similar": ["Expressing \"through\" with \"tongguo\" (B1)"],
+    "source_pages": [396, 397, 398, 399, 400]
+  },
+  {
+    "id": "tongguo",
+    "title": "Expressing \"through\" with \"tongguo\"",
+    "level": "B1",
+    "structure": "通过 + Agent/Method，Subj. ……",
+    "explanation": "“通过”表示“通过、经过”，可作动词“通过（考试）”，也可作介词“通过（方法）”。",
+    "examples": [
+      {"zh": "从我家到那儿要通过两座桥。", "pinyin": "Cóng wǒ jiā dào nàr yào tōngguò liǎng zuò qiáo.", "en": "To get there from my house, you have to cross two bridges."},
+      {"zh": "我通过了这个考试。", "pinyin": "Wǒ tōngguò le zhège kǎoshì.", "en": "I passed this test."},
+      {"zh": "我们是通过他的朋友找到他的。", "pinyin": "Wǒmen shì tōngguò tā de péngyou zhǎodào tā de.", "en": "We found him via his friends."},
+      {"zh": "通过这个调查，我们发现很多人都支持他。", "pinyin": "Tōngguò zhège diàochá, wǒmen fāxiàn hěn duō rén dōu zhīchí tā.", "en": "Through this survey, we found that many people support him."}
+    ],
+    "similar": ["Expressing \"through\" with \"jingguo\" (B1)", "Using \"lai\" to connect two verb phrases (B1)"],
+    "source_pages": [401, 402, 403, 404, 405]
+  },
+  {
+    "id": "laizi",
+    "title": "Expressing \"to come from\" with \"laizi\"",
+    "level": "B1",
+    "structure": "Subj. + 来自 + Place",
+    "explanation": "“来自”表示“来自……”。",
+    "examples": [
+      {"zh": "我来自中国。", "pinyin": "Wǒ láizì Zhōngguó.", "en": "I come from China."},
+      {"zh": "这些书都来自日本。", "pinyin": "Zhèxiē shū dōu láizì Rìběn.", "en": "These books all come from Japan."},
+      {"zh": "我的这个想法来自生活。", "pinyin": "Wǒ de zhège xiǎngfǎ láizì shēnghuó.", "en": "This idea of mine originated from daily life."},
+      {"zh": "小明的成功来自他的努力和认真。", "pinyin": "Xiǎo Míng de chénggōng láizì tā de nǔlì hé rènzhēn.", "en": "Xiao Ming's success stems from his hard work and earnestness."}
+    ],
+    "similar": ["Expressing \"from... to...\" with \"cong... dao...\" (A2)"],
+    "source_pages": [406, 407, 408]
+  },
+  {
+    "id": "suan-judgment",
+    "title": "Making judgments with \"suan\"",
+    "level": "B1",
+    "structure": "Subj. (+ 不) + 算 + Noun；Subj. + 算 + Adj. + 的；Subj. + 不 + 算 + Adj.",
+    "explanation": "“算”表示“算作、算是”，可接名词或形容词；否定“不算”。",
+    "examples": [
+      {"zh": "她算天才。", "pinyin": "Tā suàn tiāncái.", "en": "She is considered a genius."},
+      {"zh": "这算秘密吗？", "pinyin": "Zhè suàn mìmì ma?", "en": "Is this considered a secret?"},
+      {"zh": "我们认识，但是不算朋友。", "pinyin": "Wǒmen rènshi, dànshì bù suàn péngyou.", "en": "We know each other, but can't be considered friends."},
+      {"zh": "这家店的东西算便宜的。", "pinyin": "Zhè jiā diàn de dōngxi suàn piányi de.", "en": "The things in this shop are pretty cheap."},
+      {"zh": "这次考试不算难。", "pinyin": "Zhè cì kǎoshì bù suàn nán.", "en": "This exam isn't that difficult."}
+    ],
+    "similar": [],
+    "source_pages": [409, 410, 411, 412, 413, 414]
+  },
+  {
+    "id": "lai-dummy-verb",
+    "title": "Using \"lai\" as a dummy verb",
+    "level": "B1",
+    "structure": "(让 +) Subj. + 来",
+    "explanation": "“来”作代动词，表示“让我来/你来做”，替代具体动作。",
+    "examples": [
+      {"zh": "你来！", "pinyin": "Nǐ lái!", "en": "You do it!"},
+      {"zh": "我来吧。", "pinyin": "Wǒ lái ba.", "en": "Let me do it."},
+      {"zh": "让他自己来。", "pinyin": "Ràng tā zìjǐ lái.", "en": "Let him do it himself."},
+      {"zh": "你写得好看，你来吧。", "pinyin": "Nǐ xiě de hǎokàn, nǐ lái ba.", "en": "You write well. You write it."}
+    ],
+    "similar": [],
+    "source_pages": [415, 416, 417, 418]
+  },
+  {
+    "id": "buyong",
+    "title": "Expressing \"don't need to\" with \"buyong\"",
+    "level": "B1",
+    "structure": "Subj. + 不用 + [Verb Phrase]",
+    "explanation": "“不用”表示“不需要、不必”。",
+    "examples": [
+      {"zh": "不用谢。", "pinyin": "Bùyòng xiè.", "en": "You don't need to thank me."},
+      {"zh": "不用担心。", "pinyin": "Bùyòng dānxīn.", "en": "You don't need to worry."},
+      {"zh": "孩子不用买票。", "pinyin": "Háizi bùyòng mǎi piào.", "en": "Kids don't need to buy tickets."},
+      {"zh": "今天不用加班。", "pinyin": "Jīntiān bùyòng jiābān.", "en": "We don't need to work overtime today."}
+    ],
+    "similar": ["Auxiliary verb \"yao\" and its multiple meanings (A2)", "Negative commands with \"bie\" (A2)", "Expressing \"must\" with \"dei\" (B1)"],
+    "source_pages": [419, 420, 421, 422, 423, 424]
+  },
+  {
+    "id": "dei-must",
+    "title": "Expressing \"must\" with \"dei\"",
+    "level": "B1",
+    "structure": "Subj. + 得 (děi) + [Verb Phrase]",
+    "explanation": "“得 (děi)”表示“必须、得”。",
+    "examples": [
+      {"zh": "我们得走了。", "pinyin": "Wǒmen děi zǒu le.", "en": "We have to leave now."},
+      {"zh": "时间不早了，我得回家了。", "pinyin": "Shíjiān bù zǎo le, wǒ děi huíjiā le.", "en": "It's getting late. I have to go home."},
+      {"zh": "他是你弟弟，你得帮他。", "pinyin": "Tā shì nǐ dìdi, nǐ děi bāng tā.", "en": "He is your younger brother. You must help him."},
+      {"zh": "在学校就得听老师的话。", "pinyin": "Zài xuéxiào jiù děi tīng lǎoshī de huà.", "en": "You have to listen to the teacher at school."}
+    ],
+    "similar": ["Expressing \"should\" with \"yinggai\" (A2)", "Expressing \"don't need to\" with \"buyong\" (B1)", "Expressing \"had better\" with \"zuihao\" (B1)"],
+    "source_pages": [425, 426, 427, 428, 429]
+  },
+  {
+    "id": "shao-less",
+    "title": "Doing something less with \"shao\"",
+    "level": "B1",
+    "structure": "少 + Verb",
+    "explanation": "“少 + 动词”表示“少做某事”。",
+    "examples": [
+      {"zh": "请少放点盐。", "pinyin": "Qǐng shǎo fàng diǎn yán.", "en": "Use less salt, please."},
+      {"zh": "少吃垃圾食品。", "pinyin": "Shǎo chī lājī shípǐn.", "en": "Eat less junk food."},
+      {"zh": "你能不能少抽点烟？", "pinyin": "Nǐ néng bu néng shǎo chōu diǎn yān?", "en": "Can you smoke less?"},
+      {"zh": "少喝点，明天还要上班呢。", "pinyin": "Shǎo hē diǎn, míngtiān hái yào shàngbān ne.", "en": "Don't drink so much. You need go to work tomorrow."}
+    ],
+    "similar": ["Doing something more with \"duo\" (B1)"],
+    "source_pages": [430, 431, 432, 433, 434, 435]
+  },
+  {
+    "id": "duo-more",
+    "title": "Doing something more with \"duo\"",
+    "level": "B1",
+    "structure": "多 + Verb",
+    "explanation": "“多 + 动词”表示“多做某事”。",
+    "examples": [
+      {"zh": "多吃点。", "pinyin": "Duō chī diǎn.", "en": "Eat a little more."},
+      {"zh": "多放点辣。", "pinyin": "Duō fàng diǎn là.", "en": "Add a little more spiciness."},
+      {"zh": "爷爷，你要多出去走走。", "pinyin": "Yéye, nǐ yào duō chūqù zǒuzou.", "en": "Gramps, you need to go out and take walks more often."},
+      {"zh": "感冒的时候要多喝水。", "pinyin": "Gǎnmào de shíhou yào duō hē shuǐ.", "en": "Drink more water when you have a cold."}
+    ],
+    "similar": ["Doing something less with \"shao\" (B1)", "Intensifying with \"duo\" (A2)"],
+    "source_pages": [436, 437, 438, 439, 440, 441]
+  },
+  {
+    "id": "bu-zenme-verb",
+    "title": "Expressing \"not often\" with \"bu zenme\"",
+    "level": "B1",
+    "structure": "Subj. + 不怎么 + Verb",
+    "explanation": "“不怎么 + 动词”表示“不常做某事”，也可表示数量少。",
+    "examples": [
+      {"zh": "他不怎么爱说话。", "pinyin": "Tā bù zěnme ài shuōhuà.", "en": "He doesn't like to talk much."},
+      {"zh": "我老公不怎么运动。", "pinyin": "Wǒ lǎogōng bù zěnme yùndòng.", "en": "My husband doesn't exercise much."},
+      {"zh": "老板不怎么来办公室。", "pinyin": "Lǎobǎn bù zěnme lái bàngōngshì.", "en": "My boss doesn't come to the office very often."},
+      {"zh": "我没怎么复习。", "pinyin": "Wǒ méi zěnme fùxí.", "en": "I didn't review much."}
+    ],
+    "similar": ["How to do something with \"zenme\" (A1)", "Asking why with \"zenme\" (A2)", "Expressing \"not very\" with \"bu zenme\" (B1)"],
+    "source_pages": [442, 443, 444, 445, 446]
+  },
+  {
+    "id": "dao-until",
+    "title": "Expressing \"until\" with \"dao\"",
+    "level": "B1",
+    "structure": "Verb (+ 一直) + 到 + Time/Event；[Verb Phrase] (+ 一直) + Verb + 到 + Time/Event",
+    "explanation": "“到”放在动词后表示“直到……”。",
+    "examples": [
+      {"zh": "你们要玩到几点？", "pinyin": "Nǐmen yào wán dào jǐ diǎn?", "en": "When will you be done playing?"},
+      {"zh": "我们在酒吧一直聊到半夜。", "pinyin": "Wǒmen zài jiǔbā yīzhí liáo dào bànyè.", "en": "We were chatting in the bar until midnight."},
+      {"zh": "我女儿昨天晚上写作业写到十二点半。", "pinyin": "Wǒ nǚ'ér zuótiān wǎnshang xiě zuòyè xiě dào shí'èr diǎn bàn.", "en": "My daughter didn't finish her homework until 12:30 last night."},
+      {"zh": "她给男朋友打电话打到手机没电。", "pinyin": "Tā gěi nánpéngyou dǎ diànhuà dǎ dào shǒujī méi diàn.", "en": "She called her boyfriend and they kept talking until her phone was out of battery."}
+    ],
+    "similar": ["Using \"dao\" to mean \"to go to\" (A2)"],
+    "source_pages": [447, 448, 449, 450, 451]
+  },
+  {
+    "id": "progress-full-form",
+    "title": "Expressing actions in progress (full form)",
+    "level": "B1",
+    "structure": "Subj. + 正在/正/在 + Verb + 呢；Subj. (+ 正) + Verb + 着 + Obj. + 呢",
+    "explanation": "完整进行式“正在……呢”，各部分常省略，最常见是“在 + V”或“正 + V”。",
+    "examples": [
+      {"zh": "我正在吃饭。", "pinyin": "Wǒ zhèngzài chīfàn.", "en": "I'm eating now."},
+      {"zh": "我正吃着饭呢。", "pinyin": "Wǒ zhèng chī zhe fàn ne.", "en": "I'm eating now."},
+      {"zh": "爷爷正在看报纸，别打扰他。", "pinyin": "Yéye zhèngzài kàn bàozhǐ, bié dǎrǎo tā.", "en": "Grandpa is reading newspapers now. Don't disturb him."},
+      {"zh": "老板在开会，不方便接电话。", "pinyin": "Lǎobǎn zài kāihuì, bù fāngbiàn jiē diànhuà.", "en": "The boss is in the middle of a meeting. It's not convenient for him to talk on the phone."}
+    ],
+    "similar": ["Expressing actions in progress with \"zai\" (A2)", "Alternative existential sentences (B1)", "Aspect particle \"zhe\" (B1)"],
+    "source_pages": [452, 453, 454, 455, 456]
+  },
+  {
+    "id": "verb-measure-words",
+    "title": "Measure words for verbs",
+    "level": "B1",
+    "structure": "Verb + Number + Measure Word",
+    "explanation": "动量词“次、遍、下”表示动作次数。",
+    "examples": [
+      {"zh": "再说一遍。", "pinyin": "Zài shuō yī biàn.", "en": "Say it again."},
+      {"zh": "这个电影我看过两遍。", "pinyin": "Zhège diànyǐng wǒ kàn guo liǎng biàn.", "en": "I've seen this movie twice."},
+      {"zh": "我们去过两次。", "pinyin": "Wǒmen qù guo liǎng cì.", "en": "We've been there twice."},
+      {"zh": "那个红头发的男孩打了我三下。", "pinyin": "Nàge hóng tóufa de nánhái dǎ le wǒ sān xià.", "en": "That red-haired boy hit me three times."}
+    ],
+    "similar": ["Measure words for counting (A2)", "Measure words in quantity questions (A2)"],
+    "source_pages": [457, 458, 459, 460, 461]
+  },
+  {
+    "id": "separable-verbs",
+    "title": "Separable verbs",
+    "level": "B1",
+    "structure": "Verb + Object；Verb... [Other Stuff]... Object",
+    "explanation": "离合词（动宾短语）可分开，如“见面、睡觉、吃饭”；宾语不能直接加在离合词后。",
+    "examples": [
+      {"zh": "我没有时间见面。", "pinyin": "Wǒ méiyǒu shíjiān jiànmiàn.", "en": "I don't have time to meet."},
+      {"zh": "我没有时间见你。", "pinyin": "Wǒ méiyǒu shíjiān jiàn nǐ.", "en": "I don't have time to meet you."},
+      {"zh": "我们昨天见了面。", "pinyin": "Wǒmen zuótiān jiàn le miàn.", "en": "We met yesterday."},
+      {"zh": "我们见个面吧。", "pinyin": "Wǒmen jiàn gè miàn ba.", "en": "Let's meet."},
+      {"zh": "晚安！睡个好觉。", "pinyin": "Wǎn'ān! Shuì gè hǎo jiào.", "en": "Good night! I hope you have a good sleep."}
+    ],
+    "similar": [],
+    "source_pages": [462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475]
+  },
+  {
+    "id": "verb-gei",
+    "title": "Verbs followed by \"gei\"",
+    "level": "B1",
+    "structure": "Subj. + Verb + 给 + Recipient + Obj.；Subj. + 把 + Obj. + Verb + 给 + Recipient",
+    "explanation": "“动词 + 给 + 人”表示“把……给某人”，动词多为单音节。",
+    "examples": [
+      {"zh": "昨天有人送给我一束花。", "pinyin": "Zuótiān yǒu rén sòng gěi wǒ yī shù huā.", "en": "Yesterday someone gave me a bouquet of flowers."},
+      {"zh": "请递给我一盒纸巾。", "pinyin": "Qǐng dì gěi wǒ yī hé zhǐjīn.", "en": "Please pass me a box of tissues."},
+      {"zh": "你想把这个礼物送给谁？", "pinyin": "Nǐ xiǎng bǎ zhège lǐwù sòng gěi shéi?", "en": "Who are you going to give this present to?"},
+      {"zh": "她已经把车卖给了一个朋友。", "pinyin": "Tā yǐjīng bǎ chē mài gěi le yī gè péngyou.", "en": "I've already sold my car to a friend of mine."}
+    ],
+    "similar": ["Expressing \"for\" with \"gei\" (B1)", "Using \"dui\" with verbs (B1)", "Verbs preceded by \"gei\" (B1)"],
+    "source_pages": [476, 477, 478, 479, 480, 481, 482]
+  },
+  {
+    "id": "gei-preceded",
+    "title": "Verbs preceded by \"gei\"",
+    "level": "B1",
+    "structure": "Subj. + 给 + Target + [Verb Phrase]",
+    "explanation": "“给 + 对象 + 动词”表示“为/向/给某人做某事”。",
+    "examples": [
+      {"zh": "现在不要给他打电话。", "pinyin": "Xiànzài bùyào gěi tā dǎ diànhuà.", "en": "Don't give him a phone call now."},
+      {"zh": "请快点给我回邮件。", "pinyin": "Qǐng kuàidiǎn gěi wǒ huí yóujiàn.", "en": "Please hurry up and reply to my email."},
+      {"zh": "你可以给大家读一下吗？", "pinyin": "Nǐ kěyǐ gěi dàjiā dú yīxià ma?", "en": "Could you please read it for everybody?"},
+      {"zh": "爸爸应该给儿子道歉。", "pinyin": "Bàba yīnggāi gěi érzi dàoqiàn.", "en": "The father should apologize to his son."}
+    ],
+    "similar": ["Expressing \"for\" with \"gei\" (B1)", "Using \"dui\" with verbs (B1)", "Verbs followed by \"gei\" (B1)"],
+    "source_pages": [483, 484, 485, 486, 487, 488]
+  },
+  {
+    "id": "degree-complement",
+    "title": "Degree complement",
+    "level": "B1",
+    "structure": "Verb + 得 + [Degree Complement]；Adj. + 极了/死了/坏了",
+    "explanation": "程度补语表示动作或形容词的程度，常用“得”。形容词后可直接加“极了/死了/坏了”。",
+    "examples": [
+      {"zh": "你觉得我画得怎么样？", "pinyin": "Nǐmen juéde wǒ huà de zěnmeyàng?", "en": "How well do you think I draw?"},
+      {"zh": "我们觉得你画得很好。", "pinyin": "Wǒmen juéde nǐ huà de hěn hǎo.", "en": "We think you draw very well."},
+      {"zh": "你说中文说得很好。", "pinyin": "Nǐ shuō Zhōngwén shuō de hěn hǎo.", "en": "You speak Chinese well."},
+      {"zh": "味道好极了。", "pinyin": "Wèidào hǎo jíle.", "en": "The taste is amazing."},
+      {"zh": "他的袜子臭死了。", "pinyin": "Tā de wàzi chòu sǐle.", "en": "His socks totally reek."}
+    ],
+    "similar": ["Direction complement (B1)", "Advanced degree complements (B2)"],
+    "source_pages": [489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499]
+  },
+  {
+    "id": "direction-complement",
+    "title": "Direction complement",
+    "level": "B1",
+    "structure": "Verb + 来/去；Verb + [Compound Direction Complement]；Verb + Object + Complement",
+    "explanation": "趋向补语表示动作方向，用“来/去”及复合趋向补语（上来、下去、出来等）。",
+    "examples": [
+      {"zh": "我在楼上，你上来。", "pinyin": "Wǒ zài lóushàng, nǐ shànglái.", "en": "I'm on the upper floor. Come up to me."},
+      {"zh": "出来玩吧，我们在酒吧等你。", "pinyin": "Chūlái wán ba, wǒmen zài jiǔbā děng nǐ.", "en": "Come and hang out with us. We'll be waiting in the bar."},
+      {"zh": "请站起来。", "pinyin": "Qǐng zhàn qǐlái.", "en": "Please stand up."},
+      {"zh": "服务员，请再拿几个碗来。", "pinyin": "Fúwùyuán, qǐng zài ná jǐ gè wǎn lái.", "en": "Waiter, please bring a few more bowls."}
+    ],
+    "similar": ["Directional verbs \"lai\" and \"qu\" (A2)", "Direction complement \"-qilai\" (B1)", "Result complement \"-xiaqu\" (B1)"],
+    "source_pages": [500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510]
+  },
+  {
+    "id": "qilai",
+    "title": "Direction complement \"-qilai\"",
+    "level": "B1",
+    "structure": "Verb + 起来；Verb/Adj. + 起来 + 了；Subj. + Verb + 起来 + Adv. + Adj.",
+    "explanation": "“起来”可表示向上、动作开始、初步判断（看起来/听起来……）。",
+    "examples": [
+      {"zh": "请大家站起来。", "pinyin": "Qǐng dàjiā zhàn qǐlái.", "en": "Everyone, please stand up."},
+      {"zh": "小鸟飞起来了。", "pinyin": "Xiǎoniǎo fēi qǐlái le.", "en": "The birds started flying."},
+      {"zh": "他看起来很友好。", "pinyin": "Tā kàn qǐlái hěn yǒuhǎo.", "en": "He looks very friendly."},
+      {"zh": "这件衣服听起来有点复杂。", "pinyin": "Zhè jiàn yīfu tīng qǐlái yǒudiǎn fùzá.", "en": "This matter sounds a little bit complex."}
+    ],
+    "similar": ["Appearance with \"kanqilai\" (B1)", "Direction complement (B1)", "Result complement \"-xiaqu\" (B1)"],
+    "source_pages": [511, 512, 513, 514, 515, 516, 517]
+  },
+  {
+    "id": "potential-complement",
+    "title": "Potential complement",
+    "level": "B1",
+    "structure": "Subj. + Verb + 得 + Complement；Subj. + Verb + 不 + Complement",
+    "explanation": "可能补语表示能否做到，肯定“V得……”，否定“V不……”。",
+    "examples": [
+      {"zh": "你没戴眼镜，看得清楚吗？", "pinyin": "Nǐ méi dài yǎnjìng, kàn de qīngchu ma?", "en": "You didn't wear glasses. Can you see clearly?"},
+      {"zh": "他这么粗心，做得好吗？", "pinyin": "Tā zhème cūxīn, zuò de hǎo ma?", "en": "He's so careless. Can he do it well?"},
+      {"zh": "你的声音太小了，我们听不见。", "pinyin": "Nǐ de shēngyīn tài xiǎo le, wǒmen tīng bu jiàn.", "en": "Your voice is too soft. We can't hear you."},
+      {"zh": "包太小了，手机放不进去。", "pinyin": "Bāo tài xiǎo le, shǒujī fàng bu jìnqù.", "en": "The bag is too small. I can't fit the cell phone in it."}
+    ],
+    "similar": ["Potential complement \"-bu dong\" for not understanding (A2)", "Direction complement (B1)", "Advanced potential complements (B2)"],
+    "source_pages": [518, 519, 520, 521, 522, 523, 524]
+  },
+  {
+    "id": "xiaqu",
+    "title": "Result complement \"-xiaqu\"",
+    "level": "B1",
+    "structure": "Subj. + Verb + 下去；Subj. + Verb + 不 + 下去 (+ 了)",
+    "explanation": "“下去”表示继续下去；否定“V不下去”表示无法继续。",
+    "examples": [
+      {"zh": "说下去。", "pinyin": "Shuō xiàqù.", "en": "Keep talking."},
+      {"zh": "这本书你一定要认真地看下去。", "pinyin": "Zhè běn shū nǐ yīdìng yào rènzhēn de kàn xiàqù.", "en": "You must keep reading this book carefully."},
+      {"zh": "这个电影太暴力了，我看不下去了。", "pinyin": "Zhège diànyǐng tài bàolì le, wǒ kàn bu xiàqù le.", "en": "This movie is too violent. I can't keep watching it."},
+      {"zh": "你再喝下去就醉了。", "pinyin": "Nǐ zài hē xiàqù jiù zuì le.", "en": "If you keep drinking you're going to get drunk."}
+    ],
+    "similar": ["Direction complement \"-qilai\" (B1)", "Advanced result complements (B2)"],
+    "source_pages": [525, 526, 527, 528, 529, 530]
+  },
+  {
+    "id": "result-complement",
+    "title": "Result complements",
+    "level": "B1",
+    "structure": "Subj. + Verb + Adj. + 了 (+ Obj.)；Subj. + 没 + Verb + Adj. (+ Obj.)；Subj. + Verb + [One-syllable Verb] + 了 (+ Obj.)",
+    "explanation": "结果补语表示动作结果，常用形容词或单音节动词（好、错、完、到、见、懂等）。",
+    "examples": [
+      {"zh": "你吃好了吗？", "pinyin": "Nǐ chī hǎo le ma?", "en": "Are you done eating?"},
+      {"zh": "对不起，我记错了时间。", "pinyin": "Duìbuqǐ, wǒ jì cuò le shíjiān.", "en": "Sorry, I misremembered the time."},
+      {"zh": "你踩到了我的脚。", "pinyin": "Nǐ cǎi dào le wǒ de jiǎo.", "en": "You're stepping on my foot."},
+      {"zh": "老师拿走了我的iPad。", "pinyin": "Lǎoshī ná zǒu le wǒ de iPad.", "en": "The teacher took away my iPad."}
+    ],
+    "similar": ["Result complement \"-wan\" for finishing (A2)", "Expressing not knowing how to do something using \"hao\" (B1)", "Using \"bei\" sentences (B1)"],
+    "source_pages": [531, 532, 533, 534, 535, 536, 537, 538]
+  },
+  {
+    "id": "suoyou-all",
+    "title": "Expressing \"all\" with \"suoyou\"",
+    "level": "B1",
+    "structure": "所有 (+ 的) + Noun；所有 (+ 的) + Noun + 都 + Predicate；不是 + 所有 (+ 的) + Noun + 都 + Predicate",
+    "explanation": "“所有”表示“所有、全部”，谓语常用“都”；否定“不是所有……都……”表示“不是全部”。",
+    "examples": [
+      {"zh": "你买了她所有的书？", "pinyin": "Nǐ mǎi le tā suǒyǒu de shū?", "en": "You've bought all her books?"},
+      {"zh": "所有人都走了吗？", "pinyin": "Suǒyǒu rén dōu zǒu le ma?", "en": "Did all the people leave?"},
+      {"zh": "不是所有的美国人都爱喝咖啡。", "pinyin": "Bù shì suǒyǒu de Měiguórén dōu ài hē kāfēi.", "en": "Not all Americans like drinking coffee."},
+      {"zh": "不是所有问题都能用钱来解决。", "pinyin": "Bù shì suǒyǒu wèntí dōu néng yòng qián lái jiějué.", "en": "Not all problems can be solved with money."}
+    ],
+    "similar": ["Emphasizing quantity with \"dou\" (A2)", "Expressing \"everything\" with \"shenme dou\" (A2)", "Indicating the whole with \"quan\" (B1)"],
+    "source_pages": [539, 540, 541, 542, 543]
+  },
+  {
+    "id": "zhiyi",
+    "title": "Expressing \"one of\" with \"zhiyi\"",
+    "level": "B1",
+    "structure": "Subj. + 是 + [Noun Phrase] + 之一；[Noun Phrase] + 之一 + 是……",
+    "explanation": "“之一”表示“……之一”，常与“最”搭配。",
+    "examples": [
+      {"zh": "她是我最好的朋友之一。", "pinyin": "Tā shì wǒ zuì hǎo de péngyou zhī yī.", "en": "She is one of my best friends."},
+      {"zh": "Frozen是我最喜欢的迪斯尼电影之一。", "pinyin": "Frozen shì wǒ zuì xǐhuan de Dísīní diànyǐng zhī yī.", "en": "Frozen is one of my favorite Disney movies."},
+      {"zh": "纽约是世界上最国际化的城市之一。", "pinyin": "Niǔyuē shì shìjiè shàng zuì guójìhuà de chéngshì zhī yī.", "en": "New York is one of the most international cities in the world."},
+      {"zh": "他是这个公司的创始人之一。", "pinyin": "Tā shì zhège gōngsī de chuàngshǐrén zhī yī.", "en": "He is one of the founders of this company."}
+    ],
+    "similar": [],
+    "source_pages": [544, 545, 546, 547]
+  },
+  {
+    "id": "lingwai-the-other",
+    "title": "Expressing \"the other\" with \"lingwai\"",
+    "level": "B1",
+    "structure": "另外 + Number + [Measure Word] + Noun；另 + 一个",
+    "explanation": "“另外”表示“另外的、其他的”，后可接数量词。",
+    "examples": [
+      {"zh": "我有两个手机，一个是小米，另一个是iPhone。", "pinyin": "Wǒ yǒu liǎng gè shǒujī, yī gè shì Xiǎomǐ, lìng yī gè shì iPhone.", "en": "I have two cell phones. One is a Xiaomi, and the other is an iPhone."},
+      {"zh": "她有两套房子，一套自己住，另一套租给别人了。", "pinyin": "Tā yǒu liǎng tào fángzi, yī tào zìjǐ zhù, lìng yī tào zū gěi biérén le.", "en": "She has two houses. She lives in one and rents the other one to other people."},
+      {"zh": "我买了三张票，一张是我的，另外两张是给朋友的。", "pinyin": "Wǒ mǎi le sān zhāng piào, yī zhāng shì wǒ de, lìngwài liǎng zhāng shì gěi péngyou de.", "en": "I bought three tickets. One is for myself, and the other two are for my friends."},
+      {"zh": "这个蛋糕一半是你的，另一半是妹妹的。", "pinyin": "Zhège dàngāo yībàn shì nǐ de, lìng yībàn shì mèimei de.", "en": "Half of this cake is yours. The other half is your little sister's."}
+    ],
+    "similar": [],
+    "source_pages": [548, 549, 550, 551]
+  },
+  {
+    "id": "shi-de-details",
+    "title": "The \"shi... de\" construction for emphasizing details",
+    "level": "B1",
+    "structure": "Subj. + 是 + [Information to be Emphasized] + Verb + 的",
+    "explanation": "“是……的”强调过去事件的细节（时间、地点、方式等），不是单纯表示过去。",
+    "examples": [
+      {"zh": "你们是什么时候到的？", "pinyin": "Nǐmen shì shénme shíhou dào de?", "en": "When did you guys arrive?"},
+      {"zh": "我们是昨天到的。", "pinyin": "Wǒmen shì zuótiān dào de.", "en": "We arrived yesterday."},
+      {"zh": "你是在哪儿出生的？", "pinyin": "Nǐ shì zài nǎr chūshēng de?", "en": "Where were you born?"},
+      {"zh": "我是在香港出生的。", "pinyin": "Wǒ shì zài Xiānggǎng chūshēng de.", "en": "I was born in Hong Kong."},
+      {"zh": "我们不是在网上认识的。", "pinyin": "Wǒmen bù shì zài wǎngshàng rènshi de.", "en": "We didn't meet online."}
+    ],
+    "similar": ["The \"shi... de\" construction for indicating purpose (B1)", "The \"shi... de\" patterns: an overview (B1)", "Using \"de\" (modal particle) (B1)"],
+    "source_pages": [552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564]
+  },
+  {
+    "id": "shi-de-purpose",
+    "title": "The \"shi... de\" construction for indicating purpose",
+    "level": "B1",
+    "structure": "Person + 是 + 来/去 + Verb + 的；Thing + 是 + 用来 + Verb + 的；Thing + 是 + 给 + Person + Verb + 的",
+    "explanation": "“是……的”表示目的/用途：“是来做……的”“是用来……的”。",
+    "examples": [
+      {"zh": "我是来玩的。", "pinyin": "Wǒ shì lái wán de.", "en": "I came for fun."},
+      {"zh": "我们都是去出差的。", "pinyin": "Wǒmen dōu shì qù chūchāi de.", "en": "We are all going on business trips."},
+      {"zh": "这种菜是用来做汤的。", "pinyin": "Zhè zhǒng cài shì yònglái zuò tāng de.", "en": "This kind of vegetable is for making soup."},
+      {"zh": "这个房间是给客人住的。", "pinyin": "Zhège fángjiān shì gěi kèrén zhù de.", "en": "This room is for our guest to stay in."}
+    ],
+    "similar": ["The \"shi... de\" construction for emphasizing details (B1)", "The \"shi... de\" patterns: an overview (B1)"],
+    "source_pages": [565, 566, 567, 568, 569]
+  },
+  {
+    "id": "topic-comment",
+    "title": "Topic-comment sentences",
+    "level": "B1",
+    "structure": "Topic，Comment",
+    "explanation": "主题句把要强调的成分放句首，后加评论。",
+    "examples": [
+      {"zh": "水果，我最爱吃草莓。", "pinyin": "Shuǐguǒ, wǒ zuì ài chī cǎoméi.", "en": "Fruit, I like strawberries best."},
+      {"zh": "咖啡，我都喝完了。", "pinyin": "Kāfēi, wǒ dōu hē wán le.", "en": "I'm sorry. I finished all the coffee."},
+      {"zh": "这个问题，你一个人没办法解决。", "pinyin": "Zhège wèntí, nǐ yīgèrén méi bànfǎ jiějué.", "en": "There is no way that you can solve this problem all by yourself."},
+      {"zh": "那部电影，看过的人都喜欢。", "pinyin": "Nà bù diànyǐng, kàn guo de rén dōu xǐhuan.", "en": "All the people that have watched that movie like it."}
+    ],
+    "similar": ["Marking a topic with \"de hua\" (B2)", "Marking a topic with \"ma\" (B2)"],
+    "source_pages": [581, 582, 583, 584, 585]
+  },
+  {
+    "id": "ba-sentences",
+    "title": "Using \"ba\" sentences",
+    "level": "B1",
+    "structure": "Subj. + 把 + Obj. + [Verb Phrase]",
+    "explanation": "“把”字句把宾语提前，强调对宾语的处置结果。宾语需定指，动词后需有其他成分。",
+    "examples": [
+      {"zh": "把书放在桌子上。", "pinyin": "Bǎ shū fàng zài zhuōzi shàng.", "en": "Put the book on the table."},
+      {"zh": "她把我的手机放在她的包里了。", "pinyin": "Tā bǎ wǒ de shǒujī fàng zài tā de bāo lǐ le.", "en": "She put my cell phone in her bag."},
+      {"zh": "我把作业做完了。", "pinyin": "Wǒ bǎ zuòyè zuò wán le.", "en": "I finished doing my homework."},
+      {"zh": "请把客人带进去。", "pinyin": "Qǐng bǎ kèrén dài jìnqù.", "en": "Please take the guests inside."}
+    ],
+    "similar": ["Direction complement (B1)", "Using \"bei\" sentences (B1)", "Advanced uses of \"ba\" (B2)", "Using \"jiang\" as a formal \"ba\" (B2)"],
+    "source_pages": [586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597]
+  },
+  {
+    "id": "bei-sentences",
+    "title": "Using \"bei\" sentences",
+    "level": "B1",
+    "structure": "Subj. + 被 (+ Doer) + Verb + 了",
+    "explanation": "“被”字句表示被动，动词后需有“了/补语”等成分，常带不如意语气。",
+    "examples": [
+      {"zh": "我被他骗了。", "pinyin": "Wǒ bèi tā piàn le.", "en": "I was deceived by him."},
+      {"zh": "他被警察抓了。", "pinyin": "Tā bèi jǐngchá zhuā le.", "en": "He was caught by the police."},
+      {"zh": "我的车被撞了。", "pinyin": "Wǒ de chē bèi zhuàng le.", "en": "My car was hit."},
+      {"zh": "咖啡被我喝完了。", "pinyin": "Kāfēi bèi wǒ hē wán le.", "en": "The coffee was finished by me."}
+    ],
+    "similar": ["Direction complement (B1)", "Using \"ba\" sentences (B1)", "Advanced uses of \"ba\" (B2)", "Expressing passive voice with \"gei\" (B2)"],
+    "source_pages": [598, 599, 600, 601, 602, 603, 604, 605, 606]
+  },
+  {
+    "id": "existential-zhe-shi",
+    "title": "Alternative existential sentences",
+    "level": "B1",
+    "structure": "Place + Verb + 着 + [Noun Phrase]；Place + 是 + [Noun Phrase]",
+    "explanation": "“处所 + 动词 + 着 + 名词”表示某处存在某物；“处所 + 是 + 名词”强调某处只有某物。",
+    "examples": [
+      {"zh": "桌子上放着一本书。", "pinyin": "Zhuōzi shàng fàng zhe yī běn shū.", "en": "There is a book on the desk."},
+      {"zh": "大厅里站着一些警察。", "pinyin": "Dàtīng lǐ zhàn zhe yīxiē jǐngchá.", "en": "There are several policemen standing in the hall."},
+      {"zh": "洗衣机里是一些脏衣服。", "pinyin": "Xǐyījī lǐ shì yīxiē zāng yīfu.", "en": "There are dirty clothes inside the washing machine."},
+      {"zh": "盒子里是你的礼物。", "pinyin": "Hézi lǐ shì nǐ de lǐwù.", "en": "Your gift is in the box."}
+    ],
+    "similar": ["Expressing actions in progress (full form) (B1)"],
+    "source_pages": [607, 608, 609, 610, 611, 612]
+  },
+  {
+    "id": "xiang-verb-jiu-verb",
+    "title": "Expressing \"as one likes\" with \"xiang... jiu...\"",
+    "level": "B1",
+    "structure": "想 + Verb + 就 + Verb；想 + Verb + [Question Word] + 就 + Verb + [Question Word]",
+    "explanation": "“想V就V”表示“想怎样就怎样”；加疑问词表示“想……就……”。",
+    "examples": [
+      {"zh": "想吃就吃。", "pinyin": "Xiǎng chī jiù chī.", "en": "If you want to eat, help yourself."},
+      {"zh": "想走就走吧。", "pinyin": "Xiǎng zǒu jiù zǒu ba.", "en": "Leave if you want to."},
+      {"zh": "想去哪儿就去哪儿。", "pinyin": "Xiǎng qù nǎr jiù qù nǎr.", "en": "You can go wherever you'd like to go."},
+      {"zh": "想请谁就请谁。", "pinyin": "Xiǎng qǐng shéi jiù qǐng shéi.", "en": "You can invite whoever you like."}
+    ],
+    "similar": ["Conditions with \"yao\" and \"jiu\" (B2)"],
+    "source_pages": [613, 614, 615, 616, 617, 618]
+  },
+  {
+    "id": "double-negation",
+    "title": "Expressing \"double negation\"",
+    "level": "B1",
+    "structure": "Subj. + 不是 + 不/没 + Predicate；Subj. + 不 + 会/能/可能 + 不/没 + Predicate；没有 + [Singular Noun] + 不/没 + Predicate + 的",
+    "explanation": "双重否定表示强调肯定。",
+    "examples": [
+      {"zh": "他不会不来的。", "pinyin": "Tā bù huì bù lái de.", "en": "There is no way he's not coming."},
+      {"zh": "她不可能不知道。", "pinyin": "Tā bù kěnéng bù zhīdào.", "en": "There is no way she doesn't know about this."},
+      {"zh": "没有一个人不讨厌他的。", "pinyin": "Méiyǒu yī gè rén bù tǎoyàn tā de.", "en": "There is not one person who doesn't dislike him."},
+      {"zh": "这些菜没有一个是辣的。", "pinyin": "Zhèxiē cài méiyǒu yī gè shì là de.", "en": "There is no single one that is not spicy among these dishes."}
+    ],
+    "similar": ["Expressing \"all\" with \"suoyou\" (B1)"],
+    "source_pages": [619, 620, 621, 622, 623]
+  },
+  {
+    "id": "lian-dou",
+    "title": "Expressing \"even\" with \"lian\" and \"dou\"",
+    "level": "B1",
+    "structure": "连 + Subj./Obj. + 都 (+ 不/没) + Verb",
+    "explanation": "“连……都……”表示“连……都……”，强调意外。",
+    "examples": [
+      {"zh": "这个问题太简单了，连三岁小孩都知道。", "pinyin": "Zhège wèntí tài jiǎndān le, lián sān suì xiǎohái dōu zhīdào.", "en": "This question is so easy that even a three-year-old kid knows the answer."},
+      {"zh": "这个汉字太难了，连我的中文老师都不认识。", "pinyin": "Zhège Hànzì tài nán le, lián wǒ de Zhōngwén lǎoshī dōu bù rènshi.", "en": "This Chinese character is so difficult that even my Chinese teacher doesn't know it."},
+      {"zh": "他什么都吃，连狗肉都吃。", "pinyin": "Tā shénme dōu chī, lián gǒu ròu dōu chī.", "en": "He eats everything, even dog meat."},
+      {"zh": "你连你最好的朋友都不相信？", "pinyin": "Nǐ lián nǐ zuìhǎo de péngyou dōu bù xiāngxìn?", "en": "You don't even trust your best friend?"}
+    ],
+    "similar": ["Expressing \"even\" with \"shenzhi\" (B2)", "Expressing \"let alone\" with \"bie shuo\" (B2)", "Expressing \"not even one\" (B2)"],
+    "source_pages": [624, 625, 626, 627, 628, 629, 630]
+  },
+  {
+    "id": "mei-dou-every-time",
+    "title": "Expressing \"every time\" with \"mei\" and \"dou\"",
+    "level": "B1",
+    "structure": "每次 + Event 1 + 都 + Event 2",
+    "explanation": "“每次……都……”表示“每次……都……”。",
+    "examples": [
+      {"zh": "她每次来我家都带花。", "pinyin": "Tā měi cì lái wǒ jiā dōu dài huā.", "en": "She brings flowers every time she visits me."},
+      {"zh": "为什么每次我来他都不在？", "pinyin": "Wèishénme měi cì wǒ lái tā dōu bù zài?", "en": "How come he's not here every time I come?"},
+      {"zh": "我每次玩这个游戏都输。", "pinyin": "Wǒ měi cì wán zhège yóuxì dōu shū.", "en": "Every time I play this game, I lose."},
+      {"zh": "他每次迟到都说因为堵车。", "pinyin": "Tā měi cì chídào dōu shuō yīnwèi dǔchē.", "en": "Every time he's late, he says it's because of bad traffic."}
+    ],
+    "similar": ["The \"all\" adverb \"dou\" (A1)", "Expressing \"every\" with \"mei\" (A2)", "Expressing \"all\" with \"suoyou\" (B1)"],
+    "source_pages": [631, 632, 633, 634, 635]
+  },
+  {
+    "id": "question-word-dou",
+    "title": "Expressing \"every\" with question words",
+    "level": "B1",
+    "structure": "谁/哪儿/什么时候/多少/怎么 + 都 + Predicate",
+    "explanation": "疑问词 + 都 表示“任何……都/都……”。",
+    "examples": [
+      {"zh": "谁都喜欢美食。", "pinyin": "Shéi dōu xǐhuan měishí.", "en": "Everyone likes delicious food."},
+      {"zh": "他的房间里哪儿都是脏衣服。", "pinyin": "Tā de fángjiān lǐ nǎr dōu shì zāng yīfu.", "en": "His dirty laundry is all over his room."},
+      {"zh": "什么时候都可以。", "pinyin": "Shénme shíhou dōu kěyǐ.", "en": "Anytime is fine."},
+      {"zh": "你想吃多少都可以。", "pinyin": "Nǐ xiǎng chī duōshao dōu kěyǐ.", "en": "You can eat however much you want."}
+    ],
+    "similar": ["Expressing \"everything\" with \"shenme dou\" (A2)", "Expressing \"all\" with \"suoyou\" (B1)", "Expressing \"some\" with question words (B1)"],
+    "source_pages": [636, 637, 638, 639, 640, 641, 642]
+  },
+  {
+    "id": "how-often",
+    "title": "Expressing \"how often\"",
+    "level": "B1",
+    "structure": "Subj. + 多长时间 + Verb + 一次 (+ Obj.)；Subj. + [Length of Time] + Verb + Times (+ Obj.)",
+    "explanation": "“多长时间……一次”询问频率；“一段时间 + 动词 + 次数”表示频率。",
+    "examples": [
+      {"zh": "你多长时间踢一次球？", "pinyin": "Nǐ duō cháng shíjiān tī yī cì qiú?", "en": "How often do you play soccer?"},
+      {"zh": "你多长时间剪一次头发？", "pinyin": "Nǐ duō cháng shíjiān jiǎn yī cì tóufa?", "en": "How often do you cut your hair?"},
+      {"zh": "我一周给妈妈打两次电话。", "pinyin": "Wǒ yī zhōu gěi māma dǎ liǎng cì diànhuà.", "en": "I give mom a call twice a week."},
+      {"zh": "这种药四个小时吃一次。", "pinyin": "Zhè zhǒng yào sì gè xiǎoshí chī yī cì.", "en": "Take this medicine every four hours."}
+    ],
+    "similar": [],
+    "source_pages": [643, 644, 645, 646, 647, 648]
+  },
+  {
+    "id": "yuelaiyue",
+    "title": "Expressing \"more and more\" with \"yuelaiyue\"",
+    "level": "B1",
+    "structure": "Subj. + 越来越 + Adj./Verb + 了",
+    "explanation": "“越来越……”表示“越来越……”。",
+    "examples": [
+      {"zh": "天气越来越冷了。", "pinyin": "Tiānqì yuèláiyuè lěng le.", "en": "The weather is getting colder and colder."},
+      {"zh": "你女儿越来越漂亮了。", "pinyin": "Nǐ nǚ'ér yuèláiyuè piàoliang le.", "en": "Your daughter is getting more and more beautiful."},
+      {"zh": "我越来越喜欢上海了。", "pinyin": "Wǒ yuèláiyuè xǐhuan Shànghǎi le.", "en": "I like Shanghai more and more."},
+      {"zh": "我越来越不相信他了。", "pinyin": "Wǒ yuèláiyuè bù xiāngxìn tā le.", "en": "I believe him less and less."}
+    ],
+    "similar": ["Expressing \"even more\" with \"geng\" (A2)", "Expressing \"the more... the more...\" with \"yue... yue...\" (B2)"],
+    "source_pages": [649, 650, 651, 652, 653]
+  },
+  {
+    "id": "bei-multiples",
+    "title": "Expressing \"multiples\" with \"bei\"",
+    "level": "B1",
+    "structure": "A + 是 + B + 的 + Number + 倍；A + 比 + B + Adj. + Number + 倍",
+    "explanation": "“倍”表示倍数；“A是B的几倍”表示A是B的几倍；“A比B + 形容词 + 几倍”表示多几倍。",
+    "examples": [
+      {"zh": "他现在的工资是两年前的四倍。", "pinyin": "Tā xiànzài de gōngzī shì liǎng nián qián de sì bèi.", "en": "His current salary is four times what it was two years ago."},
+      {"zh": "今年的产量是去年的两倍。", "pinyin": "Jīnnián de chǎnliàng shì qùnián de liǎng bèi.", "en": "This year's output is twice as much as last year's."},
+      {"zh": "我家客厅比你家客厅大一倍。", "pinyin": "Wǒ jiā kètīng bǐ nǐ jiā kètīng dà yī bèi.", "en": "My home's living room is double the size of your home's living room."},
+      {"zh": "他的车比你的车贵十倍。", "pinyin": "Tā de chē bǐ nǐ de chē guì shí bèi.", "en": "His car is 11 times more expensive than your car."}
+    ],
+    "similar": ["Expressing \"compared with\" using \"gen\" (B1)", "Expressing fractions with \"fenzhi\" (B1)"],
+    "source_pages": [654, 655, 656, 657, 658]
+  },
+  {
+    "id": "yidianr-ye-bu",
+    "title": "Expressing \"not at all\" with \"yidianr ye bu\"",
+    "level": "B1",
+    "structure": "Subj. + 一点(儿) + 也/都 + 不 + Adj./Verb Phrase；一点也没/都没 + Verb Phrase",
+    "explanation": "“一点也不/都不……”表示“一点也不……”；“一点也没/都没……”用于过去否定。",
+    "examples": [
+      {"zh": "那个问题一点儿也不难。", "pinyin": "Nàge wèntí yīdiǎnr yě bù nán.", "en": "That question isn't difficult at all."},
+      {"zh": "这个菜一点都不好吃。", "pinyin": "Zhège cài yīdiǎn dōu bù hǎochī.", "en": "This dish isn't tasty at all."},
+      {"zh": "我一点也不喜欢奶酪。", "pinyin": "Wǒ yīdiǎn yě bù xǐhuan nǎilào.", "en": "I don't like cheese at all."},
+      {"zh": "我一点也没生气。", "pinyin": "Wǒ yīdiǎn yě méi shēngqì.", "en": "I wasn't angry at all."}
+    ],
+    "similar": ["Expressing \"everything\" with \"shenme dou\" (A2)", "Comparing \"youdian\" and \"yidian\" (B1)", "Expressing \"not even one\" (B2)"],
+    "source_pages": [659, 660, 661, 662, 663]
+  },
+  {
+    "id": "question-words-some",
+    "title": "Expressing \"some\" with question words",
+    "level": "B1",
+    "structure": "哪儿/谁/什么/什么时候",
+    "explanation": "疑问词可表示不确定的“某处/某人/某物/某时”。",
+    "examples": [
+      {"zh": "这个人我在哪儿见过。", "pinyin": "Zhège rén wǒ zài nǎr jiàn guo.", "en": "I've met this person somewhere before."},
+      {"zh": "你让谁来帮我一下。", "pinyin": "Nǐ ràng shéi lái bāng wǒ yīxià.", "en": "Ask someone to help me with this."},
+      {"zh": "我们应该做点儿什么。", "pinyin": "Wǒmen yīnggāi zuò diǎnr shénme.", "en": "We should do something."},
+      {"zh": "什么时候我们见面谈吧。", "pinyin": "Shénme shíhou wǒmen jiànmiàn tán ba.", "en": "Let's meet and talk about this sometime."}
+    ],
+    "similar": ["Expressing \"every\" with question words (B1)"],
+    "source_pages": [664, 665, 666, 667, 668, 669]
+  },
+  {
+    "id": "bu-zhidao-hao",
+    "title": "Expressing not knowing how to do something using \"hao\"",
+    "level": "B1",
+    "structure": "Subj. + 不知道 + [Verb Phrase] + 好",
+    "explanation": "“不知道……好”表示“不知道……才好”，强调为难。",
+    "examples": [
+      {"zh": "我真的不知道怎么办才好。", "pinyin": "Wǒ zhēnde bù zhīdào zěnme bàn cái hǎo.", "en": "I really don't know what to do about this."},
+      {"zh": "我们都不知道说什么好。", "pinyin": "Wǒmen dōu bù zhīdào shuō shénme hǎo.", "en": "None of us knew what to say."},
+      {"zh": "这件事我不知道跟谁说好。", "pinyin": "Zhè jiàn shì wǒ bù zhīdào gēn shéi shuō hǎo.", "en": "I'm not sure who to talk to about this matter."},
+      {"zh": "这些钱他不知道放在哪儿才好。", "pinyin": "Zhèxiē qián tā bù zhīdào fàng zài nǎr cái hǎo.", "en": "He doesn't know where to put this money."}
+    ],
+    "similar": ["Result complements (B1)", "Expressing difficulty with \"hao (bu) rongyi\" (B2)"],
+    "source_pages": [670, 671, 672, 673, 674]
+  },
+  {
+    "id": "weile-purpose",
+    "title": "Expressing purpose with \"weile\"",
+    "level": "B1",
+    "structure": "为了……，Subj. ……；……是 + 为了/因为……",
+    "explanation": "“为了”表示目的“为了……”；也可“是 + 为了”说明原因/目的。",
+    "examples": [
+      {"zh": "为了钱，他什么都愿意做。", "pinyin": "Wèile qián, tā shénme dōu yuànyì zuò.", "en": "He's willing to do anything for money."},
+      {"zh": "为了孩子的未来，他决定搬到上海。", "pinyin": "Wèile háizi de wèilái, tā juédìng bāndào Shànghǎi.", "en": "He decided to move to Shanghai for his children's future."},
+      {"zh": "我这么做是为了帮你。", "pinyin": "Wǒ zhème zuò shì wèile bāng nǐ.", "en": "I did all this to help you."},
+      {"zh": "他做兼职是为了多赚点钱。", "pinyin": "Tā zuò jiānzhí shì wèile duō zhuàn diǎn qián.", "en": "The reason why he has a part time job is to make a little more money."}
+    ],
+    "similar": ["Expressing \"for\" with \"wei\" (B1)", "Expressing \"in this way\" with \"zheyang\" (B1)", "Using \"lai\" to connect two verb phrases (B1)"],
+    "source_pages": [675, 676, 677, 678, 679, 680]
+  },
+  {
+    "id": "laishuo",
+    "title": "Phrases using \"laishuo\"",
+    "level": "B1",
+    "structure": "对 + Person + 来说，……；Word + 来说",
+    "explanation": "“对……来说”表示“对……来说”；“一般来说/总的来说/相对来说/严格来说/具体来说”为固定短语。",
+    "examples": [
+      {"zh": "对我来说，中文不容易。", "pinyin": "Duì wǒ lái shuō, Zhōngwén bù róngyì.", "en": "For me, Chinese is not easy."},
+      {"zh": "一般来说，私立学校都比较贵。", "pinyin": "Yībān lái shuō, sīlì xuéxiào dōu bǐjiào guì.", "en": "Ordinarily, private schools are more expensive."},
+      {"zh": "总的来说，这次活动很成功。", "pinyin": "Zǒng de lái shuō, zhè cì huódòng hěn chénggōng.", "en": "In general, this event was a success."},
+      {"zh": "严格来说，他是华裔，不是中国人。", "pinyin": "Yángé lái shuō, tā shì huáyì, bù shì Zhōngguórén.", "en": "Technically, he is ethnically Chinese, not a Chinese citizen."}
+    ],
+    "similar": [],
+    "source_pages": [681, 682, 683, 684]
+  },
+  {
+    "id": "gen-compared-with",
+    "title": "Expressing \"compared with\" using \"gen\"",
+    "level": "B1",
+    "structure": "跟 + A + 比(起来)，B……；B + 跟 + A + 比(起来)，……",
+    "explanation": "“跟A比(起来)，B……”表示“跟A相比，B……”。",
+    "examples": [
+      {"zh": "跟上海比，我老家的物价很低。", "pinyin": "Gēn Shànghǎi bǐ, wǒ lǎojiā de wùjià hěn dī.", "en": "Compared to Shanghai, prices in my hometown are very low."},
+      {"zh": "跟他比，你最大的优势是什么？", "pinyin": "Gēn tā bǐ, nǐ zuì dà de yōushì shì shénme?", "en": "Compared to him, what is your biggest advantage?"},
+      {"zh": "跟去年比，你的中文进步了很多。", "pinyin": "Gēn qùnián bǐ, nǐ de Zhōngwén jìnbù le hěn duō.", "en": "Compared to last year, your Chinese has improved a lot."},
+      {"zh": "跟十年前比起来，中国人的生活水平提高了很多。", "pinyin": "Gēn shí nián qián bǐ qǐlái, Zhōngguórén de shēnghuó shuǐpíng tígāo le hěn duō.", "en": "Compared to ten years ago, the standard of living for Chinese people has gotten much better."}
+    ],
+    "similar": ["Expressing \"even more\" with \"geng\" or \"hai\" (B1)", "Expressing \"much more\" in comparisons (B1)", "Expressing comparable degree with \"you\" (B1)"],
+    "source_pages": [685, 686, 687, 688, 689, 690]
+  },
+  {
+    "id": "geng-hai-even-more",
+    "title": "Expressing \"even more\" with \"geng\" or \"hai\"",
+    "level": "B1",
+    "structure": "Noun 1 + 比 + Noun 2 + 更/还 + Adj.",
+    "explanation": "比较句中“更/还 + 形容词”表示“更……/甚至更……”。",
+    "examples": [
+      {"zh": "上海比纽约人口更多。", "pinyin": "Shànghǎi bǐ Niǔyuē rénkǒu gèng duō.", "en": "Shanghai's population is even bigger than New York's."},
+      {"zh": "我妹妹比我更瘦。", "pinyin": "Wǒ mèimei bǐ wǒ gèng shòu.", "en": "My younger sister is even skinnier than me."},
+      {"zh": "他比姚明还高。", "pinyin": "Tā bǐ Yáo Míng hái gāo.", "en": "He is even taller than Yao Ming."},
+      {"zh": "这个外国人的汉语说得比中国人还地道。", "pinyin": "Zhège wàiguórén de Hànyǔ shuō de bǐ Zhōngguórén hái dìdao.", "en": "This foreigner speaks even more authentic Chinese than native speakers do."}
+    ],
+    "similar": ["Expressing \"compared with\" using \"gen\" (B1)", "Expressing \"much more\" in comparisons (B1)", "Expressing comparable degree with \"you\" (B1)"],
+    "source_pages": [691, 692, 693, 694, 695]
+  },
+  {
+    "id": "bi-much-more",
+    "title": "Expressing \"much more\" in comparisons",
+    "level": "B1",
+    "structure": "Noun 1 + 比 + Noun 2 + Adj. + 很多/得多/多了；Subj. + Adj. + 多了",
+    "explanation": "“比…… + 很多/得多/多了”表示“比……得多”。",
+    "examples": [
+      {"zh": "拼音比汉字容易很多。", "pinyin": "Pīnyīn bǐ Hànzì róngyì hěn duō.", "en": "Pinyin is much easier than Chinese characters."},
+      {"zh": "这个女老师比那个男老师严格得多。", "pinyin": "Zhège nǚ lǎoshī bǐ nàge nán lǎoshī yángé de duō.", "en": "This female teacher is much stricter than that male teacher."},
+      {"zh": "你比我有经验多了。", "pinyin": "Nǐ bǐ wǒ yǒu jīngyàn duō le.", "en": "You're much more experienced than me."},
+      {"zh": "我的感冒好多了。", "pinyin": "Wǒ de gǎnmào hǎo duō le.", "en": "My cold is getting much better."}
+    ],
+    "similar": ["Basic comparisons with \"bi\" (A2)", "Expressing \"compared with\" using \"gen\" (B1)", "Expressing \"rather\" with \"bijiao\" (B1)"],
+    "source_pages": [696, 697, 698, 699, 700]
+  },
+  {
+    "id": "you-as-as",
+    "title": "Expressing comparable degree with \"you\"",
+    "level": "B1",
+    "structure": "A + 有 + B + Adj. + 吗？；A + 有 + B + Verb + 得 + Adj. + 吗？；A + 有 (+ B) + 这么/那么 + Adj. + 吗？",
+    "explanation": "“A有B + 形容词 + 吗？”表示“A有B那么……吗？”多用于疑问。",
+    "examples": [
+      {"zh": "他有我帅吗？", "pinyin": "Tā yǒu wǒ shuài ma?", "en": "Is he as handsome as me?"},
+      {"zh": "你有老板忙吗？", "pinyin": "Nǐ yǒu lǎobǎn máng ma?", "en": "Are you as busy as the boss?"},
+      {"zh": "他有我做得好吗？", "pinyin": "Tā yǒu wǒ zuò de hǎo ma?", "en": "Can he do it as well as I do?"},
+      {"zh": "她有那么多漂亮吗？", "pinyin": "Tā yǒu nàme piàoliang ma?", "en": "Is she really that pretty?"}
+    ],
+    "similar": ["Basic comparisons with \"bi\" (A2)", "Basic comparisons with \"yiyang\" (A2)", "Expressing \"even more\" with \"geng\" or \"hai\" (B1)"],
+    "source_pages": [701, 702, 703, 704, 705, 706]
+  },
+  {
+    "id": "shi-concede",
+    "title": "Conceding a point with \"shi\"",
+    "level": "B1",
+    "structure": "Adj. + 是 + Adj.，但是/就是……",
+    "explanation": "“A是A，但是/就是……”表示让步“虽然A，但是……”。",
+    "examples": [
+      {"zh": "工作忙是忙，但是我很开心。", "pinyin": "Gōngzuò máng shì máng, dànshì wǒ hěn kāixīn.", "en": "Work may be busy, but I'm very happy."},
+      {"zh": "这件衣服好看是好看，但是不适合我。", "pinyin": "Zhè jiàn yīfu hǎokàn shì hǎokàn, dànshì bù shìhé wǒ.", "en": "This piece of clothing may look nice, but it doesn't suit me."},
+      {"zh": "累是累，但是很值得。", "pinyin": "Lèi shì lèi, dànshì hěn zhídé.", "en": "It may be tiring, but it's really worth it."},
+      {"zh": "好吃是好吃，就是不太健康。", "pinyin": "Hǎochī shì hǎochī, jiùshì bù tài jiànkāng.", "en": "It may be tasty, it's just that it's not very healthy."}
+    ],
+    "similar": ["Expressing contrariness with \"dao\" (B2)"],
+    "source_pages": [707, 708, 709, 710, 711]
+  },
+  {
+    "id": "yi-jiu",
+    "title": "Events in quick succession with \"yi... jiu...\"",
+    "level": "B1",
+    "structure": "一 + Event 1，就 + Event 2；一 + Reason，就 + Result",
+    "explanation": "“一……就……”表示“一……就……”；也可表示“每次……就……”。",
+    "examples": [
+      {"zh": "饿死了，我一下课就要去吃午饭。", "pinyin": "È sǐ le, wǒ yī xiàkè jiù yào qù chī wǔfàn.", "en": "I'm starving. I'm going to have lunch as soon as class is over."},
+      {"zh": "妈妈一到家就去做饭了。", "pinyin": "Māma yī dào jiā jiù qù zuòfàn le.", "en": "As soon as mom arrived home, she went off to cook."},
+      {"zh": "我一想到这件事就不高兴。", "pinyin": "Wǒ yī xiǎngdào zhè jiàn shì jiù bù gāoxìng.", "en": "Every time I think about this, I get upset."},
+      {"zh": "她一生气就脸红。", "pinyin": "Tā yī shēngqì jiù liǎnhóng.", "en": "Every time she gets angry, her face turns red."}
+    ],
+    "similar": ["Actions in a row (A2)", "Expressing \"every time\" with \"mei\" and \"dou\" (B1)", "Expressing earliness with \"jiu\" (B1)"],
+    "source_pages": [712, 713, 714, 715, 716, 717]
+  },
+  {
+    "id": "suiran-danshi",
+    "title": "Expressing \"although\" with \"suiran\" and \"danshi\"",
+    "level": "B1",
+    "structure": "虽然……，但是/可是……",
+    "explanation": "“虽然……但是/可是……”表示“虽然……但是……”，中文必须成对使用。",
+    "examples": [
+      {"zh": "虽然外面很冷，可是里面很暖和。", "pinyin": "Suīrán wàimiàn hěn lěng, kěshì lǐmiàn hěn nuǎnhuo.", "en": "Although it's cold outside, it's warm inside."},
+      {"zh": "这件衣服虽然有点贵，但是质量很好。", "pinyin": "Zhè jiàn yīfu suīrán yǒudiǎn guì, dànshì zhìliàng hěn hǎo.", "en": "Although this piece of clothing is a little expensive, the quality is good."},
+      {"zh": "他虽然不想去，但是还是去了。", "pinyin": "Tā suīrán bù xiǎng qù, dànshì háishì qù le.", "en": "Although he didn't want to go, he ended up going."},
+      {"zh": "奶奶虽然八十多岁了，但是她精神很好。", "pinyin": "Nǎinai suīrán bāshí duō suì le, dànshì tā jīngshén hěn hǎo.", "en": "Although grandma is in her eighties, she is energetic."}
+    ],
+    "similar": ["Two words for \"but\" (A2)", "A softer \"but\" with \"buguo\" (B1)", "Expressing \"although\" with \"jinguan\" (B2)"],
+    "source_pages": [718, 719, 720, 721, 722]
+  },
+  {
+    "id": "yaome",
+    "title": "Expressing \"either... or...\" with \"yaome\"",
+    "level": "B1",
+    "structure": "要么 + Option A，要么 + Option B",
+    "explanation": "“要么……要么……”表示二选一。",
+    "examples": [
+      {"zh": "要么你去，要么他去。", "pinyin": "Yàome nǐ qù, yàome tā qù.", "en": "Either you go, or he goes."},
+      {"zh": "要么继续，要么放弃。", "pinyin": "Yàome jìxù, yàome fàngqì.", "en": "Either keep going or give up."},
+      {"zh": "要么好好做，要么就别做。", "pinyin": "Yàome hǎohǎo zuò, yàome jiù bié zuò.", "en": "You either do it well or don't do it."},
+      {"zh": "你要么回老家，要么留在上海。", "pinyin": "Nǐ yàome huí lǎojiā, yàome liúzài Shànghǎi.", "en": "You either go back to your hometown or stay in Shanghai."}
+    ],
+    "similar": ["Expressing \"how about\" with \"yaobu\" (B1)", "Expressing the only two possibilities (B2)", "Providing two options with double \"huozhe\" (B2)"],
+    "source_pages": [723, 724, 725, 726, 727]
+  },
+  {
+    "id": "chule-yiwai",
+    "title": "Expressing \"except\" and \"in addition\" with \"chule... yiwai\"",
+    "level": "B1",
+    "structure": "除了……(以外)，Subj. + 都……；除了……(以外)，Subj. + 也/还……",
+    "explanation": "“除了……都……”表示“除……之外都……”（排除）；“除了……也/还……”表示“除了……还……”（包含）。",
+    "examples": [
+      {"zh": "除了他，我们都去过。", "pinyin": "Chúle tā, wǒmen dōu qù guo.", "en": "Except for him, we've all been there."},
+      {"zh": "除了白酒，别的酒他都喝。", "pinyin": "Chúle báijiǔ, biéde jiǔ tā dōu hē.", "en": "He drinks all kinds of alcohol except baijiu."},
+      {"zh": "除了英语，我也会说法语和西班牙语。", "pinyin": "Chúle Yīngyǔ, wǒ yě huì shuō Fǎyǔ hé Xībānyáyǔ.", "en": "In addition to English, I can also speak French and Spanish."},
+      {"zh": "除了运动以外，你还有什么爱好？", "pinyin": "Chúle yùndòng yǐwài, nǐ hái yǒu shénme àihào?", "en": "In addition to sports, what other hobbies do you have?"}
+    ],
+    "similar": ["Expressing \"and also\" with \"hai\" (A2)", "Expressing \"in addition\" with \"haiyou\" (B1)", "Expressing \"in addition\" with \"lingwai\" (B1)"],
+    "source_pages": [728, 729, 730, 731, 732, 733]
+  },
+  {
+    "id": "ruguo-dehua",
+    "title": "Expressing \"if\" with \"ruguo... dehua\"",
+    "level": "B1",
+    "structure": "如果……的话，(就)……；……(的话)，就……",
+    "explanation": "“如果……的话”表示“如果……的话”，口语可省略“如果”。",
+    "examples": [
+      {"zh": "如果明天下雨的话，我们就不去了。", "pinyin": "Rúguǒ míngtiān xiàyǔ dehuà, wǒmen jiù bù qù le.", "en": "If it rains tomorrow, we won't go."},
+      {"zh": "别点那么多菜。如果吃不完的话，就太浪费了。", "pinyin": "Bié diǎn nàme duō cài. Rúguǒ chī bu wán dehuà, jiù tài làngfèi le.", "en": "Don't order so much. It will be a big waste of food if we can't finish it all."},
+      {"zh": "不想去的话就别去了。", "pinyin": "Bù xiǎng qù dehuà jiù bié qù le.", "en": "Don't go if you don't feel like going."},
+      {"zh": "好吃的话，就多吃点。", "pinyin": "Hǎochī dehuà, jiù duō chī diǎn.", "en": "If you think it's tasty, eat some more."}
+    ],
+    "similar": ["Expressing \"if... then...\" with \"ruguo... jiu...\" (B1)"],
+    "source_pages": [734, 735, 736, 737, 738, 739]
+  },
+  {
+    "id": "ruguo-jiu",
+    "title": "Expressing \"if... then...\" with \"ruguo... jiu...\"",
+    "level": "B1",
+    "structure": "如果……，就……；如果……，那么/那……",
+    "explanation": "“如果……就……”表示“如果……就……”。",
+    "examples": [
+      {"zh": "如果有困难，就给我打电话。", "pinyin": "Rúguǒ yǒu kùnnan, jiù gěi wǒ dǎ diànhuà.", "en": "If there is any difficulty, give me a call."},
+      {"zh": "如果你输了，就给我一百块。", "pinyin": "Rúguǒ nǐ shū le, jiù gěi wǒ yībǎi kuài.", "en": "If you lose, give me 100 kuai."},
+      {"zh": "如果他知道，那他一定会告诉我。", "pinyin": "Rúguǒ tā zhīdào, nà tā yīdìng huì gàosu wǒ.", "en": "If he knew, he would definitely tell me."},
+      {"zh": "如果能找到投资，那下个月就可以开始做了。", "pinyin": "Rúguǒ néng zhǎodào tóuzī, nà xià gè yuè jiù kěyǐ kāishǐ zuò le.", "en": "If we can find the investment, we'll be able to get on it next month."}
+    ],
+    "similar": ["Expressing \"if\" with \"ruguo... dehua\" (B1)"],
+    "source_pages": [740, 741, 742, 743, 744]
+  },
+  {
+    "id": "guaibude",
+    "title": "Expressing \"no wonder\" with \"guaibude\"",
+    "level": "B1",
+    "structure": "Reason，怪不得/难怪 + [Observation]；怪不得/难怪 + [Observation]，原来 (+ 是) + Reason",
+    "explanation": "“怪不得/难怪”表示“难怪……”，表示明白原因后不觉得奇怪。",
+    "examples": [
+      {"zh": "小张请假了，怪不得今天没有看到他。", "pinyin": "Xiǎo Zhāng qǐngjià le, guàibude jīntiān méiyǒu kàndào tā.", "en": "Little Zhang asked for vacation time, no wonder I haven't seen him today."},
+      {"zh": "她是你妹妹？难怪你们长得这么像。", "pinyin": "Tā shì nǐ mèimei? Nánguài nǐmen cháng de zhème xiàng.", "en": "She's your younger sister? No wonder you two look so much alike."},
+      {"zh": "难怪学生都不喜欢这个老师，原来他的作业太多了。", "pinyin": "Nánguài xuésheng dōu bù xǐhuan zhège lǎoshī, yuánlái tā de zuòyè tài duō le.", "en": "No wonder the students don't like this teacher. He gives too much homework."},
+      {"zh": "怪不得你们这么高兴，原来是要结婚了。", "pinyin": "Guàibude nǐmen zhème gāoxìng, yuánlái shì yào jiéhūn le.", "en": "No wonder you two look so happy. You are getting married."}
+    ],
+    "similar": ["Expressing \"all along\" with \"yuanlai\" (B1)"],
+    "source_pages": [745, 746, 747, 748, 749, 750]
+  },
+  {
+    "id": "budan-erqie",
+    "title": "Expressing \"not only... but also\" with \"budan... erqie...\"",
+    "level": "B1",
+    "structure": "Subj. + 不但……，而且……；不但 + Subj. 1……，而且 + Subj. 2 + 也……",
+    "explanation": "“不但……而且……”表示“不但……而且……”。",
+    "examples": [
+      {"zh": "这个东西不但贵，而且难买。", "pinyin": "Zhège dōngxi bùdàn guì, érqiě nán mǎi.", "en": "This thing is not only expensive, but also hard to buy."},
+      {"zh": "她不但聪明，而且很幽默。", "pinyin": "Tā bùdàn cōngming, érqiě hěn yōumò.", "en": "She is not only smart, but also very humorous."},
+      {"zh": "不但大学生找工作难，而且研究生也不容易。", "pinyin": "Bùdàn dàxuéshēng zhǎo gōngzuò nán, érqiě yánjiūshēng yě bù róngyì.", "en": "Not only is it hard to find a job for undergraduates, but it's also hard for graduate students."},
+      {"zh": "这个电影不但孩子们喜欢，大人也很喜欢。", "pinyin": "Zhège diànyǐng bùdàn háizimen xǐhuan, dàren yě hěn xǐhuan.", "en": "Not only do children like this movie, but adults like it too."}
+    ],
+    "similar": ["Expressing \"and also\" with \"hai\" (A2)", "Expressing \"except\" and \"in addition\" with \"chule... yiwai\" (B1)", "Expressing \"in addition\" with \"haiyou\" (B1)", "Using \"budan... geng\" to express \"not only... but also\" (B1)"],
+    "source_pages": [751, 752, 753, 754, 755, 756]
+  },
+  {
+    "id": "dengdao",
+    "title": "Expressing \"when\" with \"dengdao\"",
+    "level": "B1",
+    "structure": "等(到) + Time/Event，Subj. + 再/就 + Predicate；等(到) + Time/Event，Subj. + 才 + Predicate",
+    "explanation": "“等到……就/再……”表示将来“等到……就……”；“等到……才……”表示过去“直到……才……”。",
+    "examples": [
+      {"zh": "等到老板知道就麻烦了。", "pinyin": "Děngdào lǎobǎn zhīdào jiù máfan le.", "en": "When the boss finds out, we'll be in trouble."},
+      {"zh": "等雨停了我再出门。", "pinyin": "Děng yǔ tíng le wǒ zài chūmén.", "en": "When the rain stops, I'll go outside."},
+      {"zh": "等我回了家，才发现手机忘在了出租车上。", "pinyin": "Děng wǒ huí le jiā, cái fāxiàn shǒujī wàng zài le chūzūchē shàng.", "en": "I didn't realize I left my cell phone in the taxi until I got home."},
+      {"zh": "等到孩子上了小学，她才开始工作。", "pinyin": "Děngdào háizi shàng le xiǎoxué, tā cái kāishǐ gōngzuò.", "en": "She didn't start working until her children had started elementary school."}
+    ],
+    "similar": ["Expressing \"all the way until\" with \"zhidao\" (B1)", "Expressing \"until\" with \"dao\" (B1)", "Expressing lateness with \"cai\" (B1)"],
+    "source_pages": [757, 758, 759, 760, 761, 762]
+  },
+  {
+    "id": "haihao",
+    "title": "Expressing good luck with \"haihao\"",
+    "level": "B1",
+    "structure": "还好 + [Lucky Incident]，不然 + [Bad Outcome]",
+    "explanation": "“还好……，不然……”表示“幸好……，否则……”。",
+    "examples": [
+      {"zh": "还好我们打车来的，不然就迟到了。", "pinyin": "Háihǎo wǒmen dǎchē lái de, bùrán jiù chídào le.", "en": "Luckily, we came by taxi. Otherwise we would have been late."},
+      {"zh": "还好我妈没看到，不然她肯定要生气。", "pinyin": "Háihǎo wǒ mā méi kàndào, bùrán tā kěndìng yào shēngqì.", "en": "It's a good thing that my mother didn't see it. Otherwise she would definitely be mad."},
+      {"zh": "还好有你在，不然我真不知道怎么办。", "pinyin": "Háihǎo yǒu nǐ zài, bùrán wǒ zhēn bù zhīdào zěnme bàn.", "en": "Fortunately you're here. Otherwise I really wouldn't have known what to do."},
+      {"zh": "还好带伞了，不然肯定淋湿了。", "pinyin": "Háihǎo dài sǎn le, bùrán kěndìng línshī le.", "en": "It's a good thing I brought the umbrella. Otherwise, I would have definitely gotten soaked."}
+    ],
+    "similar": ["Expressing \"thanks to\" with \"duokui\" (B2)"],
+    "source_pages": [763, 764, 765, 766, 767]
+  },
+  {
+    "id": "yi-fangmian",
+    "title": "Expressing various aspects with \"yi fangmian\"",
+    "level": "B1",
+    "structure": "一方面……，(另)一方面……",
+    "explanation": "“一方面……(另)一方面……”表示“一方面……另一方面……”。",
+    "examples": [
+      {"zh": "自己做饭一方面健康，一方面还能省点钱。", "pinyin": "Zìjǐ zuòfàn yī fāngmiàn jiànkāng, yī fāngmiàn hái néng shěng diǎn qián.", "en": "On one hand, cooking for yourself is healthy; on the other hand, it can also help to save some money."},
+      {"zh": "他一方面想改变，一方面又害怕改变。", "pinyin": "Tā yī fāngmiàn xiǎng gǎibiàn, yī fāngmiàn yòu hàipà gǎibiàn.", "en": "On the one hand, he wants to change; on the other hand, he's afraid of change."},
+      {"zh": "用智能手机一方面很方便，另一方面也很容易浪费时间。", "pinyin": "Yòng zhìnéng shǒujī yī fāngmiàn hěn fāngbiàn, lìng yī fāngmiàn yě hěn róngyì làngfèi shíjiān.", "en": "On the one hand, using smart phones is very convenient; on the other hand, they also make it very easy to waste a lot of time."},
+      {"zh": "我们一方面要让客户满意，另一方面也要控制成本。", "pinyin": "Wǒmen yī fāngmiàn yào ràng kèhù mǎnyì, lìng yī fāngmiàn yě yào kòngzhì chéngběn.", "en": "On the one hand, we need to satisfy our clients, but on the other hand, we also need to control our costs."}
+    ],
+    "similar": ["Idiomatic phrases with \"zai\" (B1)", "Expressing simultaneous actions with \"yimian\" (B2)"],
+    "source_pages": [768, 769, 770, 771, 772]
+  },
+  {
+    "id": "changchang-jingchang",
+    "title": "Comparing \"changchang\" and \"jingchang\"",
+    "level": "B1",
+    "structure": "常常/经常 + Verb",
+    "explanation": "“常常”和“经常”都表示“经常”，多数可互换；“经常”还可作形容词。",
+    "examples": [
+      {"zh": "我常常收到垃圾短信。", "pinyin": "Wǒ chángcháng shōudào lājī duǎnxìn.", "en": "I often receive spam texts."},
+      {"zh": "你们经常加班吗？", "pinyin": "Nǐmen jīngcháng jiābān ma?", "en": "Do you guys often work overtime?"},
+      {"zh": "他们常常吵架。", "pinyin": "Tāmen chángcháng chǎojià.", "en": "They often argue."},
+      {"zh": "她忘带钥匙是经常的事情。", "pinyin": "Tā wàng dài yàoshi shì jīngcháng de shìqing.", "en": "It's a regular thing for her to forget to bring her keys."}
+    ],
+    "similar": ["Comparing \"pingshi\" and \"pingchang\" (B2)"],
+    "source_pages": [773, 774, 775, 776, 777, 778]
+  },
+  {
+    "id": "gang-gangcai",
+    "title": "Comparing \"gang\" and \"gangcai\"",
+    "level": "B1",
+    "structure": "刚 + Verb/Adj.；刚才 + Verb + 了",
+    "explanation": "“刚”是副词，表示动作刚发生；“刚才”是时间名词，表示“刚才”，常与“了”连用。",
+    "examples": [
+      {"zh": "他刚到。", "pinyin": "Tā gāng dào.", "en": "He just arrived."},
+      {"zh": "我们昨天刚到。", "pinyin": "Wǒmen zuótiān gāng dào.", "en": "We just arrived yesterday."},
+      {"zh": "他刚才哭了。", "pinyin": "Tā gāngcái kū le.", "en": "He was crying just now."},
+      {"zh": "我刚才看到他了。", "pinyin": "Wǒ gāngcái kàndào tā le.", "en": "I just now saw him."}
+    ],
+    "similar": ["Expressing \"just now\" with \"gangcai\" (A2)", "Expressing \"just\" with \"gang\" (A2)"],
+    "source_pages": [779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791]
+  },
+  {
+    "id": "youdian-yidian",
+    "title": "Comparing \"youdian\" and \"yidian\"",
+    "level": "B1",
+    "structure": "有点 + Adj.；Adj. + 一点；一点 + Noun",
+    "explanation": "“有点”位于形容词前，常带抱怨；“一点”位于形容词后，表示程度/比较/请求，也可修饰名词。",
+    "examples": [
+      {"zh": "今天我有点累。", "pinyin": "Jīntiān wǒ yǒudiǎn lèi.", "en": "I am a little tired today."},
+      {"zh": "请说慢一点。", "pinyin": "Qǐng shuō màn yīdiǎn.", "en": "Please speak a little more slowly."},
+      {"zh": "这个比那个重一点。", "pinyin": "Zhège bǐ nàge zhòng yīdiǎn.", "en": "This one is a bit heavier than that one."},
+      {"zh": "你脸上有一点番茄酱。", "pinyin": "Nǐ liǎn shàng yǒu yīdiǎn fānqiéjiàng.", "en": "There's a little ketchup on your face."}
+    ],
+    "similar": ["Expressing \"a little too\" with \"you dian\" (A2)", "Expressing \"not at all\" with \"yidianr ye bu\" (B1)", "Expressing \"a bit too\" (B2)"],
+    "source_pages": [792, 793, 794, 795, 796, 797, 798, 799]
+  },
+  {
+    "id": "hui-neng-keyi",
+    "title": "Comparing \"hui,\" \"neng,\" \"keyi\"",
+    "level": "B1",
+    "structure": "会/能/可以 + Verb",
+    "explanation": "“会”表示学会的技能；“能”表示能力/可能；“可以”表示许可。有交叉。",
+    "examples": [
+      {"zh": "我们都会游泳。", "pinyin": "Wǒmen dōu huì yóuyǒng.", "en": "We all know how to swim."},
+      {"zh": "他不能吃三碗米饭。", "pinyin": "Tā bù néng chī sān wǎn mǐfàn.", "en": "He can't eat three bowls of rice."},
+      {"zh": "老师，我可以早点走吗？", "pinyin": "Lǎoshī, wǒ kěyǐ zǎo diǎn zǒu ma?", "en": "Teacher, can I leave a little early?"},
+      {"zh": "他很好说话。", "pinyin": "Tā hěn huì shuōhuà.", "en": "He's a smooth talker."}
+    ],
+    "similar": ["The use of Taiwanese Mandarin \"hui\" (B2)"],
+    "source_pages": [800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813]
+  },
+  {
+    "id": "haishi-huozhe",
+    "title": "Comparing \"haishi\" and \"huozhe\"",
+    "level": "B1",
+    "structure": "Option A + 还是 + Option B？（疑问）；Possibility 1 + 或者 + Possibility 2（陈述）",
+    "explanation": "“还是”用于疑问句选择；“或者”用于陈述句选择。",
+    "examples": [
+      {"zh": "你喜欢他还是我？", "pinyin": "Nǐ xǐhuan tā háishì wǒ?", "en": "Do you like him or me?"},
+      {"zh": "你喝茶还是喝咖啡？", "pinyin": "Nǐ hē chá háishì hē kāfēi?", "en": "Do you drink tea or coffee?"},
+      {"zh": "周末我想在家看书或者看电影。", "pinyin": "Zhōumò wǒ xiǎng zài jiā kànshū huòzhě kàn diànyǐng.", "en": "This weekend, I want to stay home and read or watch movies."},
+      {"zh": "你可以坐1号线或者2号线去人民广场。", "pinyin": "Nǐ kěyǐ zuò yī hào xiàn huòzhě èr hào xiàn qù Rénmín Guǎngchǎng.", "en": "You can take Line 1 or Line 2 to People's Square."}
+    ],
+    "similar": ["Offering choices with \"haishi\" (A1)", "Expressing \"or\" in statements (A2)"],
+    "source_pages": [814, 815, 816, 817, 818, 819]
+  },
+  {
+    "id": "renjia-bieren",
+    "title": "Comparing \"renjia\" and \"bieren\"",
+    "level": "B1",
+    "structure": "人家/别人 + Verb",
+    "explanation": "“人家”和“别人”都可指“别人”，但“人家”还可指“我/他/她”，更口语。",
+    "examples": [
+      {"zh": "我不在乎人家怎么说。", "pinyin": "Wǒ bù zàihu rénjia zěnme shuō.", "en": "I don't care about what other people say."},
+      {"zh": "别人怎么想我怎么知道？", "pinyin": "Biérén zěnme xiǎng wǒ zěnme zhīdào?", "en": "How could I know what other people are thinking?"},
+      {"zh": "因为人家喜欢你啊。", "pinyin": "Yīnwèi rénjia xǐhuan nǐ a.", "en": "Because I like you!"},
+      {"zh": "你快给人家道歉。", "pinyin": "Nǐ kuài gěi rénjia dàoqiàn.", "en": "Apologize to them now."}
+    ],
+    "similar": [],
+    "source_pages": [820, 821, 822, 823]
+  },
+  {
+    "id": "zhijian-zhongjian",
+    "title": "Comparing \"zhijian\" and \"zhongjian\"",
+    "level": "B1",
+    "structure": "A + 和 + B + 之间/中间；Place (+ 的) + 中间；A + 到 + B + 之间",
+    "explanation": "“之间”和“中间”都可表示“在……之间”；“中间”还可表示“在……中间/其中”；“之间”还可表示关系、范围。",
+    "examples": [
+      {"zh": "上海在江苏省和浙江省之间/中间。", "pinyin": "Shànghǎi zài Jiāngsū Shěng hé Zhèjiāng Shěng zhījiān/zhōngjiān.", "en": "Shanghai is between Jiangsu Province and Zhejiang Province."},
+      {"zh": "客厅的中间有一个沙发。", "pinyin": "Kètīng de zhōngjiān yǒu yī gè shāfā.", "en": "There is a sofa in the middle of the living room."},
+      {"zh": "你们中间有会唱歌的吗？", "pinyin": "Nǐmen zhōngjiān yǒu huì chànggē de ma?", "en": "Can anyone among you sing?"},
+      {"zh": "你可以明天早上八点到十点之间过来。", "pinyin": "Nǐ kěyǐ míngtiān zǎoshang bā diǎn dào shí diǎn zhījiān guòlái.", "en": "You can come between 8am and 10am tomorrow."}
+    ],
+    "similar": [],
+    "source_pages": [824, 825, 826, 827, 828, 829, 830]
+  },
+  {
+    "id": "li-cong",
+    "title": "Comparing \"li\" and \"cong\"",
+    "level": "B1",
+    "structure": "从 + Time/Place + 开始/起；离 + Place + 远/近；离 + Future Event + 还有 + Duration",
+    "explanation": "“从”表示从某地/某时开始移动或变化；“离”表示静态距离或时间距离。",
+    "examples": [
+      {"zh": "从下个月起，公司会越来越忙。", "pinyin": "Cóng xiàge yuè qǐ, gōngsī huì yuèláiyuè máng.", "en": "Starting from next month, the company will be busier and busier."},
+      {"zh": "你家离公司多远？", "pinyin": "Nǐ jiā lí gōngsī duō yuǎn?", "en": "How far is your home from your company?"},
+      {"zh": "我家离公司很近。", "pinyin": "Wǒ jiā lí gōngsī hěn jìn.", "en": "My home is close to my office."},
+      {"zh": "离我们的婚礼还有两个星期。", "pinyin": "Lí wǒmen de hūnlǐ háiyǒu liǎng gè xīngqī.", "en": "We still have two weeks until our wedding."}
+    ],
+    "similar": ["Expressing \"from... to...\" with \"cong... dao...\" (A2)", "Expressing distance with \"li\" (A2)", "Expressing \"ever since\" with \"yilai\" (B1)"],
+    "source_pages": [831, 832, 833, 834, 835, 836, 837]
+  },
+  {
+    "id": "yihou-de-shihou",
+    "title": "Comparing \"yihou\" and \"de shihou\"",
+    "level": "B1",
+    "structure": "Subj. + Verb + 以后/的时候，……",
+    "explanation": "“以后”表示“之后”；“的时候”表示“当……的时候/在……期间”。",
+    "examples": [
+      {"zh": "下飞机以后给我打电话。", "pinyin": "Xià fēijī yǐhòu gěi wǒ dǎ diànhuà.", "en": "Give me a call after you get off the plane."},
+      {"zh": "吃饭的时候看电视容易长胖。", "pinyin": "Chīfàn de shíhou kàn diànshì róngyì zhǎng pàng.", "en": "It's easy to get fat if you eat while you watch TV."},
+      {"zh": "工作的时候不要上网聊天。", "pinyin": "Gōngzuò de shíhou bùyào shàngwǎng liáotiān.", "en": "Don't chat online when you're at work."},
+      {"zh": "雨停了以后，我们就去公园玩。", "pinyin": "Yǔ tíng le yǐhòu, wǒmen jiù qù gōngyuán wán.", "en": "When it stops raining, we'll go play in the park."}
+    ],
+    "similar": ["After a specific time with \"yihou\" (A2)", "Expressing \"when\" with \"de shihou\" (A2)", "Expressing \"when\" with \"shi\" (B1)"],
+    "source_pages": [838, 839, 840, 841, 842, 843]
+  }
+]

@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中文网课互动白板 - 商业授权版</title>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/pinyin-pro/3.16.0/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.16/mammoth.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<style>
+    /* ========== 提取自 Tailwind 的基础样式 ========== */
+    *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; }
+    body { margin: 0; line-height: inherit; background-color: #f1f5f9; min-height: 100vh; padding: 1rem; overflow: hidden; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+    @media (min-width: 768px) { body { padding: 1.5rem; } }
+    button, input, select, textarea { font-family: inherit; font-size: 100%; font-weight: inherit; line-height: inherit; color: inherit; margin: 0; padding: 0; }
+    button { cursor: pointer; background-color: transparent; background-image: none; text-transform: none; }
+    input, select { outline: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3, p, ul { margin: 0; }
+    
+    .hidden { display: none !important; }
+    .flex { display: flex !important; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-center { justify-content: center; }
+    .justify-end { justify-content: flex-end; }
+    .flex-wrap { flex-wrap: wrap; }
+    .flex-1 { flex: 1 1 0%; }
+    .shrink-0 { flex-shrink: 0; }
+    .gap-1 { gap: 0.25rem; }
+    .gap-2 { gap: 0.5rem; }
+    .gap-2\.5 { gap: 0.625rem; }
+    .gap-3 { gap: 0.75rem; }
+    .gap-6 { gap: 1.5rem; }
+    .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; }
+    .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
+    
+    .w-full { width: 100%; }
+    .w-40 { width: 10rem; }
+    .w-px { width: 1px; }
+    .h-6 { height: 1.5rem; }
+    .h-\[calc\(100vh-3rem\)\] { height: calc(100vh - 3rem); }
+    .max-h-40 { max-height: 10rem; }
+    .max-h-\[90vh\] { max-height: 90vh; }
+    .min-h-full { min-height: 100%; }
+    .max-w-4xl { max-width: 56rem; }
+    .max-w-\[420px\] { max-width: 420px; }
+    
+    .p-3 { padding: 0.75rem; }
+    .p-4 { padding: 1rem; }
+    .p-5 { padding: 1.25rem; }
+    .p-6 { padding: 1.5rem; }
+    .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+    .py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+    .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+    .pt-2 { padding-top: 0.5rem; }
+    .pt-3 { padding-top: 0.75rem; }
+    .pb-2 { padding-bottom: 0.5rem; }
+    .pb-3 { padding-bottom: 0.75rem; }
+    .mb-1 { margin-bottom: 0.25rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-5 { margin-bottom: 1.25rem; }
+    .mt-1 { margin-top: 0.25rem; }
+    .mt-2 { margin-top: 0.5rem; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-auto { margin-top: auto; }
+    .ml-2 { margin-left: 0.5rem; }
+    .mr-1 { margin-right: 0.25rem; }
+    .mr-1\.5 { margin-right: 0.375rem; }
+    .mr-2 { margin-right: 0.5rem; }
+    .mr-3 { margin-right: 0.75rem; }
+    .mx-1 { margin-left: 0.25rem; margin-right: 0.25rem; }
+    .mx-2 { margin-left: 0.5rem; margin-right: 0.5rem; }
+    
+    .text-xs { font-size: 0.75rem; line-height: 1rem; }
+    .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+    .text-base { font-size: 1rem; line-height: 1.5rem; }
+    .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+    .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+    .text-\[10px\] { font-size: 10px; }
+    .font-bold { font-weight: 700; }
+    .font-medium { font-weight: 500; }
+    .font-normal { font-weight: 400; }
+    .text-center { text-align: center; }
+    .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    
+    .text-white { color: #ffffff; }
+    .text-slate-400 { color: #94a3b8; }
+    .text-slate-500 { color: #64748b; }
+    .text-slate-600 { color: #475569; }
+    .text-slate-700 { color: #334155; }
+    .text-slate-800 { color: #1e293b; }
+    .text-indigo-400 { color: #818cf8; }
+    .text-indigo-500 { color: #6366f1; }
+    .text-indigo-600 { color: #4f46e5; }
+    .text-indigo-700 { color: #4338ca; }
+    .text-indigo-800 { color: #3730a3; }
+    .text-teal-600 { color: #0d9488; }
+    .text-teal-700 { color: #0f766e; }
+    .text-teal-800 { color: #115e59; }
+    .text-blue-700 { color: #1d4ed8; }
+    .text-blue-800 { color: #1e40af; }
+    .text-purple-700 { color: #7e22ce; }
+    .text-red-500 { color: #ef4444; }
+    .text-red-700 { color: #b91c1c; }
+    .text-green-600 { color: #16a34a; }
+    
+    .bg-white { background-color: #ffffff; }
+    .bg-slate-100 { background-color: #f1f5f9; }
+    .bg-slate-200 { background-color: #e2e8f0; }
+    .bg-slate-300 { background-color: #cbd5e1; }
+    .bg-slate-900\/60 { background-color: rgba(15, 23, 42, 0.6); }
+    .bg-indigo-50 { background-color: #eef2ff; }
+    .bg-indigo-600 { background-color: #4f46e5; }
+    .bg-teal-50 { background-color: #f0fdfa; }
+    .bg-blue-50 { background-color: #eff6ff; }
+    .bg-blue-100 { background-color: #dbeafe; }
+    .bg-purple-100 { background-color: #f3e8ff; }
+    .bg-purple-600 { background-color: #9333ea; }
+    .bg-red-50 { background-color: #fef2f2; }
+    .bg-red-100 { background-color: #fee2e2; }
+    .bg-amber-50 { background-color: #fffbeb; }
+    .bg-amber-500 { background-color: #f59e0b; }
+    .bg-emerald-600 { background-color: #059669; }
+    .bg-emerald-700 { background-color: #047857; }
+    .bg-indigo-700 { background-color: #4338ca; }
+    
+    .border { border-width: 1px; }
+    .border-4 { border-width: 4px; }
+    .border-b { border-bottom-width: 1px; }
+    .border-t { border-top-width: 1px; }
+    .border-slate-100 { border-color: #f1f5f9; }
+    .border-slate-200 { border-color: #e2e8f0; }
+    .border-slate-300 { border-color: #cbd5e1; }
+    .border-indigo-200 { border-color: #c7d2fe; }
+    .border-indigo-300 { border-color: #a5b4fc; }
+    .border-teal-200 { border-color: #99f6e4; }
+    .border-blue-100 { border-color: #dbeafe; }
+    .border-blue-200 { border-color: #bfdbfe; }
+    .border-blue-300 { border-color: #93c5fd; }
+    .border-purple-300 { border-color: #d8b4fe; }
+    .border-red-200 { border-color: #fecaca; }
+    .border-amber-200 { border-color: #fde68a; }
+    .border-slate-300 { border-color: #cbd5e1; }
+    
+    .rounded { border-radius: 0.25rem; }
+    .rounded-lg { border-radius: 0.5rem; }
+    .rounded-2xl { border-radius: 1rem; }
+    .rounded-b-2xl { border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem; }
+    .shadow { box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1); }
+    .shadow-md { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); }
+    .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
+    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+    
+    .relative { position: relative; }
+    .absolute { position: absolute; }
+    .fixed { position: fixed; }
+    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+    .z-50 { z-index: 50; }
+    .z-\[100\] { z-index: 100; }
+    .overflow-hidden { overflow: hidden; }
+    .overflow-y-auto { overflow-y: auto; }
+    .cursor-pointer { cursor: pointer; }
+    .backdrop-blur-sm { backdrop-filter: blur(4px); }
+    .transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+    
+    /* ====== 侧边栏收起与展开响应式修复 ====== */
+    @media (min-width: 768px) {
+        .md\:flex-row { flex-direction: row; }
+        .md\:p-6 { padding: 1.5rem; }
+        .md\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        
+        /* 展开状态下的宽度 */
+        .md\:w-80 { width: 20rem; }
+        
+        /* 收起状态：宽度、内边距、边框、透明度全部清零 */
+        .md\:w-0 { width: 0px !important; }
+        .md\:p-0 { padding: 0px !important; }
+        .md\:m-0 { margin: 0px !important; }
+        .md\:border-0 { border-width: 0px !important; }
+        .md\:opacity-0 { opacity: 0 !important; }
+        .md\:overflow-hidden { overflow: hidden !important; }
+    }
+
+    /* ========== 原有自定义样式 ========== */
+    #authOverlay { position: fixed; inset: 0; background: #f1f5f9; z-index: 9999; display: flex; justify-content: center; align-items: center; }
+    .auth-box { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 420px; width: 90%; }
+    #whiteboardScrollContainer { position: absolute; inset: 0; overflow: auto; z-index: 10; }
+    #whiteboardInnerWrapper { position: relative; min-height: 100%; width: 100%; }
+    #whiteboardContent { font-family: 'KaiTi', '楷体', 'STKaiti', 'Kaiti SC', 'Songti SC', 'PingFang SC', 'Microsoft YaHei', serif; line-height: 2.8; outline: none; word-break: break-word; padding: 20px; position: relative; z-index: 2; }
+    #drawCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; touch-action: none; }
+    #drawCanvas.active { pointer-events: auto; cursor: crosshair; }
+    .pasted-image { max-width: 90%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 10px 0; display: block; }
+    
+    ruby { ruby-align: center; margin: 0 4px; font-size: 1em; white-space: nowrap; }
+    rt { font-size: 0.8em !important; color: #1d4ed8 !important; font-family: 'Arial', sans-serif !important; font-weight: bold !important; margin-bottom: 2px; line-height: 1.1; }
+    
+    .english-line { display: block !important; font-size: 0.85em !important; color: #64748b; font-family: 'Arial', sans-serif; font-style: italic; border-left: 3px solid #cbd5e1; padding-left: 8px; margin: 8px 0 20px 0 !important; line-height: 1.4 !important; width: 100%; }
+    .toolbar-btn { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; padding: 6px 10px; background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; color: #334155; cursor: pointer; font-weight: 500; transition: all 0.2s; }
+    .toolbar-btn:hover { background-color: #e2e8f0; }
+    .btn-draw-active { background-color: #3b82f6 !important; color: white !important; border-color: #2563eb !important; }
+    #drawToolbar { display: none; position: absolute; top: 80px; left: 50%; transform: translateX(-50%); background: white; padding: 8px 16px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 100; align-items: center; gap: 12px; border: 1px solid #e2e8f0; flex-wrap: wrap; }
+    .color-btn { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
+    .color-btn.active { border-color: #334155; transform: scale(1.15); }
+    .color-btn:hover { transform: scale(1.15); }
+    .loader-overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.9); z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .spinner { border: 4px solid rgba(0, 0, 0, 0.1); width: 40px; height: 40px; border-radius: 50%; border-left-color: #4f46e5; animation: spin 1s linear infinite; margin-bottom: 15px; }
+    .loader { border: 2px solid rgba(255, 255, 255, 0.3); width: 16px; height: 16px; border-radius: 50%; border-left-color: #ffffff; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; margin-right: 6px; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .kb-item { padding: 8px; border-radius: 6px; cursor: pointer; transition: 0.2s; border: 1px solid #e2e8f0; margin-bottom: 6px; background: white; }
+    .kb-item:hover { background: #eff6ff; border-color: #93c5fd; }
+    .kb-title { font-weight: bold; color: #1e40af; font-size: 13px; }
+    .kb-tags { font-size: 10px; color: #64748b; margin-top: 2px; }
+    .markdown-body { line-height: 1.6; font-family: 'Microsoft YaHei', sans-serif; font-size: 15px; color: #334155; }
+    .markdown-body h1, .markdown-body h2, .markdown-body h3 { color: #1e3a8a; margin-top: 20px; margin-bottom: 12px; font-weight: bold; }
+    .markdown-body h2 { font-size: 1.4em; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; margin-top: 30px; }
+    .markdown-body p { margin-bottom: 12px; }
+    .grammar-point { margin-top: 20px; margin-bottom: 10px; font-weight: bold; font-size: 1.1em; color: #1d4ed8; }
+    .grammar-usage { margin-bottom: 15px; color: #475569; line-height: 1.8; }
+
+    .triple-line { display: flex; flex-direction: column; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px dashed #f1f5f9; position: relative; }
+    .triple-line .head-zh { color: #1d4ed8; font-size: 1.05em; font-weight: bold; margin-bottom: 6px; }
+    .triple-line .py { color: #64748b; font-style: italic; font-family: 'Arial', sans-serif; font-size: 0.92em; margin-bottom: 4px; padding-left: 20px; }
+    .triple-line .en { color: #1d4ed8; font-weight: bold; font-family: 'Arial', sans-serif; font-size: 0.98em; padding-left: 20px; }
+
+    .markdown-body table { width: 100%; border-collapse: collapse; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden; }
+    .markdown-body th { background-color: #f8fafc; color: #1e40af; font-weight: bold; padding: 12px; text-align: left; border-bottom: 2px solid #e2e8f0; }
+    .markdown-body td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+    .markdown-body tr:nth-child(even) { background-color: #f8fafc; }
+    .markdown-body tr:hover { background-color: #eff6ff; }
+    .markdown-body blockquote { border-left: 4px solid #3b82f6; background-color: #eff6ff; padding: 12px 16px; margin: 20px 0; border-radius: 0 8px 8px 0; color: #1e40af; font-weight: 500; }
+    .markdown-body ul { list-style-type: disc; padding-left: 20px; margin-bottom: 15px; }
+    .sidebar-transition { transition: all 0.3s ease-in-out; }
+
+    /* ====== 手动加拼音专用排版：完美对齐、行高紧凑、增加左右间距 ====== */
+    .py-box {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        vertical-align: bottom;
+        margin: 0 6px; /* 增加左右间距，防止挨得太近 */
+        line-height: 1;
+        white-space: pre;
+        position: relative;
+        top: -0.2em; /* 整体向上微调，让拼音和汉字更贴合 */
+    }
+    .py-box .py-top {
+        font-size: 0.55em; /* 稍微缩小拼音，避免超出汉字宽度 */
+        font-family: 'Arial', sans-serif;
+        color: #1d4ed8;
+        font-weight: bold;
+        white-space: nowrap;
+        margin-bottom: 0.2em; /* 拼音和汉字的微小间距 */
+    }
+    .py-box .py-bottom {
+        font-size: 1em;
+    }
+
+    /* ====== 课堂测验白板排版专用 ====== */
+    .quiz-board { margin-top: 10px; }
+    .quiz-board h2 { font-size: 1.3em; font-weight: bold; color: #1e3a8a; border-bottom: 2px dashed #93c5fd; padding-bottom: 10px; margin-bottom: 20px; }
+    .quiz-board h3 { font-size: 1.1em; font-weight: bold; color: #b45309; margin-top: 20px; margin-bottom: 10px; }
+    .quiz-board p { margin-bottom: 15px; line-height: 2.2; }
+</style>
+</head>
+<body>
+
+<!-- 登录验证遮罩层 -->
+<div id="authOverlay">
+    <div class="auth-box">
+        <h1 class="text-2xl font-bold text-slate-800 mb-2">🔒 软件授权登录</h1>
+        <p class="text-sm text-slate-500 mb-4">请输入您的专属授权账号和密码</p>
+        <input type="text" id="authAccount" placeholder="教师账号 (如: teacher1)" class="w-full border border-slate-300 rounded-lg p-3 text-center text-base outline-none focus:ring-2 focus:ring-indigo-500 mb-3" autocomplete="off">
+        <input type="password" id="authPassword" placeholder="密码" class="w-full border border-slate-300 rounded-lg p-3 text-center text-base outline-none focus:ring-2 focus:ring-indigo-500 mb-4" autocomplete="off">
+        <div class="flex items-center justify-between mb-5 text-xs text-slate-600">
+            <label class="flex items-center cursor-pointer">
+                <input type="checkbox" id="rememberMe" class="mr-1.5 rounded text-indigo-600 focus:ring-indigo-500"> 记住授权状态
+            </label>
+            <span id="authTip" class="text-indigo-600 font-medium">商业授权版</span>
+        </div>
+        <button id="btnAuthLogin" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition cursor-pointer shadow-md">验证并进入系统</button>
+        <p class="text-xs text-slate-400 mt-4">如需获取授权或购买，请联系软件供应商</p>
+    </div>
+</div>
+
+<!-- 主体内容 -->
+<div id="appContent" class="hidden flex-col md:flex-row h-[calc(100vh-3rem)] gap-6 relative">
+    <div class="flex-1 bg-white rounded-2xl shadow-lg flex flex-col border-4 border-blue-200 p-4 md:p-6 relative w-full sidebar-transition">
+        <div id="drawToolbar">
+            <span class="text-sm font-bold text-slate-600 mr-2">画笔颜色:</span>
+            <div class="flex gap-2">
+                <div class="color-btn active" style="background-color: #ef4444;" data-color="#ef4444"></div>
+                <div class="color-btn" style="background-color: #3b82f6;" data-color="#3b82f6"></div>
+                <div class="color-btn" style="background-color: #eab308;" data-color="#eab308"></div>
+                <div class="color-btn" style="background-color: #111;" data-color="#111"></div>
+            </div>
+            <div class="w-px h-6 bg-slate-300 mx-2"></div>
+            <button id="btnClearCanvas" class="text-xs bg-red-100 text-red-700 px-3 py-1 rounded hover:bg-red-200 font-bold">🧹 清空笔迹</button>
+            <button id="btnUndoStroke" class="text-xs bg-slate-100 text-slate-700 px-3 py-1 rounded hover:bg-slate-200 font-bold">↩️ 撤销笔迹</button>
+        </div>
+
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-4 flex-wrap gap-2">
+            <div class="flex items-center">
+                <span class="text-2xl mr-3">📝</span>
+                <h2 class="text-xl font-bold text-slate-800">中文互动白板 <span class="text-xs text-indigo-500 font-normal ml-2">支持粘贴图片与上传文档</span></h2>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-sm text-slate-500">字号:</span>
+                <button id="btnAPlus" class="toolbar-btn font-bold">A+</button>
+                <button id="btnAMinus" class="toolbar-btn font-bold">A-</button>
+                <span class="mx-1 text-slate-300">|</span>
+                <button id="btnBold" class="toolbar-btn font-bold" style="font-family: serif;">B</button>
+                <button id="btnRed" class="toolbar-btn text-red-500 font-bold">A</button>
+                <span class="mx-1 text-slate-300">|</span>
+                <button id="btnDraw" class="toolbar-btn bg-slate-100 text-slate-700 border-slate-300 font-bold">✏️ 电子教鞭</button>
+                <button id="btnAddPinyin" class="toolbar-btn bg-blue-100 text-blue-700 border-blue-300 font-bold">✨ 划选加拼音</button>
+                <div class="inline-flex items-center bg-purple-100 border border-purple-300 rounded-lg overflow-hidden">
+                    <select id="targetLang" class="bg-transparent text-purple-700 font-bold text-xs px-2 py-1.5 outline-none cursor-pointer">
+                        <option value="English">英语 (English)</option>
+                        <option value="French">法语 (Français)</option>
+                        <option value="Japanese">日语 (日本語)</option>
+                        <option value="Korean">韩语 (한국어)</option>
+                        <option value="German">德语 (Deutsch)</option>
+                        <option value="Italian">意大利语 (Italiano)</option>
+                        <option value="Spanish">西班牙语 (Español)</option>
+                        <option value="Indonesian">印尼语 (Bahasa Indonesia)</option>
+                        <option value="Russian">俄语 (Русский)</option>
+                        <option value="Thai">泰语 (ภาษาไทย)</option>
+                        <option value="Vietnamese">越南语 (Tiếng Việt)</option>
+                    </select>
+                    <button id="btnTranslate" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 text-xs font-bold transition cursor-pointer">🌐 划选翻译</button>
+                </div>
+                <button id="btnUndo" class="toolbar-btn bg-amber-50 text-amber-700 border-amber-200">↩️ 撤销</button>
+            </div>
+        </div>
+
+        <div class="relative flex-1 overflow-hidden rounded-lg border border-slate-200 bg-white" id="canvasWrapper">
+            <div id="whiteboardScrollContainer">
+                <div id="whiteboardInnerWrapper">
+                    <canvas id="drawCanvas"></canvas>
+                    <div id="whiteboardContent" contenteditable="true" class="w-full min-h-full text-xl md:text-2xl text-slate-700">
+                        <p>欢迎使用！<br>1. 右侧输入关键词检索知识点。<br>2. 选中文字可加拼音、翻译。<br>3. 支持直接粘贴截图，或上传本地文档。</p>
+                    </div>
+                </div>
+            </div>
+            <div id="loadingOverlay" class="loader-overlay hidden">
+                <div class="spinner"></div>
+                <p class="text-slate-700 font-bold text-lg" id="loadingText">正在解析，请稍候...</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="btnExpandSidebar" class="hidden fixed top-1/2 right-0 -translate-y-1/2 z-[100] bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-l-xl shadow-lg transition flex items-center justify-center border border-r-0 border-indigo-400" title="展开面板">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+        </svg>
+    </button>
+
+    <div id="sidebarPanel" class="w-full md:w-80 bg-white rounded-2xl shadow p-5 flex flex-col space-y-4 border border-slate-200 overflow-y-auto sidebar-transition shrink-0">
+        <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+            <h1 class="text-lg font-bold text-slate-800 ml-2">📖 智能课堂助手</h1>
+            <button id="btnCollapseSidebar" class="text-slate-400 hover:text-red-500 p-2 hover:bg-slate-100 rounded-lg transition cursor-pointer" title="收起面板">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-200 space-y-2">
+            <label class="block text-xs font-bold text-indigo-800 mb-1">🔍 检索知识点</label>
+            <div class="flex gap-1">
+                <input type="text" id="kbSearchInput" placeholder="输入：极了、正好..." class="w-full border border-indigo-300 rounded-lg p-1.5 text-xs outline-none focus:ring-1 focus:ring-indigo-500 bg-white">
+                <button id="btnSearchKb" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 text-xs font-bold rounded-lg transition">搜索</button>
+            </div>
+            <div id="kbResults" class="max-h-40 overflow-y-auto mt-2 hidden"></div>
+            
+            <div class="border-t border-indigo-200 pt-2 mt-2">
+                <div class="flex items-center justify-between">
+                    <label class="block text-[10px] text-indigo-600 font-bold">📥 导入知识库</label>
+                    <div class="flex gap-1">
+                        <!-- 新增：云端加载按钮 -->
+                        <button id="btnLoadCloudKb" class="cursor-pointer bg-indigo-600 text-white px-2 py-1 rounded text-[10px] hover:bg-indigo-700 transition">☁️ 加载云端库</button>
+                        <!-- 原有：本地文件选择 -->
+                        <label class="cursor-pointer bg-white border border-indigo-300 text-indigo-700 px-2 py-1 rounded text-[10px] hover:bg-indigo-50 transition">
+                            本地上传
+                            <input type="file" id="kbFileUpload" accept=".json" class="hidden">
+                        </label>
+                    </div>
+                </div>
+                <p class="text-[10px] text-indigo-400 mt-1" id="kbStatus">尚未导入知识库</p>
+            </div>
+        </div>
+
+        <div class="bg-teal-50 p-3 rounded-lg border border-teal-200 space-y-2">
+            <label class="block text-xs font-bold text-teal-800 mb-1">📂 上传上课文件 (PDF/Word/PPT/TXT)</label>
+            <div class="flex items-center justify-between gap-2">
+                <!-- 彻底修复：使用 label 触发隐藏的 input，并绝对保证不冲突 -->
+                <label class="cursor-pointer bg-white border border-teal-300 text-teal-700 px-3 py-1 rounded text-xs hover:bg-teal-50 transition font-medium shadow-sm">
+                    选择文件
+                    <input type="file" id="docFileUpload" accept=".pdf,.docx,.txt,.pptx" class="hidden">
+                </label>
+                <button id="btnClearDoc" class="text-red-500 hover:text-red-700 font-bold px-2 py-1 bg-red-50 rounded text-xs ml-auto" title="删除上传的文件">✖</button>
+            </div>
+            <p id="docFileName" class="text-[10px] text-teal-600 mt-1 truncate">未选择文件</p>
+        </div>
+
+        <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 space-y-2">
+            <div>
+                <label class="block text-xs font-medium text-slate-700 mb-1">🤖 AI 模型</label>
+                <select id="modelProvider" class="w-full border border-slate-300 rounded-lg p-1.5 text-xs outline-none focus:ring-1 focus:ring-blue-500 bg-white">
+                    <option value="deepseek" selected>DeepSeek (deepseek-chat)</option>
+                    <option value="claude">Claude (claude-3-5-haiku)</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-medium text-slate-700 mb-1">🔑 API Key</label>
+                <input type="password" id="apiKey" placeholder="sk-..." class="w-full border border-slate-300 rounded-lg p-1.5 text-xs outline-none focus:ring-1 focus:ring-blue-500 bg-white">
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-2.5 mt-auto pt-2">
+            <!-- 课堂测验按钮，位置醒目 -->
+            <button id="btnQuiz" class="w-full bg-amber-500 text-white py-2.5 rounded-lg font-bold hover:bg-amber-600 transition text-sm cursor-pointer flex justify-center items-center shadow-sm border border-amber-600">🎯 生成课堂测验 (展示在白板)</button>
+            
+            <button id="btnGenNotes" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-medium hover:bg-emerald-700 transition text-sm cursor-pointer flex justify-center items-center mt-2 border-t border-slate-200 pt-3">📚 一键整理白板笔记</button>
+            <button id="btnDownloadNotes" class="hidden w-full bg-emerald-700 text-white py-1.5 rounded-lg text-xs hover:bg-emerald-800 transition cursor-pointer">📥 下载复习笔记 (Word)</button>
+            <button id="btnGenEx" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition text-sm cursor-pointer flex justify-center items-center mt-2 border-t border-slate-200 pt-3">✍️ 生成全套测试题</button>
+            <button id="btnDownloadEx" class="hidden w-full bg-indigo-700 text-white py-1.5 rounded-lg text-xs hover:bg-indigo-800 transition cursor-pointer">📥 下载测试题 (Word)</button>
+        </div>
+    </div>
+</div>
+
+<!-- 试卷 Modal -->
+<div id="examModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 justify-center items-center p-4">
+    <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col">
+        <div class="flex justify-between items-center p-5 border-b border-slate-200">
+            <h2 id="modalTitle" class="text-xl font-bold text-slate-800">📄 生成内容预览</h2>
+            <button onclick="closeModal()" class="text-slate-400 hover:text-red-500 text-2xl font-bold">&times;</button>
+        </div>
+        <div id="examContent" class="p-6 overflow-y-auto flex-1 markdown-body bg-white"></div>
+        <div class="p-4 border-t flex justify-between items-center gap-3 bg-white rounded-b-2xl flex-wrap">
+            <button onclick="clearPptFromBoard()" class="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 font-medium text-sm" title="从白板删除所有 PPT 导入的幻灯片内容，老师手写的其他内容会保留">🧹 清除白板上的 PPT</button>
+            <div class="flex gap-3">
+                <button onclick="copyExam()" class="px-5 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">📋 复制文本</button>
+                <button id="modalDownloadBtn" class="px-5 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium">📥 下载 Word (保留排版)</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        if (typeof JSZip === 'undefined') {
+            console.error("❌ 致命错误：JSZip 库未加载成功，无法解析 PPT！");
+            setTimeout(() => alert("⚠️ PPT 解析组件 (JSZip) 加载失败，请检查您的网络或关闭广告拦截插件后刷新页面。"), 500);
+        }
+        if (typeof pdfjsLib === 'undefined') console.warn("⚠️ PDF.js 未加载");
+        if (typeof mammoth === 'undefined') console.warn("⚠️ Mammoth.js 未加载");
+        if (typeof pinyinPro === 'undefined') console.warn("⚠️ pinyin-pro 未加载");
+
+        // 修复登录状态检测
+        const savedAuth = localStorage.getItem('teacher_whiteboard_auth');
+        if (savedAuth === 'true') {
+            document.getElementById('authOverlay').style.display = 'none';
+            const appContent = document.getElementById('appContent');
+            appContent.classList.remove('hidden');
+            appContent.classList.add('flex');
+            try { initApp(); } catch (e) { console.warn(e); }
+            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 100);
+        }
+    });
+
+    const VALID_ACCOUNTS = [
+        { account: "admin", password: "chaulede" },
+        { account: "carrotluo", password: "abc123" },
+        { account: "开场白", password: "123456" },
+        { account: "视听", password: "123456" },
+        { account: "卡卡西", password: "123456" },
+        { account: "teacher", password: "123456" },
+        { account: "lily", password: "123456" },
+        ...Array.from({ length: 99 }, (_, i) => ({ account: `teacher${i + 2}`, password: "123" }))
+    ];
+
+    const authAccount = document.getElementById('authAccount');
+    const authPassword = document.getElementById('authPassword');
+    const rememberMe = document.getElementById('rememberMe');
+
+    document.getElementById('btnAuthLogin').addEventListener('click', () => {
+        const acc = authAccount.value.trim();
+        const pwd = authPassword.value.trim();
+        if (!acc || !pwd) { alert("请输入账号和密码！"); return; }
+
+        const isValid = VALID_ACCOUNTS.some(item => item.account === acc && item.password === pwd);
+
+        if (isValid) {
+            document.getElementById('authOverlay').style.display = 'none';
+            const appContent = document.getElementById('appContent');
+            appContent.classList.remove('hidden');
+            appContent.classList.add('flex');
+            
+            if (rememberMe.checked) localStorage.setItem('teacher_whiteboard_auth', 'true');
+            else localStorage.removeItem('teacher_whiteboard_auth');
+            
+            try { initApp(); } catch (err) { console.warn("初始化提示：", err); }
+            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 100);
+        } else {
+            alert("授权账号或密码错误，请检查输入！");
+            authPassword.value = '';
+        }
+    });
+
+    authAccount.addEventListener('keypress', (e) => { if (e.key === 'Enter') authPassword.focus(); });
+    authPassword.addEventListener('keypress', (e) => { if (e.key === 'Enter') document.getElementById('btnAuthLogin').click(); });
+
+    let appInitialized = false;
+
+    function escapeHtml(str) {
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    async function callAI(prompt, systemInstruction = "你是一个专业的国际中文与多国语言教学助手。", imageBase64 = null) {
+        const apiKey = document.getElementById('apiKey').value.trim();
+        let provider = document.getElementById('modelProvider').value;
+
+        if (!apiKey) { alert('请先在右侧面板填入您的 API Key！'); throw new Error('未填写 API Key'); }
+        
+        if (imageBase64) {
+            alert("当前选择的 AI 模型不支持图片解析，请使用文字输入。");
+            throw new Error('模型不支持识图');
+        }
+
+        if (provider === 'claude') {
+            const url = "https://api.anthropic.com/v1/messages";
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+                body: JSON.stringify({
+                    model: "claude-3-5-haiku-20241022", max_tokens: 4096, system: systemInstruction,
+                    messages: [{ role: "user", content: prompt }], temperature: 0.3
+                })
+            });
+            if (!res.ok) throw new Error(`Claude 请求失败 (${res.status})`);
+            const data = await res.json();
+            return (data.content || []).map(b => b.text || '').join('').trim();
+        }
+
+        let url = "https://api.deepseek.com/chat/completions"; 
+        let modelName = "deepseek-chat"; 
+
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+            body: JSON.stringify({
+                model: modelName, 
+                messages: [{ role: "system", content: systemInstruction }, { role: "user", content: prompt }], 
+                temperature: 0.3
+            })
+        });
+        if (!res.ok) throw new Error(`API 请求失败 (${res.status})`);
+        const data = await res.json();
+        return data.choices[0].message.content.trim();
+    }
+
+    function getImageFromBoard() {
+        const img = document.querySelector('#whiteboardContent img');
+        return img && img.src ? img.src : null;
+    }
+
+    function initApp() {
+        if (appInitialized) return;
+        appInitialized = true;
+
+        try {
+            if (typeof pdfjsLib !== 'undefined') {
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+            }
+        } catch(e) {}
+        
+        const sidebarPanel = document.getElementById('sidebarPanel');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const loadingText = document.getElementById('loadingText');
+        const whiteboard = document.getElementById('whiteboardContent');
+        const scrollContainer = document.getElementById('whiteboardScrollContainer');
+        const innerWrapper = document.getElementById('whiteboardInnerWrapper');
+
+        whiteboard.addEventListener('paste', function(e) {
+            const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+            for (let index in items) {
+                const item = items[index];
+                if (item.kind === 'file' && item.type.startsWith('image/')) {
+                    const blob = item.getAsFile();
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const img = document.createElement('img');
+                        img.src = event.target.result;
+                        img.className = 'pasted-image';
+                        const sel = window.getSelection();
+                        if (sel.rangeCount) {
+                            const range = sel.getRangeAt(0);
+                            range.deleteContents();
+                            range.insertNode(img);
+                        } else {
+                            whiteboard.appendChild(img);
+                        }
+                        saveHistoryImmediate();
+                    };
+                    reader.readAsDataURL(blob);
+                    e.preventDefault(); 
+                }
+            }
+        });
+        
+        function toggleSidebar(show) {
+            if (show) {
+                sidebarPanel.classList.remove('md:w-0', 'md:p-0', 'md:m-0', 'md:border-0', 'md:opacity-0', 'md:overflow-hidden');
+                sidebarPanel.classList.add('w-full', 'md:w-80', 'p-5', 'border', 'opacity-100');
+                document.getElementById('btnExpandSidebar').classList.add('hidden');
+                if (typeof isDrawMode !== 'undefined' && isDrawMode) setTimeout(resizeCanvas, 310);
+            } else {
+                sidebarPanel.classList.add('md:w-0', 'md:p-0', 'md:m-0', 'md:border-0', 'md:opacity-0', 'md:overflow-hidden');
+                sidebarPanel.classList.remove('w-full', 'md:w-80', 'p-5', 'border', 'opacity-100');
+                document.getElementById('btnExpandSidebar').classList.remove('hidden');
+                if (typeof isDrawMode !== 'undefined' && isDrawMode) setTimeout(resizeCanvas, 310);
+            }
+        }
+
+        document.getElementById('btnCollapseSidebar').addEventListener('click', () => toggleSidebar(false));
+        document.getElementById('btnExpandSidebar').addEventListener('click', () => toggleSidebar(true));
+
+        const apiKeyInput = document.getElementById('apiKey');
+        const modelProviderSelect = document.getElementById('modelProvider');
+
+        if (localStorage.getItem('saved_apiKey')) apiKeyInput.value = localStorage.getItem('saved_apiKey');
+        if (localStorage.getItem('saved_modelProvider')) modelProviderSelect.value = localStorage.getItem('saved_modelProvider');
+        
+        apiKeyInput.addEventListener('input', () => localStorage.setItem('saved_apiKey', apiKeyInput.value.trim()));
+        modelProviderSelect.addEventListener('change', () => localStorage.setItem('saved_modelProvider', modelProviderSelect.value));
+
+        let currentMode = "";
+        let knowledgeBase = [];
+        
+        document.getElementById('kbFileUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (Array.isArray(data)) { knowledgeBase = data; } 
+                    else {
+                        const firstArray = Object.values(data).find(val => Array.isArray(val));
+                        if (firstArray) knowledgeBase = firstArray;
+                        else throw new Error("未找到有效的知识点数组");
+                    }
+                    const kbStatus = document.getElementById('kbStatus');
+                    kbStatus.textContent = `✅ 已加载 ${knowledgeBase.length} 个知识点`;
+                    kbStatus.classList.add('text-green-600');
+                    kbStatus.classList.remove('text-indigo-400');
+                    event.target.value = '';
+                    document.getElementById('kbResults').classList.add('hidden');
+                } catch (err) { alert('解析知识库文件失败，请检查 JSON 格式：\n' + err.message); }
+            };
+            reader.readAsText(file, 'UTF-8');
+        });
+
+        // ====== 新增：从 GitHub 云端加载 JSON 数据库 ======
+        document.getElementById('btnLoadCloudKb').addEventListener('click', async function() {
+            // ⚠️ 请将下方的链接替换为你真实的 GitHub Raw 链接！
+            const cloudJsonUrl = 'https://raw.githubusercontent.com/你的用户名/你的仓库名/main/knowledge_base.json';
+            
+            const btn = this;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "加载中...";
+            btn.disabled = true;
+
+            try {
+                // 发起网络请求
+                const response = await fetch(cloudJsonUrl);
+                if (!response.ok) throw new Error("网络请求失败，请检查链接是否正确");
+                
+                const data = await response.json();
+                
+                // 解析逻辑
+                if (Array.isArray(data)) { knowledgeBase = data; } 
+                else {
+                    const firstArray = Object.values(data).find(val => Array.isArray(val));
+                    if (firstArray) knowledgeBase = firstArray;
+                    else throw new Error("未找到有效的知识点数组");
+                }
+                
+                // 更新状态 UI
+                const kbStatus = document.getElementById('kbStatus');
+                kbStatus.textContent = `✅ 已从云端加载 ${knowledgeBase.length} 个知识点`;
+                kbStatus.classList.add('text-green-600');
+                kbStatus.classList.remove('text-indigo-400');
+                document.getElementById('kbResults').classList.add('hidden');
+                
+            } catch (err) {
+                console.error(err);
+                alert('云端知识库加载失败：\n' + err.message + '\n\n提示：如果在本地测试，请确认网络能访问 GitHub。');
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        // ====== 优化文件读取逻辑 ======
+        document.getElementById('docFileUpload').addEventListener('change', async function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            document.getElementById('docFileName').textContent = file.name;
+            loadingOverlay.classList.remove('hidden');
+            loadingText.innerText = "正在解析文档，请稍候...";
+            const fileName = file.name.toLowerCase();
+
+            // 通用渲染函数：安全注入文本，防止解析阻断
+            const renderText = (text) => {
+                if (!text || !text.trim()) {
+                    alert("未能从文件中提取出有效内容。");
+                    return;
+                }
+                let htmlText = text.split('\n').map(line => line.trim() ? `<p>${escapeHtml(line)}</p>` : '<br>').join('');
+                if (whiteboard.innerText.trim() !== '' && whiteboard.innerHTML !== '<p><br></p>') {
+                    htmlText = `<hr style="border: 1px dashed #cbd5e1; margin: 30px 0;"><br>` + htmlText;
+                }
+                whiteboard.innerHTML += htmlText;
+                saveHistoryImmediate();
+                scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
+                setTimeout(resizeCanvas, 100);
+            };
+
+            try {
+                if (fileName.endsWith('.txt')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => { 
+                        renderText(e.target.result); 
+                        loadingOverlay.classList.add('hidden'); 
+                    };
+                    reader.readAsText(file, 'UTF-8');
+                }
+                else if (fileName.endsWith('.docx')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        mammoth.extractRawText({ arrayBuffer: e.target.result }).then(result => {
+                            renderText(result.value);
+                            loadingOverlay.classList.add('hidden');
+                        }).catch(err => {
+                            alert("Word 解析失败：" + err.message);
+                            loadingOverlay.classList.add('hidden');
+                        });
+                    };
+                    reader.readAsArrayBuffer(file);
+                }
+                else if (fileName.endsWith('.pdf')) {
+                    const reader = new FileReader();
+                    reader.onload = async (e) => {
+                        try {
+                            const typedarray = new Uint8Array(e.target.result);
+                            const pdf = await pdfjsLib.getDocument(typedarray).promise;
+                            let fullText = "";
+                            for (let i = 1; i <= pdf.numPages; i++) {
+                                const page = await pdf.getPage(i);
+                                const textContent = await page.getTextContent();
+                                let pageText = "";
+                                textContent.items.forEach(item => {
+                                    pageText += item.str;
+                                    if (item.hasEOL) pageText += "\n";
+                                });
+                                fullText += pageText + "\n";
+                            }
+                            renderText(fullText.replace(/\n{3,}/g, '\n\n'));
+                            loadingOverlay.classList.add('hidden');
+                        } catch (err) {
+                            alert("PDF 解析引擎崩溃：\n" + err.message);
+                            loadingOverlay.classList.add('hidden');
+                        }
+                    };
+                    reader.readAsArrayBuffer(file);
+                }
+                else if (fileName.endsWith('.pptx')) {
+                    const reader = new FileReader();
+                    reader.onload = async (e) => {
+                        try {
+                            loadingText.innerText = "正在读取 PPT 文件...";
+                            if (typeof JSZip === 'undefined') throw new Error("JSZip 库未加载，无法解析 PPT。请刷新页面重试。");
+                            
+                            const zip = await JSZip.loadAsync(e.target.result);
+                            
+                            loadingText.innerText = "正在提取 PPT 内图片...";
+                            const mediaFiles = {};
+                            const mediaFolder = zip.folder('ppt/media');
+                            if (mediaFolder) {
+                                const mediaEntries = [];
+                                mediaFolder.forEach((relativePath, file) => {
+                                    if (!file.dir) mediaEntries.push({ path: relativePath, file });
+                                });
+                                for (const entry of mediaEntries) {
+                                    try {
+                                        const base64 = await entry.file.async('base64');
+                                        const ext = entry.path.split('.').pop().toLowerCase();
+                                        if (['emf', 'wmf', 'tiff'].includes(ext)) continue; 
+                                        const mime = ext === 'png' ? 'image/png' : (ext === 'jpg' || ext === 'jpeg') ? 'image/jpeg' : ext === 'gif' ? 'image/gif' : 'image/png';
+                                        mediaFiles['ppt/media/' + entry.path.replace(/^.*\//, '')] = `data:${mime};base64,${base64}`;
+                                    } catch (imgErr) {}
+                                }
+                            }
+
+                            const slideEntries = [];
+                            const slidesFolder = zip.folder('ppt/slides');
+                            if (slidesFolder) {
+                                slidesFolder.forEach((relativePath, file) => {
+                                    const m = relativePath.match(/^slide(\d+)\.xml$/);
+                                    if (m && !file.dir) slideEntries.push({ num: parseInt(m[1]), file });
+                                });
+                            }
+                            slideEntries.sort((a, b) => a.num - b.num);
+                            if (slideEntries.length === 0) throw new Error("未在 PPTX 中找到任何幻灯片内容。");
+
+                            const parser = new DOMParser();
+                            const A_NS = 'http://schemas.openxmlformats.org/drawingml/2006/main';
+                            let fullHtml = '';
+
+                            for (let i = 0; i < slideEntries.length; i++) {
+                                loadingText.innerText = `正在解析第 ${i + 1} / ${slideEntries.length} 页...`;
+                                await new Promise(resolve => setTimeout(resolve, 10));
+
+                                const slideEntry = slideEntries[i];
+                                const slideXml = await slideEntry.file.async('string');
+                                const xmlDoc = parser.parseFromString(slideXml, 'text/xml');
+
+                                let slideHtml = `<div class="pptx-import" style="margin: 20px auto; padding: 30px; width: 100%; max-width: 900px; min-height: 500px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: relative; display: flex; flex-direction: column;">`;
+                                slideHtml += `<div style="position: absolute; top: 15px; left: 20px; font-size: 12px; color: #94a3b8; font-weight: bold;">第 ${i + 1} 页</div>`;
+
+                                let hasText = false;
+
+                                const shapeNodes = xmlDoc.getElementsByTagNameNS(A_NS, 'sp');
+                                for (let s = 0; s < shapeNodes.length; s++) {
+                                    const shape = shapeNodes[s];
+                                    const txBody = shape.getElementsByTagNameNS(A_NS, 'txBody')[0];
+                                    if (!txBody) continue;
+
+                                    const paragraphs = txBody.getElementsByTagNameNS(A_NS, 'p');
+                                    if (paragraphs.length === 0) continue;
+
+                                    slideHtml += `<div style="margin-bottom: 15px; width: 100%;">`;
+                                    
+                                    for (let p = 0; p < paragraphs.length; p++) {
+                                        const pNode = paragraphs[p];
+                                        const runs = pNode.getElementsByTagNameNS(A_NS, 'r');
+                                        
+                                        let paraHtml = '';
+                                        for (let r = 0; r < runs.length; r++) {
+                                            const run = runs[r];
+                                            const textNode = run.getElementsByTagNameNS(A_NS, 't')[0];
+                                            if (!textNode) continue;
+                                            
+                                            let text = escapeHtml(textNode.textContent);
+                                            if (text.trim()) hasText = true;
+                                            
+                                            const rPr = run.getElementsByTagNameNS(A_NS, 'rPr')[0];
+                                            let fontSize = 18;
+                                            if (rPr) {
+                                                const sz = rPr.getAttribute('sz');
+                                                if (sz) fontSize = parseInt(sz) / 100 * 1.33;
+                                            }
+
+                                            let fontWeight = 'normal';
+                                            if (rPr) {
+                                                const b = rPr.getAttribute('b');
+                                                if (b === '1') fontWeight = 'bold';
+                                            }
+
+                                            paraHtml += `<span style="font-size: ${fontSize}px; font-weight: ${fontWeight}; color: #333; line-height: 1.5;">${text}</span>`;
+                                        }
+                                        
+                                        if (paraHtml) {
+                                            slideHtml += `<p style="margin: 4px 0; text-align: left;">${paraHtml}</p>`;
+                                        }
+                                    }
+                                    slideHtml += `</div>`;
+                                }
+
+                                const tblNodes = xmlDoc.getElementsByTagNameNS(A_NS, 'tbl');
+                                for (let t = 0; t < tblNodes.length; t++) {
+                                    const tbl = tblNodes[t];
+                                    const rows = tbl.getElementsByTagNameNS(A_NS, 'tr');
+                                    if (rows.length === 0) continue;
+                                    
+                                    slideHtml += `<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 16px; color: #333;">`;
+                                    for (let r = 0; r < rows.length; r++) {
+                                        slideHtml += `<tr>`;
+                                        const cells = rows[r].getElementsByTagNameNS(A_NS, 'tc');
+                                        for (let c = 0; c < cells.length; c++) {
+                                            const cellTexts = cells[c].getElementsByTagNameNS(A_NS, 't');
+                                            let cellText = '';
+                                            for (let ct = 0; ct < cellTexts.length; ct++) {
+                                                cellText += cellTexts[ct].textContent;
+                                            }
+                                            if (cellText.trim()) hasText = true;
+                                            slideHtml += `<td style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">${escapeHtml(cellText)}</td>`;
+                                        }
+                                        slideHtml += `</tr>`;
+                                    }
+                                    slideHtml += `</table>`;
+                                }
+
+                                if (!hasText) {
+                                    const allTexts = xmlDoc.getElementsByTagNameNS(A_NS, 't');
+                                    let fallbackText = '';
+                                    for (let ft = 0; ft < allTexts.length; ft++) {
+                                        fallbackText += allTexts[ft].textContent + ' ';
+                                    }
+                                    if (fallbackText.trim()) {
+                                        slideHtml += `<div style="font-size: 18px; line-height: 1.6; color: #333;">${escapeHtml(fallbackText)}</div>`;
+                                    } else {
+                                        slideHtml += `<div style="font-size: 16px; color: #94a3b8; font-style: italic; margin-top: 20px;">（此页可能没有文字，或是纯图片图表）</div>`;
+                                    }
+                                }
+
+                                const relPath = `ppt/slides/_rels/slide${slideEntry.num}.xml.rels`;
+                                let relsXml = null;
+                                const relFile = zip.file(relPath);
+                                if (relFile) { try { relsXml = await relFile.async('string'); } catch (_) { relsXml = null; } }
+                                
+                                const imgMap = {}; 
+                                if (relsXml) {
+                                    const relDoc = parser.parseFromString(relsXml, 'text/xml');
+                                    const rels = relDoc.getElementsByTagName('Relationship');
+                                    for (let r = 0; r < rels.length; r++) {
+                                        const rel = rels[r];
+                                        const type = rel.getAttribute('Type') || '';
+                                        const target = rel.getAttribute('Target') || '';
+                                        const id = rel.getAttribute('Id');
+                                        if (type.indexOf('/image') !== -1) {
+                                            let mp = target.replace(/^\.\.\//, '');
+                                            imgMap[id] = 'ppt/' + mp;
+                                        }
+                                    }
+                                }
+
+                                const blipNodes = xmlDoc.getElementsByTagNameNS(A_NS, 'blip');
+                                const foundImgs = [];
+                                for (let b = 0; b < blipNodes.length; b++) {
+                                    const blip = blipNodes[b];
+                                    let embedId = null;
+                                    for (let attrIdx = 0; attrIdx < blip.attributes.length; attrIdx++) {
+                                        const attr = blip.attributes[attrIdx];
+                                        if (attr.localName === 'embed') { embedId = attr.value; break; }
+                                    }
+                                    if (embedId && imgMap[embedId] && mediaFiles[imgMap[embedId]]) {
+                                        foundImgs.push(mediaFiles[imgMap[embedId]]);
+                                    }
+                                }
+
+                                if (foundImgs.length > 0) {
+                                    slideHtml += `<div style="margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">`;
+                                    foundImgs.forEach((src) => {
+                                        slideHtml += `<img src="${src}" style="max-height: 250px; max-width: 100%; object-fit: contain; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">`;
+                                    });
+                                    slideHtml += `</div>`;
+                                }
+
+                                slideHtml += `</div>`;
+                                fullHtml += slideHtml;
+                            }
+
+                            loadingText.innerText = "正在渲染到白板...";
+                            if (whiteboard.innerText.trim() !== '' && whiteboard.innerHTML !== '<p><br></p>') {
+                                fullHtml = `<hr style="border: 1px dashed #cbd5e1; margin: 30px 0;"><br>` + fullHtml;
+                            }
+                            whiteboard.innerHTML += fullHtml;
+                            saveHistoryImmediate();
+                            scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
+                            setTimeout(resizeCanvas, 100);
+                            loadingOverlay.classList.add('hidden');
+                            
+                        } catch (err) {
+                            console.error("PPT解析崩溃:", err);
+                            alert("PPT 解析失败！\n具体错误：" + err.message);
+                            loadingOverlay.classList.add('hidden');
+                        }
+                    };
+                    reader.readAsArrayBuffer(file);
+                } else {
+                    alert("不支持的文件格式，请上传 .pdf / .docx / .pptx / .txt");
+                    loadingOverlay.classList.add('hidden');
+                }
+            } catch (err) { 
+                alert("系统读取错误：" + err.message); 
+                loadingOverlay.classList.add('hidden'); 
+            }
+        });
+
+        document.getElementById('btnClearDoc').addEventListener('click', function() {
+            document.getElementById('docFileUpload').value = "";
+            document.getElementById('docFileName').textContent = "未选择文件";
+        });
+
+        function searchKnowledge() {
+            const keyword = document.getElementById('kbSearchInput').value.trim().toLowerCase();
+            const resultsBox = document.getElementById('kbResults');
+            if (!keyword) { resultsBox.classList.add('hidden'); return; }
+            if (knowledgeBase.length === 0) { alert('请先导入知识库文件 (.json)！'); return; }
+            
+            const results = knowledgeBase.filter(item => {
+                if (!item || typeof item !== 'object') return false;
+                const titleText = (item.title || item.grammar_cn || item.name || item.word || item.keyword || '').toString().toLowerCase();
+                const titleEn = (item.grammar_en || item.english || '').toString().toLowerCase();
+                let tagsMatch = false;
+                if (item.tags) {
+                    const tagArr = Array.isArray(item.tags) ? item.tags : String(item.tags).split(/[,，\s]+/);
+                    tagsMatch = tagArr.some(tag => String(tag).toLowerCase().includes(keyword));
+                }
+                const fallbackMatch = JSON.stringify(item).toLowerCase().includes(keyword);
+                return titleText.includes(keyword) || titleEn.includes(keyword) || tagsMatch || fallbackMatch;
+            });
+            
+            resultsBox.innerHTML = '';
+            resultsBox.classList.remove('hidden');
+            if (results.length === 0) {
+                resultsBox.innerHTML = `<div class="text-xs text-slate-500 text-center py-2">没有找到“${keyword}”相关知识点</div>`;
+                return;
+            }
+            results.slice(0, 15).forEach((item) => {
+                const div = document.createElement('div');
+                div.className = 'kb-item';
+                const title = item.grammar_cn || item.title || item.name || item.word || item.keyword || '无标题';
+                const subTitle = item.structure || item.grammar_en || item.level || (Array.isArray(item.tags) ? item.tags.join(', ') : item.tags) || '';
+                div.innerHTML = `
+                    <div class="kb-title">${title}</div>
+                    <div class="kb-tags">${subTitle}</div>
+                `;
+                div.onclick = () => renderKnowledgeToBoard(item);
+                resultsBox.appendChild(div);
+            });
+        }
+
+        document.getElementById('btnSearchKb').addEventListener('click', searchKnowledge);
+        document.getElementById('kbSearchInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') searchKnowledge(); });
+
+        /* ====== 知识点渲染 ====== */
+        function renderKnowledgeToBoard(kbItem) {
+            let html = '';
+            const title = kbItem.grammar_cn || kbItem.title || kbItem.name || kbItem.word || kbItem.keyword || '知识点';
+            const subTitleText = kbItem.grammar_en || kbItem.level || '';
+            const levelTag = subTitleText
+                ? `<span class="kb-level-tag" style="background:#e2e8f0; color:#475569; padding:2px 6px; border-radius:4px; margin-left:10px; font-weight:normal;">${subTitleText}</span>`
+                : '';
+            
+            if (whiteboard.innerText.trim() !== '' && whiteboard.innerHTML !== '<p><br></p>') {
+                html += `<hr style="border: 1px dashed #cbd5e1; margin: 30px 0;"><br>`;
+            }
+            
+            html += `<div class="kb-rendered">`;
+            html += `<h2 style="font-weight:bold; color:#1e3a8a; margin-bottom:15px; border-bottom:2px solid #93c5fd; padding-bottom:10px;">📖 ${title} ${levelTag}</h2>`;
+            
+            const patternText = kbItem.pattern || kbItem.structure;
+            if (patternText) {
+                html += `<p style="margin-bottom:12px;"><span class="kb-label" style="background:#e0f2fe; color:#0369a1; padding:4px 8px; border-radius:4px; font-weight:bold;">句型结构</span> <span style="font-family:monospace; margin-left:5px;">${patternText}</span></p>`;
+            }
+            
+            const usageText = kbItem.usage || kbItem.explanation;
+            if (usageText) {
+                html += `<p style="margin-bottom:20px;"><span class="kb-label" style="background:#dcfce7; color:#166534; padding:4px 8px; border-radius:4px; font-weight:bold;">用法说明</span> <span style="margin-left:5px; line-height: 1.6;">${String(usageText).replace(/\n/g, '<br>')}</span></p>`;
+            }
+
+            if (kbItem.examples && Array.isArray(kbItem.examples)) {
+                html += `<div class="kb-example-title" style="margin-top:20px; margin-bottom:10px; font-weight:bold; color:#1e3a8a;">📝 例句：</div>`;
+                kbItem.examples.forEach(ex => {
+                    let lineHtml = '';
+                    const zhText = ex.zh || ex.chinese || '';
+                    if (zhText) {
+                        for (let char of zhText) {
+                            if (/[\u4e00-\u9fa5]/.test(char)) { 
+                                let py = (typeof window.pinyinPro !== 'undefined') ? window.pinyinPro.pinyin(char, { toneType: 'symbol' }) : '';
+                                lineHtml += `<ruby>${char}<rt>${py}</rt></ruby>`; 
+                            } else { 
+                                lineHtml += char; 
+                            }
+                        }
+                    }
+                    
+                    html += `<div class="triple-line">`;
+                    html += `<div class="head-zh">${lineHtml}</div>`;
+                    if (ex.pinyin) html += `<div class="py">${ex.pinyin}</div>`;
+                    if (ex.en) html += `<div class="en">${ex.en}</div>`;
+                    html += `</div>`;
+                });
+            } else if (kbItem.example_zh) {
+                let lineHtml = '';
+                for (let char of kbItem.example_zh) {
+                    if (/[\u4e00-\u9fa5]/.test(char)) { 
+                        let py = (typeof window.pinyinPro !== 'undefined') ? window.pinyinPro.pinyin(char, { toneType: 'symbol' }) : '';
+                        lineHtml += `<ruby>${char}<rt>${py}</rt></ruby>`; 
+                    } else { 
+                        lineHtml += char; 
+                    }
+                }
+                html += `<div class="kb-example-title" style="margin-top:20px; margin-bottom:10px; font-weight:bold; color:#1e3a8a;">📝 例句：</div>`;
+                html += `<div class="triple-line">`;
+                html += `<div class="head-zh">${lineHtml}</div>`;
+                if (kbItem.example_pinyin) html += `<div class="py">${kbItem.example_pinyin}</div>`;
+                if (kbItem.example_en) html += `<div class="en">${kbItem.example_en}</div>`;
+                html += `</div>`;
+            }
+            
+            html += `</div>`;
+
+            whiteboard.innerHTML += html;
+            scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
+            setTimeout(() => { saveHistoryImmediate(); resizeCanvas(); }, 50);
+        }
+
+        let undoStack = [], isUndoRedoing = false, historyTimer = null;
+        
+        function saveHistoryImmediate() {
+            if (isUndoRedoing) return;
+            if (undoStack.length > 0 && undoStack[undoStack.length - 1] === whiteboard.innerHTML) return;
+            if (undoStack.length > 50) undoStack.shift();
+            undoStack.push(whiteboard.innerHTML); 
+        }
+        
+        function saveHistoryDebounced() {
+            if (isUndoRedoing) return; 
+            clearTimeout(historyTimer); 
+            historyTimer = setTimeout(saveHistoryImmediate, 100);
+        }
+        
+        saveHistoryImmediate();
+        whiteboard.addEventListener('input', saveHistoryDebounced);
+
+        document.getElementById('btnUndo').addEventListener('click', function() {
+            clearTimeout(historyTimer); saveHistoryImmediate();
+            if (undoStack.length > 1) { 
+                isUndoRedoing = true; 
+                undoStack.pop(); // 把当前状态丢掉
+                whiteboard.innerHTML = undoStack[undoStack.length - 1]; 
+                isUndoRedoing = false; 
+                setTimeout(resizeCanvas, 100); 
+            } else {
+                alert('已经是最初的状态了！');
+            }
+        });
+
+        let currentFontSize = 24;
+        whiteboard.style.fontSize = currentFontSize + 'px';
+
+        function applyFontSize() {
+            whiteboard.style.fontSize = currentFontSize + 'px';
+            whiteboard.querySelectorAll('.kb-rendered *').forEach(el => {
+                if (el.style && el.style.fontSize && /px/.test(el.style.fontSize)) {
+                    el.style.fontSize = '';
+                }
+            });
+            setTimeout(resizeCanvas, 100);
+        }
+
+        document.getElementById('btnAPlus').addEventListener('click', () => {
+            currentFontSize = Math.min(80, currentFontSize + 2);
+            applyFontSize();
+        });
+        document.getElementById('btnAMinus').addEventListener('click', () => {
+            currentFontSize = Math.max(14, currentFontSize - 2);
+            applyFontSize();
+        });
+        document.getElementById('btnBold').addEventListener('click', () => { document.execCommand('bold', false, null); });
+        document.getElementById('btnRed').addEventListener('click', () => { document.execCommand('foreColor', false, '#ef4444'); });
+
+        // ======== 拼音与汉字排版 ========
+        document.getElementById('btnAddPinyin').addEventListener('click', function() {
+            const selection = window.getSelection(); if (!selection.rangeCount) return;
+            const range = selection.getRangeAt(0); const selectedText = selection.toString().trim();
+            if (!selectedText) { alert('请先用鼠标选中需要加拼音的汉字！'); return; }
+            
+            const wrapper = document.createElement('span');
+            wrapper.className = 'pinyin-group';
+            wrapper.style.display = 'inline-block';
+
+            for (let char of selectedText) {
+                if (/[\u4e00-\u9fa5]/.test(char)) {
+                    const py = (typeof window.pinyinPro !== 'undefined') ? window.pinyinPro.pinyin(char, { toneType: 'symbol' }) : '';
+                    
+                    const box = document.createElement('span');
+                    box.className = 'py-box';
+                    
+                    const topPy = document.createElement('span');
+                    topPy.className = 'py-top';
+                    topPy.textContent = py;
+                    
+                    const bottomZh = document.createElement('span');
+                    bottomZh.className = 'py-bottom';
+                    bottomZh.textContent = char;
+                    
+                    box.appendChild(topPy);
+                    box.appendChild(bottomZh);
+                    wrapper.appendChild(box);
+                } else { 
+                    wrapper.appendChild(document.createTextNode(char)); 
+                }
+            }
+            range.deleteContents(); range.insertNode(wrapper); selection.removeAllRanges(); 
+            setTimeout(saveHistoryImmediate, 50);
+        });
+
+        document.getElementById('btnTranslate').addEventListener('click', async function() {
+            const selection = window.getSelection(); if (!selection.rangeCount) return;
+            const range = selection.getRangeAt(0); const selectedText = selection.toString().trim();
+            if (!selectedText) { alert('请先用鼠标选中需要翻译的汉字！'); return; }
+            const targetLang = document.getElementById('targetLang').value;
+            const btn = this; const apiKey = apiKeyInput.value.trim();
+            if (!apiKey) { alert('划选翻译需要先在右侧填入 API Key。'); return; }
+
+            btn.innerHTML = "翻译中..."; btn.disabled = true;
+            let translation = "";
+            try { translation = await callAI(`Translate the following Chinese text to ${targetLang}. ONLY output the translation without any extra explanation: "${selectedText}"`, "You are a professional multilingual translator."); } 
+            catch (e) { translation = "(翻译失败: " + e.message + ")"; }
+            btn.innerHTML = "🌐 划选翻译"; btn.disabled = false;
+
+            const block = document.createElement('div'); block.className = 'english-line'; block.innerHTML = `<span style="font-weight:bold;">[${targetLang}]</span> ${translation}`;
+            range.collapse(false); range.insertNode(block);
+            const br = document.createElement('br'); block.after(br);
+            const newRange = document.createRange(); newRange.setStartAfter(br); newRange.collapse(true);
+            selection.removeAllRanges(); selection.addRange(newRange); setTimeout(saveHistoryImmediate, 50);
+        });
+
+        // ======== 课堂测验 ========
+        document.getElementById('btnQuiz').addEventListener('click', async function() {
+            const apiKey = apiKeyInput.value.trim(); 
+            let sourceText = whiteboard.innerText.trim();
+            const imageBase64 = getImageFromBoard();
+
+            if (!sourceText && !imageBase64) { alert('白板内容为空，无法生成测验！'); return; }
+            if (!apiKey) { alert('必须填入 API Key！'); return; }
+
+            const btn = this; const originalText = btn.innerHTML;
+            btn.innerHTML = `<span class="loader"></span> 正在出题...`; 
+            btn.disabled = true;
+            loadingOverlay.classList.remove('hidden');
+            loadingText.innerText = "AI 正在根据白板内容生成课堂测验...";
+
+            const prompt = `你是一位国际中文教师，现在需要针对刚上完的内容给学生做一次“当堂小测验”。
+【任务要求】
+根据提供的【白板语料】，提取核心词汇和语法，生成 5-8 道针对性的短平快练习题。
+【题型限制】
+只使用以下三种题型（混合出题）：
+1. 用所给词语填空（给2-3个词，留空）
+2. 组词（给一个字，留横线写词）
+3. 连词成句（给几个打乱的词，留横线写句子）
+【排版要求】
+1. 严格按照 Markdown 列表格式输出，带有序号。
+2. 绝对不要在题目中直接给出答案，必须留出作答空间！
+3. 填空题用“______”表示；组词题用“字 → ______”；连词成句用“词A / 词B / 词C → _________________”。
+4. 不要输出多余的寒暄和讲解，直接输出题目。
+
+【白板语料】
+${sourceText}`;
+
+            try {
+                const quizMarkdown = await callAI(prompt, "你是一个专业的国际中文命题专家。", imageBase64);
+                
+                const quizHtml = marked.parse(quizMarkdown);
+                
+                let html = '';
+                if (whiteboard.innerText.trim() !== '' && whiteboard.innerHTML !== '<p><br></p>') {
+                    html += `<hr style="border: 1px dashed #cbd5e1; margin: 40px 0;"><br>`;
+                }
+                
+                html += `<div class="quiz-board">`;
+                html += `<h2>📝 课堂测验 (当堂检测)</h2>`;
+                html += quizHtml;
+                html += `</div>`;
+
+                whiteboard.innerHTML += html;
+                scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
+                setTimeout(() => { saveHistoryImmediate(); resizeCanvas(); }, 50);
+
+            } catch (e) { 
+                alert("生成测验失败：" + e.message); 
+            } finally { 
+                btn.innerHTML = originalText; 
+                btn.disabled = false; 
+                loadingOverlay.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('btnGenNotes').addEventListener('click', async function() {
+            const apiKey = apiKeyInput.value.trim(); 
+            let sourceText = whiteboard.innerText.trim();
+            const imageBase64 = getImageFromBoard(); 
+
+            if (!apiKey) { alert('生成笔记必须填入 API Key！'); return; }
+            if (!sourceText && !imageBase64) { alert('白板内容为空！请粘贴文字、截图或上传文档。'); return; }
+
+            let detectedLang = "English"; 
+            const translationBlocks = whiteboard.querySelectorAll('.english-line');
+            if (translationBlocks.length > 0) {
+                const textContent = translationBlocks[0].innerText; const match = textContent.match(/^\[(.*?)\]/);
+                if (match && match[1]) detectedLang = match[1];
+            }
+
+            const btn = this; const originalText = btn.innerHTML;
+            
+            if (imageBase64) {
+                btn.innerHTML = `<span class="loader"></span> AI 正在识图提取...`;
+                loadingText.innerText = "AI 正在读取图片文字，可能需要几秒钟...";
+            } else {
+                btn.innerHTML = `<span class="loader"></span> 正在排版笔记...`;
+            }
+            btn.disabled = true;
+            loadingOverlay.classList.remove('hidden');
+
+            let prompt = "";
+            if (imageBase64) {
+                prompt = `请提取图片中的所有教学文字、语法和例句。然后严格按照以下要求，生成结构化复习笔记。
+【致命规则】：绝不能合并、删减或修改图片上的任何一个例句！图片上有多少句，你就必须输出多少句！绝对不能写“（严格三行对照）”之类的提示词！
+【排版要求】每个例句必须按照以下格式输出，绝对不能出现中文重复：
+1. 中文句子
+pīn yīn
+${detectedLang}翻译
+
+【结构要求】
+**主题topic：** (请提取核心主题写在这里)
+
+**一、核心词汇/ Core Vocabulary**
+| 词汇 | 拼音 | 词性 | ${detectedLang} |
+| --- | --- | --- | --- |
+| 例子 | lì zi | 名词 | example |
+
+**二、重点语法/ Key Grammar Points**
+1、【"语法点名称"】
+【用法说明】...
+1）、例句
+pīn yīn
+Translation
+
+**三、典型例句/ Typical Example Sentences**
+...
+
+**四、课后练习/ Homework Exercises**
+...`;
+            } else {
+                prompt = `你是一位拥有10年经验的国际中文教师。请严格根据白板语料生成结构化复习笔记。
+【致命规则】：绝不能合并、删减或修改白板上的任何一个例句！白板上写了多少句，你就必须输出多少句！绝对不能写“（严格三行对照）”之类的提示词！
+【排版要求】每个例句必须按照以下格式输出，绝对不能出现中文重复：
+1. 中文句子
+pīn yīn
+${detectedLang}翻译
+
+【结构要求】
+**主题topic：** (请提取白板的核心主题写在这里)
+
+**一、核心词汇/ Core Vocabulary**
+| 词汇 | 拼音 | 词性 | ${detectedLang} |
+| --- | --- | --- | --- |
+| 例子 | lì zi | 名词 | example |
+
+**二、重点语法/ Key Grammar Points**
+1、【"语法点名称"】
+【用法说明】...
+1）、例句
+pīn yīn
+Translation
+
+**三、典型例句/ Typical Example Sentences**
+...
+
+**四、课后练习/ Homework Exercises**
+...
+
+【白板语料】
+${sourceText}`;
+            }
+
+            try {
+                const noteMarkdown = await callAI(prompt, "你是一个专业的国际中文教学助手。", imageBase64);
+                currentMode = 'note';
+                document.getElementById('modalTitle').innerText = "📚 复习笔记整理完毕";
+                
+                let rawHtml = (typeof marked !== 'undefined') ? marked.parse(noteMarkdown) : noteMarkdown;
+                let lines = rawHtml.split('\n');
+                let finalHtml = '';
+                let sentenceBuffer = [];
+                
+                for (let i = 0; i < lines.length; i++) {
+                    let line = lines[i].trim();
+                    if (!line) continue; 
+                    line = line.replace(/（严格三行对照）/g, '').replace(/\(严格三行对照\)/g, '');
+
+                    let isSpecialBlock = line.startsWith('<h') || line.startsWith('<table') || line.startsWith('<tr') || line.startsWith('<td') || line.startsWith('<th') || 
+                                         line.startsWith('<blockquote') || line.startsWith('<ul') || line.startsWith('<li') ||
+                                         (line.startsWith('<p>') && (line.includes('用法说明') || line.includes('语法点') || line.includes('【') || line.includes('主题')));
+                    
+                    if (isSpecialBlock) {
+                        if (sentenceBuffer.length > 0) {
+                            finalHtml += renderSentenceBlock(sentenceBuffer);
+                            sentenceBuffer = [];
+                        }
+                        let cleanLine = lines[i].replace(/<\/?p>/g, '');
+                        if (cleanLine.includes('【') && cleanLine.includes('】')) { finalHtml += `<div class="grammar-point">${cleanLine}</div>\n`; } 
+                        else if (cleanLine.includes('用法说明') || cleanLine.includes('[')) { finalHtml += `<div class="grammar-usage">${cleanLine}</div>\n`; } 
+                        else { finalHtml += `<div style="font-weight:bold; margin-top:20px; margin-bottom:10px;">${cleanLine}</div>\n`; }
+                    } 
+                    else {
+                        let cleanText = line.replace(/<\/?p>/g, '').trim();
+                        if (cleanText) { sentenceBuffer.push(cleanText); }
+                    }
+                    
+                    if (sentenceBuffer.length === 3) {
+                        finalHtml += renderSentenceBlock(sentenceBuffer);
+                        sentenceBuffer = [];
+                    }
+                }
+                if (sentenceBuffer.length > 0) { finalHtml += renderSentenceBlock(sentenceBuffer); }
+
+                document.getElementById('examContent').innerHTML = finalHtml;
+                document.getElementById('examModal').classList.remove('hidden');
+                document.getElementById('btnDownloadNotes').classList.remove('hidden');
+                document.getElementById('btnDownloadEx').classList.add('hidden');
+            } catch (e) { alert("整理失败：" + e.message); } 
+            finally { 
+                btn.innerHTML = originalText; 
+                btn.disabled = false; 
+                loadingOverlay.classList.add('hidden');
+            }
+        });
+
+        function renderSentenceBlock(buffer) {
+            if (buffer.length === 0) return '';
+            let headZh = '', py = '', en = '';
+            if (buffer.length === 3) {
+                headZh = buffer[0]; 
+                py = buffer[1];
+                en = buffer[2];
+            } else {
+                return `<div style="margin-bottom:12px;">${buffer.join('<br>')}</div>`;
+            }
+            return `<div class="triple-line"><div class="head-zh">${headZh}</div><div class="py">${py}</div><div class="en">${en}</div></div>\n`;
+        }
+
+        document.getElementById('btnGenEx').addEventListener('click', async function() {
+            const apiKey = apiKeyInput.value.trim(); 
+            let sourceText = whiteboard.innerText.trim();
+            const imageBase64 = getImageFromBoard();
+
+            if (!sourceText && !imageBase64) { alert('白板内容为空，请粘贴图片、上传文档或输入文字！'); return; }
+            if (!apiKey) { alert('必须填入 API Key！'); return; }
+
+            let detectedLang = "English";
+            const translationBlocks = whiteboard.querySelectorAll('.english-line');
+            if (translationBlocks.length > 0) {
+                const textContent = translationBlocks[0].innerText; const match = textContent.match(/^\[(.*?)\]/);
+                if (match && match[1]) detectedLang = match[1];
+            }
+
+            const btn = this; const originalText = btn.innerHTML;
+            btn.innerHTML = `<span class="loader"></span> AI 正在出题...`; 
+            if (imageBase64) loadingText.innerText = "AI 正在读取图片文字并出题...";
+            btn.disabled = true;
+            loadingOverlay.classList.remove('hidden');
+
+            const prompt = `你是一个极度严格的 HSK3 命题专家。请根据提供的语料（或图片内容）生成一套测试题。
+【语言要求】所有题目、选项和答案解析，都必须采用【中文】和【${detectedLang}】双语对照输出。
+【排版要求】请使用 Markdown 格式排版。每道题目、每个选项必须独立成段，段落间必须有空行！包含听力、阅读、书写三大板块。选择题请用列表形式。
+【语料】
+${sourceText}`;
+
+            try {
+                const exerciseMarkdown = await callAI(prompt, "你是一个专业的国际中文命题专家。", imageBase64);
+                currentMode = 'exam';
+                document.getElementById('modalTitle').innerText = "📄 AI 生成的测试题";
+                document.getElementById('examContent').innerHTML = (typeof marked !== 'undefined') ? marked.parse(exerciseMarkdown) : exerciseMarkdown;
+                document.getElementById('examModal').classList.remove('hidden');
+                document.getElementById('btnDownloadEx').classList.remove('hidden');
+                document.getElementById('btnDownloadNotes').classList.add('hidden');
+            } catch (e) { alert("出题失败：" + e.message); } 
+            finally { 
+                btn.innerHTML = originalText; 
+                btn.disabled = false; 
+                loadingOverlay.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('modalDownloadBtn').addEventListener('click', function() {
+            const isNote = currentMode === 'note';
+            const contentHtml = document.getElementById('examContent').innerHTML;
+            if (!contentHtml) { alert('没有可下载的内容'); return; }
+            const fileName = isNote ? '复习笔记' : '测试题';
+
+            const styleForWord = `
+                <style>
+                    body { font-family: 'Microsoft YaHei', sans-serif; line-height: 1.6; font-size: 14pt; color: #333; }
+                    h2 { color: #1e3a8a; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; margin-top: 20px; }
+                    p { margin-bottom: 10px; }
+                    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+                    th { background-color: #f1f5f9; color: #1e40af; padding: 10px; text-align: left; border: 1px solid #cbd5e1; }
+                    td { padding: 10px; border: 1px solid #cbd5e1; }
+                    tr:nth-child(even) { background-color: #f8fafc; }
+                    blockquote { border-left: 4px solid #3b82f6; background-color: #eff6ff; padding: 10px 15px; margin: 15px 0; color: #1e40af; }
+                    ul { padding-left: 20px; }
+                    li { margin-bottom: 8px; }
+                    
+                    .triple-line { margin-bottom: 15px; }
+                    .triple-line .head-zh { color: #1d4ed8; font-weight: bold; font-size: 14pt; margin-bottom: 5px; }
+                    .triple-line .py { color: #64748b; font-style: italic; font-size: 12pt; margin-bottom: 3px; display: block; padding-left: 15px; }
+                    .triple-line .en { color: #1d4ed8; font-weight: bold; font-size: 12pt; display: block; padding-left: 15px; }
+                    .grammar-point { font-weight: bold; font-size: 14pt; color: #1d4ed8; margin-top: 15px; margin-bottom: 5px; }
+                    .grammar-usage { color: #475569; margin-bottom: 10px; }
+                </style>
+            `;
+
+            const htmlContent = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>${fileName}</title>${styleForWord}</head><body>${contentHtml}</body></html>`;
+            
+            const blob = new Blob(['\ufeff' + htmlContent], { type: 'application/msword' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `${fileName}.doc`;
+            document.body.appendChild(a); a.click(); document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        });
+
+        window.closeModal = function() { document.getElementById('examModal').classList.add('hidden'); currentMode = ""; document.getElementById('examContent').innerHTML = ""; document.getElementById('btnDownloadNotes').classList.add('hidden'); document.getElementById('btnDownloadEx').classList.add('hidden'); }
+        
+        window.copyExam = function() { 
+            const text = document.getElementById('examContent').innerText; if (!text) return; 
+            if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(() => alert('已复制纯文本！')).catch(() => fallbackCopy(text)); } 
+            else { fallbackCopy(text); } 
+        }
+        function fallbackCopy(text) { const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.left = '-9999px'; document.body.appendChild(ta); ta.select(); try { const ok = document.execCommand('copy'); alert(ok ? '已复制！' : '复制失败'); } catch (e) { alert('复制失败'); } document.body.removeChild(ta); }
+
+        window.__wbSaveHistory = saveHistoryImmediate;
+        window.__wbResizeCanvas = resizeCanvas;
+
+        const canvas = document.getElementById('drawCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false, isDrawMode = false, penColor = '#ef4444';
+        let strokes = [];
+        let dpr = window.devicePixelRatio || 1;
+
+        function resizeCanvas() {
+            const rect = innerWrapper.getBoundingClientRect();
+            const cssW = Math.max(1, rect.width), cssH = Math.max(1, rect.height);
+            dpr = window.devicePixelRatio || 1;
+            canvas.width = Math.round(cssW * dpr); canvas.height = Math.round(cssH * dpr);
+            canvas.style.width = cssW + 'px'; canvas.style.height = cssH + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0); redraw();
+        }
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+            strokes.forEach(s => {
+                if (s.points.length === 0) return;
+                ctx.beginPath(); ctx.strokeStyle = s.color; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+                ctx.moveTo(s.points[0].x, s.points[0].y);
+                for (let i = 1; i < s.points.length; i++) ctx.lineTo(s.points[i].x, s.points[i].y);
+                ctx.stroke();
+            });
+        }
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            return { x: (e.touches ? e.touches[0].clientX : e.clientX) - rect.left, y: (e.touches ? e.touches[0].clientY : e.clientY) - rect.top };
+        }
+        function startStroke(e) {
+            if (!isDrawMode) return;
+            if (e.touches) e.preventDefault();
+            e.stopPropagation();
+            e.preventDefault();
+            isDrawing = true; const p = getPos(e); strokes.push({ color: penColor, points: [p] });
+            ctx.beginPath(); ctx.strokeStyle = penColor; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.moveTo(p.x, p.y);
+        }
+        function moveStroke(e) {
+            if (!isDrawing) return;
+            if (e.touches) e.preventDefault();
+            const p = getPos(e); 
+            const cur = strokes[strokes.length - 1]; 
+            cur.points.push(p);
+            ctx.lineTo(p.x, p.y); 
+            ctx.stroke();
+        }
+        function endStroke(e) { if (e && e.touches) e.preventDefault(); isDrawing = false; }
+
+        canvas.addEventListener('mousedown', startStroke);
+        canvas.addEventListener('mousemove', moveStroke);
+        window.addEventListener('mouseup', endStroke);
+        canvas.addEventListener('touchstart', startStroke, { passive: false });
+        canvas.addEventListener('touchmove', moveStroke, { passive: false });
+        canvas.addEventListener('touchend', endStroke, { passive: false });
+        canvas.addEventListener('touchcancel', endStroke, { passive: false });
+
+        document.getElementById('btnDraw').addEventListener('click', function() {
+            isDrawMode = !isDrawMode; this.classList.toggle('btn-draw-active'); canvas.classList.toggle('active');
+            document.getElementById('drawToolbar').style.display = isDrawMode ? 'flex' : 'none';
+            whiteboard.style.pointerEvents = isDrawMode ? 'none' : 'auto';
+            if (isDrawMode) resizeCanvas();
+        });
+
+        document.querySelectorAll('.color-btn').forEach(el => {
+            el.addEventListener('click', function() {
+                penColor = this.dataset.color; document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active')); this.classList.add('active');
+            });
+        });
+        document.getElementById('btnClearCanvas').addEventListener('click', function() { strokes = []; redraw(); });
+        document.getElementById('btnUndoStroke').addEventListener('click', function() { strokes.pop(); redraw(); });
+        
+        window.addEventListener('resize', () => { if (isDrawMode) resizeCanvas(); });
+        window.addEventListener('load', () => { if (isDrawMode) resizeCanvas(); });
+        
+        const observer = new MutationObserver(() => {
+            if (isDrawMode) resizeCanvas();
+        });
+        observer.observe(whiteboard, { childList: true, subtree: true, characterData: true });
+    }
+
+    window.clearPptFromBoard = function() {
+        const whiteboard = document.getElementById('whiteboardContent');
+        const pptNodes = whiteboard.querySelectorAll('.pptx-import');
+        
+        if (pptNodes.length === 0) {
+            alert('白板上没有可清除的 PPT 内容。');
+            return;
+        }
+        
+        if (!confirm(`确定要从白板删除全部 ${pptNodes.length} 页 PPT 内容吗？\n（老师手写的其他内容会保留）`)) {
+            return;
+        }
+        
+        pptNodes.forEach(node => {
+            let prev = node.previousSibling;
+            while (prev && prev.nodeType === Node.TEXT_NODE && !prev.textContent.trim()) {
+                prev = prev.previousSibling;
+            }
+            if (prev && prev.tagName === 'HR') {
+                const beforeHr = prev.previousSibling;
+                prev.remove();
+                if (beforeHr && beforeHr.nodeName === 'BR') beforeHr.remove();
+            }
+            node.remove();
+        });
+        
+        const fileInput = document.getElementById('docFileUpload');
+        const fileNameEl = document.getElementById('docFileName');
+        if (fileInput) fileInput.value = '';
+        if (fileNameEl) fileNameEl.textContent = '未选择文件';
+        
+        if (!whiteboard.innerText.trim()) {
+            whiteboard.innerHTML = '<p><br></p>';
+        }
+        
+        if (typeof window.__wbSaveHistory === 'function') window.__wbSaveHistory();
+        setTimeout(() => {
+            if (typeof window.__wbResizeCanvas === 'function') window.__wbResizeCanvas();
+        }, 100);
+        
+        alert('✅ 已清除白板上的 PPT 内容。');
+    };
+</script>
+</body>
+</html>
