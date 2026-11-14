@@ -8,11 +8,10 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/pinyin-pro/3.16.0/index.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.16/mammoth.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/marked/4.3.0/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <style>
-    /* ========== 提取自 Tailwind 的基础样式 ========== */
     *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; }
     body { margin: 0; line-height: inherit; background-color: #f1f5f9; min-height: 100vh; padding: 1rem; overflow: hidden; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
     @media (min-width: 768px) { body { padding: 1.5rem; } }
@@ -154,7 +153,6 @@
     .border-purple-300 { border-color: #d8b4fe; }
     .border-red-200 { border-color: #fecaca; }
     .border-amber-200 { border-color: #fde68a; }
-    .border-slate-300 { border-color: #cbd5e1; }
     
     .rounded { border-radius: 0.25rem; }
     .rounded-lg { border-radius: 0.5rem; }
@@ -177,16 +175,11 @@
     .backdrop-blur-sm { backdrop-filter: blur(4px); }
     .transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
     
-    /* ====== 侧边栏收起与展开响应式修复 ====== */
     @media (min-width: 768px) {
         .md\:flex-row { flex-direction: row; }
         .md\:p-6 { padding: 1.5rem; }
         .md\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
-        
-        /* 展开状态下的宽度 */
         .md\:w-80 { width: 20rem; }
-        
-        /* 收起状态：宽度、内边距、边框、透明度全部清零 */
         .md\:w-0 { width: 0px !important; }
         .md\:p-0 { padding: 0px !important; }
         .md\:m-0 { margin: 0px !important; }
@@ -195,18 +188,33 @@
         .md\:overflow-hidden { overflow: hidden !important; }
     }
 
-    /* ========== 原有自定义样式 ========== */
     #authOverlay { position: fixed; inset: 0; background: #f1f5f9; z-index: 9999; display: flex; justify-content: center; align-items: center; }
     .auth-box { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 420px; width: 90%; }
     #whiteboardScrollContainer { position: absolute; inset: 0; overflow: auto; z-index: 10; }
     #whiteboardInnerWrapper { position: relative; min-height: 100%; width: 100%; }
-    #whiteboardContent { font-family: 'KaiTi', '楷体', 'STKaiti', 'Kaiti SC', 'Songti SC', 'PingFang SC', 'Microsoft YaHei', serif; line-height: 2.8; outline: none; word-break: break-word; padding: 20px; position: relative; z-index: 2; }
+    #whiteboardContent { font-family: 'KaiTi', '楷体', 'STKaiti', 'Kaiti SC', 'Songti SC', 'PingFang SC', 'Microsoft YaHei', serif; line-height: 2; outline: none; word-break: break-word; padding: 20px; position: relative; z-index: 2; }
     #drawCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; touch-action: none; }
     #drawCanvas.active { pointer-events: auto; cursor: crosshair; }
-    .pasted-image { max-width: 90%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 10px 0; display: block; }
     
-    ruby { ruby-align: center; margin: 0 4px; font-size: 1em; white-space: nowrap; }
-    rt { font-size: 0.8em !important; color: #1d4ed8 !important; font-family: 'Arial', sans-serif !important; font-weight: bold !important; margin-bottom: 2px; line-height: 1.1; }
+    .resizable-img-wrapper {
+        display: inline-block; position: relative; resize: both; overflow: hidden;
+        border: 1px dashed #93c5fd; min-width: 50px; min-height: 50px;
+        vertical-align: bottom; margin: 10px 0; line-height: 0;
+    }
+    .resizable-img-wrapper:hover { border-color: #3b82f6; }
+    .resizable-img-wrapper img { width: 100% !important; height: 100% !important; display: block; object-fit: fill; pointer-events: none; margin: 0 !important; }
+    .resizable-img-wrapper::after {
+        content: ''; position: absolute; bottom: 0; right: 0; width: 14px; height: 14px;
+        background-color: #3b82f6; border: 2px solid #fff; border-radius: 2px; cursor: se-resize; z-index: 10;
+    }
+    
+    .pinyin-inline-table { display: inline-table; vertical-align: bottom; border-collapse: collapse; margin: 0 2px; line-height: 1.1; border: none; }
+    .pinyin-inline-table td { padding: 0 1px; text-align: center; border: none; }
+    .pinyin-inline-table .py-top { font-size: 0.45em; font-family: 'Arial', sans-serif; color: #1d4ed8; font-weight: bold; white-space: nowrap; display: block; transform: translateY(2px); }
+    .pinyin-inline-table .py-bottom { font-size: 1em; display: block; }
+    
+    ruby { ruby-align: center; ruby-position: over; margin: 0 1px; white-space: nowrap; }
+    rt { font-size: 0.5em !important; color: #1d4ed8 !important; font-family: 'Arial', sans-serif !important; font-weight: bold !important; line-height: 1.2; }
     
     .english-line { display: block !important; font-size: 0.85em !important; color: #64748b; font-family: 'Arial', sans-serif; font-style: italic; border-left: 3px solid #cbd5e1; padding-left: 8px; margin: 8px 0 20px 0 !important; line-height: 1.4 !important; width: 100%; }
     .toolbar-btn { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; padding: 6px 10px; background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; color: #334155; cursor: pointer; font-weight: 500; transition: all 0.2s; }
@@ -245,40 +253,18 @@
     .markdown-body ul { list-style-type: disc; padding-left: 20px; margin-bottom: 15px; }
     .sidebar-transition { transition: all 0.3s ease-in-out; }
 
-    /* ====== 手动加拼音专用排版：完美对齐、行高紧凑、增加左右间距 ====== */
-    .py-box {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        vertical-align: bottom;
-        margin: 0 6px; /* 增加左右间距，防止挨得太近 */
-        line-height: 1;
-        white-space: pre;
-        position: relative;
-        top: -0.2em; /* 整体向上微调，让拼音和汉字更贴合 */
-    }
-    .py-box .py-top {
-        font-size: 0.55em; /* 稍微缩小拼音，避免超出汉字宽度 */
-        font-family: 'Arial', sans-serif;
-        color: #1d4ed8;
-        font-weight: bold;
-        white-space: nowrap;
-        margin-bottom: 0.2em; /* 拼音和汉字的微小间距 */
-    }
-    .py-box .py-bottom {
-        font-size: 1em;
-    }
+    .core-vocab { border-bottom: 2px solid #3b82f6; font-weight: bold; color: #1d4ed8; padding-bottom: 1px; }
 
-    /* ====== 课堂测验白板排版专用 ====== */
     .quiz-board { margin-top: 10px; }
     .quiz-board h2 { font-size: 1.3em; font-weight: bold; color: #1e3a8a; border-bottom: 2px dashed #93c5fd; padding-bottom: 10px; margin-bottom: 20px; }
     .quiz-board h3 { font-size: 1.1em; font-weight: bold; color: #b45309; margin-top: 20px; margin-bottom: 10px; }
-    .quiz-board p { margin-bottom: 15px; line-height: 2.2; }
+    .quiz-board p { margin-bottom: 12px; line-height: 1.8; }
+    
+    #worksheetModal iframe { width: 100%; height: 100%; border: none; background: #fff; }
 </style>
 </head>
 <body>
 
-<!-- 登录验证遮罩层 -->
 <div id="authOverlay">
     <div class="auth-box">
         <h1 class="text-2xl font-bold text-slate-800 mb-2">🔒 软件授权登录</h1>
@@ -296,7 +282,6 @@
     </div>
 </div>
 
-<!-- 主体内容 -->
 <div id="appContent" class="hidden flex-col md:flex-row h-[calc(100vh-3rem)] gap-6 relative">
     <div class="flex-1 bg-white rounded-2xl shadow-lg flex flex-col border-4 border-blue-200 p-4 md:p-6 relative w-full sidebar-transition">
         <div id="drawToolbar">
@@ -326,7 +311,12 @@
                 <button id="btnRed" class="toolbar-btn text-red-500 font-bold">A</button>
                 <span class="mx-1 text-slate-300">|</span>
                 <button id="btnDraw" class="toolbar-btn bg-slate-100 text-slate-700 border-slate-300 font-bold">✏️ 电子教鞭</button>
-                <button id="btnAddPinyin" class="toolbar-btn bg-blue-100 text-blue-700 border-blue-300 font-bold">✨ 划选加拼音</button>
+                <button id="btnTogglePinyin" class="toolbar-btn bg-blue-100 text-blue-700 border-blue-300 font-bold" title="选中文字：无拼音则添加，有拼音则去除">✨ 拼音</button>
+                <button id="btnToggleUnderline" class="toolbar-btn bg-blue-50 text-blue-700 border-blue-200 font-bold" title="选中文字：无下划线则标注，有下划线则去除"><u>U</u> 核心词汇</button>
+                <button id="btnRemoveAllPinyinTrans" class="toolbar-btn bg-red-50 text-red-700 border-red-200 font-bold" title="一键移除白板上所有的拼音和翻译标注">🧹 清除拼音/翻译</button>
+                <button id="btnOpenWorksheet" class="toolbar-btn bg-indigo-100 text-indigo-700 border-indigo-300 font-bold">📄 笔顺字帖</button>
+                <button id="btnClozeTest" class="toolbar-btn bg-emerald-100 text-emerald-700 border-emerald-300 font-bold">✂️ 挖空生成试题</button>
+                
                 <div class="inline-flex items-center bg-purple-100 border border-purple-300 rounded-lg overflow-hidden">
                     <select id="targetLang" class="bg-transparent text-purple-700 font-bold text-xs px-2 py-1.5 outline-none cursor-pointer">
                         <option value="English">英语 (English)</option>
@@ -340,10 +330,14 @@
                         <option value="Russian">俄语 (Русский)</option>
                         <option value="Thai">泰语 (ภาษาไทย)</option>
                         <option value="Vietnamese">越南语 (Tiếng Việt)</option>
+                        <option value="Polish">波兰语 (Polski)</option>
+                        <option value="Kazakh">哈萨克语 (Қазақ тілі)</option>
                     </select>
-                    <button id="btnTranslate" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 text-xs font-bold transition cursor-pointer">🌐 划选翻译</button>
+                    <button id="btnToggleTranslate" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 text-xs font-bold transition cursor-pointer" title="选中文字：无翻译则添加，有翻译则去除">🌐 翻译</button>
                 </div>
                 <button id="btnUndo" class="toolbar-btn bg-amber-50 text-amber-700 border-amber-200">↩️ 撤销</button>
+                <button id="btnRedo" class="toolbar-btn bg-amber-50 text-amber-700 border-amber-200">↪️ 还原</button>
+                <button id="btnClearBoard" class="toolbar-btn bg-red-100 text-red-700 border-red-300 font-bold" title="一键清空白板上的所有内容">🗑️ 清空白板</button>
             </div>
         </div>
 
@@ -391,9 +385,9 @@
                 <div class="flex items-center justify-between">
                     <label class="block text-[10px] text-indigo-600 font-bold">📥 导入知识库</label>
                     <div class="flex gap-1">
-                        <!-- 新增：云端加载按钮 -->
-                        <button id="btnLoadCloudKb" class="cursor-pointer bg-indigo-600 text-white px-2 py-1 rounded text-[10px] hover:bg-indigo-700 transition">☁️ 加载云端库</button>
-                        <!-- 原有：本地文件选择 -->
+                        <button id="btnImportGithub" class="cursor-pointer bg-indigo-600 text-white px-2 py-1 rounded text-[10px] hover:bg-indigo-700 transition">🌐 从 GitHub 导入</button>
+                        <button id="btnLoadCloud1" class="cursor-pointer bg-indigo-600 text-white px-2 py-1 rounded text-[10px] hover:bg-indigo-700 transition" title="加载根目录的 HSK 库">☁️ 云端一 (HSK)</button>
+                        <button id="btnLoadCloud2" class="cursor-pointer bg-purple-600 text-white px-2 py-1 rounded text-[10px] hover:bg-purple-700 transition" title="加载语法库">☁️ 云端二 (黄伯荣语法)</button>
                         <label class="cursor-pointer bg-white border border-indigo-300 text-indigo-700 px-2 py-1 rounded text-[10px] hover:bg-indigo-50 transition">
                             本地上传
                             <input type="file" id="kbFileUpload" accept=".json" class="hidden">
@@ -407,7 +401,6 @@
         <div class="bg-teal-50 p-3 rounded-lg border border-teal-200 space-y-2">
             <label class="block text-xs font-bold text-teal-800 mb-1">📂 上传上课文件 (PDF/Word/PPT/TXT)</label>
             <div class="flex items-center justify-between gap-2">
-                <!-- 彻底修复：使用 label 触发隐藏的 input，并绝对保证不冲突 -->
                 <label class="cursor-pointer bg-white border border-teal-300 text-teal-700 px-3 py-1 rounded text-xs hover:bg-teal-50 transition font-medium shadow-sm">
                     选择文件
                     <input type="file" id="docFileUpload" accept=".pdf,.docx,.txt,.pptx" class="hidden">
@@ -422,7 +415,9 @@
                 <label class="block text-xs font-medium text-slate-700 mb-1">🤖 AI 模型</label>
                 <select id="modelProvider" class="w-full border border-slate-300 rounded-lg p-1.5 text-xs outline-none focus:ring-1 focus:ring-blue-500 bg-white">
                     <option value="deepseek" selected>DeepSeek (deepseek-chat)</option>
+                    <option value="openai">OpenAI (gpt-4o-mini)</option>
                     <option value="claude">Claude (claude-3-5-haiku)</option>
+                    <option value="zhipu">智谱 GLM (glm-4.7-flash)</option>
                 </select>
             </div>
             <div>
@@ -432,18 +427,17 @@
         </div>
 
         <div class="flex flex-col gap-2.5 mt-auto pt-2">
-            <!-- 课堂测验按钮，位置醒目 -->
             <button id="btnQuiz" class="w-full bg-amber-500 text-white py-2.5 rounded-lg font-bold hover:bg-amber-600 transition text-sm cursor-pointer flex justify-center items-center shadow-sm border border-amber-600">🎯 生成课堂测验 (展示在白板)</button>
             
             <button id="btnGenNotes" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-medium hover:bg-emerald-700 transition text-sm cursor-pointer flex justify-center items-center mt-2 border-t border-slate-200 pt-3">📚 一键整理白板笔记</button>
             <button id="btnDownloadNotes" class="hidden w-full bg-emerald-700 text-white py-1.5 rounded-lg text-xs hover:bg-emerald-800 transition cursor-pointer">📥 下载复习笔记 (Word)</button>
             <button id="btnGenEx" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition text-sm cursor-pointer flex justify-center items-center mt-2 border-t border-slate-200 pt-3">✍️ 生成全套测试题</button>
-            <button id="btnDownloadEx" class="hidden w-full bg-indigo-700 text-white py-1.5 rounded-lg text-xs hover:bg-indigo-800 transition cursor-pointer">📥 下载测试题 (Word)</button>
+            <button id="btnDownloadExStudent" class="hidden w-full bg-blue-600 text-white py-1.5 rounded-lg text-xs hover:bg-blue-700 transition cursor-pointer">📥 下载学生版测试题 (无答案)</button>
+            <button id="btnDownloadExTeacher" class="hidden w-full bg-indigo-700 text-white py-1.5 rounded-lg text-xs hover:bg-indigo-800 transition cursor-pointer">📥 下载教师版测试题 (含答案)</button>
         </div>
     </div>
 </div>
 
-<!-- 试卷 Modal -->
 <div id="examModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 justify-center items-center p-4">
     <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col">
         <div class="flex justify-between items-center p-5 border-b border-slate-200">
@@ -461,17 +455,23 @@
     </div>
 </div>
 
+<div id="worksheetModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 justify-center items-center">
+    <div class="bg-white shadow-2xl flex flex-col overflow-hidden" style="width: 95vw !important; height: 95vh !important; border-radius: 12px;">
+        <div class="flex justify-between items-center px-4 py-3 border-b border-slate-200 bg-slate-50 shrink-0">
+            <h2 class="text-lg font-bold text-slate-800">📝 汉字笔顺描红字帖生成器</h2>
+            <button onclick="closeWorksheetModal()" class="text-slate-400 hover:text-red-500 text-2xl font-bold pb-1">&times;</button>
+        </div>
+        <iframe src="https://chaulede.github.io/ZT/" style="width: 100% !important; height: 100% !important; border: none; display: block;" allow="fullscreen"></iframe>
+    </div>
+</div>
+
 <script>
     window.addEventListener('DOMContentLoaded', () => {
-        if (typeof JSZip === 'undefined') {
-            console.error("❌ 致命错误：JSZip 库未加载成功，无法解析 PPT！");
-            setTimeout(() => alert("⚠️ PPT 解析组件 (JSZip) 加载失败，请检查您的网络或关闭广告拦截插件后刷新页面。"), 500);
-        }
+        if (typeof JSZip === 'undefined') { console.error("❌ 致命错误：JSZip 库未加载成功，无法解析 PPT！"); }
         if (typeof pdfjsLib === 'undefined') console.warn("⚠️ PDF.js 未加载");
         if (typeof mammoth === 'undefined') console.warn("⚠️ Mammoth.js 未加载");
         if (typeof pinyinPro === 'undefined') console.warn("⚠️ pinyin-pro 未加载");
 
-        // 修复登录状态检测
         const savedAuth = localStorage.getItem('teacher_whiteboard_auth');
         if (savedAuth === 'true') {
             document.getElementById('authOverlay').style.display = 'none';
@@ -484,13 +484,25 @@
     });
 
     const VALID_ACCOUNTS = [
-        { account: "admin", password: "chaulede" },
+        { account: "admin", password: "zhoulidi" },
         { account: "carrotluo", password: "abc123" },
         { account: "开场白", password: "123456" },
         { account: "视听", password: "123456" },
         { account: "卡卡西", password: "123456" },
-        { account: "teacher", password: "123456" },
+        { account: "teacher", password: "840604" },
         { account: "lily", password: "123456" },
+        { account: "ylps", password: "123456" },
+        { account: "qgz", password: "123456" },
+        { account: "vong", password: "1984" },
+        { account: "yang", password: "123456" },
+        { account: "yuran", password: "123456" },
+        { account: "margo", password: "123456" },
+        { account: "aurora", password: "123456" },
+        { account: "sheng", password: "123456" },
+        { account: "lynn", password: "123456" },
+        { account: "xiaoK", password: "123456" },
+        { account: "wanjun", password: "wanjun" },
+        { account: "chang", password: "chang" },
         ...Array.from({ length: 99 }, (_, i) => ({ account: `teacher${i + 2}`, password: "123" }))
     ];
 
@@ -532,15 +544,77 @@
                   .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
-    async function callAI(prompt, systemInstruction = "你是一个专业的国际中文与多国语言教学助手。", imageBase64 = null) {
-        const apiKey = document.getElementById('apiKey').value.trim();
+    const FREE_ZHIPU_KEY = ""; 
+
+    async function callAI(prompt, systemInstruction = "你是一个专业的国际中文与多国语言教学助手。", imageBase64 = null, isTranslation = false) {
+        let apiKey = document.getElementById('apiKey').value.trim();
         let provider = document.getElementById('modelProvider').value;
+
+        if (isTranslation && !apiKey) {
+            const targetLangMatch = systemInstruction.match(/翻译成([^\s，。]+)/);
+            const targetLang = targetLangMatch ? targetLangMatch[1] : 'English';
+            let sourceText = prompt.match(/"([^"]+)"$/) || prompt.match(/"([^"]+)"/);
+            sourceText = sourceText ? sourceText[1] : prompt;
+            
+            const langMap = { 'English': 'en', 'French': 'fr', 'Japanese': 'ja', 'Korean': 'ko', 'German': 'de', 'Italian': 'it', 'Spanish': 'es', 'Russian': 'ru', 'Thai': 'th', 'Vietnamese': 'vi', 'Indonesian': 'id', 'Polish': 'pl', 'Kazakh': 'kk' };
+            const targetCode = langMap[targetLang] || 'en';
+            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(sourceText)}&langpair=zh-CN|${targetCode}`;
+            
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`请求失败 (${res.status})`);
+                const data = await res.json();
+                if (data.responseStatus !== 200) throw new Error("免费翻译接口受限");
+                return data.responseData.translatedText;
+            } catch (e) {
+                console.warn("免费翻译失败", e);
+                alert("免费翻译额度已满或网络异常，请在右侧填入 API Key 获取高质量翻译。");
+                throw new Error("免费翻译失败");
+            }
+        }
+
+        if (provider === 'zhipu' || (!apiKey && FREE_ZHIPU_KEY)) {
+            if (!apiKey) apiKey = FREE_ZHIPU_KEY;
+            if (!apiKey) { alert('请在右侧填入智谱 API Key！'); throw new Error('未填写 Key'); }
+            
+            const url = "https://open.bigmodel.cn/api/paas/v4/chat/completions";
+            const modelName = "glm-4.7-flash"; 
+            
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+                body: JSON.stringify({
+                    model: modelName,
+                    messages: [{ role: "system", content: systemInstruction }, { role: "user", content: prompt }],
+                    temperature: 0.3
+                })
+            });
+            if (!res.ok) throw new Error(`智谱请求失败 (${res.status})`);
+            const data = await res.json();
+            return data.choices[0].message.content.trim();
+        }
 
         if (!apiKey) { alert('请先在右侧面板填入您的 API Key！'); throw new Error('未填写 API Key'); }
         
         if (imageBase64) {
             alert("当前选择的 AI 模型不支持图片解析，请使用文字输入。");
             throw new Error('模型不支持识图');
+        }
+
+        if (provider === 'openai') {
+            const url = "https://api.openai.com/v1/chat/completions";
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+                body: JSON.stringify({
+                    model: "gpt-4o-mini", 
+                    messages: [{ role: "system", content: systemInstruction }, { role: "user", content: prompt }], 
+                    temperature: 0.3
+                })
+            });
+            if (!res.ok) throw new Error(`OpenAI 请求失败 (${res.status})`);
+            const data = await res.json();
+            return data.choices[0].message.content.trim();
         }
 
         if (provider === 'claude') {
@@ -580,6 +654,31 @@
         return img && img.src ? img.src : null;
     }
 
+    function getCoreVocabularies() {
+        const whiteboard = document.getElementById('whiteboardContent');
+        let vocabs = [];
+
+        const markedNodes = whiteboard.querySelectorAll('.core-vocab');
+        markedNodes.forEach(node => {
+            const text = node.textContent.trim();
+            if (text && !vocabs.includes(text)) {
+                vocabs.push(text);
+            }
+        });
+
+        const rawText = whiteboard.innerText;
+        const regex = /(?:^|\n)\s*\d+[、\.\)\s]\s*([^\s：:\-\n]{1,10})\s*[：:\-]/g;
+        let match;
+        while ((match = regex.exec(rawText)) !== null) {
+            const word = match[1].trim();
+            if (word && !vocabs.includes(word)) {
+                vocabs.push(word);
+            }
+        }
+
+        return vocabs;
+    }
+
     function initApp() {
         if (appInitialized) return;
         appInitialized = true;
@@ -605,16 +704,30 @@
                     const blob = item.getAsFile();
                     const reader = new FileReader();
                     reader.onload = function(event) {
+                        const wrapper = document.createElement('span');
+                        wrapper.className = 'resizable-img-wrapper';
+                        wrapper.style.width = '300px';
+                        wrapper.style.height = '200px';
+
                         const img = document.createElement('img');
                         img.src = event.target.result;
-                        img.className = 'pasted-image';
+                        
+                        wrapper.appendChild(img);
+                        
+                        const space = document.createTextNode('\u200B');
+
                         const sel = window.getSelection();
                         if (sel.rangeCount) {
                             const range = sel.getRangeAt(0);
                             range.deleteContents();
-                            range.insertNode(img);
+                            range.insertNode(wrapper);
+                            const newRange = document.createRange();
+                            newRange.setStartAfter(wrapper);
+                            newRange.collapse(true);
+                            newRange.insertNode(space);
                         } else {
-                            whiteboard.appendChild(img);
+                            whiteboard.appendChild(wrapper);
+                            whiteboard.appendChild(space);
                         }
                         saveHistoryImmediate();
                     };
@@ -623,7 +736,37 @@
                 }
             }
         });
-        
+
+        whiteboard.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' || e.key === 'Delete') {
+                setTimeout(() => {
+                    const wrappers = whiteboard.querySelectorAll('.resizable-img-wrapper');
+                    wrappers.forEach(wr => {
+                        if (!wr.querySelector('img')) {
+                            wr.remove();
+                        }
+                    });
+                }, 10);
+            }
+
+            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey) && e.shiftKey) {
+                if (e.isComposing || e.keyCode === 229) return;
+                const selection = window.getSelection();
+                if (!selection || selection.rangeCount === 0) return;
+                const range = selection.getRangeAt(0);
+
+                if (!selection.isCollapsed) {
+                    const selectedText = getSelectionPlainText(range) || selection.toString().trim();
+                    if (!selectedText) return;
+
+                    e.preventDefault();
+                    combinePinyinAndTranslate(range, selectedText);
+                } else {
+                    if (handleEnterOnLine(range)) e.preventDefault();
+                }
+            }
+        });
+
         function toggleSidebar(show) {
             if (show) {
                 sidebarPanel.classList.remove('md:w-0', 'md:p-0', 'md:m-0', 'md:border-0', 'md:opacity-0', 'md:overflow-hidden');
@@ -677,20 +820,22 @@
             reader.readAsText(file, 'UTF-8');
         });
 
-        // ====== 升级：从 GitHub 云端并发加载多个 JSON 文件 ======
-        document.getElementById('btnLoadCloudKb').addEventListener('click', async function() {
-            const files = ['A1A2.json', 'B1.json', 'B2.json', 'HSK_synonyms_all.json'];
+        // 修复：拆分云端库加载，分别绑定给两个按钮
+        document.getElementById('btnLoadCloud1').addEventListener('click', async function() {
             const btn = this;
             const originalText = btn.innerHTML;
             btn.innerHTML = "加载中...";
             btn.disabled = true;
-
-            let allLoadedData = [];
-
+            
             try {
-                // 并发请求这四个文件
-                const promises = files.map(fileName => {
-                    // 加上时间戳防止缓存
+                const res1 = await fetch(`./list1.json?t=${new Date().getTime()}`);
+                if (!res1.ok) throw new Error("未找到 list1.json，请检查根目录文件。");
+                const list1 = await res1.json();
+                
+                if (list1.length === 0) throw new Error("list1.json 为空。");
+                
+                let allLoadedData = [];
+                const promises = list1.map(fileName => {
                     const url = `./${fileName}?t=${new Date().getTime()}`;
                     return fetch(url).then(res => {
                         if (!res.ok) throw new Error(`文件 ${fileName} 获取失败`);
@@ -699,8 +844,137 @@
                 });
 
                 const results = await Promise.all(promises);
+                results.forEach(data => {
+                    if (Array.isArray(data)) { allLoadedData = allLoadedData.concat(data); } 
+                    else {
+                        const firstArray = Object.values(data).find(val => Array.isArray(val));
+                        if (firstArray) allLoadedData = allLoadedData.concat(firstArray);
+                    }
+                });
+
+                knowledgeBase = allLoadedData;
                 
-                // 将数组合并
+                const kbStatus = document.getElementById('kbStatus');
+                kbStatus.textContent = `✅ 已加载 云端一(HSK) (共${list1.length}个文件，${knowledgeBase.length} 个知识点)`;
+                kbStatus.classList.add('text-green-600');
+                kbStatus.classList.remove('text-indigo-400');
+                document.getElementById('kbResults').classList.add('hidden');
+            } catch (err) {
+                console.error(err);
+                alert(`加载云端一失败：\n` + err.message);
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        document.getElementById('btnLoadCloud2').addEventListener('click', async function() {
+            const btn = this;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "加载中...";
+            btn.disabled = true;
+            
+            try {
+                const res2 = await fetch(`./grammar/list2.json?t=${new Date().getTime()}`);
+                if (!res2.ok) throw new Error("未找到 grammar/list2.json，请检查文件夹。");
+                const list2 = await res2.json();
+                
+                if (list2.length === 0) throw new Error("list2.json 为空。");
+                
+                let allLoadedData = [];
+                const promises = list2.map(fileName => {
+                    const url = `./grammar/${fileName}?t=${new Date().getTime()}`;
+                    return fetch(url).then(res => {
+                        if (!res.ok) throw new Error(`文件 ${fileName} 获取失败`);
+                        return res.json();
+                    });
+                });
+
+                const results = await Promise.all(promises);
+                results.forEach(data => {
+                    if (Array.isArray(data)) { allLoadedData = allLoadedData.concat(data); } 
+                    else {
+                        const firstArray = Object.values(data).find(val => Array.isArray(val));
+                        if (firstArray) allLoadedData = allLoadedData.concat(firstArray);
+                    }
+                });
+
+                knowledgeBase = allLoadedData;
+                
+                const kbStatus = document.getElementById('kbStatus');
+                kbStatus.textContent = `✅ 已加载 云端二(语法) (共${list2.length}个文件，${knowledgeBase.length} 个知识点)`;
+                kbStatus.classList.add('text-green-600');
+                kbStatus.classList.remove('text-indigo-400');
+                document.getElementById('kbResults').classList.add('hidden');
+            } catch (err) {
+                console.error(err);
+                alert(`加载云端二失败：\n` + err.message);
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        document.getElementById('btnImportGithub').addEventListener('click', async function() {
+            const url = prompt('请输入您的 GitHub 仓库链接或 JSON 文件直链：\n(例如：https://github.com/用户名/仓库名)');
+            if (!url || !url.trim()) return;
+            
+            const btn = this;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "提取中...";
+            btn.disabled = true;
+            const kbStatus = document.getElementById('kbStatus');
+            kbStatus.textContent = "正在从 GitHub 提取数据，请稍候...";
+            kbStatus.classList.add('text-indigo-600');
+            kbStatus.classList.remove('text-green-600', 'text-red-500');
+
+            try {
+                let rawFilesToFetch = [];
+                let cleanUrl = url.trim().replace(/\/$/, ""); 
+
+                if (cleanUrl.endsWith('.json')) {
+                    if (cleanUrl.includes('github.com') && !cleanUrl.includes('raw.githubusercontent.com')) {
+                        cleanUrl = cleanUrl.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
+                    }
+                    rawFilesToFetch.push(cleanUrl);
+                } else {
+                    const repoMatch = cleanUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
+                    if (!repoMatch) throw new Error('无法识别的 GitHub 链接格式，请检查！');
+                    
+                    const user = repoMatch[1];
+                    const repo = repoMatch[2];
+                    
+                    const treeApi = `https://data.jsdelivr.com/v1/package/gh/${user}/${repo}@main/flat`;
+                    let res = await fetch(treeApi).catch(() => null);
+                    
+                    if (!res || !res.ok) {
+                        const treeApiMaster = `https://data.jsdelivr.com/v1/package/gh/${user}/${repo}@master/flat`;
+                        res = await fetch(treeApiMaster).catch(() => null);
+                        if (!res || !res.ok) throw new Error('获取仓库文件列表失败，请确认仓库地址正确或为公开仓库。');
+                    }
+
+                    const data = await res.json();
+                    const jsonFiles = data.files.filter(f => f.name.endsWith('.json'));
+                    
+                    if (jsonFiles.length === 0) throw new Error('该仓库中未找到任何 .json 文件。');
+                    
+                    const branch = res.url.includes('@master') ? 'master' : 'main';
+                    jsonFiles.forEach(f => {
+                        const filePath = f.name.startsWith('/') ? f.name.substring(1) : f.name;
+                        rawFilesToFetch.push(`https://cdn.jsdelivr.net/gh/${user}/${repo}@${branch}/${filePath}`);
+                    });
+                }
+
+                const fetchPromises = rawFilesToFetch.map(rawUrl => 
+                    fetch(rawUrl).then(r => {
+                        if (!r.ok) throw new Error(`下载文件失败: ${rawUrl}`);
+                        return r.json();
+                    })
+                );
+                
+                const results = await Promise.all(fetchPromises);
+                
+                let allLoadedData = [];
                 results.forEach(data => {
                     if (Array.isArray(data)) { 
                         allLoadedData = allLoadedData.concat(data); 
@@ -710,25 +984,26 @@
                     }
                 });
 
+                if (allLoadedData.length === 0) throw new Error('JSON 文件内容为空或格式不正确。');
+
                 knowledgeBase = allLoadedData;
-                
-                // 更新状态 UI
-                const kbStatus = document.getElementById('kbStatus');
-                kbStatus.textContent = `✅ 云端多库已加载 ${knowledgeBase.length} 个知识点`;
+                kbStatus.textContent = `✅ 已从 GitHub 提取 ${knowledgeBase.length} 个知识点 (共${rawFilesToFetch.length}个文件)`;
                 kbStatus.classList.add('text-green-600');
-                kbStatus.classList.remove('text-indigo-400');
+                kbStatus.classList.remove('text-indigo-600');
                 document.getElementById('kbResults').classList.add('hidden');
                 
             } catch (err) {
                 console.error(err);
-                alert('云端知识库加载失败：\n' + err.message + '\n\n请确认你的 GitHub 仓库中包含这四个文件。');
+                kbStatus.textContent = "❌ 提取失败";
+                kbStatus.classList.add('text-red-500');
+                kbStatus.classList.remove('text-indigo-600', 'text-green-600');
+                alert('GitHub 数据库提取失败：\n' + err.message + '\n\n建议：请检查您的 GitHub 仓库是否为 Public (公开)，且确保分支为 main 或 master。');
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
             }
         });
 
-        // ====== 优化文件读取逻辑 ======
         document.getElementById('docFileUpload').addEventListener('change', async function(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -738,7 +1013,6 @@
             loadingText.innerText = "正在解析文档，请稍候...";
             const fileName = file.name.toLowerCase();
 
-            // 通用渲染函数：安全注入文本，防止解析阻断
             const renderText = (text) => {
                 if (!text || !text.trim()) {
                     alert("未能从文件中提取出有效内容。");
@@ -1025,19 +1299,24 @@
             const keyword = document.getElementById('kbSearchInput').value.trim().toLowerCase();
             const resultsBox = document.getElementById('kbResults');
             if (!keyword) { resultsBox.classList.add('hidden'); return; }
-            if (knowledgeBase.length === 0) { alert('请先点击“☁️ 加载云端库”或本地上传知识库文件！'); return; }
+            if (knowledgeBase.length === 0) { alert('请先点击“加载云端库”或本地上传知识库文件！'); return; }
             
             const results = knowledgeBase.filter(item => {
                 if (!item || typeof item !== 'object') return false;
+                
                 const titleText = (item.title || item.grammar_cn || item.name || item.word || item.keyword || '').toString().toLowerCase();
+                const contentText = (item.content || item.usage || item.explanation || '').toString().toLowerCase();
                 const titleEn = (item.grammar_en || item.english || '').toString().toLowerCase();
+                
                 let tagsMatch = false;
                 if (item.tags) {
                     const tagArr = Array.isArray(item.tags) ? item.tags : String(item.tags).split(/[,，\s]+/);
                     tagsMatch = tagArr.some(tag => String(tag).toLowerCase().includes(keyword));
                 }
+                
                 const fallbackMatch = JSON.stringify(item).toLowerCase().includes(keyword);
-                return titleText.includes(keyword) || titleEn.includes(keyword) || tagsMatch || fallbackMatch;
+                
+                return titleText.includes(keyword) || contentText.includes(keyword) || titleEn.includes(keyword) || tagsMatch || fallbackMatch;
             });
             
             resultsBox.innerHTML = '';
@@ -1046,11 +1325,18 @@
                 resultsBox.innerHTML = `<div class="text-xs text-slate-500 text-center py-2">没有找到“${keyword}”相关知识点</div>`;
                 return;
             }
+            
             results.slice(0, 15).forEach((item) => {
                 const div = document.createElement('div');
                 div.className = 'kb-item';
                 const title = item.grammar_cn || item.title || item.name || item.word || item.keyword || '无标题';
-                const subTitle = item.structure || item.grammar_en || item.level || (Array.isArray(item.tags) ? item.tags.join(', ') : item.tags) || '';
+                let subTitle = item.structure || item.grammar_en || item.level || (Array.isArray(item.tags) ? item.tags.join(', ') : item.tags);
+                if (!subTitle && item.content) {
+                    subTitle = item.content.substring(0, 30) + '...';
+                } else if (!subTitle) {
+                    subTitle = '';
+                }
+                
                 div.innerHTML = `
                     <div class="kb-title">${title}</div>
                     <div class="kb-tags">${subTitle}</div>
@@ -1063,10 +1349,10 @@
         document.getElementById('btnSearchKb').addEventListener('click', searchKnowledge);
         document.getElementById('kbSearchInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') searchKnowledge(); });
 
-        /* ====== 知识点渲染 ====== */
         function renderKnowledgeToBoard(kbItem) {
             let html = '';
-            const title = kbItem.grammar_cn || kbItem.title || kbItem.name || kbItem.word || kbItem.keyword || '知识点';
+            // 兼容新老 JSON 格式的标题提取
+            const title = kbItem.keyword || kbItem.grammar_cn || kbItem.title || kbItem.name || kbItem.word || '知识点';
             const subTitleText = kbItem.grammar_en || kbItem.level || '';
             const levelTag = subTitleText
                 ? `<span class="kb-level-tag" style="background:#e2e8f0; color:#475569; padding:2px 6px; border-radius:4px; margin-left:10px; font-weight:normal;">${subTitleText}</span>`
@@ -1084,9 +1370,15 @@
                 html += `<p style="margin-bottom:12px;"><span class="kb-label" style="background:#e0f2fe; color:#0369a1; padding:4px 8px; border-radius:4px; font-weight:bold;">句型结构</span> <span style="font-family:monospace; margin-left:5px;">${patternText}</span></p>`;
             }
             
-            const usageText = kbItem.usage || kbItem.explanation;
+            // 兼容新老 JSON 格式的内容提取
+            const usageText = kbItem.content || kbItem.usage || kbItem.explanation;
             if (usageText) {
-                html += `<p style="margin-bottom:20px;"><span class="kb-label" style="background:#dcfce7; color:#166534; padding:4px 8px; border-radius:4px; font-weight:bold;">用法说明</span> <span style="margin-left:5px; line-height: 1.6;">${String(usageText).replace(/\n/g, '<br>')}</span></p>`;
+                let formattedUsage = String(usageText)
+                    .replace(/【(.*?)】/g, '<span style="color:#1d4ed8; font-weight:bold;">【$1】</span>')
+                    .replace(/例句：/g, '<br><span style="color:#64748b; font-weight:bold; margin-top:8px; display:inline-block;">例句：</span>')
+                    .replace(/\n/g, '<br>');
+
+                html += `<p style="margin-bottom:20px; line-height: 1.8;"><span class="kb-label" style="background:#dcfce7; color:#166534; padding:4px 8px; border-radius:4px; font-weight:bold; vertical-align: top;">释义与用法</span> <span style="margin-left:8px; display:inline-block; width: calc(100% - 90px);">${formattedUsage}</span></p>`;
             }
 
             if (kbItem.examples && Array.isArray(kbItem.examples)) {
@@ -1136,34 +1428,83 @@
             setTimeout(() => { saveHistoryImmediate(); resizeCanvas(); }, 50);
         }
 
-        let undoStack = [], isUndoRedoing = false, historyTimer = null;
-        
+        let historyStack = [];        
+        let historyIndex = -1;        
+        let isUndoRedoing = false;
+        let historyTimer = null;
+        const MAX_HISTORY = 100;
+
         function saveHistoryImmediate() {
             if (isUndoRedoing) return;
-            if (undoStack.length > 0 && undoStack[undoStack.length - 1] === whiteboard.innerHTML) return;
-            if (undoStack.length > 50) undoStack.shift();
-            undoStack.push(whiteboard.innerHTML); 
+            clearTimeout(historyTimer);
+            const html = whiteboard.innerHTML;
+
+            if (historyIndex >= 0 && historyStack[historyIndex] === html) return;
+
+            historyStack = historyStack.slice(0, historyIndex + 1);
+            historyStack.push(html);
+
+            if (historyStack.length > MAX_HISTORY) historyStack.shift();
+            historyIndex = historyStack.length - 1;
         }
-        
+
         function saveHistoryDebounced() {
-            if (isUndoRedoing) return; 
-            clearTimeout(historyTimer); 
-            historyTimer = setTimeout(saveHistoryImmediate, 100);
+            if (isUndoRedoing) return;
+            clearTimeout(historyTimer);
+            historyTimer = setTimeout(saveHistoryImmediate, 500);
         }
-        
+
+        function restoreHistory(index) {
+            isUndoRedoing = true;
+            whiteboard.innerHTML = historyStack[index];
+            historyStack[index] = whiteboard.innerHTML;
+            historyIndex = index;
+            isUndoRedoing = false;
+            setTimeout(resizeCanvas, 100);
+        }
+
+        function doUndo() {
+            saveHistoryImmediate(); 
+            if (historyIndex > 0) {
+                restoreHistory(historyIndex - 1);
+            } else {
+                alert('已经是最初的状态了！');
+            }
+        }
+
+        function doRedo() {
+            saveHistoryImmediate();
+            if (historyIndex < historyStack.length - 1) {
+                restoreHistory(historyIndex + 1);
+            } else {
+                alert('已经是最新的状态了，无法继续还原！');
+            }
+        }
+
         saveHistoryImmediate();
         whiteboard.addEventListener('input', saveHistoryDebounced);
 
-        document.getElementById('btnUndo').addEventListener('click', function() {
-            clearTimeout(historyTimer); saveHistoryImmediate();
-            if (undoStack.length > 1) { 
-                isUndoRedoing = true; 
-                undoStack.pop(); // 把当前状态丢掉
-                whiteboard.innerHTML = undoStack[undoStack.length - 1]; 
-                isUndoRedoing = false; 
-                setTimeout(resizeCanvas, 100); 
-            } else {
-                alert('已经是最初的状态了！');
+        document.getElementById('btnUndo').addEventListener('click', doUndo);
+        document.getElementById('btnRedo').addEventListener('click', doRedo);
+
+        // 清空白板功能
+        document.getElementById('btnClearBoard').addEventListener('click', function() {
+            if (confirm('确定要清空整个白板吗？此操作可以通过点击“撤销”恢复。')) {
+                whiteboard.innerHTML = '<p><br></p>';
+                saveHistoryImmediate();
+                setTimeout(resizeCanvas, 100);
+            }
+        });
+
+        whiteboard.addEventListener('keydown', function(e) {
+            if (!(e.ctrlKey || e.metaKey)) return;
+            const k = e.key.toLowerCase();
+            if (k === 'z' && !e.shiftKey) {
+                e.preventDefault();
+                doUndo();
+            } else if (k === 'y' || (k === 'z' && e.shiftKey)) {
+                e.preventDefault();
+                doRedo();
             }
         });
 
@@ -1181,78 +1522,488 @@
         }
 
         document.getElementById('btnAPlus').addEventListener('click', () => {
+            if (resizeSelectedText(4)) return;
             currentFontSize = Math.min(80, currentFontSize + 2);
             applyFontSize();
         });
         document.getElementById('btnAMinus').addEventListener('click', () => {
+            if (resizeSelectedText(-4)) return;
             currentFontSize = Math.max(14, currentFontSize - 2);
             applyFontSize();
         });
-        document.getElementById('btnBold').addEventListener('click', () => { document.execCommand('bold', false, null); });
-        document.getElementById('btnRed').addEventListener('click', () => { document.execCommand('foreColor', false, '#ef4444'); });
+        document.getElementById('btnBold').addEventListener('click', () => { 
+            document.execCommand('bold', false, null); 
+            saveHistoryImmediate();
+        });
+        document.getElementById('btnRed').addEventListener('click', () => { 
+            document.execCommand('foreColor', false, '#ef4444'); 
+            saveHistoryImmediate();
+        });
 
-        // ======== 拼音与汉字排版 ========
-        document.getElementById('btnAddPinyin').addEventListener('click', function() {
-            const selection = window.getSelection(); if (!selection.rangeCount) return;
-            const range = selection.getRangeAt(0); const selectedText = selection.toString().trim();
-            if (!selectedText) { alert('请先用鼠标选中需要加拼音的汉字！'); return; }
-            
-            const wrapper = document.createElement('span');
-            wrapper.className = 'pinyin-group';
-            wrapper.style.display = 'inline-block';
-
-            for (let char of selectedText) {
-                if (/[\u4e00-\u9fa5]/.test(char)) {
-                    const py = (typeof window.pinyinPro !== 'undefined') ? window.pinyinPro.pinyin(char, { toneType: 'symbol' }) : '';
-                    
-                    const box = document.createElement('span');
-                    box.className = 'py-box';
-                    
-                    const topPy = document.createElement('span');
-                    topPy.className = 'py-top';
-                    topPy.textContent = py;
-                    
-                    const bottomZh = document.createElement('span');
-                    bottomZh.className = 'py-bottom';
-                    bottomZh.textContent = char;
-                    
-                    box.appendChild(topPy);
-                    box.appendChild(bottomZh);
-                    wrapper.appendChild(box);
-                } else { 
-                    wrapper.appendChild(document.createTextNode(char)); 
-                }
+        function removeSelectedElements(selector, restoreFn, emptyTip) {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
+                alert('请先用鼠标选中需要去除的范围！');
+                return;
             }
-            range.deleteContents(); range.insertNode(wrapper); selection.removeAllRanges(); 
+            const range = selection.getRangeAt(0);
+            const targets = [];
+            whiteboard.querySelectorAll(selector).forEach(node => {
+                let hit = false;
+                try { hit = range.intersectsNode(node); } catch (e) { hit = false; }
+                if (hit) targets.push({ node, replacement: restoreFn(node) });
+            });
+
+            if (targets.length === 0) { alert(emptyTip); return; }
+
+            targets.forEach(({ node, replacement }) => {
+                if (!node.parentNode) return;
+                if (replacement === null) {
+                    node.remove();
+                } else if (typeof replacement === 'string') {
+                    node.replaceWith(document.createTextNode(replacement));
+                } else {
+                    node.replaceWith(replacement);
+                }
+            });
+
+            saveHistoryImmediate();
+            setTimeout(resizeCanvas, 100);
+        }
+
+        function restorePinyinText(node) {
+            if (node.tagName && node.tagName.toLowerCase() === 'ruby') {
+                let txt = '';
+                node.childNodes.forEach(c => {
+                    if (c.nodeType === Node.TEXT_NODE) txt += c.textContent;
+                    else if (c.tagName && c.tagName.toLowerCase() !== 'rt') txt += c.textContent;
+                });
+                return txt;
+            }
+            const firstRow = node.querySelector('tr');
+            if (firstRow) {
+                let txt = '';
+                firstRow.querySelectorAll('td').forEach(td => {
+                    const bottom = td.querySelector('.py-bottom');
+                    txt += bottom ? bottom.textContent : td.textContent;
+                });
+                return txt;
+            }
+            const clone = node.cloneNode(true);
+            clone.querySelectorAll('.py-top').forEach(e => e.remove());
+            return clone.textContent;
+        }
+
+        function buildPinyinFragment(text) {
+            const frag = document.createDocumentFragment();
+            const chars = Array.from(text);
+            let pys = null;
+            try {
+                if (typeof window.pinyinPro !== 'undefined') {
+                    const arr = window.pinyinPro.pinyin(text, { toneType: 'symbol', type: 'array' });
+                    if (Array.isArray(arr) && arr.length === chars.length) pys = arr;
+                }
+            } catch (err) { pys = null; }
+
+            let buf = '';
+            const flush = () => { if (buf) { frag.appendChild(document.createTextNode(buf)); buf = ''; } };
+            chars.forEach((ch, i) => {
+                if (/[\u4e00-\u9fa5]/.test(ch)) {
+                    flush();
+                    let py = '';
+                    if (pys) py = pys[i];
+                    else if (typeof window.pinyinPro !== 'undefined') py = window.pinyinPro.pinyin(ch, { toneType: 'symbol' });
+                    const ruby = document.createElement('ruby');
+                    ruby.appendChild(document.createTextNode(ch));
+                    const rt = document.createElement('rt');
+                    rt.textContent = py;
+                    ruby.appendChild(rt);
+                    frag.appendChild(ruby);
+                } else {
+                    buf += ch;
+                }
+            });
+            flush();
+            return frag;
+        }
+
+        function getRangeTextParts(range) {
+            const root = range.commonAncestorContainer.nodeType === 3 ? range.commonAncestorContainer.parentNode : range.commonAncestorContainer;
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            const parts = [];
+            let n;
+            while ((n = walker.nextNode())) {
+                if (!range.intersectsNode(n)) continue;
+                const s = (n === range.startContainer) ? range.startOffset : 0;
+                const e = (n === range.endContainer) ? range.endOffset : n.nodeValue.length;
+                if (e > s) parts.push({ node: n, s, e });
+            }
+            return parts;
+        }
+
+        function splitTextPart(p) {
+            let t = p.node;
+            if (p.e < t.nodeValue.length) t.splitText(p.e);
+            if (p.s > 0) t = t.splitText(p.s);
+            return t;
+        }
+
+        function convertRangeToPinyin(range) {
+            const parts = getRangeTextParts(range).reverse();
+            let count = 0;
+            parts.forEach(p => {
+                const el = p.node.parentElement;
+                if (!el || el.closest('rt, ruby, .english-line, .pinyin-inline-table')) return;
+                const sub = p.node.nodeValue.slice(p.s, p.e);
+                if (!/[\u4e00-\u9fa5]/.test(sub)) return;
+                const t = splitTextPart(p);
+                const clean = t.nodeValue.replace(/\u200B/g, '');
+                t.parentNode.replaceChild(buildPinyinFragment(clean), t);
+                count++;
+            });
+            return count;
+        }
+
+        function convertRangeToPinyinKeepEnd(range) {
+            const endMark = document.createElement('span');
+            endMark.setAttribute('data-end-mark', '1');
+            const er = range.cloneRange();
+            er.collapse(false);
+            er.insertNode(endMark);
+            const count = convertRangeToPinyin(range);
+            return { count, endMark };
+        }
+
+        function getSelectionPlainText(range) {
+            const div = document.createElement('div');
+            div.appendChild(range.cloneContents());
+            div.querySelectorAll('rt, .py-top, .english-line').forEach(n => n.remove());
+            return div.textContent.replace(/\u200B/g, '').trim();
+        }
+
+        function addPinyinToSelection(range, selectedText) {
+            if (!/[\u4e00-\u9fa5]/.test(selectedText)) { alert('选中的内容里没有汉字！'); return; }
+            saveHistoryImmediate();
+            const res = convertRangeToPinyinKeepEnd(range);
+            const mark = res.endMark;
+            const par = mark.parentNode;
+            const idx = Array.prototype.indexOf.call(par.childNodes, mark);
+            mark.remove();
+
+            const nr = document.createRange();
+            nr.setStart(par, idx);
+            nr.collapse(true);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(nr);
+
             setTimeout(saveHistoryImmediate, 50);
+        }
+
+        function getTargetLang() { return document.getElementById('targetLang').value; }
+
+        function createTranslationBlock(lang) {
+            const block = document.createElement('div');
+            block.className = 'english-line';
+            block.style.margin = '4px 0 0 0';
+            const tag = document.createElement('span');
+            tag.style.fontWeight = 'bold';
+            tag.textContent = `[${lang}]`;
+            const wait = document.createElement('span');
+            wait.style.cssText = 'color:#94a3b8; font-style:italic;';
+            wait.textContent = ' (翻译中...)';
+            block.appendChild(tag);
+            block.appendChild(wait);
+            return block;
+        }
+
+        function setTranslationContent(block, lang, translation) {
+            block.textContent = '';
+            const tag = document.createElement('span');
+            tag.style.fontWeight = 'bold';
+            tag.textContent = `[${lang}]`;
+            block.appendChild(tag);
+            block.appendChild(document.createTextNode(' ' + translation));
+        }
+
+        async function requestTranslation(text, lang) {
+            const systemInstruction = `你是一位精通中文和${lang}的资深翻译。请将用户选中的中文翻译成${lang}。要求：译文必须地道、自然，符合${lang}母语者的表达习惯，避免生硬的直译。只输出译文，不要任何解释。`;
+            const prompt = `Translate the following Chinese text to ${lang}. ONLY output the translation without any extra explanation: "${text}"`;
+            try {
+                return await callAI(prompt, systemInstruction, null, true);
+            } catch (e) {
+                return "(翻译失败: " + e.message + ")";
+            }
+        }
+
+        function saveAfterAsync(snapBefore) {
+            if (historyIndex >= 0 && historyStack[historyIndex] === snapBefore) {
+                historyStack[historyIndex] = whiteboard.innerHTML;
+            } else {
+                saveHistoryImmediate();
+            }
+        }
+
+        async function translateSelection(range, selectedText) {
+            range = range.cloneRange();
+            const lang = getTargetLang();
+            const plain = getSelectionPlainText(range) || selectedText;
+            const translation = await requestTranslation(plain, lang);
+
+            const container = document.createElement('div');
+            container.style.margin = '8px 0';
+            container.style.display = 'block';
+            container.appendChild(range.cloneContents());
+
+            const block = createTranslationBlock(lang);
+            setTranslationContent(block, lang, translation);
+            container.appendChild(block);
+
+            range.deleteContents();
+            range.insertNode(container);
+
+            const newRange = document.createRange();
+            newRange.setStartAfter(container);
+            newRange.collapse(true);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+
+            setTimeout(saveHistoryImmediate, 50);
+        }
+
+        async function combinePinyinAndTranslate(range, selectedText) {
+            const lang = getTargetLang();
+            const plain = getSelectionPlainText(range) || selectedText;
+            saveHistoryImmediate();
+
+            const res = convertRangeToPinyinKeepEnd(range);
+            const block = createTranslationBlock(lang);
+            res.endMark.replaceWith(block);
+
+            const z = document.createTextNode('\u200B');
+            block.after(z);
+            const nr = document.createRange();
+            nr.setStart(z, 1);
+            nr.collapse(true);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(nr);
+
+            saveHistoryImmediate();
+            const snap = historyStack[historyIndex];
+            const translation = await requestTranslation(plain, lang);
+            setTranslationContent(block, lang, translation);
+            saveAfterAsync(snap);
+        }
+
+        function isLineBreakNode(n) {
+            if (n.nodeType !== 1) return false;
+            if (n.tagName === 'BR') return true;
+            return /^(block|flex|list-item|table|grid)$/.test(window.getComputedStyle(n).display);
+        }
+
+        function handleEnterOnLine(caret) {
+            const sc = caret.startContainer;
+            const el0 = sc.nodeType === 3 ? sc.parentElement : sc;
+            if (!el0 || !whiteboard.contains(el0)) return false;
+            if (el0.closest('.english-line, ruby, table, .pptx-import')) return false;
+
+            let container = el0.closest('p, div, li, h1, h2, h3, h4, h5, h6, blockquote');
+            if (!container || !whiteboard.contains(container)) container = whiteboard;
+
+            let prevStart, nextStart;
+            if (sc === container) {
+                prevStart = container.childNodes[caret.startOffset - 1] || null;
+                nextStart = container.childNodes[caret.startOffset] || null;
+            } else {
+                let top = sc;
+                while (top.parentNode !== container) top = top.parentNode;
+                prevStart = top.previousSibling;
+                nextStart = top.nextSibling;
+            }
+            let prev = prevStart;
+            while (prev && !isLineBreakNode(prev)) prev = prev.previousSibling;
+            let next = nextStart;
+            while (next && !isLineBreakNode(next)) next = next.nextSibling;
+
+            const lineRange = document.createRange();
+            if (prev) lineRange.setStartAfter(prev); else lineRange.setStart(container, 0);
+            if (next) lineRange.setEndBefore(next); else lineRange.setEnd(container, container.childNodes.length);
+
+            const lineText = lineRange.toString().replace(/\u200B/g, '').trim();
+            if (!/[\u4e00-\u9fa5]/.test(lineText)) return false;           
+            const frag = lineRange.cloneContents();
+            if (frag.querySelector('ruby, table, .english-line, img, .resizable-img-wrapper')) return false; 
+
+            const lang = getTargetLang();
+            saveHistoryImmediate();       
+            convertRangeToPinyin(lineRange);
+
+            const block = createTranslationBlock(lang);
+            let caretNode, caretOffset;
+            const wholeBlock = container !== whiteboard && !prev && !next && /^(P|DIV)$/.test(container.tagName);
+            if (wholeBlock) {
+                const newLine = document.createElement(container.tagName === 'P' ? 'p' : 'div');
+                newLine.appendChild(document.createElement('br'));
+                container.after(block);
+                block.after(newLine);
+                caretNode = newLine; caretOffset = 0;
+            } else {
+                const z = document.createTextNode('\u200B');
+                if (next) { container.insertBefore(block, next); container.insertBefore(z, next); }
+                else { container.appendChild(block); container.appendChild(z); }
+                caretNode = z; caretOffset = 1;
+            }
+
+            const nr = document.createRange();
+            nr.setStart(caretNode, caretOffset);
+            nr.collapse(true);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(nr);
+
+            saveHistoryImmediate();
+            const snap = historyStack[historyIndex];
+            requestTranslation(lineText, lang).then(t => {
+                setTranslationContent(block, lang, t);
+                saveAfterAsync(snap);
+            });
+            return true;
+        }
+
+        function resizeSelectedText(delta) {
+            const sel = window.getSelection();
+            if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return false;
+            const range = sel.getRangeAt(0);
+            if (!whiteboard.contains(range.commonAncestorContainer)) return false;
+
+            saveHistoryImmediate();
+            const parts = getRangeTextParts(range).reverse();
+            const targets = [];
+            const seen = new Set();
+
+            parts.forEach(p => {
+                if (!/\S/.test(p.node.nodeValue.slice(p.s, p.e))) return;
+                const el = p.node.parentElement;
+                if (!el) return;
+
+                const group = el.closest('ruby, .pinyin-inline-table');
+                if (group) {
+                    if (!seen.has(group)) { seen.add(group); targets.push(group); }
+                    return;
+                }
+
+                const t = splitTextPart(p);
+                let span = t.parentElement;
+                if (!(span && span.dataset && span.dataset.fs === '1' && span.childNodes.length === 1)) {
+                    span = document.createElement('span');
+                    span.dataset.fs = '1';
+                    t.parentNode.insertBefore(span, t);
+                    span.appendChild(t);
+                }
+                targets.push(span);
+            });
+
+            if (targets.length === 0) return false;
+
+            const sizes = targets.map(el => parseFloat(window.getComputedStyle(el).fontSize) || currentFontSize);
+            targets.forEach((el, i) => {
+                el.style.fontSize = Math.min(200, Math.max(10, sizes[i] + delta)) + 'px';
+            });
+
+            targets.reverse();
+            const nr = document.createRange();
+            nr.setStartBefore(targets[0]);
+            nr.setEndAfter(targets[targets.length - 1]);
+            sel.removeAllRanges();
+            sel.addRange(nr);
+
+            saveHistoryImmediate();
+            setTimeout(resizeCanvas, 100);
+            return true;
+        }
+
+        function selectionHasAny(selector) {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0 || selection.isCollapsed) return null;
+            const range = selection.getRangeAt(0);
+            let has = false;
+            whiteboard.querySelectorAll(selector).forEach(node => {
+                try { if (range.intersectsNode(node)) has = true; } catch (e) {}
+            });
+            return { range, has };
+        }
+
+        document.getElementById('btnTogglePinyin').addEventListener('click', function() {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
+                alert('请先用鼠标选中文字！'); return;
+            }
+            const range = selection.getRangeAt(0);
+            const selectedText = selection.toString().trim();
+            if (!selectedText) { alert('请先用鼠标选中文字！'); return; }
+            const info = selectionHasAny('.pinyin-inline-table, ruby');
+            if (info && info.has) {
+                removeSelectedElements('.pinyin-inline-table, ruby', restorePinyinText, '选中的范围内没有拼音。');
+            } else {
+                addPinyinToSelection(range, selectedText);
+            }
         });
 
-        document.getElementById('btnTranslate').addEventListener('click', async function() {
-            const selection = window.getSelection(); if (!selection.rangeCount) return;
-            const range = selection.getRangeAt(0); const selectedText = selection.toString().trim();
-            if (!selectedText) { alert('请先用鼠标选中需要翻译的汉字！'); return; }
-            const targetLang = document.getElementById('targetLang').value;
-            const btn = this; const apiKey = apiKeyInput.value.trim();
-            if (!apiKey) { alert('划选翻译需要先在右侧填入 API Key。'); return; }
-
-            btn.innerHTML = "翻译中..."; btn.disabled = true;
-            let translation = "";
-            try { translation = await callAI(`Translate the following Chinese text to ${targetLang}. ONLY output the translation without any extra explanation: "${selectedText}"`, "You are a professional multilingual translator."); } 
-            catch (e) { translation = "(翻译失败: " + e.message + ")"; }
-            btn.innerHTML = "🌐 划选翻译"; btn.disabled = false;
-
-            const block = document.createElement('div'); block.className = 'english-line'; block.innerHTML = `<span style="font-weight:bold;">[${targetLang}]</span> ${translation}`;
-            range.collapse(false); range.insertNode(block);
-            const br = document.createElement('br'); block.after(br);
-            const newRange = document.createRange(); newRange.setStartAfter(br); newRange.collapse(true);
-            selection.removeAllRanges(); selection.addRange(newRange); setTimeout(saveHistoryImmediate, 50);
+        document.getElementById('btnToggleUnderline').addEventListener('click', function() {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
+                alert('请先用鼠标选中文字！'); return;
+            }
+            const range = selection.getRangeAt(0);
+            const selectedText = selection.toString().trim();
+            if (!selectedText) { alert('请先用鼠标选中文字！'); return; }
+            const info = selectionHasAny('.core-vocab');
+            if (info && info.has) {
+                removeSelectedElements('.core-vocab', node => node.textContent, '选中的范围内没有核心词汇下划线。');
+            } else {
+                const wrapper = document.createElement('span');
+                wrapper.className = 'core-vocab';
+                wrapper.textContent = selectedText;
+                range.deleteContents();
+                range.insertNode(wrapper);
+                const newRange = document.createRange();
+                newRange.setStartAfter(wrapper);
+                newRange.collapse(true);
+                selection.removeAllRanges();
+                selection.addRange(newRange);
+                setTimeout(saveHistoryImmediate, 50);
+            }
         });
 
-        // ======== 课堂测验 ========
+        document.getElementById('btnToggleTranslate').addEventListener('click', function() {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
+                alert('请先用鼠标选中文字！'); return;
+            }
+            const range = selection.getRangeAt(0);
+            const selectedText = selection.toString().trim();
+            if (!selectedText) { alert('请先用鼠标选中文字！'); return; }
+            const info = selectionHasAny('.english-line');
+            if (info && info.has) {
+                removeSelectedElements('.english-line', () => null, '选中的范围内没有翻译。');
+            } else {
+                translateSelection(range, selectedText);
+            }
+        });
+
+        document.querySelectorAll('.toolbar-btn').forEach(btn => {
+            btn.addEventListener('mousedown', e => e.preventDefault());
+        });
+        document.getElementById('btnToggleTranslate').addEventListener('mousedown', e => e.preventDefault());
+
         document.getElementById('btnQuiz').addEventListener('click', async function() {
             const apiKey = apiKeyInput.value.trim(); 
             let sourceText = whiteboard.innerText.trim();
             const imageBase64 = getImageFromBoard();
+            const coreVocabs = getCoreVocabularies();
+            const vocabPrompt = coreVocabs.length > 0 ? `\n【本课核心词汇】请务必在出题时重点考查以下词汇：${coreVocabs.join('、')}` : '';
 
             if (!sourceText && !imageBase64) { alert('白板内容为空，无法生成测验！'); return; }
             if (!apiKey) { alert('必须填入 API Key！'); return; }
@@ -1265,17 +2016,29 @@
 
             const prompt = `你是一位国际中文教师，现在需要针对刚上完的内容给学生做一次“当堂小测验”。
 【任务要求】
-根据提供的【白板语料】，提取核心词汇和语法，生成 5-8 道针对性的短平快练习题。
-【题型限制】
-只使用以下三种题型（混合出题）：
-1. 用所给词语填空（给2-3个词，留空）
-2. 组词（给一个字，留横线写词）
-3. 连词成句（给几个打乱的词，留横线写句子）
+根据提供的【白板语料】和【本课核心词汇】，提取核心词汇和语法，生成针对性的练习题。
+${vocabPrompt}
+
+【极重要要求：全覆盖出题】
+如果上文有【本课核心词汇】列表，你必须在下面的 **各种题型** 中，把列表里的 **每一个词汇** 都练习到！绝不能遗漏！
+
+【极重要要求：题型双语注释】
+请在题目中按以下格式标注题型标题，必须包含英文翻译，让学生明白：
+【题型一：用所给词语填空 (Fill in the blanks)】
+【题型二：组词 (Form words)】
+【题型三：连词成句 (Make sentences)】
+【题型四：词汇翻译 (Vocabulary Translation)】
+【题型五：选词填空（短文/对话）(Cloze Test with Word Bank)】
+
 【排版要求】
 1. 严格按照 Markdown 列表格式输出，带有序号。
 2. 绝对不要在题目中直接给出答案，必须留出作答空间！
-3. 填空题用“______”表示；组词题用“字 → ______”；连词成句用“词A / 词B / 词C → _________________”。
-4. 不要输出多余的寒暄和讲解，直接输出题目。
+3. 填空题用“______”表示；组词题用“字 → ______”；连词成句用“词A / 词B / 词C → _________________”；词汇翻译题型，**不要使用“中文：”或“English:”前缀**，直接输出词汇和空格，如：“生日 → ______”、“gift → ______”、“沙发 → ______”。
+4. **【题型五：选词填空（短文/对话）】的专属排版要求**：
+   - 必须在最上方提供一个**【备选词库】**（例如：A. 除了 B. 以外 C. 因为 D. 再说），备选词必须是从本课核心词汇中提取的。
+   - 下方提供一段连贯的短文或对话，将备选词挖空（用 ______ 表示，且标记序号如 (1)______ ）。
+   - 此题型主要用来检测学生综合运用词汇的能力。
+5. 不要输出多余的寒暄和讲解，直接输出题目。
 
 【白板语料】
 ${sourceText}`;
@@ -1312,6 +2075,8 @@ ${sourceText}`;
             const apiKey = apiKeyInput.value.trim(); 
             let sourceText = whiteboard.innerText.trim();
             const imageBase64 = getImageFromBoard(); 
+            const coreVocabs = getCoreVocabularies();
+            const vocabPrompt = coreVocabs.length > 0 ? `\n【本课核心词汇】请务必在生成的词汇表及练习部分重点提取和展示以下词汇：${coreVocabs.join('、')}` : '';
 
             if (!apiKey) { alert('生成笔记必须填入 API Key！'); return; }
             if (!sourceText && !imageBase64) { alert('白板内容为空！请粘贴文字、截图或上传文档。'); return; }
@@ -1337,6 +2102,7 @@ ${sourceText}`;
             let prompt = "";
             if (imageBase64) {
                 prompt = `请提取图片中的所有教学文字、语法和例句。然后严格按照以下要求，生成结构化复习笔记。
+${vocabPrompt}
 【致命规则】：绝不能合并、删减或修改图片上的任何一个例句！图片上有多少句，你就必须输出多少句！绝对不能写“（严格三行对照）”之类的提示词！
 【排版要求】每个例句必须按照以下格式输出，绝对不能出现中文重复：
 1. 中文句子
@@ -1352,11 +2118,11 @@ ${detectedLang}翻译
 | 例子 | lì zi | 名词 | example |
 
 **二、重点语法/ Key Grammar Points**
-1、【"语法点名称"】
-【用法说明】...
+1、【"语法点名称" / "Grammar Point Name (English)"】
+【用法说明 / Usage】...（先写中文用法说明；必须紧接着用 "English Note: ..." 给出该语法点的英文注释）
 1）、例句
 pīn yīn
-Translation
+${detectedLang}翻译
 
 **三、典型例句/ Typical Example Sentences**
 ...
@@ -1365,6 +2131,7 @@ Translation
 ...`;
             } else {
                 prompt = `你是一位拥有10年经验的国际中文教师。请严格根据白板语料生成结构化复习笔记。
+${vocabPrompt}
 【致命规则】：绝不能合并、删减或修改白板上的任何一个例句！白板上写了多少句，你就必须输出多少句！绝对不能写“（严格三行对照）”之类的提示词！
 【排版要求】每个例句必须按照以下格式输出，绝对不能出现中文重复：
 1. 中文句子
@@ -1380,8 +2147,8 @@ ${detectedLang}翻译
 | 例子 | lì zi | 名词 | example |
 
 **二、重点语法/ Key Grammar Points**
-1、【"语法点名称"】
-【用法说明】...
+1、【"语法点名称" / "Grammar Point Name (English)"】
+【用法说明 / Usage】...（先写中文用法说明；必须紧接着用 "English Note: ..." 给出该语法点的英文注释）
 1）、例句
 pīn yīn
 Translation
@@ -1440,7 +2207,8 @@ ${sourceText}`;
                 document.getElementById('examContent').innerHTML = finalHtml;
                 document.getElementById('examModal').classList.remove('hidden');
                 document.getElementById('btnDownloadNotes').classList.remove('hidden');
-                document.getElementById('btnDownloadEx').classList.add('hidden');
+                document.getElementById('btnDownloadExStudent').classList.add('hidden');
+                document.getElementById('btnDownloadExTeacher').classList.add('hidden');
             } catch (e) { alert("整理失败：" + e.message); } 
             finally { 
                 btn.innerHTML = originalText; 
@@ -1462,10 +2230,20 @@ ${sourceText}`;
             return `<div class="triple-line"><div class="head-zh">${headZh}</div><div class="py">${py}</div><div class="en">${en}</div></div>\n`;
         }
 
-        document.getElementById('btnGenEx').addEventListener('click', async function() {
+        document.getElementById('btnGenEx').addEventListener('click', function() {
+            const isTeacher = confirm("请选择要生成的版本：\n\n点击【确定】生成 教师版 (含答案解析)\n点击【取消】生成 学生版 (无答案)");
+            
+            setTimeout(() => {
+                generateExamPaper(isTeacher);
+            }, 100);
+        });
+
+        async function generateExamPaper(isTeacher) {
             const apiKey = apiKeyInput.value.trim(); 
             let sourceText = whiteboard.innerText.trim();
             const imageBase64 = getImageFromBoard();
+            const coreVocabs = getCoreVocabularies();
+            const vocabPrompt = coreVocabs.length > 0 ? `\n【本课核心词汇】请务必在考题的听力、阅读、书写等各板块中，针对以下核心词汇进行重点练习和考查：${coreVocabs.join('、')}` : '';
 
             if (!sourceText && !imageBase64) { alert('白板内容为空，请粘贴图片、上传文档或输入文字！'); return; }
             if (!apiKey) { alert('必须填入 API Key！'); return; }
@@ -1477,39 +2255,57 @@ ${sourceText}`;
                 if (match && match[1]) detectedLang = match[1];
             }
 
-            const btn = this; const originalText = btn.innerHTML;
+            const btn = document.getElementById('btnGenEx'); 
+            const originalText = btn.innerHTML;
             btn.innerHTML = `<span class="loader"></span> AI 正在出题...`; 
             if (imageBase64) loadingText.innerText = "AI 正在读取图片文字并出题...";
             btn.disabled = true;
             loadingOverlay.classList.remove('hidden');
 
-            const prompt = `你是一个极度严格的 HSK3 命题专家。请根据提供的语料（或图片内容）生成一套测试题。
+            const prompt = `你是一个极度严格的 HSK 命题专家。请根据提供的语料（或图片内容）生成一套测试题。
+${vocabPrompt}
 【语言要求】所有题目、选项和答案解析，都必须采用【中文】和【${detectedLang}】双语对照输出。
-【排版要求】请使用 Markdown 格式排版。每道题目、每个选项必须独立成段，段落间必须有空行！包含听力、阅读、书写三大板块。选择题请用列表形式。
+【排版要求】
+1. 请使用 Markdown 格式排版，每道题目、每个选项必须独立成段，段落间必须有空行。
+2. **绝不能把答案写在题目中**，题目中只能留出作答空间。
+3. 包含听力、阅读、书写三大板块。
+4. **在试卷的最末尾**，必须增加一个名为“## 参考答案 (Answer Key)”的独立区块，在这里按题号统一给出所有题目的正确答案和解析。
 【语料】
 ${sourceText}`;
 
             try {
                 const exerciseMarkdown = await callAI(prompt, "你是一个专业的国际中文命题专家。", imageBase64);
                 currentMode = 'exam';
-                document.getElementById('modalTitle').innerText = "📄 AI 生成的测试题";
-                document.getElementById('examContent').innerHTML = (typeof marked !== 'undefined') ? marked.parse(exerciseMarkdown) : exerciseMarkdown;
+                document.getElementById('modalTitle').innerText = isTeacher ? "📄 教师版测试题 (已准备)" : "📄 学生版测试题 (已准备)";
+                
+                const answerSplitRegex = /##\s*参考答案.*/i;
+                const parts = exerciseMarkdown.split(answerSplitRegex);
+                
+                const studentPart = parts[0] || exerciseMarkdown;
+                const answerPart = parts.length > 1 ? `## 参考答案\n${parts[1]}` : '';
+
+                window.__studentExMarkdown = studentPart;
+                window.__teacherExMarkdown = studentPart + '\n\n' + answerPart;
+
+                const contentToShow = isTeacher ? window.__teacherExMarkdown : window.__studentExMarkdown;
+                document.getElementById('examContent').innerHTML = (typeof marked !== 'undefined') ? marked.parse(contentToShow) : contentToShow;
+                
                 document.getElementById('examModal').classList.remove('hidden');
-                document.getElementById('btnDownloadEx').classList.remove('hidden');
                 document.getElementById('btnDownloadNotes').classList.add('hidden');
+                document.getElementById('btnDownloadExStudent').classList.remove('hidden');
+                document.getElementById('btnDownloadExTeacher').classList.remove('hidden');
             } catch (e) { alert("出题失败：" + e.message); } 
             finally { 
                 btn.innerHTML = originalText; 
                 btn.disabled = false; 
                 loadingOverlay.classList.add('hidden');
             }
-        });
+        }
 
-        document.getElementById('modalDownloadBtn').addEventListener('click', function() {
-            const isNote = currentMode === 'note';
-            const contentHtml = document.getElementById('examContent').innerHTML;
-            if (!contentHtml) { alert('没有可下载的内容'); return; }
-            const fileName = isNote ? '复习笔记' : '测试题';
+        function downloadWord(contentMarkdown, fileName) {
+            if (!contentMarkdown) { alert('没有可下载的内容'); return; }
+            
+            const contentHtml = (typeof marked !== 'undefined') ? marked.parse(contentMarkdown) : contentMarkdown;
 
             const styleForWord = `
                 <style>
@@ -1541,9 +2337,30 @@ ${sourceText}`;
             a.download = `${fileName}.doc`;
             document.body.appendChild(a); a.click(); document.body.removeChild(a);
             setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        }
+
+        document.getElementById('modalDownloadBtn').addEventListener('click', function() {
+            if (currentMode === 'note') {
+                downloadWord(document.getElementById('examContent').innerHTML, '复习笔记');
+            } else {
+                const title = document.getElementById('modalTitle').innerText;
+                if (title.includes('教师版')) {
+                    downloadWord(window.__teacherExMarkdown, '测试题_教师版');
+                } else {
+                    downloadWord(window.__studentExMarkdown, '测试题_学生版');
+                }
+            }
         });
 
-        window.closeModal = function() { document.getElementById('examModal').classList.add('hidden'); currentMode = ""; document.getElementById('examContent').innerHTML = ""; document.getElementById('btnDownloadNotes').classList.add('hidden'); document.getElementById('btnDownloadEx').classList.add('hidden'); }
+        document.getElementById('btnDownloadExStudent').addEventListener('click', function() {
+            downloadWord(window.__studentExMarkdown, '测试题_学生版');
+        });
+
+        document.getElementById('btnDownloadExTeacher').addEventListener('click', function() {
+            downloadWord(window.__teacherExMarkdown, '测试题_教师版');
+        });
+
+        window.closeModal = function() { document.getElementById('examModal').classList.add('hidden'); currentMode = ""; document.getElementById('examContent').innerHTML = ""; document.getElementById('btnDownloadNotes').classList.add('hidden'); document.getElementById('btnDownloadExStudent').classList.add('hidden'); document.getElementById('btnDownloadExTeacher').classList.add('hidden'); }
         
         window.copyExam = function() { 
             const text = document.getElementById('examContent').innerText; if (!text) return; 
@@ -1585,7 +2402,6 @@ ${sourceText}`;
         }
         function startStroke(e) {
             if (!isDrawMode) return;
-            if (e.touches) e.preventDefault();
             e.stopPropagation();
             e.preventDefault();
             isDrawing = true; const p = getPos(e); strokes.push({ color: penColor, points: [p] });
@@ -1632,6 +2448,114 @@ ${sourceText}`;
             if (isDrawMode) resizeCanvas();
         });
         observer.observe(whiteboard, { childList: true, subtree: true, characterData: true });
+
+        document.getElementById('btnOpenWorksheet').addEventListener('click', function() {
+            document.getElementById('worksheetModal').classList.remove('hidden');
+            document.getElementById('worksheetModal').classList.add('flex');
+        });
+
+        window.closeWorksheetModal = function() {
+            document.getElementById('worksheetModal').classList.add('hidden');
+            document.getElementById('worksheetModal').classList.remove('flex');
+        };
+
+        document.getElementById('btnRemoveAllPinyinTrans').addEventListener('click', function() {
+            const whiteboardEl = document.getElementById('whiteboardContent');
+
+            const pinyinNodes = whiteboardEl.querySelectorAll('ruby, .pinyin-inline-table');
+            const transNodes = whiteboardEl.querySelectorAll('.english-line');
+
+            if (pinyinNodes.length === 0 && transNodes.length === 0) {
+                alert('白板上没有可清除的拼音或翻译标注。');
+                return;
+            }
+
+            if (!confirm(`确定要移除白板上全部标注吗？\n\n将移除：\n· 拼音标注 ${pinyinNodes.length} 处\n· 翻译标注 ${transNodes.length} 处\n\n（文字本身会保留，其他手写内容和图片不受影响）`)) {
+                return;
+            }
+
+            saveHistoryImmediate();
+
+            whiteboardEl.querySelectorAll('ruby').forEach(ruby => {
+                let txt = '';
+                ruby.childNodes.forEach(c => {
+                    if (c.nodeType === Node.TEXT_NODE) txt += c.textContent;
+                    else if (c.tagName && c.tagName.toLowerCase() !== 'rt') txt += c.textContent;
+                });
+                ruby.replaceWith(document.createTextNode(txt));
+            });
+
+            whiteboardEl.querySelectorAll('.pinyin-inline-table').forEach(tbl => {
+                const firstRow = tbl.querySelector('tr');
+                let txt = '';
+                if (firstRow) {
+                    firstRow.querySelectorAll('td').forEach(td => {
+                        const bottom = td.querySelector('.py-bottom');
+                        txt += bottom ? bottom.textContent : td.textContent;
+                    });
+                } else {
+                    txt = tbl.textContent;
+                }
+                tbl.replaceWith(document.createTextNode(txt));
+            });
+
+            whiteboardEl.querySelectorAll('.english-line').forEach(node => node.remove());
+
+            whiteboardEl.querySelectorAll('div').forEach(div => {
+                if (!div.textContent.trim() && div.querySelectorAll('img, table, ruby, .core-vocab').length === 0) {
+                    if (div.children.length === 0 || (div.children.length === 1 && div.children[0].tagName === 'BR')) {
+                        div.remove();
+                    }
+                }
+            });
+
+            saveHistoryImmediate();
+            setTimeout(resizeCanvas, 100);
+            alert('✅ 已清除白板上所有拼音和翻译标注（文字内容已保留，可通过“撤销”恢复）。');
+        });
+
+        document.getElementById('btnClozeTest').addEventListener('click', function() {
+            const originalNodes = whiteboard.querySelectorAll('.core-vocab');
+            if (originalNodes.length === 0) {
+                alert('请先用鼠标选中文章中的字词，点击“U 标注核心词汇”，然后再来生成挖空试题！');
+                return;
+            }
+
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = whiteboard.innerHTML;
+            
+            const clonedVocabs = tempDiv.querySelectorAll('.core-vocab');
+            const wordBank = new Set();
+            let blankIndex = 1;
+
+            clonedVocabs.forEach(node => {
+                const text = node.textContent.trim();
+                if (text) {
+                    wordBank.add(text);
+                    const blankSpan = document.createElement('span');
+                    blankSpan.style.cssText = 'display:inline-block; min-width:60px; border-bottom:2px solid #1e293b; text-align:center; font-weight:bold; color:#3b82f6;';
+                    blankSpan.textContent = `(${blankIndex})`;
+                    node.replaceWith(blankSpan);
+                    blankIndex++;
+                }
+            });
+
+            const wordBankArray = Array.from(wordBank).sort(() => Math.random() - 0.5);
+            const wordBankHtml = wordBankArray.map((w, i) => `${String.fromCharCode(65 + i)}. ${w}`).join(' &nbsp;&nbsp;&nbsp; ');
+
+            let finalHtml = `<hr style="border: 1px dashed #cbd5e1; margin: 40px 0;"><br>`;
+            finalHtml += `<div class="quiz-board">`;
+            finalHtml += `<h2>✂️ 短文挖空练习 (Cloze Test)</h2>`;
+            finalHtml += `<div style="background:#f8fafc; border:1px solid #cbd5e1; padding:12px 16px; border-radius:8px; margin-bottom:20px; font-family:'Arial', sans-serif; font-size:1.1em; color:#1e293b; font-weight:bold;">`;
+            finalHtml += `<span style="color:#1d4ed8; margin-right:10px;">【备选词库】</span> ${wordBankHtml}`;
+            finalHtml += `</div>`;
+            finalHtml += `<div style="line-height: 2; padding: 10px; font-size: 1.1em;">${tempDiv.innerHTML}</div>`;
+            finalHtml += `</div>`;
+
+            whiteboard.innerHTML += finalHtml;
+            scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
+            setTimeout(() => { saveHistoryImmediate(); resizeCanvas(); }, 250); 
+        });
     }
 
     window.clearPptFromBoard = function() {
