@@ -271,7 +271,8 @@
     ruby { ruby-align: center; ruby-position: over; margin: 0 1px; white-space: nowrap; }
     rt { font-size: 0.5em !important; color: #1d4ed8 !important; font-family: 'Arial', sans-serif !important; font-weight: bold !important; line-height: 1.2; }
     
-        /* 行内译文（词语翻译用，不换行） */
+        .english-line { display: block !important; font-size: 0.85em !important; color: #64748b; font-family: 'Arial', sans-serif; font-style: italic; border-left: 3px solid #cbd5e1; padding-left: 8px; margin: 8px 0 20px 0 !important; line-height: 1.4 !important; width: 100%; }
+    /* 行内译文（词语翻译用，不换行） */
     .english-line.english-inline {
         display: inline !important;
         width: auto;
@@ -1818,22 +1819,7 @@
 
         function getTargetLang() { return document.getElementById('targetLang').value; }
 
-        function createTranslationBlock(lang) {
-            const block = document.createElement('div');
-            block.className = 'english-line';
-            block.style.margin = '4px 0 0 0';
-            const tag = document.createElement('span');
-            tag.style.fontWeight = 'bold';
-            tag.textContent = `[${lang}]`;
-            const wait = document.createElement('span');
-            wait.style.cssText = 'color:#94a3b8; font-style:italic;';
-            wait.textContent = ' (翻译中...)';
-            block.appendChild(tag);
-            block.appendChild(wait);
-            return block;
-        }
-
-                function createTranslationBlock(lang, inline) {
+        function createTranslationBlock(lang, inline) {
             const block = document.createElement(inline ? 'span' : 'div');
             block.className = inline ? 'english-line english-inline' : 'english-line';
             if (!inline) block.style.margin = '4px 0 0 0';
@@ -1848,15 +1834,40 @@
             return block;
         }
 
+        // 这个函数之前被误删了，译文无法写入
+        function setTranslationContent(block, lang, translation) {
+            block.textContent = '';
+            const tag = document.createElement('span');
+            tag.style.fontWeight = 'bold';
+            tag.textContent = `[${lang}]`;
+            block.appendChild(tag);
+            block.appendChild(document.createTextNode(' ' + translation));
+        }
+
+        async function requestTranslation(text, lang) {
+            const systemInstruction = `你是一位精通中文和${lang}的资深翻译。请将用户选中的中文翻译成${lang}。要求：译文必须地道、自然，符合${lang}母语者的表达习惯，避免生硬的直译。只输出译文，不要任何解释。`;
+            const prompt = `Translate the following Chinese text to ${lang}. ONLY output the translation without any extra explanation: "${text}"`;
+            try {
+                return await callAI(prompt, systemInstruction, null, true);
+            } catch (e) {
+                return "(翻译失败: " + e.message + ")";
+            }
+        }
+
+        function saveAfterAsync(snapBefore) {
+            if (historyIndex >= 0 && historyStack[historyIndex] === snapBefore) {
+                historyStack[historyIndex] = whiteboard.innerHTML;
+            } else {
+                saveHistoryImmediate();
+            }
+        }
+
         // 判断是否为"句中的短词语"：是则用行内译文，否则用整行译文
         function isInlineSelection(range) {
             const frag = range.cloneContents();
             if (frag.querySelector('p, div, br, li, table, h1, h2, h3, h4, h5, h6, blockquote, img, .resizable-img-wrapper')) return false;
-
             const plain = getSelectionPlainText(range);
             if (!plain || plain.length > 20) return false;
-
-            // 如果选中的就是整行/整段，则保持原来的"译文在下一行"
             const sc = range.commonAncestorContainer;
             const el = sc.nodeType === 3 ? sc.parentElement : sc;
             const container = el && el.closest('p, div, li, h1, h2, h3, h4, h5, h6, blockquote, td');
@@ -1874,7 +1885,6 @@
             const lang = getTargetLang();
             const plain = getSelectionPlainText(range);
             saveHistoryImmediate();
-
             const er = range.cloneRange();
             er.collapse(false);
             const n = er.endContainer;
@@ -1884,10 +1894,8 @@
                 er.setStartAfter(grp);
                 er.collapse(true);
             }
-
             const block = createTranslationBlock(lang, true);
             er.insertNode(block);
-
             const z = document.createTextNode('\u200B');
             block.after(z);
             const nr = document.createRange();
@@ -1896,7 +1904,6 @@
             const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(nr);
-
             saveHistoryImmediate();
             const snap = historyStack[historyIndex];
             const translation = await requestTranslation(plain, lang);
@@ -1906,36 +1913,29 @@
 
         async function translateSelection(range, selectedText) {
             range = range.cloneRange();
-
             // 句中的短词语：行内显示，不换行
             if (isInlineSelection(range)) {
                 return translateInline(range);
             }
-
-            // 整行/整段/长句：保持原来的"译文在下一行"
+            // 整行/整段/长句：译文放在下一行
             const lang = getTargetLang();
             const plain = getSelectionPlainText(range) || selectedText;
             const translation = await requestTranslation(plain, lang);
-
             const container = document.createElement('div');
             container.style.margin = '8px 0';
             container.style.display = 'block';
             container.appendChild(range.cloneContents());
-
             const block = createTranslationBlock(lang);
             setTranslationContent(block, lang, translation);
             container.appendChild(block);
-
             range.deleteContents();
             range.insertNode(container);
-
             const newRange = document.createRange();
             newRange.setStartAfter(container);
             newRange.collapse(true);
             const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(newRange);
-
             setTimeout(saveHistoryImmediate, 50);
         }
 
@@ -1956,52 +1956,6 @@
                 }
             }
         });
-
-        async function requestTranslation(text, lang) {
-            const systemInstruction = `你是一位精通中文和${lang}的资深翻译。请将用户选中的中文翻译成${lang}。要求：译文必须地道、自然，符合${lang}母语者的表达习惯，避免生硬的直译。只输出译文，不要任何解释。`;
-            const prompt = `Translate the following Chinese text to ${lang}. ONLY output the translation without any extra explanation: "${text}"`;
-            try {
-                return await callAI(prompt, systemInstruction, null, true);
-            } catch (e) {
-                return "(翻译失败: " + e.message + ")";
-            }
-        }
-
-        function saveAfterAsync(snapBefore) {
-            if (historyIndex >= 0 && historyStack[historyIndex] === snapBefore) {
-                historyStack[historyIndex] = whiteboard.innerHTML;
-            } else {
-                saveHistoryImmediate();
-            }
-        }
-
-        async function translateSelection(range, selectedText) {
-            range = range.cloneRange();
-            const lang = getTargetLang();
-            const plain = getSelectionPlainText(range) || selectedText;
-            const translation = await requestTranslation(plain, lang);
-
-            const container = document.createElement('div');
-            container.style.margin = '8px 0';
-            container.style.display = 'block';
-            container.appendChild(range.cloneContents());
-
-            const block = createTranslationBlock(lang);
-            setTranslationContent(block, lang, translation);
-            container.appendChild(block);
-
-            range.deleteContents();
-            range.insertNode(container);
-
-            const newRange = document.createRange();
-            newRange.setStartAfter(container);
-            newRange.collapse(true);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(newRange);
-
-            setTimeout(saveHistoryImmediate, 50);
-        }
 
         async function combinePinyinAndTranslate(range, selectedText) {
             const lang = getTargetLang();
