@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <style>
+    /* ========== 提取自 Tailwind 的基础样式 ========== */
     *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; }
     body { margin: 0; line-height: inherit; background-color: #f1f5f9; min-height: 100vh; padding: 1rem; overflow: hidden; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
     @media (min-width: 768px) { body { padding: 1.5rem; } }
@@ -175,11 +176,16 @@
     .backdrop-blur-sm { backdrop-filter: blur(4px); }
     .transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
     
+    /* ====== 侧边栏收起与展开响应式修复 ====== */
     @media (min-width: 768px) {
         .md\:flex-row { flex-direction: row; }
         .md\:p-6 { padding: 1.5rem; }
         .md\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        
+        /* 展开状态下的宽度 */
         .md\:w-80 { width: 20rem; }
+        
+        /* 收起状态：宽度、内边距、边框、透明度全部清零 */
         .md\:w-0 { width: 0px !important; }
         .md\:p-0 { padding: 0px !important; }
         .md\:m-0 { margin: 0px !important; }
@@ -188,6 +194,7 @@
         .md\:overflow-hidden { overflow: hidden !important; }
     }
 
+    /* ========== 原有自定义样式 ========== */
     #authOverlay { position: fixed; inset: 0; background: #f1f5f9; z-index: 9999; display: flex; justify-content: center; align-items: center; }
     .auth-box { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 420px; width: 90%; }
     #whiteboardScrollContainer { position: absolute; inset: 0; overflow: auto; z-index: 10; }
@@ -196,27 +203,86 @@
     #drawCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; touch-action: none; }
     #drawCanvas.active { pointer-events: auto; cursor: crosshair; }
     
+    /* ===== 修复：图片自由缩放包裹层样式 ===== */
     .resizable-img-wrapper {
-        display: inline-block; position: relative; resize: both; overflow: hidden;
-        border: 1px dashed #93c5fd; min-width: 50px; min-height: 50px;
-        vertical-align: bottom; margin: 10px 0; line-height: 0;
+        display: inline-block;
+        position: relative;
+        resize: both;
+        overflow: hidden;
+        border: 1px dashed #93c5fd;
+        min-width: 50px;
+        min-height: 50px;
+        vertical-align: bottom;
+        margin: 10px 0;
+        line-height: 0;
     }
     .resizable-img-wrapper:hover { border-color: #3b82f6; }
-    .resizable-img-wrapper img { width: 100% !important; height: 100% !important; display: block; object-fit: fill; pointer-events: none; margin: 0 !important; }
+    .resizable-img-wrapper img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block;
+        object-fit: fill;
+        pointer-events: none;
+        margin: 0 !important;
+    }
+    /* 用伪元素强制显示右下角的缩放手柄，避免被 contenteditable 吃掉 */
     .resizable-img-wrapper::after {
-        content: ''; position: absolute; bottom: 0; right: 0; width: 14px; height: 14px;
-        background-color: #3b82f6; border: 2px solid #fff; border-radius: 2px; cursor: se-resize; z-index: 10;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 14px;
+        height: 14px;
+        background-color: #3b82f6;
+        border: 2px solid #fff;
+        border-radius: 2px;
+        cursor: se-resize;
+        z-index: 10;
     }
     
-    .pinyin-inline-table { display: inline-table; vertical-align: bottom; border-collapse: collapse; margin: 0 2px; line-height: 1.1; border: none; }
-    .pinyin-inline-table td { padding: 0 1px; text-align: center; border: none; }
-    .pinyin-inline-table .py-top { font-size: 0.45em; font-family: 'Arial', sans-serif; color: #1d4ed8; font-weight: bold; white-space: nowrap; display: block; transform: translateY(2px); }
-    .pinyin-inline-table .py-bottom { font-size: 1em; display: block; }
+    /* ===== 新增：万能抗错位拼音排版容器（表格方案） ===== */
+    .pinyin-inline-table {
+        display: inline-table;
+        vertical-align: bottom;
+        border-collapse: collapse;
+        margin: 0 2px;
+        line-height: 1.1;
+        border: none;
+    }
+    .pinyin-inline-table td {
+        padding: 0 1px;
+        text-align: center;
+        border: none;
+    }
+    .pinyin-inline-table .py-top {
+        font-size: 0.45em; 
+        font-family: 'Arial', sans-serif;
+        color: #1d4ed8;
+        font-weight: bold;
+        white-space: nowrap;
+        display: block;
+        transform: translateY(2px);
+    }
+    .pinyin-inline-table .py-bottom {
+        font-size: 1em;
+        display: block;
+    }
     
     ruby { ruby-align: center; ruby-position: over; margin: 0 1px; white-space: nowrap; }
     rt { font-size: 0.5em !important; color: #1d4ed8 !important; font-family: 'Arial', sans-serif !important; font-weight: bold !important; line-height: 1.2; }
     
-    .english-line { display: block !important; font-size: 0.85em !important; color: #64748b; font-family: 'Arial', sans-serif; font-style: italic; border-left: 3px solid #cbd5e1; padding-left: 8px; margin: 8px 0 20px 0 !important; line-height: 1.4 !important; width: 100%; }
+        /* 行内译文（词语翻译用，不换行） */
+    .english-line.english-inline {
+        display: inline !important;
+        width: auto;
+        margin: 0 4px !important;
+        padding: 0 5px;
+        border-left: none;
+        border-radius: 4px;
+        background: #f1f5f9;
+        font-size: 0.6em !important;
+        line-height: inherit !important;
+    }
     .toolbar-btn { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; padding: 6px 10px; background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; color: #334155; cursor: pointer; font-weight: 500; transition: all 0.2s; }
     .toolbar-btn:hover { background-color: #e2e8f0; }
     .btn-draw-active { background-color: #3b82f6 !important; color: white !important; border-color: #2563eb !important; }
@@ -253,18 +319,27 @@
     .markdown-body ul { list-style-type: disc; padding-left: 20px; margin-bottom: 15px; }
     .sidebar-transition { transition: all 0.3s ease-in-out; }
 
+    /* 新增核心词汇下划线样式 */
     .core-vocab { border-bottom: 2px solid #3b82f6; font-weight: bold; color: #1d4ed8; padding-bottom: 1px; }
 
+    /* ====== 课堂测验白板排版专用 ====== */
     .quiz-board { margin-top: 10px; }
     .quiz-board h2 { font-size: 1.3em; font-weight: bold; color: #1e3a8a; border-bottom: 2px dashed #93c5fd; padding-bottom: 10px; margin-bottom: 20px; }
     .quiz-board h3 { font-size: 1.1em; font-weight: bold; color: #b45309; margin-top: 20px; margin-bottom: 10px; }
     .quiz-board p { margin-bottom: 12px; line-height: 1.8; }
     
-    #worksheetModal iframe { width: 100%; height: 100%; border: none; background: #fff; }
+    /* 字帖 iframe 弹窗专用样式 */
+    #worksheetModal iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: #fff;
+    }
 </style>
 </head>
 <body>
 
+<!-- 登录验证遮罩层 -->
 <div id="authOverlay">
     <div class="auth-box">
         <h1 class="text-2xl font-bold text-slate-800 mb-2">🔒 软件授权登录</h1>
@@ -282,6 +357,7 @@
     </div>
 </div>
 
+<!-- 主体内容 -->
 <div id="appContent" class="hidden flex-col md:flex-row h-[calc(100vh-3rem)] gap-6 relative">
     <div class="flex-1 bg-white rounded-2xl shadow-lg flex flex-col border-4 border-blue-200 p-4 md:p-6 relative w-full sidebar-transition">
         <div id="drawToolbar">
@@ -312,9 +388,14 @@
                 <span class="mx-1 text-slate-300">|</span>
                 <button id="btnDraw" class="toolbar-btn bg-slate-100 text-slate-700 border-slate-300 font-bold">✏️ 电子教鞭</button>
                 <button id="btnTogglePinyin" class="toolbar-btn bg-blue-100 text-blue-700 border-blue-300 font-bold" title="选中文字：无拼音则添加，有拼音则去除">✨ 拼音</button>
+                <!-- 新增：边打边注音模式按钮 -->
+                <button id="btnAutoPinyinMode" class="toolbar-btn bg-slate-100 text-slate-700 border-slate-300 font-bold" title="开启后，打字上屏自动带拼音">🔤 边打边注音: 关</button>
                 <button id="btnToggleUnderline" class="toolbar-btn bg-blue-50 text-blue-700 border-blue-200 font-bold" title="选中文字：无下划线则标注，有下划线则去除"><u>U</u> 核心词汇</button>
+                <!-- 新增：一键撤销所有拼音和翻译 -->
                 <button id="btnRemoveAllPinyinTrans" class="toolbar-btn bg-red-50 text-red-700 border-red-200 font-bold" title="一键移除白板上所有的拼音和翻译标注">🧹 清除拼音/翻译</button>
+                <!-- 打开字帖生成器按钮 -->
                 <button id="btnOpenWorksheet" class="toolbar-btn bg-indigo-100 text-indigo-700 border-indigo-300 font-bold">📄 笔顺字帖</button>
+                <!-- 新增：根据标记直接挖空生成试题 -->
                 <button id="btnClozeTest" class="toolbar-btn bg-emerald-100 text-emerald-700 border-emerald-300 font-bold">✂️ 挖空生成试题</button>
                 
                 <div class="inline-flex items-center bg-purple-100 border border-purple-300 rounded-lg overflow-hidden">
@@ -337,7 +418,6 @@
                 </div>
                 <button id="btnUndo" class="toolbar-btn bg-amber-50 text-amber-700 border-amber-200">↩️ 撤销</button>
                 <button id="btnRedo" class="toolbar-btn bg-amber-50 text-amber-700 border-amber-200">↪️ 还原</button>
-                <button id="btnClearBoard" class="toolbar-btn bg-red-100 text-red-700 border-red-300 font-bold" title="一键清空白板上的所有内容">🗑️ 清空白板</button>
             </div>
         </div>
 
@@ -346,7 +426,7 @@
                 <div id="whiteboardInnerWrapper">
                     <canvas id="drawCanvas"></canvas>
                     <div id="whiteboardContent" contenteditable="true" class="w-full min-h-full text-xl md:text-2xl text-slate-700">
-                        <p>欢迎使用！<br>1. 右侧输入关键词检索知识点。<br>2. 选中文字可加拼音、翻译。<br>3. 支持直接粘贴截图，或上传本地文档。</p>
+                        <p>欢迎使用！<br>1. 右侧输入关键词检索知识点。<br>2. 选中文字可加拼音、翻译，或开启“边打边注音”。<br>3. 支持直接粘贴截图，或上传本地文档。</p>
                     </div>
                 </div>
             </div>
@@ -386,8 +466,7 @@
                     <label class="block text-[10px] text-indigo-600 font-bold">📥 导入知识库</label>
                     <div class="flex gap-1">
                         <button id="btnImportGithub" class="cursor-pointer bg-indigo-600 text-white px-2 py-1 rounded text-[10px] hover:bg-indigo-700 transition">🌐 从 GitHub 导入</button>
-                        <button id="btnLoadCloud1" class="cursor-pointer bg-indigo-600 text-white px-2 py-1 rounded text-[10px] hover:bg-indigo-700 transition" title="加载根目录的 HSK 库">☁️ 云端一 (HSK)</button>
-                        <button id="btnLoadCloud2" class="cursor-pointer bg-purple-600 text-white px-2 py-1 rounded text-[10px] hover:bg-purple-700 transition" title="加载语法库">☁️ 云端二 (黄伯荣语法)</button>
+                        <button id="btnLoadCloudKb" class="cursor-pointer bg-indigo-600 text-white px-2 py-1 rounded text-[10px] hover:bg-indigo-700 transition">☁️ 加载云端库</button>
                         <label class="cursor-pointer bg-white border border-indigo-300 text-indigo-700 px-2 py-1 rounded text-[10px] hover:bg-indigo-50 transition">
                             本地上传
                             <input type="file" id="kbFileUpload" accept=".json" class="hidden">
@@ -438,6 +517,7 @@
     </div>
 </div>
 
+<!-- 试卷 Modal -->
 <div id="examModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 justify-center items-center p-4">
     <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col">
         <div class="flex justify-between items-center p-5 border-b border-slate-200">
@@ -455,6 +535,7 @@
     </div>
 </div>
 
+<!-- 字帖 Modal -->
 <div id="worksheetModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 justify-center items-center">
     <div class="bg-white shadow-2xl flex flex-col overflow-hidden" style="width: 95vw !important; height: 95vh !important; border-radius: 12px;">
         <div class="flex justify-between items-center px-4 py-3 border-b border-slate-200 bg-slate-50 shrink-0">
@@ -467,7 +548,10 @@
 
 <script>
     window.addEventListener('DOMContentLoaded', () => {
-        if (typeof JSZip === 'undefined') { console.error("❌ 致命错误：JSZip 库未加载成功，无法解析 PPT！"); }
+        if (typeof JSZip === 'undefined') {
+            console.error("❌ 致命错误：JSZip 库未加载成功，无法解析 PPT！");
+            setTimeout(() => alert("⚠️ PPT 解析组件 (JSZip) 加载失败，请检查您的网络或关闭广告拦截插件后刷新页面。"), 500);
+        }
         if (typeof pdfjsLib === 'undefined') console.warn("⚠️ PDF.js 未加载");
         if (typeof mammoth === 'undefined') console.warn("⚠️ Mammoth.js 未加载");
         if (typeof pinyinPro === 'undefined') console.warn("⚠️ pinyin-pro 未加载");
@@ -696,6 +780,7 @@
         const scrollContainer = document.getElementById('whiteboardScrollContainer');
         const innerWrapper = document.getElementById('whiteboardInnerWrapper');
 
+        // 粘贴图片功能
         whiteboard.addEventListener('paste', function(e) {
             const items = (e.clipboardData || e.originalEvent.clipboardData).items;
             for (let index in items) {
@@ -820,22 +905,17 @@
             reader.readAsText(file, 'UTF-8');
         });
 
-        // 修复：拆分云端库加载，分别绑定给两个按钮
-        document.getElementById('btnLoadCloud1').addEventListener('click', async function() {
+        document.getElementById('btnLoadCloudKb').addEventListener('click', async function() {
+            const files = ['A1A2.json', 'B1.json', 'B2.json', 'HSK_synonyms_all.json'];
             const btn = this;
             const originalText = btn.innerHTML;
             btn.innerHTML = "加载中...";
             btn.disabled = true;
-            
+
+            let allLoadedData = [];
+
             try {
-                const res1 = await fetch(`./list1.json?t=${new Date().getTime()}`);
-                if (!res1.ok) throw new Error("未找到 list1.json，请检查根目录文件。");
-                const list1 = await res1.json();
-                
-                if (list1.length === 0) throw new Error("list1.json 为空。");
-                
-                let allLoadedData = [];
-                const promises = list1.map(fileName => {
+                const promises = files.map(fileName => {
                     const url = `./${fileName}?t=${new Date().getTime()}`;
                     return fetch(url).then(res => {
                         if (!res.ok) throw new Error(`文件 ${fileName} 获取失败`);
@@ -844,9 +924,11 @@
                 });
 
                 const results = await Promise.all(promises);
+                
                 results.forEach(data => {
-                    if (Array.isArray(data)) { allLoadedData = allLoadedData.concat(data); } 
-                    else {
+                    if (Array.isArray(data)) { 
+                        allLoadedData = allLoadedData.concat(data); 
+                    } else {
                         const firstArray = Object.values(data).find(val => Array.isArray(val));
                         if (firstArray) allLoadedData = allLoadedData.concat(firstArray);
                     }
@@ -855,60 +937,14 @@
                 knowledgeBase = allLoadedData;
                 
                 const kbStatus = document.getElementById('kbStatus');
-                kbStatus.textContent = `✅ 已加载 云端一(HSK) (共${list1.length}个文件，${knowledgeBase.length} 个知识点)`;
+                kbStatus.textContent = `✅ 云端多库已加载 ${knowledgeBase.length} 个知识点`;
                 kbStatus.classList.add('text-green-600');
                 kbStatus.classList.remove('text-indigo-400');
                 document.getElementById('kbResults').classList.add('hidden');
+                
             } catch (err) {
                 console.error(err);
-                alert(`加载云端一失败：\n` + err.message);
-            } finally {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }
-        });
-
-        document.getElementById('btnLoadCloud2').addEventListener('click', async function() {
-            const btn = this;
-            const originalText = btn.innerHTML;
-            btn.innerHTML = "加载中...";
-            btn.disabled = true;
-            
-            try {
-                const res2 = await fetch(`./grammar/list2.json?t=${new Date().getTime()}`);
-                if (!res2.ok) throw new Error("未找到 grammar/list2.json，请检查文件夹。");
-                const list2 = await res2.json();
-                
-                if (list2.length === 0) throw new Error("list2.json 为空。");
-                
-                let allLoadedData = [];
-                const promises = list2.map(fileName => {
-                    const url = `./grammar/${fileName}?t=${new Date().getTime()}`;
-                    return fetch(url).then(res => {
-                        if (!res.ok) throw new Error(`文件 ${fileName} 获取失败`);
-                        return res.json();
-                    });
-                });
-
-                const results = await Promise.all(promises);
-                results.forEach(data => {
-                    if (Array.isArray(data)) { allLoadedData = allLoadedData.concat(data); } 
-                    else {
-                        const firstArray = Object.values(data).find(val => Array.isArray(val));
-                        if (firstArray) allLoadedData = allLoadedData.concat(firstArray);
-                    }
-                });
-
-                knowledgeBase = allLoadedData;
-                
-                const kbStatus = document.getElementById('kbStatus');
-                kbStatus.textContent = `✅ 已加载 云端二(语法) (共${list2.length}个文件，${knowledgeBase.length} 个知识点)`;
-                kbStatus.classList.add('text-green-600');
-                kbStatus.classList.remove('text-indigo-400');
-                document.getElementById('kbResults').classList.add('hidden');
-            } catch (err) {
-                console.error(err);
-                alert(`加载云端二失败：\n` + err.message);
+                alert('云端知识库加载失败：\n' + err.message + '\n\n请确认你的 GitHub 仓库中包含这四个文件。');
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
@@ -930,7 +966,7 @@
 
             try {
                 let rawFilesToFetch = [];
-                let cleanUrl = url.trim().replace(/\/$/, ""); 
+                let cleanUrl = url.trim().replace(/\/$/, "");
 
                 if (cleanUrl.endsWith('.json')) {
                     if (cleanUrl.includes('github.com') && !cleanUrl.includes('raw.githubusercontent.com')) {
@@ -1299,24 +1335,19 @@
             const keyword = document.getElementById('kbSearchInput').value.trim().toLowerCase();
             const resultsBox = document.getElementById('kbResults');
             if (!keyword) { resultsBox.classList.add('hidden'); return; }
-            if (knowledgeBase.length === 0) { alert('请先点击“加载云端库”或本地上传知识库文件！'); return; }
+            if (knowledgeBase.length === 0) { alert('请先点击“☁️ 加载云端库”或本地上传知识库文件！'); return; }
             
             const results = knowledgeBase.filter(item => {
                 if (!item || typeof item !== 'object') return false;
-                
                 const titleText = (item.title || item.grammar_cn || item.name || item.word || item.keyword || '').toString().toLowerCase();
-                const contentText = (item.content || item.usage || item.explanation || '').toString().toLowerCase();
                 const titleEn = (item.grammar_en || item.english || '').toString().toLowerCase();
-                
                 let tagsMatch = false;
                 if (item.tags) {
                     const tagArr = Array.isArray(item.tags) ? item.tags : String(item.tags).split(/[,，\s]+/);
                     tagsMatch = tagArr.some(tag => String(tag).toLowerCase().includes(keyword));
                 }
-                
                 const fallbackMatch = JSON.stringify(item).toLowerCase().includes(keyword);
-                
-                return titleText.includes(keyword) || contentText.includes(keyword) || titleEn.includes(keyword) || tagsMatch || fallbackMatch;
+                return titleText.includes(keyword) || titleEn.includes(keyword) || tagsMatch || fallbackMatch;
             });
             
             resultsBox.innerHTML = '';
@@ -1325,18 +1356,11 @@
                 resultsBox.innerHTML = `<div class="text-xs text-slate-500 text-center py-2">没有找到“${keyword}”相关知识点</div>`;
                 return;
             }
-            
             results.slice(0, 15).forEach((item) => {
                 const div = document.createElement('div');
                 div.className = 'kb-item';
                 const title = item.grammar_cn || item.title || item.name || item.word || item.keyword || '无标题';
-                let subTitle = item.structure || item.grammar_en || item.level || (Array.isArray(item.tags) ? item.tags.join(', ') : item.tags);
-                if (!subTitle && item.content) {
-                    subTitle = item.content.substring(0, 30) + '...';
-                } else if (!subTitle) {
-                    subTitle = '';
-                }
-                
+                const subTitle = item.structure || item.grammar_en || item.level || (Array.isArray(item.tags) ? item.tags.join(', ') : item.tags) || '';
                 div.innerHTML = `
                     <div class="kb-title">${title}</div>
                     <div class="kb-tags">${subTitle}</div>
@@ -1351,8 +1375,7 @@
 
         function renderKnowledgeToBoard(kbItem) {
             let html = '';
-            // 兼容新老 JSON 格式的标题提取
-            const title = kbItem.keyword || kbItem.grammar_cn || kbItem.title || kbItem.name || kbItem.word || '知识点';
+            const title = kbItem.grammar_cn || kbItem.title || kbItem.name || kbItem.word || kbItem.keyword || '知识点';
             const subTitleText = kbItem.grammar_en || kbItem.level || '';
             const levelTag = subTitleText
                 ? `<span class="kb-level-tag" style="background:#e2e8f0; color:#475569; padding:2px 6px; border-radius:4px; margin-left:10px; font-weight:normal;">${subTitleText}</span>`
@@ -1370,15 +1393,9 @@
                 html += `<p style="margin-bottom:12px;"><span class="kb-label" style="background:#e0f2fe; color:#0369a1; padding:4px 8px; border-radius:4px; font-weight:bold;">句型结构</span> <span style="font-family:monospace; margin-left:5px;">${patternText}</span></p>`;
             }
             
-            // 兼容新老 JSON 格式的内容提取
-            const usageText = kbItem.content || kbItem.usage || kbItem.explanation;
+            const usageText = kbItem.usage || kbItem.explanation;
             if (usageText) {
-                let formattedUsage = String(usageText)
-                    .replace(/【(.*?)】/g, '<span style="color:#1d4ed8; font-weight:bold;">【$1】</span>')
-                    .replace(/例句：/g, '<br><span style="color:#64748b; font-weight:bold; margin-top:8px; display:inline-block;">例句：</span>')
-                    .replace(/\n/g, '<br>');
-
-                html += `<p style="margin-bottom:20px; line-height: 1.8;"><span class="kb-label" style="background:#dcfce7; color:#166534; padding:4px 8px; border-radius:4px; font-weight:bold; vertical-align: top;">释义与用法</span> <span style="margin-left:8px; display:inline-block; width: calc(100% - 90px);">${formattedUsage}</span></p>`;
+                html += `<p style="margin-bottom:20px;"><span class="kb-label" style="background:#dcfce7; color:#166534; padding:4px 8px; border-radius:4px; font-weight:bold;">用法说明</span> <span style="margin-left:5px; line-height: 1.6;">${String(usageText).replace(/\n/g, '<br>')}</span></p>`;
             }
 
             if (kbItem.examples && Array.isArray(kbItem.examples)) {
@@ -1428,8 +1445,9 @@
             setTimeout(() => { saveHistoryImmediate(); resizeCanvas(); }, 50);
         }
 
-        let historyStack = [];        
-        let historyIndex = -1;        
+        // ================= 撤销与还原（历史栈 + 指针模式） =================
+        let historyStack = [];
+        let historyIndex = -1;
         let isUndoRedoing = false;
         let historyTimer = null;
         const MAX_HISTORY = 100;
@@ -1464,7 +1482,7 @@
         }
 
         function doUndo() {
-            saveHistoryImmediate(); 
+            saveHistoryImmediate();
             if (historyIndex > 0) {
                 restoreHistory(historyIndex - 1);
             } else {
@@ -1484,17 +1502,110 @@
         saveHistoryImmediate();
         whiteboard.addEventListener('input', saveHistoryDebounced);
 
-        document.getElementById('btnUndo').addEventListener('click', doUndo);
-        document.getElementById('btnRedo').addEventListener('click', doRedo);
+               // ====== 边打边注音模式（修复版） ======
+        let isAutoPinyinMode = false;
+        let isComposing = false;
+        const ZWSP = '\u200B';
 
-        // 清空白板功能
-        document.getElementById('btnClearBoard').addEventListener('click', function() {
-            if (confirm('确定要清空整个白板吗？此操作可以通过点击“撤销”恢复。')) {
-                whiteboard.innerHTML = '<p><br></p>';
-                saveHistoryImmediate();
-                setTimeout(resizeCanvas, 100);
+        const btnAutoPinyin = document.getElementById('btnAutoPinyinMode');
+        btnAutoPinyin.addEventListener('click', function() {
+            isAutoPinyinMode = !isAutoPinyinMode;
+            if (isAutoPinyinMode) {
+                this.textContent = '🔤 边打边注音: 开';
+                this.classList.add('btn-draw-active');
+            } else {
+                this.textContent = '🔤 边打边注音: 关';
+                this.classList.remove('btn-draw-active');
+            }
+            whiteboard.focus();
+        });
+
+        whiteboard.addEventListener('compositionstart', () => { isComposing = true; });
+        whiteboard.addEventListener('compositionend', (e) => {
+            isComposing = false;
+            if (!isAutoPinyinMode) return;
+            const typed = e.data || '';
+            // 延后一个 tick，确保各浏览器都已把输入法文字提交到 DOM
+            setTimeout(() => convertJustTyped(typed), 0);
+        });
+
+        whiteboard.addEventListener('input', (e) => {
+            if (isAutoPinyinMode && !isComposing && e.inputType === 'insertText' && e.data) {
+                convertJustTyped(e.data);
             }
         });
+
+        // 只转换"刚刚上屏的那段文字"，其余内容不动
+        function convertJustTyped(typed) {
+            const sel = window.getSelection();
+            if (!sel || sel.rangeCount === 0 || !sel.isCollapsed) return;
+
+            const range = sel.getRangeAt(0);
+            const node = range.startContainer;
+            if (node.nodeType !== Node.TEXT_NODE) return;
+            if (!whiteboard.contains(node)) return;
+            if (node.parentElement && node.parentElement.closest('ruby, rt, .english-line, .pinyin-inline-table')) return;
+
+            const full = node.nodeValue;
+            const offset = range.startOffset;
+            const before = full.slice(0, offset);
+            const after = full.slice(offset);
+
+            // 定位刚输入的片段
+            let start;
+            if (typed && before.endsWith(typed)) {
+                start = offset - typed.length;
+            } else {
+                const m = before.match(/[\u4e00-\u9fa5]+$/);
+                if (!m) return;
+                start = offset - m[0].length;
+            }
+
+            const prefix = before.slice(0, start).replace(/\u200B/g, '');
+            const newPart = before.slice(start).replace(/\u200B/g, '');
+            const suffix = after.replace(/\u200B/g, '');
+            if (!/[\u4e00-\u9fa5]/.test(newPart)) return;
+
+            const frag = document.createDocumentFragment();
+            if (prefix) frag.appendChild(document.createTextNode(prefix));
+            frag.appendChild(buildPinyinFragment(newPart));
+
+            // 零宽空格锚点：光标放在这里，后续输入不会钻进 ruby/rt
+            const anchor = document.createTextNode(ZWSP + suffix);
+            frag.appendChild(anchor);
+
+            node.parentNode.replaceChild(frag, node);
+
+            const nr = document.createRange();
+            nr.setStart(anchor, 1);
+            nr.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(nr);
+
+            saveHistoryDebounced();
+        }
+
+        // 退格：光标紧跟在"字+拼音"之后时，一次删掉整个 ruby（不用先删零宽空格）
+        whiteboard.addEventListener('keydown', function(e) {
+            if (e.key !== 'Backspace' || e.isComposing || e.keyCode === 229) return;
+            const sel = window.getSelection();
+            if (!sel || sel.rangeCount === 0 || !sel.isCollapsed) return;
+            const r = sel.getRangeAt(0);
+            const node = r.startContainer;
+            if (node.nodeType !== Node.TEXT_NODE) return;
+            if (r.startOffset === 1 && node.nodeValue.charAt(0) === ZWSP) {
+                const prev = node.previousSibling;
+                if (prev && prev.nodeType === 1 && prev.tagName === 'RUBY') {
+                    e.preventDefault();
+                    prev.remove();
+                    saveHistoryDebounced();
+                }
+            }
+        });
+        // ====== 边打边注音模式结束 ======
+
+        document.getElementById('btnUndo').addEventListener('click', doUndo);
+        document.getElementById('btnRedo').addEventListener('click', doRedo);
 
         whiteboard.addEventListener('keydown', function(e) {
             if (!(e.ctrlKey || e.metaKey)) return;
@@ -1681,17 +1792,22 @@
             return div.textContent.replace(/\u200B/g, '').trim();
         }
 
-        function addPinyinToSelection(range, selectedText) {
+                function addPinyinToSelection(range, selectedText) {
             if (!/[\u4e00-\u9fa5]/.test(selectedText)) { alert('选中的内容里没有汉字！'); return; }
             saveHistoryImmediate();
             const res = convertRangeToPinyinKeepEnd(range);
             const mark = res.endMark;
-            const par = mark.parentNode;
-            const idx = Array.prototype.indexOf.call(par.childNodes, mark);
-            mark.remove();
+
+            // 如果末尾标记落在 ruby / 核心词汇下划线内部，把它移到外面
+            const grp = mark.parentElement && mark.parentElement.closest('ruby, .pinyin-inline-table, .core-vocab');
+            if (grp && whiteboard.contains(grp)) grp.after(mark);
+
+            // 用零宽空格文本节点做光标锚点，光标放进去，后续输入不会钻进 ruby/rt
+            const anchor = document.createTextNode('\u200B');
+            mark.replaceWith(anchor);
 
             const nr = document.createRange();
-            nr.setStart(par, idx);
+            nr.setStart(anchor, 1);
             nr.collapse(true);
             const selection = window.getSelection();
             selection.removeAllRanges();
@@ -1717,14 +1833,129 @@
             return block;
         }
 
-        function setTranslationContent(block, lang, translation) {
-            block.textContent = '';
+                function createTranslationBlock(lang, inline) {
+            const block = document.createElement(inline ? 'span' : 'div');
+            block.className = inline ? 'english-line english-inline' : 'english-line';
+            if (!inline) block.style.margin = '4px 0 0 0';
             const tag = document.createElement('span');
             tag.style.fontWeight = 'bold';
             tag.textContent = `[${lang}]`;
+            const wait = document.createElement('span');
+            wait.style.cssText = 'color:#94a3b8; font-style:italic;';
+            wait.textContent = ' (翻译中...)';
             block.appendChild(tag);
-            block.appendChild(document.createTextNode(' ' + translation));
+            block.appendChild(wait);
+            return block;
         }
+
+        // 判断是否为"句中的短词语"：是则用行内译文，否则用整行译文
+        function isInlineSelection(range) {
+            const frag = range.cloneContents();
+            if (frag.querySelector('p, div, br, li, table, h1, h2, h3, h4, h5, h6, blockquote, img, .resizable-img-wrapper')) return false;
+
+            const plain = getSelectionPlainText(range);
+            if (!plain || plain.length > 20) return false;
+
+            // 如果选中的就是整行/整段，则保持原来的"译文在下一行"
+            const sc = range.commonAncestorContainer;
+            const el = sc.nodeType === 3 ? sc.parentElement : sc;
+            const container = el && el.closest('p, div, li, h1, h2, h3, h4, h5, h6, blockquote, td');
+            if (container && container !== whiteboard && whiteboard.contains(container)) {
+                const c = container.cloneNode(true);
+                c.querySelectorAll('rt, .py-top, .english-line').forEach(n => n.remove());
+                const whole = c.textContent.replace(/\u200B/g, '').trim();
+                if (whole === plain) return false;
+            }
+            return true;
+        }
+
+        // 行内翻译：原文不动，在词语后面插入一个行内小标注
+        async function translateInline(range) {
+            const lang = getTargetLang();
+            const plain = getSelectionPlainText(range);
+            saveHistoryImmediate();
+
+            const er = range.cloneRange();
+            er.collapse(false);
+            const n = er.endContainer;
+            const el = n.nodeType === 3 ? n.parentElement : n;
+            const grp = el && el.closest('ruby, .pinyin-inline-table, .core-vocab');
+            if (grp && whiteboard.contains(grp)) {
+                er.setStartAfter(grp);
+                er.collapse(true);
+            }
+
+            const block = createTranslationBlock(lang, true);
+            er.insertNode(block);
+
+            const z = document.createTextNode('\u200B');
+            block.after(z);
+            const nr = document.createRange();
+            nr.setStart(z, 1);
+            nr.collapse(true);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(nr);
+
+            saveHistoryImmediate();
+            const snap = historyStack[historyIndex];
+            const translation = await requestTranslation(plain, lang);
+            setTranslationContent(block, lang, translation);
+            saveAfterAsync(snap);
+        }
+
+        async function translateSelection(range, selectedText) {
+            range = range.cloneRange();
+
+            // 句中的短词语：行内显示，不换行
+            if (isInlineSelection(range)) {
+                return translateInline(range);
+            }
+
+            // 整行/整段/长句：保持原来的"译文在下一行"
+            const lang = getTargetLang();
+            const plain = getSelectionPlainText(range) || selectedText;
+            const translation = await requestTranslation(plain, lang);
+
+            const container = document.createElement('div');
+            container.style.margin = '8px 0';
+            container.style.display = 'block';
+            container.appendChild(range.cloneContents());
+
+            const block = createTranslationBlock(lang);
+            setTranslationContent(block, lang, translation);
+            container.appendChild(block);
+
+            range.deleteContents();
+            range.insertNode(container);
+
+            const newRange = document.createRange();
+            newRange.setStartAfter(container);
+            newRange.collapse(true);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+
+            setTimeout(saveHistoryImmediate, 50);
+        }
+
+        // 退格：光标紧跟在行内译文之后时，一次删掉整个译文标注
+        whiteboard.addEventListener('keydown', function(e) {
+            if (e.key !== 'Backspace' || e.isComposing || e.keyCode === 229) return;
+            const sel = window.getSelection();
+            if (!sel || sel.rangeCount === 0 || !sel.isCollapsed) return;
+            const r = sel.getRangeAt(0);
+            const node = r.startContainer;
+            if (node.nodeType !== Node.TEXT_NODE) return;
+            if (r.startOffset === 1 && node.nodeValue.charAt(0) === '\u200B') {
+                const prev = node.previousSibling;
+                if (prev && prev.nodeType === 1 && prev.classList.contains('english-inline')) {
+                    e.preventDefault();
+                    prev.remove();
+                    saveHistoryDebounced();
+                }
+            }
+        });
 
         async function requestTranslation(text, lang) {
             const systemInstruction = `你是一位精通中文和${lang}的资深翻译。请将用户选中的中文翻译成${lang}。要求：译文必须地道、自然，符合${lang}母语者的表达习惯，避免生硬的直译。只输出译文，不要任何解释。`;
@@ -1832,12 +2063,12 @@
             if (next) lineRange.setEndBefore(next); else lineRange.setEnd(container, container.childNodes.length);
 
             const lineText = lineRange.toString().replace(/\u200B/g, '').trim();
-            if (!/[\u4e00-\u9fa5]/.test(lineText)) return false;           
+            if (!/[\u4e00-\u9fa5]/.test(lineText)) return false;
             const frag = lineRange.cloneContents();
-            if (frag.querySelector('ruby, table, .english-line, img, .resizable-img-wrapper')) return false; 
+            if (frag.querySelector('ruby, table, .english-line, img, .resizable-img-wrapper')) return false;
 
             const lang = getTargetLang();
-            saveHistoryImmediate();       
+            saveHistoryImmediate();
             convertRangeToPinyin(lineRange);
 
             const block = createTranslationBlock(lang);
@@ -2003,9 +2234,7 @@
             let sourceText = whiteboard.innerText.trim();
             const imageBase64 = getImageFromBoard();
             const coreVocabs = getCoreVocabularies();
-           const vocabPrompt = coreVocabs.length > 0
-    ? `\n【本课核心词汇】请务必在出题时重点考查以下词汇：${coreVocabs.join('、')}`
-    : `\n【本课核心词汇】下方词汇列表为空。请从【白板语料】中自行提取本课核心词汇（优先提取反复出现、带讲解或例句的词），作为第一题"本课词汇"词库，并据此出题。词库数量控制在10–15个，句子与词一一对应。`;
+            const vocabPrompt = coreVocabs.length > 0 ? `\n【本课核心词汇】请务必在出题时重点考查以下词汇：${coreVocabs.join('、')}` : '';
 
             if (!sourceText && !imageBase64) { alert('白板内容为空，无法生成测验！'); return; }
             if (!apiKey) { alert('必须填入 API Key！'); return; }
@@ -2016,25 +2245,17 @@
             loadingOverlay.classList.remove('hidden');
             loadingText.innerText = "AI 正在根据白板内容生成课堂测验...";
 
-           const prompt = `你是一位国际中文教师，现在需要针对刚上完的内容给学生做一次"当堂小测验"。
+            const prompt = `你是一位国际中文教师，现在需要针对刚上完的内容给学生做一次“当堂小测验”。
 【任务要求】
 根据提供的【白板语料】和【本课核心词汇】，提取核心词汇和语法，生成针对性的练习题。
 ${vocabPrompt}
-
-【极重要要求：第一题必须是"词汇库 + 选词填空"】
-【题型一：本课词汇选词填空 (Vocabulary Bank & Fill in the Blanks)】必须严格按以下结构输出：
-1. 先输出一个"本课词汇"列表，把本课所有核心词汇集中列出（用顿号或逗号分隔，一行或分行均可）。
-2. 然后在下方给出若干句子，每个句子中挖一个空（用 ______ 表示），要求学生从上面的词汇库中选择最合适的词填入。
-3. 词汇库中的每个词原则上使用一次；句子数量应与词汇数量大致对应，确保每个词都有机会被练到。
-4. 句子要贴合白板语料中的用法，不要凭空编造与本课无关的句子。
-5. 绝对不要在题目中直接给出答案，答案只能出现在最后的"参考答案"区块（如果要求输出答案的话）。
 
 【极重要要求：全覆盖出题】
 如果上文有【本课核心词汇】列表，你必须在下面的 **各种题型** 中，把列表里的 **每一个词汇** 都练习到！绝不能遗漏！
 
 【极重要要求：题型双语注释】
 请在题目中按以下格式标注题型标题，必须包含英文翻译，让学生明白：
-【题型一：本课词汇选词填空 (Vocabulary Bank & Fill in the Blanks)】
+【题型一：用所给词语填空 (Fill in the blanks)】
 【题型二：组词 (Form words)】
 【题型三：连词成句 (Make sentences)】
 【题型四：词汇翻译 (Vocabulary Translation)】
@@ -2043,7 +2264,7 @@ ${vocabPrompt}
 【排版要求】
 1. 严格按照 Markdown 列表格式输出，带有序号。
 2. 绝对不要在题目中直接给出答案，必须留出作答空间！
-3. 填空题用"______"表示；组词题用"字 → ______"；连词成句用"词A / 词B / 词C → _________________"；词汇翻译题型，**不要使用"中文："或"English:"前缀**，直接输出词汇和空格，如："生日 → ______"、"gift → ______"、"沙发 → ______"。
+3. 填空题用“______”表示；组词题用“字 → ______”；连词成句用“词A / 词B / 词C → _________________”；词汇翻译题型，**不要使用“中文：”或“English:”前缀**，直接输出词汇和空格，如：“生日 → ______”、“gift → ______”、“沙发 → ______”。
 4. **【题型五：选词填空（短文/对话）】的专属排版要求**：
    - 必须在最上方提供一个**【备选词库】**（例如：A. 除了 B. 以外 C. 因为 D. 再说），备选词必须是从本课核心词汇中提取的。
    - 下方提供一段连贯的短文或对话，将备选词挖空（用 ______ 表示，且标记序号如 (1)______ ）。
@@ -2232,7 +2453,7 @@ ${sourceText}`;
             let headZh = '', py = '', en = '';
             if (buffer.length === 3) {
                 headZh = buffer[0]; 
-                py = buffer[1];
+                py = buffer[1]; 
                 en = buffer[2];
             } else {
                 return `<div style="margin-bottom:12px;">${buffer.join('<br>')}</div>`;
@@ -2242,7 +2463,6 @@ ${sourceText}`;
 
         document.getElementById('btnGenEx').addEventListener('click', function() {
             const isTeacher = confirm("请选择要生成的版本：\n\n点击【确定】生成 教师版 (含答案解析)\n点击【取消】生成 学生版 (无答案)");
-            
             setTimeout(() => {
                 generateExamPaper(isTeacher);
             }, 100);
@@ -2564,7 +2784,7 @@ ${sourceText}`;
 
             whiteboard.innerHTML += finalHtml;
             scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
-            setTimeout(() => { saveHistoryImmediate(); resizeCanvas(); }, 250); 
+            setTimeout(() => { saveHistoryImmediate(); resizeCanvas(); }, 250);
         });
     }
 
