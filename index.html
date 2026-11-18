@@ -33,10 +33,12 @@
     .flex-1 { flex: 1 1 0%; }
     .shrink-0 { flex-shrink: 0; }
     .gap-1 { gap: 0.25rem; }
+    .gap-1\.5 { gap: 0.375rem; }
     .gap-2 { gap: 0.5rem; }
     .gap-2\.5 { gap: 0.625rem; }
     .gap-3 { gap: 0.75rem; }
     .gap-6 { gap: 1.5rem; }
+    .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.375rem; }
     .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; }
     .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
     
@@ -51,6 +53,7 @@
     .max-w-4xl { max-width: 56rem; }
     .max-w-\[420px\] { max-width: 420px; }
     
+    .p-2 { padding: 0.5rem; }
     .p-3 { padding: 0.75rem; }
     .p-4 { padding: 1rem; }
     .p-5 { padding: 1.25rem; }
@@ -63,6 +66,7 @@
     .py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
     .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
     .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+    .pt-1 { padding-top: 0.25rem; }
     .pt-2 { padding-top: 0.5rem; }
     .pt-3 { padding-top: 0.75rem; }
     .pb-2 { padding-bottom: 0.5rem; }
@@ -203,7 +207,7 @@
     #drawCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; touch-action: none; }
     #drawCanvas.active { pointer-events: auto; cursor: crosshair; }
     
-    /* ===== 修复：图片自由缩放包裹层样式 ===== */
+    /* ===== 修复 : 图片自由缩放包裹层样式 ===== */
     .resizable-img-wrapper {
         display: inline-block;
         position: relative;
@@ -240,7 +244,7 @@
         z-index: 10;
     }
     
-    /* ===== 新增：万能抗错位拼音排版容器（表格方案） ===== */
+    /* ===== 新增 : 万能抗错位拼音排版容器（表格方案） ===== */
     .pinyin-inline-table {
         display: inline-table;
         vertical-align: bottom;
@@ -288,6 +292,9 @@
     .toolbar-btn:hover { background-color: #e2e8f0; }
     .btn-draw-active { background-color: #3b82f6 !important; color: white !important; border-color: #2563eb !important; }
     #drawToolbar { display: none; position: absolute; top: 80px; left: 50%; transform: translateX(-50%); background: white; padding: 8px 16px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 100; align-items: center; gap: 12px; border: 1px solid #e2e8f0; flex-wrap: wrap; }
+    .inline-flex { display: inline-flex !important; }
+    .font-color-btn { display: inline-block; width: 18px; height: 18px; min-width: 18px; min-height: 18px; border-radius: 50%; cursor: pointer; border: 1.5px solid rgba(0,0,0,0.15); padding: 0; flex-shrink: 0; transition: transform 0.15s; }
+    .font-color-btn:hover { transform: scale(1.2); border-color: #334155; }
     .color-btn { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
     .color-btn.active { border-color: #334155; transform: scale(1.15); }
     .color-btn:hover { transform: scale(1.15); }
@@ -329,6 +336,65 @@
     .quiz-board h3 { font-size: 1.1em; font-weight: bold; color: #b45309; margin-top: 20px; margin-bottom: 10px; }
     .quiz-board p { margin-bottom: 12px; line-height: 1.8; }
     
+    /* ====== 新增：看拼音写汉字 / 补全汉字 试题样式 ====== */
+    .wp-exam { margin-top: 10px; }
+    .wp-exam h2 { font-size: 1.3em; font-weight: bold; color: #1e3a8a; border-bottom: 2px dashed #93c5fd; padding-bottom: 10px; margin-bottom: 12px; }
+    .wp-tip { font-family: Arial, sans-serif; font-size: 0.6em; color: #64748b; margin-bottom: 18px; line-height: 1.4; }
+
+    /* 看拼音写汉字：每个字上方有拼音，要写的词是空格，旁边有英文注释 */
+    .wp-item { display: flex; align-items: flex-end; gap: 0.6em; margin: 0.9em 0; }
+    .wp-no { min-width: 2.2em; font-family: 'Times New Roman', serif; font-weight: bold; }
+    .wp-line { display: flex; flex-wrap: wrap; align-items: flex-end; }
+    .wp-cell { display: inline-flex; flex-direction: column; align-items: center; margin: 0 1px; }
+    .wp-py { font-family: Arial, sans-serif; font-size: 0.5em; color: #1d4ed8; font-weight: bold; line-height: 1.2; min-height: 1.3em; white-space: nowrap; padding: 0 2px; }
+    .wp-zi { font-size: 1em; line-height: 1.4; min-width: 1em; text-align: center; }
+    .wp-blank .wp-zi { width: 1.5em; height: 1.5em; border: 1.5px solid #334155; background: linear-gradient(#cbd5e1,#cbd5e1) center/1px 100% no-repeat, linear-gradient(#cbd5e1,#cbd5e1) center/100% 1px no-repeat; }
+    .wp-en { font-family: Arial, sans-serif; font-size: 0.5em; color: #475569; font-style: italic; margin: 0 6px 0.4em 2px; align-self: flex-end; }
+
+    /* 补全汉字：选项行、田字格、答案框 */
+    .wp-opts { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.6em; font-family: 'Times New Roman', serif; margin: 0.5em 0 1.2em; }
+    .wp-opts b { margin-right: 0.3em; }
+    .wp-ex-label { font-weight: bold; margin: 0.8em 0 0.2em; }
+    .wp-gitem { display: flex; align-items: center; justify-content: flex-start; gap: 0.45em; max-width: 820px; margin: 0.8em 0; }
+    .wp-gleft { display: flex; align-items: center; gap: 0.35em; min-width: 0; }
+    .wp-gcol { display: inline-flex; flex-direction: column; align-items: center; }
+    .wp-ggrp { display: inline-flex; }
+    .wp-gcell { width: 2.15em; display: flex; flex-direction: column; margin-left: -1.5px; }
+    .wp-gcell:first-child { margin-left: 0; }
+    .wp-gpy { height: 1.2em; border: 1.5px solid #334155; border-bottom: 1px dashed #64748b; display: flex; align-items: center; justify-content: center; }
+    .wp-gpy span { font-family: Arial, sans-serif; font-size: 0.55em; color: #1e293b; white-space: nowrap; }
+    .wp-gch { position: relative; width: 100%; height: 2.15em; border: 1.5px solid #334155; border-top: none; display: flex; align-items: center; justify-content: center; background: linear-gradient(#cbd5e1,#cbd5e1) center/1px 100% no-repeat, linear-gradient(#cbd5e1,#cbd5e1) center/100% 1px no-repeat; }
+    .wp-gg { font-family: 'Noto Serif CJK TC','Source Han Serif TC','Noto Sans CJK TC','MingLiU','PMingLiU','MingLiU-ExtB','DFKai-SB','Microsoft JhengHei','PingFang TC','Heiti TC','Songti TC',serif; font-size: 1.55em; line-height: 1; }
+    .wp-part { position: absolute; display: flex; align-items: center; justify-content: center; }
+    .wp-part.p-natural { inset: 0; }
+    .wp-part.p-left { left: 0; top: 0; width: 50%; height: 100%; }
+    .wp-part.p-left .wp-gg { transform: scaleX(0.5); }
+    .wp-part.p-right { right: 0; top: 0; width: 50%; height: 100%; }
+    .wp-part.p-right .wp-gg { transform: scaleX(0.5); }
+    .wp-part.p-top { left: 0; top: 0; width: 100%; height: 50%; }
+    .wp-part.p-top .wp-gg { transform: scaleY(0.5); }
+    .wp-part.p-bottom { left: 0; bottom: 0; width: 100%; height: 50%; }
+    .wp-part.p-bottom .wp-gg { transform: scaleY(0.5); }
+    .wp-part.p-enc-l { left: 0; top: 0; width: 56%; height: 100%; }
+    .wp-part.p-enc-l .wp-gg { transform: scaleX(0.56); }
+    .wp-part.p-enc-r { right: 0; top: 0; width: 56%; height: 100%; }
+    .wp-part.p-enc-r .wp-gg { transform: scaleX(0.56); }
+    .wp-gch.mi { background: linear-gradient(#cbd5e1,#cbd5e1) center/1px 100% no-repeat, linear-gradient(#cbd5e1,#cbd5e1) center/100% 1px no-repeat, linear-gradient(to top right, transparent calc(50% - .6px), #cbd5e1 calc(50% - .6px), #cbd5e1 calc(50% + .6px), transparent calc(50% + .6px)), linear-gradient(to bottom right, transparent calc(50% - .6px), #cbd5e1 calc(50% - .6px), #cbd5e1 calc(50% + .6px), transparent calc(50% + .6px)); }
+    .wp-gen { width: 0; min-width: 100%; font-family: Arial, sans-serif; font-size: 0.55em; color: #475569; font-style: italic; text-align: center; margin-top: 0.4em; line-height: 1.3; }
+    .wp-arrow { display: inline-block; position: relative; width: 4.5em; border-top: 2px dashed #222; margin: 0 1em; }
+    .wp-arrow::after { content: ''; position: absolute; right: -2px; top: -6px; border-left: 9px solid #222; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+    .wp-abox { width: 1.65em; height: 1.65em; margin-left: 0.25em; border: 1.5px solid #334155; display: flex; align-items: center; justify-content: center; font-family: 'Times New Roman', serif; font-size: 1em; flex-shrink: 0; }
+    .wp-answer-toggle { display: inline-block; font-family: Arial, sans-serif; font-size: 0.55em; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 2px 10px; cursor: pointer; margin-top: 10px; user-select: none; }
+    .wp-answer { font-family: Arial, sans-serif; font-size: 0.6em; color: #b45309; margin-top: 6px; line-height: 1.8; }
+
+    /* ====== 新增：白板生成试题的导出操作栏 ====== */
+    .wp-export-bar { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; margin-left: 8px; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; vertical-align: middle; }
+    .wp-export-btn { font-size: 13px; font-weight: bold; padding: 4px 12px; border-radius: 6px; cursor: pointer; user-select: none; transition: all 0.15s; border: 1px solid transparent; }
+    .wp-export-word { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+    .wp-export-word:hover { background: #d1fae5; }
+    .wp-export-pdf { background: #eef2ff; color: #4338ca; border-color: #c7d2fe; }
+    .wp-export-pdf:hover { background: #e0e7ff; }
+
     /* 字帖 iframe 弹窗专用样式 */
     #worksheetModal iframe {
         width: 100%;
@@ -336,6 +402,90 @@
         border: none;
         background: #fff;
     }
+
+    /* ===== 自适应布局：电脑 / 笔记本 / iPad 横竖屏 ===== */
+    html { min-height: 100%; }
+    body { min-width: 320px; min-height: 100vh; min-height: 100dvh; }
+    #appContent { min-height: 0; min-width: 0; }
+    #appContent > .flex-1,
+    #sidebarPanel { min-width: 0; min-height: 0; }
+    #whiteboardScrollContainer { overscroll-behavior: contain; }
+    #whiteboardContent { overflow-wrap: anywhere; }
+    @media (max-width: 767px) {
+        body { padding: 8px; overflow: auto; }
+        #appContent {
+            height: auto !important;
+            min-height: calc(100dvh - 16px);
+            flex-direction: column !important;
+            gap: 10px;
+        }
+        #appContent > .flex-1 {
+            width: 100% !important;
+            min-height: 58dvh;
+            padding: 10px;
+        }
+        #appContent > .flex-1 > .flex.items-center.justify-between {
+            align-items: flex-start;
+        }
+        #appContent > .flex-1 h2 { font-size: 1rem; }
+        #sidebarPanel {
+            width: 100% !important;
+            max-height: none;
+            overflow: visible;
+            padding: 12px;
+        }
+        #whiteboardScrollContainer { position: relative; min-height: 48dvh; }
+        #whiteboardInnerWrapper { min-height: 48dvh; }
+        #canvasWrapper { min-height: 48dvh; }
+        #drawToolbar { position: fixed; top: 8px; left: 50%; max-width: calc(100vw - 16px); }
+        #examModal, #worksheetModal { padding: 8px; }
+        #examModal > div { max-height: 96dvh; }
+        #examContent { padding: 12px; }
+        .wp-gitem { max-width: 100%; }
+        .wp-opts { gap: .8em; }
+    }
+    /* iPad 竖屏：白板在上、工具面板在下，避免横向挤压 */
+    @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+        body { padding: 12px; overflow: auto; }
+        #appContent {
+            height: auto !important;
+            min-height: calc(100dvh - 24px);
+            flex-direction: column !important;
+            gap: 12px;
+        }
+        #appContent > .flex-1 { width: 100% !important; min-height: 62dvh; }
+        #sidebarPanel {
+            width: 100% !important;
+            max-height: none;
+            overflow: visible;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: start;
+            gap: 12px;
+        }
+        #sidebarPanel > div:first-child,
+        #sidebarPanel > div:last-child { grid-column: 1 / -1; }
+        #whiteboardScrollContainer { position: relative; min-height: 55dvh; }
+        #canvasWrapper { min-height: 55dvh; }
+    }
+    /* iPad 横屏及较窄笔记本：保留左右布局，按屏幕宽度缩放侧栏 */
+    @media (min-width: 768px) and (max-width: 1199px) and (orientation: landscape) {
+        body { padding: 12px; }
+        #appContent { height: calc(100dvh - 24px) !important; gap: 12px; }
+        #sidebarPanel { width: clamp(260px, 29vw, 320px) !important; padding: 14px; }
+        #appContent > .flex-1 { padding: 16px; }
+    }
+    @media (max-height: 650px) and (min-width: 768px) {
+        body { padding: 8px; }
+        #appContent { height: calc(100dvh - 16px) !important; gap: 10px; }
+        #sidebarPanel { padding: 12px; }
+    }
+    /* 触屏设备：按钮和输入区域更容易点按 */
+    @media (hover: none) and (pointer: coarse) {
+        button, select, input, textarea { touch-action: manipulation; }
+        .toolbar-btn, .wp-export-btn { min-height: 36px; }
+    }
+
 </style>
 </head>
 <body>
@@ -385,7 +535,17 @@
                 <button id="btnAMinus" class="toolbar-btn font-bold">A-</button>
                 <span class="mx-1 text-slate-300">|</span>
                 <button id="btnBold" class="toolbar-btn font-bold" style="font-family: serif;">B</button>
-                <button id="btnRed" class="toolbar-btn text-red-500 font-bold">A</button>
+                <div class="inline-flex items-center gap-1 bg-slate-100 border border-slate-300 rounded-lg px-2 py-1" title="字体颜色">
+                    <span class="text-xs text-slate-500 font-bold mr-1">A</span>
+                    <button type="button" class="font-color-btn" style="background-color: #ec4899;" data-color="#ec4899" title="粉色"></button>
+                    <button type="button" class="font-color-btn" style="background-color: #f97316;" data-color="#f97316" title="橙色"></button>
+                    <button type="button" class="font-color-btn" style="background-color: #ef4444;" data-color="#ef4444" title="红色"></button>
+                    <button type="button" class="font-color-btn" style="background-color: #16a34a;" data-color="#16a34a" title="绿色"></button>
+                    <button type="button" class="font-color-btn" style="background-color: #06b6d4;" data-color="#06b6d4" title="青色"></button>
+                    <button type="button" class="font-color-btn" style="background-color: #2563eb;" data-color="#2563eb" title="蓝色"></button>
+                    <button type="button" class="font-color-btn" style="background-color: #9333ea;" data-color="#9333ea" title="紫色"></button>
+                    <button type="button" id="btnClearFontColor" class="text-xs text-slate-600 px-1 font-bold cursor-pointer" style="margin-left: 2px;" title="去掉选中文字的字体颜色">🚫去色</button>
+                </div>
                 <span class="mx-1 text-slate-300">|</span>
                 <button id="btnDraw" class="toolbar-btn bg-slate-100 text-slate-700 border-slate-300 font-bold">✏️ 电子教鞭</button>
                 <button id="btnTogglePinyin" class="toolbar-btn bg-blue-100 text-blue-700 border-blue-300 font-bold" title="选中文字：无拼音则添加，有拼音则去除">✨ 拼音</button>
@@ -398,6 +558,8 @@
                 <button id="btnOpenWorksheet" class="toolbar-btn bg-indigo-100 text-indigo-700 border-indigo-300 font-bold">📄 笔顺字帖</button>
                 <!-- 新增：根据标记直接挖空生成试题 -->
                 <button id="btnClozeTest" class="toolbar-btn bg-emerald-100 text-emerald-700 border-emerald-300 font-bold">✂️ 挖空生成试题</button>
+                <button id="btnS2T" class="toolbar-btn bg-teal-50 text-teal-700 border-teal-200 font-bold" title="選中文字則只轉選中部分；未選中則轉換整個白板">🔁 簡→繁</button>
+                <button id="btnT2S" class="toolbar-btn bg-teal-50 text-teal-700 border-teal-200 font-bold" title="選中文字則只轉選中部分；未選中則轉換整個白板">🔁 繁→簡</button>
                 
                 <div class="inline-flex items-center bg-purple-100 border border-purple-300 rounded-lg overflow-hidden">
                     <select id="targetLang" class="bg-transparent text-purple-700 font-bold text-xs px-2 py-1.5 outline-none cursor-pointer">
@@ -506,14 +668,24 @@
             </div>
         </div>
 
-        <div class="flex flex-col gap-2.5 mt-auto pt-2">
-            <button id="btnQuiz" class="w-full bg-amber-500 text-white py-2.5 rounded-lg font-bold hover:bg-amber-600 transition text-sm cursor-pointer flex justify-center items-center shadow-sm border border-amber-600">🎯 生成课堂测验 (展示在白板)</button>
+        <div class="p-2 rounded-lg space-y-1.5" style="background:#fffbeb; border:1px solid #fde68a;">
+            <label class="block text-xs font-bold" style="color:#92400e;">🧪 汉字专项试题 (展示在白板)</label>
+            <textarea id="examVocabInput" rows="2" placeholder="指定词汇（支持简体、繁体或繁简混合）：用空格、逗号、顿号或换行分隔。留空则用白板上标注的核心词汇，再没有则由 AI 从白板课文里挑选" class="w-full rounded-lg text-xs bg-white" style="border:1px solid #fcd34d; padding:5px; resize:vertical;"></textarea>
+            <div class="flex gap-1.5">
+                <button id="btnWritePinyin" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white py-1.5 px-2 rounded-lg font-bold text-xs cursor-pointer transition" style="border:1px solid #d97706;">✍️ 看拼音写汉字</button>
+                <button id="btnRadicalExam" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white py-1.5 px-2 rounded-lg font-bold text-xs cursor-pointer transition" style="border:1px solid #d97706;">🧩 补全汉字</button>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs" style="color:#92400e;">格子：<select id="radicalGridType" class="rounded-lg bg-white" style="border:1px solid #fcd34d; padding:2px 4px;"><option value="tian">田字格</option><option value="mi">米字格</option></select></div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 mt-auto pt-1">
+            <button id="btnQuiz" class="w-full bg-amber-500 text-white py-1.5 rounded-lg font-bold hover:bg-amber-600 transition text-xs cursor-pointer flex justify-center items-center shadow-sm border border-amber-600">🎯 生成课堂测验 (展示在白板)</button>
             
-            <button id="btnGenNotes" class="w-full bg-emerald-600 text-white py-2 rounded-lg font-medium hover:bg-emerald-700 transition text-sm cursor-pointer flex justify-center items-center mt-2 border-t border-slate-200 pt-3">📚 一键整理白板笔记</button>
-            <button id="btnDownloadNotes" class="hidden w-full bg-emerald-700 text-white py-1.5 rounded-lg text-xs hover:bg-emerald-800 transition cursor-pointer">📥 下载复习笔记 (Word)</button>
-            <button id="btnGenEx" class="w-full bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition text-sm cursor-pointer flex justify-center items-center mt-2 border-t border-slate-200 pt-3">✍️ 生成全套测试题</button>
-            <button id="btnDownloadExStudent" class="hidden w-full bg-blue-600 text-white py-1.5 rounded-lg text-xs hover:bg-blue-700 transition cursor-pointer">📥 下载学生版测试题 (无答案)</button>
-            <button id="btnDownloadExTeacher" class="hidden w-full bg-indigo-700 text-white py-1.5 rounded-lg text-xs hover:bg-indigo-800 transition cursor-pointer">📥 下载教师版测试题 (含答案)</button>
+            <button id="btnGenNotes" class="w-full bg-emerald-600 text-white py-1.5 rounded-lg font-medium hover:bg-emerald-700 transition text-xs cursor-pointer flex justify-center items-center mt-1 border-t border-slate-200 pt-2">📚 一键整理白板笔记</button>
+            <button id="btnDownloadNotes" class="hidden w-full bg-emerald-700 text-white py-1 rounded-lg text-xs hover:bg-emerald-800 transition cursor-pointer">📥 下载复习笔记 (Word)</button>
+            <button id="btnGenEx" class="w-full bg-indigo-600 text-white py-1.5 rounded-lg font-medium hover:bg-indigo-700 transition text-sm cursor-pointer flex justify-center items-center mt-1 border-t border-slate-200 pt-2">✍️ 生成全套测试题</button>
+            <button id="btnDownloadExStudent" class="hidden w-full bg-blue-600 text-white py-1 rounded-lg text-xs hover:bg-blue-700 transition cursor-pointer">📥 下载学生版测试题 (无答案)</button>
+            <button id="btnDownloadExTeacher" class="hidden w-full bg-indigo-700 text-white py-1 rounded-lg text-xs hover:bg-indigo-800 transition cursor-pointer">📥 下载教师版测试题 (含答案)</button>
         </div>
     </div>
 </div>
@@ -569,12 +741,12 @@
     });
 
     const VALID_ACCOUNTS = [
-        { account: "admin", password: "zhoulidi" },
+        { account: "admin", password: "847906a." },
         { account: "carrotluo", password: "abc123" },
         { account: "开场白", password: "123456" },
         { account: "视听", password: "123456" },
         { account: "卡卡西", password: "123456" },
-        { account: "teacher", password: "840604" },
+        { account: "teacher", password: "847906a." },
         { account: "lily", password: "123456" },
         { account: "ylps", password: "123456" },
         { account: "qgz", password: "123456" },
@@ -588,6 +760,9 @@
         { account: "xiaoK", password: "123456" },
         { account: "wanjun", password: "wanjun" },
         { account: "chang", password: "chang" },
+        { account: "chenfeng", password: "chenfeng" },
+        { account: "Lyia", password: "lyia100" },
+        { account: "萱萱", password: "xuanxuan" },
         ...Array.from({ length: 99 }, (_, i) => ({ account: `teacher${i + 2}`, password: "123" }))
     ];
 
@@ -763,6 +938,277 @@
 
         return vocabs;
     }
+
+    /* ================= 白板试题导出 Word / PDF 通用工具 ================= */
+    const BOARD_EXPORT_STYLE = `
+        * { box-sizing: border-box; }
+        body { font-family: 'KaiTi', '楷体', 'STKaiti', 'Microsoft YaHei', serif; line-height: 1.9; font-size: 15pt; color: #1e293b; padding: 20px 28px; margin: 0; }
+        h2 { font-size: 1.35em; font-weight: bold; color: #1e3a8a; border-bottom: 2px dashed #93c5fd; padding-bottom: 8px; margin: 0 0 14px 0; }
+        h3 { font-size: 1.1em; font-weight: bold; color: #b45309; margin: 18px 0 8px 0; }
+        p { margin: 0 0 10px 0; }
+        ul, ol { padding-left: 22px; margin: 0 0 12px 0; }
+        li { margin-bottom: 6px; }
+        ruby { ruby-align: center; margin: 0 1px; }
+        rt { font-size: 0.5em; color: #1d4ed8; font-family: Arial, sans-serif; font-weight: bold; }
+        .wp-tip { font-family: Arial, sans-serif; font-size: 10.5pt; color: #64748b; margin-bottom: 16px; line-height: 1.4; }
+        .wp-item { display: flex; align-items: flex-end; gap: 0.6em; margin: 14px 0; page-break-inside: avoid; break-inside: avoid; }
+        .wp-no { min-width: 2.2em; font-family: 'Times New Roman', serif; font-weight: bold; }
+        .wp-line { display: flex; flex-wrap: wrap; align-items: flex-end; }
+        .wp-cell { display: inline-flex; flex-direction: column; align-items: center; margin: 0 1px; }
+        .wp-py { font-family: Arial, sans-serif; font-size: 0.52em; color: #1d4ed8; font-weight: bold; line-height: 1.2; min-height: 1.3em; white-space: nowrap; padding: 0 2px; }
+        .wp-zi { font-size: 1em; line-height: 1.4; min-width: 1em; text-align: center; }
+        .wp-blank .wp-zi { width: 1.5em; height: 1.5em; border: 1.5px solid #334155; background: linear-gradient(#cbd5e1,#cbd5e1) center/1px 100% no-repeat, linear-gradient(#cbd5e1,#cbd5e1) center/100% 1px no-repeat; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .wp-en { font-family: Arial, sans-serif; font-size: 0.52em; color: #475569; font-style: italic; margin: 0 6px 0.4em 2px; align-self: flex-end; }
+        .wp-opts { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.6em; font-family: 'Times New Roman', serif; margin: 8px 0 18px; }
+        .wp-opts b { margin-right: 0.3em; }
+        .wp-ex-label { font-weight: bold; margin: 12px 0 4px; }
+        .wp-gitem { display: flex; align-items: center; justify-content: flex-start; gap: 7pt; max-width: 720px; margin: 12px 0; page-break-inside: avoid; break-inside: avoid; }
+        .wp-gleft { display: flex; align-items: center; gap: 0.35em; min-width: 0; }
+        .wp-gcol { display: inline-flex; flex-direction: column; align-items: center; }
+        .wp-ggrp { display: inline-flex; }
+        .wp-gcell { width: 2.15em; display: flex; flex-direction: column; margin-left: -1.5px; }
+        .wp-gcell:first-child { margin-left: 0; }
+        .wp-gpy { height: 1.2em; border: 1.5px solid #334155; border-bottom: 1px dashed #64748b; display: flex; align-items: center; justify-content: center; }
+        .wp-gpy span { font-family: Arial, sans-serif; font-size: 0.55em; color: #1e293b; white-space: nowrap; }
+        .wp-gch { position: relative; width: 100%; height: 2.15em; border: 1.5px solid #334155; border-top: none; display: flex; align-items: center; justify-content: center; background: linear-gradient(#cbd5e1,#cbd5e1) center/1px 100% no-repeat, linear-gradient(#cbd5e1,#cbd5e1) center/100% 1px no-repeat; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .wp-gg { font-family: 'Noto Serif CJK TC','Source Han Serif TC','Noto Sans CJK TC','MingLiU','PMingLiU','MingLiU-ExtB','DFKai-SB','Microsoft JhengHei','PingFang TC','Heiti TC','Songti TC',serif; font-size: 1.55em; line-height: 1; }
+        .wp-part { position: absolute; display: flex; align-items: center; justify-content: center; }
+        .wp-part.p-natural { inset: 0; }
+        .wp-part.p-left { left: 0; top: 0; width: 50%; height: 100%; }
+        .wp-part.p-left .wp-gg { transform: scaleX(0.5); }
+        .wp-part.p-right { right: 0; top: 0; width: 50%; height: 100%; }
+        .wp-part.p-right .wp-gg { transform: scaleX(0.5); }
+        .wp-part.p-top { left: 0; top: 0; width: 100%; height: 50%; }
+        .wp-part.p-top .wp-gg { transform: scaleY(0.5); }
+        .wp-part.p-bottom { left: 0; bottom: 0; width: 100%; height: 50%; }
+        .wp-part.p-bottom .wp-gg { transform: scaleY(0.5); }
+    .wp-part.p-enc-l { left: 0; top: 0; width: 56%; height: 100%; }
+    .wp-part.p-enc-l .wp-gg { transform: scaleX(0.56); }
+    .wp-part.p-enc-r { right: 0; top: 0; width: 56%; height: 100%; }
+    .wp-part.p-enc-r .wp-gg { transform: scaleX(0.56); }
+    .wp-gch.mi { background: linear-gradient(#cbd5e1,#cbd5e1) center/1px 100% no-repeat, linear-gradient(#cbd5e1,#cbd5e1) center/100% 1px no-repeat, linear-gradient(to top right, transparent calc(50% - .6px), #cbd5e1 calc(50% - .6px), #cbd5e1 calc(50% + .6px), transparent calc(50% + .6px)), linear-gradient(to bottom right, transparent calc(50% - .6px), #cbd5e1 calc(50% - .6px), #cbd5e1 calc(50% + .6px), transparent calc(50% + .6px)); }
+        .wp-gen { width: 0; min-width: 100%; font-family: Arial, sans-serif; font-size: 0.55em; color: #475569; font-style: italic; text-align: center; margin-top: 0.4em; line-height: 1.3; }
+        .wp-arrow { display: inline-block; position: relative; width: 4.5em; border-top: 2px dashed #222; margin: 0 1em; }
+        .wp-arrow::after { content: ''; position: absolute; right: -2px; top: -6px; border-left: 9px solid #222; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+        .wp-abox { width: 1.65em; height: 1.65em; margin-left: 0.25em; border: 1.5px solid #334155; display: flex; align-items: center; justify-content: center; font-family: 'Times New Roman', serif; font-size: 1em; flex-shrink: 0; }
+        .wp-answer { font-family: Arial, sans-serif; font-size: 11pt; color: #b45309; margin-top: 14px; line-height: 1.8; border-top: 1px dashed #fde68a; padding-top: 8px; }
+        .wp-no-export { display: none !important; }
+        @media print {
+            body { padding: 10mm 12mm; }
+            @page { margin: 12mm; }
+        }
+    `;
+
+    function getCleanBoardExamClone(btn) {
+        const box = btn.closest('.wp-exam, .quiz-board');
+        if (!box) return null;
+        const clone = box.cloneNode(true);
+        clone.querySelectorAll('.wp-no-export, .wp-answer-toggle, .wp-export-bar').forEach(el => el.remove());
+        clone.querySelectorAll('.wp-answer').forEach(el => {
+            if (el.style.display === 'none') el.remove();
+        });
+        const h2 = clone.querySelector('h2');
+        const rawTitle = h2 ? h2.textContent.replace(/[^\u4e00-\u9fa5A-Za-z0-9（）()_\-]/g, '').trim() : '课堂试题';
+        return { clone, html: clone.outerHTML, title: rawTitle || '课堂试题' };
+    }
+
+    // 专用于 Word 导出的标准表格排版转换器（确保在 Microsoft Word / WPS 中不串行、方格标准）
+    function buildStandardWordBody(clone, title) {
+        const headerHtml = `
+            <table style="width:100%; border-collapse:collapse; margin-bottom:14pt; border-bottom:2pt solid #1e3a8a;">
+                <tr>
+                    <td style="font-family:'Microsoft YaHei',sans-serif; font-size:16pt; font-weight:bold; color:#1e3a8a; padding-bottom:6pt;">${escapeHtml(title)}</td>
+                    <td style="text-align:right; font-family:'Microsoft YaHei',Arial,sans-serif; font-size:10.5pt; color:#475569; padding-bottom:6pt;">姓名 Name: ____________ &nbsp;&nbsp; 日期 Date: ____________</td>
+                </tr>
+            </table>
+        `;
+
+        const tipEl = clone.querySelector('.wp-tip');
+        const tipHtml = tipEl
+            ? `<p style="font-family:Arial,sans-serif; font-size:10.5pt; color:#64748b; margin:0 0 14pt 0;">${escapeHtml(tipEl.textContent.trim())}</p>`
+            : '';
+
+        const ansEl = clone.querySelector('.wp-answer');
+        const ansHtml = ansEl
+            ? `<div style="margin-top:18pt; padding-top:8pt; border-top:1pt dashed #cbd5e1; font-family:'Microsoft YaHei',Arial,sans-serif; font-size:10.5pt; color:#b45309; line-height:1.6;">${ansEl.innerHTML}</div>`
+            : '';
+
+        // 1. 看拼音写汉字 -> 标准 Word 拼音/方格双行表
+        if (clone.querySelector('.wp-item')) {
+            let body = headerHtml + tipHtml;
+            clone.querySelectorAll('.wp-item').forEach(item => {
+                const no = (item.querySelector('.wp-no')?.textContent || '').trim();
+                const line = item.querySelector('.wp-line');
+                let pyCells = '';
+                let ziCells = '';
+                if (line) {
+                    Array.from(line.children).forEach(child => {
+                        if (child.classList.contains('wp-cell')) {
+                            const py = (child.querySelector('.wp-py')?.textContent || '').trim();
+                            const isBlank = child.classList.contains('wp-blank');
+                            const zi = isBlank ? '' : (child.querySelector('.wp-zi')?.textContent || '').trim();
+                            if (isBlank) {
+                                pyCells += `<td style="text-align:center; font-family:Arial,sans-serif; font-size:9.5pt; font-weight:bold; color:#1d4ed8; padding:0 3pt 2pt 3pt; white-space:nowrap;">${escapeHtml(py)}</td>`;
+                                ziCells += `<td style="width:26pt; height:26pt; border:1pt solid #334155; text-align:center; vertical-align:middle; font-family:'KaiTi','楷体',serif; font-size:16pt;">&nbsp;</td>`;
+                            } else {
+                                pyCells += `<td style="text-align:center; font-family:Arial,sans-serif; font-size:9.5pt; font-weight:bold; color:#1d4ed8; padding:0 2pt 2pt 2pt; white-space:nowrap;">${escapeHtml(py)}</td>`;
+                                ziCells += `<td style="text-align:center; vertical-align:middle; font-family:'KaiTi','楷体',serif; font-size:16pt; color:#1e293b; padding:2pt 2pt;">${escapeHtml(zi)}</td>`;
+                            }
+                        } else if (child.classList.contains('wp-en')) {
+                            const en = child.textContent.trim();
+                            pyCells += `<td></td>`;
+                            ziCells += `<td style="vertical-align:bottom; font-family:Arial,sans-serif; font-size:10pt; font-style:italic; color:#475569; padding:0 6pt 3pt 3pt; white-space:nowrap;">${escapeHtml(en)}</td>`;
+                        }
+                    });
+                }
+                body += `
+                    <table style="border-collapse:collapse; margin-bottom:14pt;">
+                        <tr>
+                            <td rowspan="2" style="width:26pt; vertical-align:bottom; font-family:'Times New Roman',serif; font-size:14pt; font-weight:bold; padding-bottom:3pt;">${escapeHtml(no)}</td>
+                            ${pyCells}
+                        </tr>
+                        <tr>${ziCells}</tr>
+                    </table>
+                `;
+            });
+            return body + ansHtml;
+        }
+
+        // 2. 补全汉字（选部件） -> 标准 Word 田字格表 + 右侧独立答题框
+        if (clone.querySelector('.wp-gitem')) {
+            let body = headerHtml + tipHtml;
+            const optsEl = clone.querySelector('.wp-opts');
+            if (optsEl) {
+                const optSpans = Array.from(optsEl.querySelectorAll('span')).map(s => {
+                    const b = s.querySelector('b')?.textContent || '';
+                    const c = s.textContent.slice(b.length).trim();
+                    return `<td style="padding:5pt 12pt; font-family:'Times New Roman','KaiTi',serif; font-size:14pt; text-align:center;"><b>${escapeHtml(b)}</b>&nbsp;${escapeHtml(c)}</td>`;
+                }).join('');
+                body += `<table style="margin:6pt auto 16pt auto; border:1pt solid #cbd5e1; background:#f8fafc; border-collapse:collapse;"><tr>${optSpans}</tr></table>`;
+            }
+
+            const renderGridTable = (grpEl) => {
+                if (!grpEl) return '';
+                const cells = Array.from(grpEl.querySelectorAll('.wp-gcell'));
+                let pyRow = '', chRow = '';
+                cells.forEach(cell => {
+                    const py = (cell.querySelector('.wp-gpy')?.textContent || '').trim();
+                    const partEl = cell.querySelector('.wp-part');
+                    const gg = (cell.querySelector('.wp-gg')?.textContent || '').trim();
+                    let alignStyle = 'text-align:center;';
+                    if (partEl) {
+                        if (partEl.classList.contains('p-left') || partEl.classList.contains('p-enc-l')) alignStyle = 'text-align:left; padding-left:3pt;';
+                        else if (partEl.classList.contains('p-right') || partEl.classList.contains('p-enc-r')) alignStyle = 'text-align:right; padding-right:3pt;';
+                        else if (partEl.classList.contains('p-top')) alignStyle = 'text-align:center; vertical-align:top; padding-top:1pt;';
+                        else if (partEl.classList.contains('p-bottom')) alignStyle = 'text-align:center; vertical-align:bottom; padding-bottom:1pt;';
+                    }
+                    pyRow += `<td style="width:30pt; height:13pt; border:1pt solid #334155; border-bottom:1pt dashed #64748b; text-align:center; font-family:Arial,sans-serif; font-size:9.5pt; color:#1e293b;">${escapeHtml(py)}</td>`;
+                    chRow += `<td style="width:30pt; height:30pt; border:1pt solid #334155; border-top:none; font-family:'DFKai-SB','標楷體','MingLiU','PMingLiU','Noto Serif CJK TC','KaiTi',serif; font-size:18pt; color:#1e293b; vertical-align:middle; ${alignStyle}">${escapeHtml(gg)}</td>`;
+                });
+                return `<table style="border-collapse:collapse; display:inline-table;"><tr>${pyRow}</tr><tr>${chRow}</tr></table>`;
+            };
+
+            const exLabel = clone.querySelector('.wp-ex-label');
+            if (exLabel) {
+                body += `<p style="font-weight:bold; font-size:13pt; margin:8pt 0 4pt 0;">${escapeHtml(exLabel.textContent.trim())}</p>`;
+            }
+
+            clone.querySelectorAll('.wp-gitem').forEach(gitem => {
+                const no = (gitem.querySelector('.wp-no')?.textContent || '').trim();
+                const grps = gitem.querySelectorAll('.wp-ggrp');
+                const gen = (gitem.querySelector('.wp-gen')?.textContent || '').trim();
+                const abox = (gitem.querySelector('.wp-abox')?.textContent || '').trim();
+
+                let midHtml = '';
+                if (grps.length >= 2) {
+                    midHtml = `
+                        <table style="border-collapse:collapse;">
+                            <tr>
+                                <td style="text-align:center; vertical-align:top;">
+                                    ${renderGridTable(grps[0])}
+                                    <div style="font-family:Arial,sans-serif; font-size:9.5pt; font-style:italic; color:#475569; margin-top:2pt;">${escapeHtml(gen)}</div>
+                                </td>
+                                <td style="padding:0 6pt; vertical-align:middle; font-family:Arial,sans-serif; font-size:14pt; color:#334155;">----&gt;</td>
+                                <td style="text-align:center; vertical-align:top;">
+                                    ${renderGridTable(grps[1])}
+                                </td>
+                            </tr>
+                        </table>
+                    `;
+                } else {
+                    midHtml = `
+                        ${renderGridTable(grps[0])}
+                        <div style="font-family:Arial,sans-serif; font-size:9.5pt; font-style:italic; color:#475569; margin-top:2pt; text-align:center;">${escapeHtml(gen)}</div>
+                    `;
+                }
+
+                body += `
+                    <table style="width:100%; border-collapse:collapse; margin-bottom:14pt;">
+                        <tr>
+                            <td style="width:28pt; vertical-align:middle; font-family:'Times New Roman',serif; font-size:14pt; font-weight:bold;">${escapeHtml(no)}</td>
+                            <td style="vertical-align:middle;">${midHtml}</td>
+                            <td style="width:30pt; text-align:left; vertical-align:middle;">
+                                <table style="border-collapse:collapse; margin-left:auto;">
+                                    <tr>
+                                        <td style="width:24pt; height:24pt; border:1.2pt solid #334155; text-align:center; vertical-align:middle; font-family:'Times New Roman',serif; font-size:14pt; font-weight:bold;">${abox ? escapeHtml(abox) : '&nbsp;'}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                `;
+            });
+            return body + ansHtml;
+        }
+
+        // 3. 短文挖空 / 课堂测验 -> 清理网页交互控件，规范留空线与字号
+        const h2 = clone.querySelector('h2');
+        if (h2) h2.remove();
+        clone.querySelectorAll('span').forEach(sp => {
+            if (sp.style && sp.style.borderBottom && sp.style.borderBottom.includes('solid')) {
+                const label = sp.textContent.trim();
+                sp.replaceWith(document.createTextNode(` ${label}________ `));
+            }
+        });
+        return headerHtml + `<div style="font-family:'KaiTi','楷体','Microsoft YaHei',serif; font-size:14pt; line-height:1.9;">${clone.innerHTML}</div>`;
+    }
+
+    window.exportBoardExamWord = function(btn) {
+        const data = getCleanBoardExamClone(btn);
+        if (!data) return;
+        const wordBody = buildStandardWordBody(data.clone, data.title);
+        const docHtml = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>${escapeHtml(data.title)}</title><style>body{font-family:'KaiTi','楷体','Microsoft YaHei',serif;font-size:14pt;color:#1e293b;}p{margin:0 0 8pt 0;}h3{color:#b45309;font-size:13pt;margin:14pt 0 6pt 0;}ul,ol{margin:0 0 10pt 18pt;}li{margin-bottom:6pt;}</style></head><body>${wordBody}</body></html>`;
+        const blob = new Blob(['\ufeff' + docHtml], { type: 'application/msword' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${data.title}.doc`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    };
+
+    window.exportBoardExamPdf = function(btn) {
+        const data = getCleanBoardExamClone(btn);
+        if (!data) return;
+        const win = window.open('', '_blank', 'width=900,height=750');
+        if (!win) {
+            alert('浏览器拦截了打印窗口，请在地址栏允许弹出窗口后重试！');
+            return;
+        }
+        win.document.open();
+        win.document.write(`<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(data.title)}</title><style>${BOARD_EXPORT_STYLE}
+            body{padding:18mm 14mm 14mm;}
+            .pdf-edit-tools{position:sticky;top:0;z-index:999;background:#eef2ff;border:1px solid #c7d2fe;padding:10px 14px;margin:-18mm -14mm 14mm;display:flex;gap:10px;align-items:center;font:14px Arial,sans-serif;}
+            .pdf-edit-tools button{padding:7px 13px;border-radius:6px;background:#4338ca;color:#fff;font-weight:bold;cursor:pointer;}
+            .pdf-edit-tools span{color:#334155;font-size:12px;}
+            @media print{.pdf-edit-tools{display:none!important;}body{padding:0;}}
+        </style></head><body><div class="pdf-edit-tools"><button onclick="window.print()">🖨️ 打印 / 另存为 PDF</button><span>可直接点击下方试题文字进行修改，修改完成后再打印或保存为 PDF。</span></div><main id="editableExam" contenteditable="true" spellcheck="false">${data.html}</main></body></html>`);
+        win.document.close();
+        win.document.close();
+    };
+
+    const BOARD_EXPORT_BAR_HTML = `<div class="wp-export-bar wp-no-export" contenteditable="false"><button type="button" class="wp-export-btn wp-export-word" onclick="exportBoardExamWord(this)">📄 导出 Word</button><button type="button" class="wp-export-btn wp-export-pdf" onclick="exportBoardExamPdf(this)">🖨️ 导出 PDF</button></div>`;
 
     function initApp() {
         if (appInitialized) return;
@@ -1647,8 +2093,54 @@
             document.execCommand('bold', false, null); 
             saveHistoryImmediate();
         });
-        document.getElementById('btnRed').addEventListener('click', () => { 
-            document.execCommand('foreColor', false, '#ef4444'); 
+        function applyTextColor(color) {
+            const sel = window.getSelection();
+            if (!sel || sel.rangeCount === 0 || sel.isCollapsed) {
+                alert('请先用鼠标选中需要设置颜色的文字！');
+                return;
+            }
+            document.execCommand('styleWithCSS', false, true);
+            document.execCommand('foreColor', false, color);
+            saveHistoryImmediate();
+        }
+
+        document.querySelectorAll('.font-color-btn').forEach(btn => {
+            btn.addEventListener('mousedown', e => e.preventDefault());
+            btn.addEventListener('click', function() {
+                applyTextColor(this.dataset.color);
+            });
+        });
+
+        const btnClearFontColor = document.getElementById('btnClearFontColor');
+        btnClearFontColor.addEventListener('mousedown', e => e.preventDefault());
+        btnClearFontColor.addEventListener('click', function() {
+            const sel = window.getSelection();
+            if (!sel || sel.rangeCount === 0 || sel.isCollapsed) {
+                alert('请先用鼠标选中需要去掉颜色的文字！');
+                return;
+            }
+            const range = sel.getRangeAt(0);
+            if (!whiteboard.contains(range.commonAncestorContainer)) return;
+
+            saveHistoryImmediate();
+            // 1. 先用默认颜色覆盖当前选区，拆分跨标签选区
+            document.execCommand('styleWithCSS', false, true);
+            document.execCommand('foreColor', false, '#334155');
+
+            // 2. 清理选区内 span / font 标签上的内联 color 样式，恢复继承白板默认字色（不动拼音 rt 的蓝色）
+            const updatedSel = window.getSelection();
+            if (updatedSel && updatedSel.rangeCount > 0) {
+                const updatedRange = updatedSel.getRangeAt(0);
+                whiteboard.querySelectorAll('span, font').forEach(el => {
+                    if (el.closest('rt, .py-top, .english-line')) return;
+                    let hit = false;
+                    try { hit = updatedRange.intersectsNode(el); } catch (e) {}
+                    if (hit) {
+                        if (el.style && el.style.color) el.style.color = '';
+                        if (el.hasAttribute('color')) el.removeAttribute('color');
+                    }
+                });
+            }
             saveHistoryImmediate();
         });
 
@@ -1930,14 +2422,60 @@
             container.appendChild(block);
             range.deleteContents();
             range.insertNode(container);
+            const nextLine = document.createElement('p');
+            nextLine.appendChild(document.createElement('br'));
+            container.after(nextLine);
             const newRange = document.createRange();
-            newRange.setStartAfter(container);
+            newRange.setStart(nextLine, 0);
             newRange.collapse(true);
             const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(newRange);
             setTimeout(saveHistoryImmediate, 50);
         }
+
+        // 回车：光标在译文块（.english-line）中按普通回车时，跳出译文块新建普通空行，避免新行继承译文样式
+        whiteboard.addEventListener('keydown', function(e) {
+            if (e.key !== 'Enter' || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey || e.isComposing || e.keyCode === 229) return;
+            const sel = window.getSelection();
+            if (!sel || sel.rangeCount === 0) return;
+            const range = sel.getRangeAt(0);
+            const sc = range.startContainer;
+            const el = sc.nodeType === 3 ? sc.parentElement : sc;
+            const engBlock = el && el.closest('.english-line');
+            if (!engBlock || !whiteboard.contains(engBlock)) return;
+
+            e.preventDefault();
+            if (!range.isCollapsed) range.deleteContents();
+
+            // 如果不是在译文末尾按回车，把光标后面的译文内容拆分到新的译文块中
+            const afterRange = document.createRange();
+            afterRange.setStart(range.startContainer, range.startOffset);
+            afterRange.setEnd(engBlock, engBlock.childNodes.length);
+            const trailingFrag = afterRange.extractContents();
+            if (trailingFrag.textContent.replace(/\u200B/g, '').trim()) {
+                const cloneBlock = engBlock.cloneNode(false);
+                cloneBlock.appendChild(trailingFrag);
+                engBlock.after(cloneBlock);
+            }
+
+            // 创建干净的普通空行，脱离 .english-line 及其外层翻译容器
+            const newPara = document.createElement('p');
+            newPara.appendChild(document.createElement('br'));
+
+            const outerWrapper = engBlock.parentElement && engBlock.parentElement !== whiteboard && engBlock.parentElement.tagName === 'DIV' && engBlock.parentElement.querySelector(':scope > .english-line') === engBlock && engBlock.nextElementSibling === null
+                ? engBlock.parentElement
+                : engBlock;
+
+            outerWrapper.after(newPara);
+
+            const nr = document.createRange();
+            nr.setStart(newPara, 0);
+            nr.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(nr);
+            saveHistoryImmediate();
+        });
 
         // 退格：光标紧跟在行内译文之后时，一次删掉整个译文标注
         whiteboard.addEventListener('keydown', function(e) {
@@ -2241,6 +2779,7 @@ ${sourceText}`;
                 html += `<div class="quiz-board">`;
                 html += `<h2>📝 课堂测验 (当堂检测)</h2>`;
                 html += quizHtml;
+                html += BOARD_EXPORT_BAR_HTML;
                 html += `</div>`;
 
                 whiteboard.innerHTML += html;
@@ -2252,7 +2791,7 @@ ${sourceText}`;
             } finally { 
                 btn.innerHTML = originalText; 
                 btn.disabled = false; 
-                loadingOverlay.classList.add('hidden');
+                loadingOverlay.classList.add('hidden'); 
             }
         });
 
@@ -2398,7 +2937,7 @@ ${sourceText}`;
             finally { 
                 btn.innerHTML = originalText; 
                 btn.disabled = false; 
-                loadingOverlay.classList.add('hidden');
+                loadingOverlay.classList.add('hidden'); 
             }
         });
 
@@ -2482,7 +3021,7 @@ ${sourceText}`;
             finally { 
                 btn.innerHTML = originalText; 
                 btn.disabled = false; 
-                loadingOverlay.classList.add('hidden');
+                loadingOverlay.classList.add('hidden'); 
             }
         }
 
@@ -2734,11 +3273,414 @@ ${sourceText}`;
             finalHtml += `<span style="color:#1d4ed8; margin-right:10px;">【备选词库】</span> ${wordBankHtml}`;
             finalHtml += `</div>`;
             finalHtml += `<div style="line-height: 2; padding: 10px; font-size: 1.1em;">${tempDiv.innerHTML}</div>`;
+            finalHtml += BOARD_EXPORT_BAR_HTML;
             finalHtml += `</div>`;
 
             whiteboard.innerHTML += finalHtml;
             scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
             setTimeout(() => { saveHistoryImmediate(); resizeCanvas(); }, 250);
+        });
+
+        // ================= 新增：看拼音写汉字 / 补全汉字 试题 =================
+        const EXAM_START_NO = 1; // 补全汉字题的起始题号（想从 51 开始就改成 51）
+
+        // 取白板的干净课文：去掉拼音、翻译、旧试题
+        function getCleanBoardText() {
+            const clone = whiteboard.cloneNode(true);
+            clone.querySelectorAll('rt, .py-top, .english-line, .wp-exam, .quiz-board').forEach(n => n.remove());
+            clone.querySelectorAll('br, p, div, li, h1, h2, h3, tr').forEach(el => el.after(document.createTextNode('\n')));
+            return clone.textContent.replace(/\u200B/g, '').replace(/\n{3,}/g, '\n\n').trim();
+        }
+
+        // 词汇来源：指定词汇（完整保留用户输入的所有字、词，不限制数量、不做截断） > 白板核心词汇 > 交给 AI 从课文里挑
+        function getExamVocabList() {
+            const custom = (document.getElementById('examVocabInput').value || '')
+                .split(/[\s,，、;；\n\-—]+/).map(s => s.trim()).filter(Boolean);
+            if (custom.length) return custom;
+            return getCoreVocabularies();
+        }
+
+        function parseAIJson(text) {
+            const t = String(text).replace(/```json|```/gi, '').trim();
+            const s = t.indexOf('{'), e = t.lastIndexOf('}');
+            if (s === -1 || e === -1) throw new Error('AI 没有返回有效数据，请重试。');
+            return JSON.parse(t.slice(s, e + 1));
+        }
+
+        // 本地生成拼音（与文字一一对应，非汉字返回空串）
+        function getPinyinArray(text) {
+            const chars = Array.from(text);
+            let arr = null;
+            try {
+                if (typeof window.pinyinPro !== 'undefined') {
+                    const r = window.pinyinPro.pinyin(text, { toneType: 'symbol', type: 'array' });
+                    if (Array.isArray(r) && r.length === chars.length) arr = r;
+                }
+            } catch (e) { arr = null; }
+            return chars.map((ch, i) => {
+                if (!/[\u4e00-\u9fa5]/.test(ch)) return '';
+                if (arr) return arr[i];
+                return (typeof window.pinyinPro !== 'undefined') ? window.pinyinPro.pinyin(ch, { toneType: 'symbol' }) : '';
+            });
+        }
+
+        function appendExamToBoard(innerHtml) {
+            let html = '';
+            if (whiteboard.innerText.trim() !== '' && whiteboard.innerHTML !== '<p><br></p>') {
+                html += `<hr style="border: 1px dashed #cbd5e1; margin: 40px 0;"><br>`;
+            }
+            html += innerHtml;
+            whiteboard.innerHTML += html;
+            setTimeout(() => {
+                const all = whiteboard.querySelectorAll('.wp-exam');
+                if (all.length) all[all.length - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                saveHistoryImmediate();
+                resizeCanvas();
+            }, 50);
+        }
+
+        async function withExamLoading(btn, msg, task) {
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<span class="loader"></span> 正在出题...`;
+            btn.disabled = true;
+            loadingOverlay.classList.remove('hidden');
+            loadingText.innerText = msg;
+            try { await task(); }
+            catch (e) { alert('生成失败：' + e.message); }
+            finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                loadingOverlay.classList.add('hidden');
+            }
+        }
+
+        const ANSWER_TOGGLE = `<div class="wp-answer-toggle wp-no-export" contenteditable="false" onclick="var n=this.parentElement.querySelector('.wp-answer');if(n)n.style.display=(n.style.display==='none'?'block':'none');">👁 显示 / 隐藏答案</div>` + BOARD_EXPORT_BAR_HTML;
+
+        // ---------- 试题 1：看拼音写汉字 ----------
+        function buildWritePinyinHtml(items) {
+            let html = `<div class="wp-exam">`;
+            html += `<h2>✍️ 看拼音，写汉字 (Write the Characters)</h2>`;
+            html += `<div class="wp-tip">Write the Chinese characters for the pinyin in the boxes. The English in brackets tells you the meaning.</div>`;
+            const answers = [];
+
+            items.forEach((it, idx) => {
+                const chars = it.sentence.split('');
+                const py = getPinyinArray(it.sentence);
+                const flags = new Array(chars.length).fill(false);
+                const enAfter = {};
+                let cursor = 0;
+                const ans = [];
+                it.blanks.forEach(b => {
+                    let p = it.sentence.indexOf(b.text, cursor);
+                    if (p === -1) p = it.sentence.indexOf(b.text);
+                    if (p === -1) return;
+                    for (let k = p; k < p + b.text.length; k++) flags[k] = true;
+                    enAfter[p + b.text.length - 1] = b.en;
+                    cursor = p + b.text.length;
+                    ans.push(b.text);
+                });
+                answers.push(`${idx + 1}. ${ans.join('、')}`);
+
+                let line = '';
+                chars.forEach((ch, i) => {
+                    if (flags[i]) {
+                        line += `<span class="wp-cell wp-blank"><span class="wp-py">${escapeHtml(py[i] || '')}</span><span class="wp-zi">&nbsp;</span></span>`;
+                    } else {
+                        line += `<span class="wp-cell"><span class="wp-py">${escapeHtml(py[i] || '')}</span><span class="wp-zi">${escapeHtml(ch)}</span></span>`;
+                    }
+                    if (enAfter[i] !== undefined) {
+                        line += `<span class="wp-en">(${escapeHtml(enAfter[i])})</span>`;
+                    }
+                });
+                html += `<div class="wp-item"><span class="wp-no">${idx + 1}.</span><div class="wp-line">${line}</div></div>`;
+            });
+
+            html += ANSWER_TOGGLE;
+            html += `<div class="wp-answer" style="display:none;">参考答案：<br>${answers.map(escapeHtml).join('<br>')}</div>`;
+            html += `</div>`;
+            return html;
+        }
+
+        document.getElementById('btnWritePinyin').addEventListener('click', function() {
+            const apiKey = apiKeyInput.value.trim();
+            const corpus = getCleanBoardText().slice(0, 6000);
+            const list = getExamVocabList();
+            if (!corpus && list.length === 0) { alert('白板为空，也没有指定词汇！请先在白板输入课文，或在“指定词汇”框里填写词汇。'); return; }
+            if (!apiKey) { alert('必须填入 API Key！'); return; }
+
+            withExamLoading(this, 'AI 正在生成“看拼音写汉字”试题...', async () => {
+                const batches = list.length ? [] : [null];
+                for (let i = 0; i < list.length; i += 8) batches.push(list.slice(i, i + 8));
+
+                const allItems = [];
+
+                for (let bIdx = 0; bIdx < batches.length; bIdx++) {
+                    const batch = batches[bIdx];
+                    if (batches.length > 1) {
+                        loadingText.innerText = `AI 正在生成“看拼音写汉字”试题（第 ${bIdx + 1}/${batches.length} 批）...`;
+                    }
+                    const vocabPart = batch
+                        ? `【本次考查词汇（共 ${batch.length} 个，全部必须出题，不得遗漏或跳过）】\n${batch.join('、')}\n严格按顺序为这 ${batch.length} 个词汇各出一道题，共 ${batch.length} 道。请原样保留词汇中的简体或繁体字形，不要擅自转换繁简体。`
+                        : `【本次考查词汇】用户没有指定，请从课文语料中挑选出所有重要的核心词语（不限制题数，保留原文繁简体字形），每个词语出一道题。`;
+
+                    const prompt = `你是一位国际中文教师，要出一份“看拼音，写汉字”的练习题：句子中的某个词语被挖空，学生根据拼音写出汉字。
+${vocabPart}
+
+【课文语料】
+${corpus || '（无课文，请根据词汇编写简单句子）'}
+
+【出题规则】
+1. 优先从【课文语料】中选取包含该词汇的原句（句子太长时截取完整的短句）；语料里没有该词时，写一个符合本课难度、简短自然的句子（句子字形风格与该词汇保持一致，词汇是繁体句子也用繁体，词汇是简体句子也用简体）。
+2. blanks 里的 text 必须是 sentence 中原样出现的连续汉字，也就是要学生默写的词语。每题通常 1 个空。
+3. en 是该词语简短的英文释义（2~4 个词）。
+4. sentence 里不要放拼音，也不要放英文。
+5. 只输出 JSON，不要任何解释，格式如下：
+{"items":[{"sentence":"我喜欢喝茶。","blanks":[{"text":"喜欢","en":"to like"}]}]}`;
+
+                    const raw = await callAI(prompt, '你是一个专业的国际中文命题专家。只输出 JSON。', null, false);
+                    const data = parseAIJson(raw);
+                    (data.items || []).forEach(it => {
+                        const sentence = String((it && it.sentence) || '').trim();
+                        const blanks = (Array.isArray(it && it.blanks) ? it.blanks : [])
+                            .map(b => ({ text: String((b && b.text) || '').trim(), en: String((b && b.en) || '').trim() }))
+                            .filter(b => b.text && sentence.includes(b.text));
+                        if (!sentence || !blanks.length) return;
+                        allItems.push({ sentence, blanks });
+                    });
+                }
+
+                if (!allItems.length) throw new Error('AI 返回的题目格式不对，请重试一次。');
+                appendExamToBoard(buildWritePinyinHtml(allItems));
+            });
+        });
+
+        // ---------- 试题 2：补全汉字（选部件） ----------
+        function buildGridGroup(word, py, charIdx, visible, position, complete) {
+            const chars = Array.from(word);
+            const mi = (document.getElementById('radicalGridType') || {}).value === 'mi';
+            let h = '<span class="wp-ggrp">';
+            chars.forEach((ch, i) => {
+                let inner;
+                if (i === charIdx && !complete) {
+                    let pos = ['left', 'right', 'top', 'bottom', 'natural', 'enc-l', 'enc-r'].includes(position) ? position : 'natural';
+                    if (typeof NATURAL_FORMS !== 'undefined' && NATURAL_FORMS.has(visible)) pos = 'natural';
+                    inner = `<span class="wp-part p-${pos}"><span class="wp-gg">${escapeHtml(visible)}</span></span>`;
+                } else {
+                    inner = `<span class="wp-gg">${escapeHtml(ch)}</span>`;
+                }
+                h += `<span class="wp-gcell"><span class="wp-gpy"><span>${escapeHtml(py[i] || '')}</span></span><span class="wp-gch${mi ? ' mi' : ''}">${inner}</span></span>`;
+            });
+            return h + '</span>';
+        }
+
+        // ================= 繁体拆字：本地字典（程序决定怎么拆，AI 只负责英文释义）=================
+        // 每条 4 个码点：字 + 结构(L左右/R右左/T上下/B下上/N包围) + 题中显示的部件 + 需要补全的部件
+        // 部件已按繁体偏旁写法给出：⺮(不是竹) 訁 釒 飠 糹 氵 亻 扌 忄 礻 衤 犭 牜 ⻊ 艹 灬 辶 等
+        const TRAD_DECOMP_RAW = '丟T王厶丢T王厶並T丷亚举T兴扌乾L龺乞云T二厶些B二此亢T亠几交T六乂亩T亠田亵O衣执亹T亠舋什L亻十仁L亻二仂L亻力仃L亻丁仄S厂人仅L亻又仆L亻卜仇L亻九仉L亻几仍L亻乃从L亻人仑T人匕仔L亻子仕L亻士他L亻也仗L亻丈付L亻寸仙L亻山仝T人工仞L亻刃仟L亻千仡L亻乞代L亻弋仨L亻三仪L亻义仫L亻么们L亻门仰L亻卬仲L亻中仳L亻比仵L亻午件L亻牛价L亻介任L亻壬份L亻分仿L亻方企T人止伄L亻弔伉L亻亢伊L亻尹伍L亻五伎L亻支伏L亻犬伐L亻戈休L亻木伕L亻夫优L亻尤伙L亻火会T人云伛L亻区伟L亻韦传L亻专伢L亻牙伥L亻长伦L亻仑伧L亻仓伪L亻为伯L亻白估L亻古伲L亻尼伴L亻半伶L亻令伸L亻申伺L亻司似L亻以伽L亻加伾L亻丕佃L亻田但L亻旦佇L亻宁佈L亻布佉L亻去位L亻立低L亻氐住L亻主佐L亻左佑L亻右体L亻本佔L亻占何L亻可佗L亻它佘T人示佚L亻失佛L亻弗作L亻乍佝L亻句佟L亻冬你L亻尔佣L亻用佤L亻瓦佧L亻卡佬L亻老佯L亻羊佰L亻百佳L亻圭佴L亻耳併L亻并佶L亻吉佻L亻兆佼L亻交佽L亻次使L亻吏侄L亻至侈L亻多侉L亻夸例L亻列侍L亻寺侏L亻朱侑L亻有侔L亻牟侖T亼冊侗L亻同供L亻共依L亻衣侠L亻夹侣L亻吕侥L亻尧侦L亻贞侧L亻则侨L亻乔侩L亻会侪L亻齐侬L亻农侮L亻每侯L亻矦侶L亻呂侷L亻局便L亻更係L亻系促L亻足俄L亻我俅L亻求俉L亻吾俊L亻夋俎L仌且俏L亻肖俐L亻利俑L亻甬俗L亻谷俘L亻孚俚L亻里俛L亻免俜L亻甹保L亻呆俞T亼刖俟L亻矣俠L亻夾信L亻言俣L亻吴俦L亻寿俨L亻严俩L亻两俪L亻丽俭L亻佥修T攸彡俯L亻府俱L亻具俳L亻非俸L亻奉俺L亻奄俾L亻卑倀L亻長倆L亻兩個L亻固倌L亻官倍L亻咅倏S攸犬們L亻門倒L亻到倔L亻屈倖L亻幸倘L亻尚候L亻矦倚L亻奇倜L亻周倞L亻京借L亻昔倠L亻隹倡L亻昌倥L亻空倦L亻卷倨L亻居倩L亻青倪L亻兒倫L亻侖倬L亻卓倭L亻委倮L亻果债L亻责值L亻直倾L亻顷偃L亻匽假L亻叚偈L亻曷偉L亻韋偌L亻若偎L亻畏偏L亻扁偕L亻皆做L亻故停L亻亭健L亻建偬L亻怱側L亻則偵L亻貞偶L亻禺偷L亻俞偻L亻娄偽L亻為偾L亻贲偿L亻尝傀L亻鬼傅L亻尃傈L亻栗傍L亻旁傑L亻桀傕L亻隺傖L亻倉傚L亻效傢L亻家傣L亻泰傥L亻党傧L亻宾储L亻诸傩L亻难催L亻崔傭L亻庸傯L亻悤傲L亻敖傳L亻專債L亻責傺L亻祭傾L亻頃傿L亻焉僂L亻婁僅L亻堇像L亻象僑L亻喬僕L亻菐僖L亻喜僚L亻尞僥L亻堯僦L亻就僧L亻曾僬L亻焦僭L亻朁僮L亻童僱L亻雇僳L亻粟僵L亻畺價L亻賈僻L亻辟儀L亻義儂L亻農億L亻意儅L亻當儆L亻敬儇L亻睘儈L亻會儉L亻僉儋L亻詹儒L亻需儕L亻齊儘L亻盡償L亻賞儡L亻畾優L亻憂儲L亻諸儷L亻麗儸L亻羅儺L亻難儻L亻黨儼L亻嚴允B儿厶元B儿二兄B儿口充T亠允兇B儿凶克T十兄兑T丷兄兒B儿臼兕B儿凹兖T六允兗T六兄兟L先先兢L克克全T入玉公T八厶六B八亠兮T八丂兰T丷三关T丷天兵B八丘典B八曲养T羊儿冀T北異冁L单展冈M冂乂冑B月由冒T日目冓T井再冕T日免冗T冖几写T冖与军B车冖冢T冖豖冤T冖兔冪T冖幕冯R马冫冰L冫水冱L冫互冲L冫中决L冫夬况L冫兄冶L冫台冷L冫令冻L冫东冼L冫先冽L冫列净L冫争凄L冫妻准L冫隹凇L冫松凈L冫爭凉L冫京凋L冫周凌L冫夌凍L冫東减L冫咸凑L冫奏凛L冫禀凜L冫稟凝L冫疑凤M几又凫B几鸟凭B几任凯R几岂凰M几皇凱R几豈凳B几登凶U凵乂出B凵屮凼U凵水凿U凵丵分B刀八切R刂七刈R刂乂刊R刂干刎R刂勿刑R刂开划R刂戈刖R刂月列R刂歹刘R刂文则R刂贝刚R刂冈创R刂仓初R刂衤删R刂册判R刂半別R刂另刨R刂包利R刂禾刪R刂冊别R刂另刮R刂舌到R刂至刳R刂夸券B刀龹刹R刂杀刺R刂朿刻R刂亥刽R刂会刿R刂岁剀R刂岂剁R刂朵剂R刂齐剃R刂弟則R刂貝削R刂肖剋R刂克剌R刂束剎R刂杀剐R刂呙剑R刂佥剔R刂易剖R刂咅剛R刂岡剜R刂宛剝R刂彔剞R刂奇剡R刂炎剥R刂录剧R刂居剩R刂乘剪B刀前剮R刂咼副R刂畐割R刂害創R刂倉剷R刂産剽R刂票剿R刂巢劁R刂焦劂R刂厥劃R刂畫劄L答刂劇R刂豦劈B刀辟劊R刂會劍R刂僉劐R刂蒦劑R刂齊劓R刂鼻劝R力又功R力工加L力口务T夂力劢R力万劣B力少动R力云助R力且努B力奴劫R力去劬R力句劭R力召励R力厉劼R力吉劾R力亥势B力执勁R力巠勃R力孛勇B力甬勉W免力勋R力员勐R力孟勒R力革動R力重勖R力冒勘R力甚務L矛务勛R力員勝L月劵募B力莫勢B力埶勤R力堇勦R力巢勰L劦思勳R力熏勵R力厲勸R力雚勻X勹二勾X勹厶包X勹巳匈X勹凶匊X勹米匋X勹缶匍X勹甫匏L夸包匐X勹畐化R匕亻匙W是匕匝C匚巾匠C匚斤匡C匚王匣C匚甲匦C匚轨匪C匚非匭C匚軌匮C匚贵匯C匚淮匱C匚貴匹C匸儿区C匸乂医C匸矢匽C匸妟匾C匸扁匿C匸若區C匸品卉T十艹华B十化协L十办卑B十白協L十劦卖T十买博L十尃卞B卜亠卟L口卜卡B卜上卦R卜圭卧L臣卜卬R卩匕却R卩去卹R卩血卻R卩谷厅S厂丁历S厂力厉S厂万厌S厂犬厍S厂车厕S厂则厗S厂辛厘S厂里厝S厂昔原S厂泉厢S厂相厤S厂秝厥S厂欮厦S厂夏厩S厂既厭S厂猒厮S厂斯厲S厂萬厹B厶九去B厶土县B厶且双L又又反S厂又取R又耳变B又亦叙R又余叛L半反叠T叒冝古B口十句X勹口另T口力叨L口刂叩L口卩只T口八叫L口丩召B口刀叭L口八叮L口丁台B口厶叱L口匕叵C匚口叶L口十号T口丂叹L口又叻L口力叼L口刁叽L口几吁L口于吃L口乞各B口夂吆L口幺合B口亼吉B口士吊T口巾吋L口寸同M凡口名S夕口吐L口土吒L口乇吓L口下吕T口口吖L口丫吗L口马君S尹口吝B口文吞B口天吟L口今吠L口犬吡L口比吣L口心否B口不吧L口巴吨L口屯吩L口分含B口今听L口斤吭L口亢吮L口允启S户口吱L口支吲L口引吴T口天吵L口少吶L口內吸L口及吹L口欠吻L口勿吼L口孔吾B口五呀L口牙呃L口厄呆T口木呈T口王告B口牛呋L口夫呎L口尺呐L口内呒L口无呓L口艺呔L口太呕L口区呖L口历呗L口贝员T口贝呙T口内呛L口仓呜L口乌呢L口尼呣L口母呤L口令呦L口幼呫L口占呱L口瓜呲L口此味L口未呵L口可呶L口奴呷L口甲呸L口丕呻L口申呼L口乎命X令口咀L口且咂L口匝咄L口出咆L口包咋L口乍和R口禾咎B口处咏L口永咐L口付咑L口打咔L口卡咕L口古咖L口加咙L口龙咚L口冬咛L口宁咝L口丝咠T口耳咣L口光咤L口宅咥L口至咦L口夷咧L口列咨B口次咩L口羊咪L口米咫W尺只咬L口交咭L口吉咯L口各咱L口自咳L口亥咴L口灰咻L口休咼M冎口咽L口因咾L口老咿L口伊哂L口西哄L口共哆L口多哇L口圭哈L口合响L口向哎L口艾哏L口艮哐L口匡哑L口亚哒L口达哓L口尧哔L口毕哕L口岁哗L口华哙L口会哚L口朵哜L口齐哝L口农哞L口牟哟L口约員T口貝哥T可可哦L口我哧L口赤哨L口肖哩L口里哪L口那哮L口孝哱L口孛哲B口折哳L口折哺L口甫哼L口亨哽L口更哿T加可唁L口言唄L口貝唅L口含唆L口夋唇S辰口唉L口矣唎L口利唏L口希唑L口坐唔L口吾唛L口麦唠L口劳唣L口皂唤L口奂唧L口即唪L口奉唬L口虎售B口隹唯L口隹唰L口刷唱L口昌唳L口戾唵L口奄唷L口育唸L口念唼L口妾唾L口垂唿L口忽啁L口周啃L口肯啄L口豖啉L口林啊L口阿問M門口啐L口卒啕L口匋啖L口炎啜L口叕啞L口亞啟L启攵啡L口非啤L口卑啥L口舍啦L口拉啧L口责啪L口拍啭L口转啮L口齿啵L口波啶L口定啷L口郎啸L口肃啻B口帝啼L口帝啾L口秋喀L口客喁L口禺喂L口畏喃L口南喇L口剌喈L口皆喉L口侯喊L口咸喋L口枼喏L口若喑L口音喔L口屋喘L口耑喙L口彖喚L口奐喜B口壴喝L口曷喟L口胃喧L口宣喨L口亮喬T夭高喱L口厘喲L口約喳L口查喵L口苗喷L口贲喹L口奎喻L口俞喽L口娄喿T品木嗄L口夏嗅L口臭嗆L口倉嗇T坐回嗉L口素嗊L口貢嗌L口益嗍L口朔嗎L口馬嗐L口害嗑L口盍嗒L口荅嗓L口桑嗔L口真嗖L口叟嗚L口烏嗜L口耆嗝L口鬲嗟L口差嗡L口翁嗤L口蚩嗥L口皋嗦L口索嗨L口海嗪L口秦嗫L口聂嗬L口荷嗯L口恩嗲L口爹嗳L口爱嗵L口通嗶L口畢嗷L口敖嗽L口欶嗾L口族嘀L口啇嘁L口戚嘆L口堇嘈L口曹嘉T壴加嘌L口票嘍L口婁嘎L口戛嘏L古叚嘔L口區嘖L口責嘗T尚旨嘘L口虚嘛L口麻嘜L口麥嘞L口勒嘟L口都嘣L口崩嘤L口婴嘧L口密嘩L口華嘬L口最嘭L口彭嘮L口勞嘯L口肅嘰L口幾嘱L口属嘲L口朝嘴L口觜嘶L口斯嘸L口無嘹L口尞嘻L口喜嘽L口單嘿L口黑噁L口惡噌L口曾噍L口焦噎L口壹噓L口虛噔L口登噗L口菐噘L口厥噙L口禽噜L口鲁噠L口達噢L口奥噤L口禁噥L口農噦L口歲噪L口喿噫L口意噬L口筮噯L口愛噱L口豦噲L口會噴L口賁噶L口葛噸L口頓噹L口當噻L口塞噼L口辟嚀L口寧嚄L口蒦嚅L口需嚆L口蒿嚇L口赫嚎L口豪嚏L口疐嚓L口察嚕L口魯嚙L口齒嚥L口燕嚨L口龍嚮T鄉向嚯L口霍嚷L口襄嚼L口爵囀L口轉囈L口藝囉L口羅囌L口蘇囑L口屬囔L口囊囚O囗人四O囗儿囝O囗子回O囗口因O囗大囡O囗女团O囗才囤O囗屯囫O囗勿园O囗元困O囗木囱O囗夂围O囗韦囵O囗仑囷O囗禾囹O囗令固O囗古国O囗玉图O囗冬囿O囗有圂O囗豕圃O囗甫圄O囗吾圆O囗员圇O囗侖圈O囗卷圉O囗幸圊O囗青國O囗或圍O囗韋園O囗袁圓O囗員圖O囗啚團O囗專圜O囗睘圣B土又在S才土圩L土于圪L土乞圬L土亏圭T土土圮L土己圯L土巳地L土也圳L土川圹L土广场L土勿圻L土斤圾L土及址L土止坂L土反均L土匀坊L土方坌B土分坍L土丹坎L土欠坏L土不坑L土亢坒B土比块L土夬坛L土云坜L土历坝L土贝坞L土乌坟L土文坠B土队坡L土皮坤L土申坦L土旦坨L土它坩L土甘坪L土平坫L土占坭L土尼坯L土丕坳L土幼坶L土母坷L土可坻L土氐坼L土斥垃L土立垄T龙土垅L土龙垆L土卢型B土刑垌L土同垒B土厽垓L土亥垔B土西垛L土朵垠L土艮垡B土伐垢L土后垣L土亘垤L土至垦B土艮垧L土向垩B土亚垫B土执垭L土亚垮L土夸垲L土岂垸L土完埂L土更埃L土矣埇L土甬埋L土里城L土成埏L土延埒L土寽埔L土甫埕L土呈埘L土时埙L土员埚L土呙埝L土念域L土或埠L土阜埡L土亞埤L土卑埭L土隶埯L土奄埲L土奉埴L土直埵L土垂埶L坴丸執L幸丸埸L土易培L土咅基B土其埼L土奇埽L土帚堀L土屈堂B土尚堅B土臤堆L土隹堇B土黄堊B土亞堋L土朋堍L土兔堑B土斩堕B土陏堙L土垔堞L土枼堠L土侯堡B土保堤L土是堪L土甚堯T垚兀堰L土匽場L土昜堵L土者堿L土咸塊L土鬼塑B土朔塔L土荅塕L土翁塗B土涂塘L土唐塚L土冢塢L土烏塥L土鬲填L土真塬L土原塵B土鹿塹B土斬塾B土孰墀L土犀墁L土曼境L土竟墅B土野墉L土庸墊B土執墒L土商墓B土莫墙L土啬墚L土梁墜B土隊增L土曾墟L土虚墨B土黑墩L土敦墮B土隋墳L土賁墾B土貇壁B土辟壅B土雍壇L土亶壓B土厭壕L土豪壘B土畾壞L土褱壟B土龍壢L土歷壤L土襄壩L土霸壮R士丬壯R士爿壳T士冗壴T土口壺T士亞夃M乃又处W夂卜夆T夂丰备T夂田外L夕卜夙M几歹多T夕夕够L句多夠L多句夤T夕寅夥L果多夯T大力夸T大亏夺T大寸夼T大川奁T大区奄T大电奇T大可奈T大示奋T大田奎T大圭奓T大多奔T大卉奕B大亦套T大镸奘B大壯奠B大酋奢T大者奩T大區奴L女又奶L女乃奸L女干她L女也奼L女乇好L女子妁L女勺如L女口妃L女己妄B女亡妆R女丬妇L女彐妈L女马妊L女壬妍L女开妒L女户妓L女支妖L女夭妗L女今妙L女少妝R女爿妞L女丑妣L女比妤L女予妥B女爫妨L女方妩L女无妪L女区妫L女为妮L女尼妯L女由妲L女旦妳L女尔妹L女未妾B女辛姆L女母始L女台姐L女且姑L女古姒L女以姓L女生委B女禾姗L女册姘L女并姚L女兆姜B女羊姝L女朱姣L女交姥L女老姨L女夷姪L女至姬L女臣姮L女亘姹L女宅姻L女因姿B女次娃L女圭娄B女米娅L女亚娆L女尧娇L女乔娈B女亦娉L女甹娌L女里娑B女沙娓L女尾娘L女良娛L女吳娜L女那娟L女肙娠L女辰娣L女弟娥L女我娩L女免娭L女矣娱L女吴娲L女呙娴L女闲娶B女取娼L女昌婀L女阿婁B女母婆B女波婉L女宛婊L女表婕L女疌婚L女昏婢L女卑婦L女帚婧L女青婪B女林婭L女亞婵L女单婶L女审婷L女亭婺B女敄婿L女胥媒L女某媕L女弇媚L女眉媛L女爰媧L女咼媪L女昷媳L女息媵S朕女媷L女辱媸L女蚩媽L女馬媾L女冓嫁L女家嫂L女叟嫉L女疾嫌L女兼嫒L女爱嫔L女宾嫖L女票嫗L女區嫘L女累嫚L女曼嫜L女章嫡L女啇嫣L女焉嫦L女常嫩L女敕嫪L女翏嫫L女莫嫱L女啬嫵L女無嫻L女閑嬈L女堯嬉L女喜嬋L女單嬌L女喬嬖B女辟嬗L女亶嬛L女睘嬪L女賓嬰B女賏嬷L女麽嬸L女審孀L女霜孃L女襄孕B子乃字B子宀存S才子孙L子小孚B子爫孜L子攵孝S耂子孟T子皿孢L子包季B子禾孤L子瓜孥B子奴孩L子亥孪B子亦孫L子系孬T不好孰L享丸孱S尸孨孳B子兹孵L卵孚孺L子需孽B子薛宁T宀丁它T宀匕宄T宀九宅T宀乇宇T宀于守T宀寸安T宀女宋T宀木完T宀元宏T宀厷宓T宀必宕T宀石宗T宀示宙T宀由定T宀疋宛T宀夗宜T宀且宝T宀玉实T宀头宠T宀龙审T宀申客T宀各宣T宀亘室T宀至宥T宀有宦T宀臣宪T宀先宫T宀吕宮T宀呂宰T宀辛宴T宀妟宵T宀肖家T宀豕宸T宀辰容T宀谷宽T宀苋宾T宀兵宿T宀佰寂T宀叔寄T宀奇密T宓山富T宀畐寓T宀禺寞T宀莫察T宀祭寥T宀翏實T宀貫審T宀番寫T宀舄寮T宀尞寰T宀睘寵T宀龍对R寸又寺B寸土寻T彐寸导B寸巳寿S丰寸封R寸圭尃B寸甫射R寸身專B寸叀尊B寸酋尌R寸壴導B寸道尕B小乃尖T小大尘T小土尝T尚云尥W尢勺尧T戈兀尨W犬彡尬W尢介就L京尤尴W尢监尷W尢監尻S尸九尼S尸匕尾S尸毛尿S尸水局M尺口屁S尸比层S尸云屄S尸穴居S户古屈S尸出屉S尸世届S尸由屋S尸至屌S尸吊屍S尸死屎S尸米屏S户并屑S尸肖屙S尸阿属S尸禹屠S尸者屡S尸娄屢S尸婁屣S尸徙層S尸曾履S尸復屭S尸贔屹L山乞屺L山己屾L山山屿L山与岁T山夕岂T山己岈L山牙岌T山及岍L山开岐L山支岑T山今岔B山分岖L山区岗T山冈岘L山见岙B山夭岚T山风岛X鸟山岜T山巴岢T山可岣L山句岩T山石岫L山由岬L山甲岭L山令岱B山代岳B山丘岵L山古岷L山民岽T山东岿T山归峁T山卯峇T山合峋L山旬峒L山同峙L山寺峡L山夹峤L山乔峥L山争峦B山亦峨L山我峪L山谷峭L山肖峰L山夆峴L山見島X烏山峻L山夋峽L山夾崂L山劳崃L山来崆L山空崇T山宗崎L山奇崑T山昆崒T山卒崔T山隹崖T山厓崗T山岡崙T山侖崛L山屈崞L山享崢L山爭崤L山肴崦L山奄崧T山松崩T山朋崭T山斩崮T山固崴T山威崽T山思崾L山要嵊L山乘嵋L山眉嵐T山風嵒B山品嵘L山荣嵛T山俞嵝L山娄嵞T余屾嵩T山高嵫L山兹嵬T山鬼嵯L山差嵴L山脊嶂L山章嶄T山斬嶇L山區嶗L山勞嶙L山粦嶝L山登嶡T山厥嶧L山睪嶪T山業嶷T山疑嶸L山榮嶺T山領嶼L山與嶽T山獄巂T崔冏巅T山颠巆L山營巍T山魏巔T山顛巖T山嚴巡W辶巛巢T巛果巧L工丂巩L工凡差S羊工巷B巳共巹B己丞市B巾亠帅R巾刂帆L巾凡师L刂帀希T乂布帏L巾韦帐L巾长帑B巾奴帔L巾皮帕L巾白帖L巾占帘B巾穴帙L巾失帛B巾白帜L巾只帝B巾立帧L巾贞帮B巾邦帱L巾寿帳L巾長帷L巾隹常B巾尚帻L巾责帼L巾国帽L巾冒幀L巾貞幃L巾韋幄L巾屋幅L巾畐幌L巾晃幔L巾曼幕B巾莫幗L巾國幛L巾章幞L巾菐幟L巾戠幡L巾番幢L巾童幣B巾敝幫T封帛幬L巾壽并T丷开幼L幺力庀S广匕庄S广土庆S广大庇S广比床S广木庋S广支序S广予庐S广户庑S广无库S广车底S广氐庖S广包店S广占庙S广由府S广付庞S广龙废S广发庠S广羊庥S广休座S广坐庫S广車庭S广廷庳S广卑庵S广奄康S广隶庾S广臾廁S广則廂S广相廄S广既廈S广夏廉S广兼廊S广郎廌S鹿豸廑S广堇廒S广敖廓S广郭廖S广翏廚S广尌廝S广斯廟S广朝廠S广敞廡S广無廢S广發廣S广黄廥S广會廨S广解廩S广稟廪S广禀廬S广盧廳S广聽廷W廴壬建W廴聿弁B廾厶异B廾巳弄B廾玉弇B廾合弈B廾亦弊B廾敝式X弋工弑L杀式弒L杀式弘L弓厶弛L弓也张L弓长弥L弓尔弦L弓玄弧L弓瓜弩B弓奴弭L弓耳弮B弓龹弯B弓亦弳L弓巠張L弓長弹L弓单强L弓虽彆B弓敝彈L弓單彊L弓畺彌L弓爾彔T彑氺录T彐氺彖T彑豕形R彡开彤R彡丹彦B彡产彩R彡采彪W虎彡彬R彡林彭R彡壴彰R彡章影R彡景彷L彳方彸L彳公役L彳殳彻L彳切彼L彳皮彿L彳弗征L彳正徂L彳且待L彳寺徇L彳旬很L彳艮徉L彳羊徊L彳回律L彳聿徐L彳余徑L彳巠徒L彳走徕L彳来徘L彳非徙L彳歨徜L彳尚徠L彳來御L彳卸徨L彳皇復L彳复循L彳盾徯L彳奚徼L彳敫忉L忄刂忌B心己忍B心刃忏L忄千忐B心上忑B心下忒X弋心忕L忄大忖L忄寸志B心士忘B心亡忙L忄亡忝B心天忞B心文忠B心中忡L忄中忤L忄午忧L忄尤忪L忄公快L忄夬忭L忄卞忮L忄支忱L忄冘念B心今忸L忄丑忻L忄斤忽B心勿忾L忄气忿B心分怀L忄不态B心太怂B心从怃L忄无怄L忄区怅L忄长怆L忄仓怊L忄召怍L忄乍怎B心乍怏L忄央怒B心奴怔L忄正怕L忄白怖L忄布怙L忄古怛L忄旦怜L忄令思B心田怠B心台怡L忄台急B心刍怦L忄平性L忄生怨B心夗怩L忄尼怪L忄圣怫L忄弗怯L忄去怵L忄术怼B心对恁B心任恂L忄旬恃L忄寺恆L忄亙恋B心亦恍L忄光恐B心巩恒L忄亘恓L忄西恕B心如恙B心羊恚B心圭恢L忄灰恣B心次恤L忄血恥R心耳恧B心而恨L忄艮恩B心因恪L忄各恫L忄同恬L忄舌恭B心共息B心自恰L忄合恳B心艮恶B心亚恸L忄动恹L忄厌恺L忄岂恻L忄则恽L忄军恿B心甬悃L忄困悄L忄肖悅L忄兌悉B心釆悌L忄弟悍L忄旱悒L忄阝悔L忄每悖L忄孛悚L忄束悛L忄夋悝L忄里悟L忄吾悠B心攸患B心串悦L忄兑您B心你悬B心县悭L忄坚悯L忄闵悱L忄非悲B心非悴L忄卒悵L忄長悶M門心悸L忄季悻L忄幸悼L忄卓悽L忄妻情L忄青惆L忄周惊L忄京惋L忄宛惑B心或惓L忄卷惕L忄易惘L忄罔惙L忄叕惚L忄忽惛L忄昏惜L忄昔惝L忄尚惟L忄隹惡B心亞惦L忄店惧L忄具惨L忄参惩B心征惫T夂思惭L忄斩惮L忄单惯L忄贯想B心相惴L忄耑惶L忄皇惹B心若惺L忄星惻L忄則愀L忄秋愁B心秋愆B心衍愈B心俞愉L忄俞愍B心敃愎L忄复意B心音愕L忄咢愚B心禺愜L忄匧感B心咸愠L忄昷愤L忄贲愦L忄贵愧L忄鬼愫L忄素愴L忄倉愷L忄豈愾L忄氣愿S原心慄L忄栗慈B心兹慊L忄兼態B心能慌L忄荒慎L忄真慑L忄聂慕B心莫慘L忄參慚L忄斬慝B心匿慟L忄動慢L忄曼慣L忄貫慧B心彗慨L忄既慪L忄區慫B心從慮S虍思慰B心尉慳L忄堅慴L忄習慵L忄庸慷L忄康慼B心戚慾B心欲憊B心備憋B心敝憎L忄曾憐L忄粦憑B心馮憔L忄焦憚L忄單憝B心敦憤L忄賁憧L忄童憨B心敢憫L忄閔憬L忄景憶L忄意憷L忄楚憾L忄感懂L忄董懇B心貇懈L忄解懊L忄奥懋B心楙懑B心满懒L忄赖懔L忄禀懞L忄蒙懟B心對懣B心滿懦L忄需懨L忄厭懮L忄憂懲B心徴懵L忄瞢懶L忄賴懷L忄褱懸B心縣懺L忄韱懼L忄瞿懾L忄聶懿L壹恣戆B心赣戇B心贛戏R戈又成R戈丁我R戈扌戒X戈廾戔T戈戈戕R戈爿戗R戈仓战R戈占戚M戊尗戟R戈龺戠R戈音戡R戈甚戢R戈咠戤R戈盈戥R戈星戧R戈倉戬R戈晋戮R戈翏戰R戈單戳R戈翟戽S户斗戾S户犬房S户方所L户斤扂S户占扃S户冋扆S户衣扇S户羽扈S户邑扉S户非扑L扌卜扒L扌八打L扌丁扔L扌乃托L扌乇扛L扌工扢L扌乞扣L扌口扦L扌千执L扌丸扩L扌广扪L扌门扫L扌彐扬L扌昜扭L扌丑扮L扌分扯L扌止扰L扌尤扳L扌反扶L扌夫批L扌比扼L扌厄找L扌戈技L扌支抃L扌卞抄L扌少抉L扌夬把L扌巴抑L扌卬抒L扌予抓L扌爪投L扌殳抖L扌斗抗L扌亢折L扌斤抚L扌无抟L扌专抠L扌区抡L扌仑抢L扌仓护L扌户抨L扌平披L扌皮抬L扌台抱L扌包抵L扌氐抹L扌末抻L扌申押L扌甲抽L扌由抿L扌民拂L扌弗拄L扌主担L扌旦拆L扌斥拇L扌母拈L扌占拉L扌立拊L扌付拌L扌半拍L扌白拎L扌令拐L扌另拑L扌甘拒L扌巨拓L扌石拔L扌犮拗L扌幼拘L扌句拙L扌出拚L扌弁招L扌召拜L扌手拟L扌以拢L扌龙拣L扌柬拥L扌用拦L扌兰拧L扌宁拨L扌发括L扌舌拭L扌式拮L扌吉拯L扌丞拱L扌共拳B手龹拴L扌全拷L扌考拼L扌并拽L扌曳拾L扌合拿B手合持L扌寺挂L扌圭指L扌旨按L扌安挎L扌夸挑L扌兆挖L扌穵挚B手执挛B手亦挝L扌过挞L扌达挟L扌夹挠L扌尧挡L扌当挢L扌乔挣L扌争挤L扌齐挥L扌军挨L扌矣挪L扌那挫L扌坐振L扌辰挲B手沙挹L扌阝挺L扌廷挽L扌免挾L扌夾捂L扌吾捃L扌君捅L扌甬捆L扌困捉L扌足捋L扌寽捌L扌别捍L扌旱捎L扌肖捏L扌圼捐L扌肙捕L扌甫捞L扌劳损L扌员捡L扌佥换L扌奂捣L扌岛捧L扌奉捨L扌舍捩L扌戾捫L扌門捭L扌卑据L扌居捱L扌厓捲L扌卷捶L扌垂捷L扌疌捺L扌奈捻L扌念掀L扌欣掂L扌店掃L扌帚掄L扌侖掇L扌叕授L扌受掉L扌卓掊L扌咅掌B手尚掎L扌奇掏L扌匋掐L扌臽排L扌非掖L扌夜掘L扌屈掙L扌爭掛L扌卦掠L扌京採L扌采掣B手制接L扌妾控L扌空推L扌隹掩L扌奄措L扌昔掬L扌匊掭L扌忝掮L扌肩掳L扌虏掴L扌国掷L扌郑掸L扌单掺L扌参掼L扌贯掾L扌彖揀L扌柬揄L扌俞揆L扌癸揉L扌柔揍L扌奏揎L扌宣描L扌苗提L扌是插L扌臿揖L扌咠揚L扌昜換L扌奐揞L扌音揠L扌匽握L扌屋揣L扌耑揩L扌皆揪L扌秋揭L扌曷揮L扌軍揲L扌枼援L扌爰揶L扌耶揸L扌查揽L扌览揿L扌钦搁L扌阁搂L扌娄搅L扌觉搋L扌虒搌L扌展損L扌員搏L扌尃搐L扌畜搒L扌旁搓L扌差搔L扌蚤搗L扌島搛L扌兼搜L扌叟搞L扌高搠L扌朔搡L扌桑搦L扌弱搪L扌唐搬L扌般搭L扌荅搶L扌倉携L扌隽搽L扌茶摀L扌烏摁L扌恩摄L扌聂摅L扌虑摆L扌罢摈L扌宾摊L扌难摑L扌國摒L扌屏摔L扌率摘L扌啇摞L扌累摟L扌婁摧L扌崔摩S麻手摭L扌庶摯B手執摳L扌區摶L扌專摸L扌莫摹B手莫摺L扌習摻L扌參摽L扌票撂L扌畧撄L扌婴撅L扌厥撇L扌敝撈L扌勞撐L扌牚撑L扌掌撒L扌散撓L扌堯撕L扌斯撖L扌敢撙L扌尊撞L扌童撣L扌單撥L扌發撩L扌尞撫L扌無撬L扌毳播L扌番撮L扌最撰L扌巽撲L扌菐撳L扌欽撵L扌辇撷L扌颉撸L扌鲁撺L扌窜撻L扌達撼L扌感撾L扌過撿L扌僉擀L扌幹擁L扌雍擂L扌雷擄L扌虜擅L扌亶擇L扌睪擊B手毄擋L扌當操L扌喿擎B手敬擐L扌睘擒L扌禽擔L扌詹擗L扌辟擘B手辟據L扌豦擞L扌数擠L扌齊擢L扌翟擤L扌鼻擦L扌察擬L扌疑擯L扌賓擰L扌寧擱L扌閣擲L扌鄭擴L扌廣擷L扌頡擺L扌罷擻L扌數擼L扌魯擾L扌憂擿L扌適攀B手樊攆L扌輦攉L扌霍攏L扌龍攒L扌赞攔L扌闌攘L扌襄攙L扌毚攛L扌竄攜L扌巂攝L扌聶攢L扌贊攤L扌難攥L扌纂攪L扌覺攫L扌矍攬L扌覽攮L扌囊支T十又收R攵丩改R攵己攻R攵工放R攵方政R攵正敃R攵民故R攵古效R攵交敉R攵米敌L舌攵敏R攵每救R攵求敕R攵束敗R攵貝敘R攵余教R攵孝敛R攵佥敞R攵尚敦R攵享敪R攵叕敬R攵苟数R攵娄敲R攵高整T敕正敵R攵啇敷R攵旉數R攵婁斂R攵僉斃T敝死文T亠乂斋T文而斌L文武斐B文非斓L文阑斕L文闌料R斗米斛R斗角斜R斗余斟R斗甚斡S倝斗斤S厂下斧B斤父斩L车斤斫R斤石斬R斤車斯R斤其新R斤亲旁B方立旨B日匕早T日十旬X勹日旭W九日旮B日九旯T日九旰L日干旱T日干旲T日大时L日寸旷L日广旺L日王昀L日匀昂T日卬昃T日仄昆T日比昇T日升昉L日方昊T日天昌T日曰明L日月昏B日氏易T日勿昔B日廿昕L日斤昙T日云昜T旦勿昝B日处星T日生映L日央昧L日未昨L日乍昫L日句昭L日召是T日疋昱T日立昴T日卯昵L日尼昶W永日昼M尺旦显T日业晁T日兆時L日寺晃T日光晋B日亚晌L日向晏T日安晒L日西晓L日尧晔L日华晕T日军晖L日军晗L日含晚L日免晝T聿旦晟T日成晡L日甫晤L日吾晦L日每晨T日辰晬L日卒普B日並景T日京晰L日析晴L日青晷T日咎智B日知晾L日京暂B日斩暄L日宣暆L日施暇L日叚暈T日軍暉L日軍暋B日敃暌L日癸暑T日者暖L日爰暗L日音暝L日冥暠T日高暡L日翁暢L申昜暧L日爱暨T既旦暫B日斬暮B日莫暱L日匿暾L日敦曄L日華曆S厤日曇T日雲曉L日堯曖L日愛曙L日署曚L日蒙曛L日熏曜L日翟曝L日暴曠L日廣曦L日羲曩T日襄曬L日麗書B曰聿最T日取月M冂二朊L月元朋L月月朐L月句朔R月屰朕L月关朗R月良朝R月龺期R月其朦L月蒙朧L月龍朴L木卜朵B木几机L木几朽L木丂杀B木乂杂B木九权L木又杆L木干杈L木叉杉L木彡杌L木兀李T木子杏T木口材L木才村L木寸杓L木勺杖L木丈杜L木土杞L木己杠L木工条B木夂杨L木昜杩L木马杪L木少杭L木亢杯L木不杰T木灬杲B木日杳T木日杵L木午杷L木巴杼L木予松L木公板L木反极L木及构L木勾枇L木比枉L木王枋L木方析L木斤枒L木牙枓L木斗枕L木冘林L木木枘L木内枚L木攵果B木田枝L木支枞L木从枢L木区枥L木历枧L木见枨L木长枪L木仓枫L木风枭B木鸟枯L木古枰L木平枳L木只枵L木号架B木加枷L木加枸L木句柁L木它柃L木令柄L木丙柊L木冬柏L木白某B木甘柑L木甘染B木氿柔B木矛柘L木石柙L木甲柚L木由柜L木巨柝L木斥柞L木乍柠L木宁柢L木氐查T木旦柩L木匛柯L木可柰T木示柱L木主柳L木卯柴B木此柵L木冊柽L木圣柿L木市栀L木卮栅L木册标L木示栈L木戋栉L木节栊L木龙栋L木东栌L木卢栎L木乐栏L木兰树L木对栓L木全栖L木西栗B木覀栝L木舌校L木交栩L木羽株L木朱栱L木共栲L木考栳L木老样L木羊核L木亥根L木艮格L木各栽X戈木栾B木亦桀B木舛桁L木行桂L木圭桃L木兆桄L木光桅L木危框L木匡案B木安桉L木安桊B木龹桌B木卓桎L木至桐L木同桑B木叒桓L木亘桔L木吉桕L木臼桠L木亚桡L木尧桢L木贞档L木当桤L木岂桥L木乔桦L木华桧L木会桩L木庄桫L木沙桲L木孛桴L木孚桶L木甬桷L木角桿L木旱梃L木廷梅L木每梆L木邦梏L木告梓L木辛梔L木巵梗L木更梟B木鳥梢L木肖梣L木岑梦T林夕梧L木吾梨B木利梭L木夋梯L木弟械L木戒梵T林凡检L木佥棂L木灵棉L木帛棋L木其棍L木昆棒L木奉棕L木宗棗T朿朿棘L朿朿棚L木朋棟L木東棠B木尚棣L木隶棧L木戔棰L木垂棱L木夌棲L木妻棵L木果棶L木來棹L木卓棺L木官棼T林分椁L木享椅L木奇椆L木周椋L木京植L木直椎L木隹椐L木居椒L木叔椟L木卖椠B木斩椤L木罗椥L木知椪L木並椭L木陏椰L木耶椴L木段椹L木甚椽L木彖椿L木春楂L木查楊L木昜楓L木風楔L木契楗L木建楚T林疋楛L木苦楝L木柬楠L木南楣L木眉楦L木宣楨L木貞楫L木咠楮L木者楱L木奏極L木亟楷L木皆楸L木秋楹L木盈楼L木娄榀L木品概L木既榄L木览榆L木俞榇L木亲榈L木闾榉L木举榍L木屑榔L木郎榕L木容榘B木矩榛L木秦榜L木旁榧L木匪榨L木窄榫L木隼榭L木射榱L木衰榴L木留榷L木隺榿L木豈槁L木高槃B木般槊B木朔構L木冓槌L木追槍L木倉槎L木差槐L木鬼槓L木貢槔L木皋槛L木监槟L木宾槠L木诸槤L木連槨L木郭槭L木戚槲L木斛槳B木將槽L木曹槿L木堇樁L木舂樅L木從樆L木离樊T棥大樑L木梁樓L木婁樗L木雩樘L木堂標L木票樛L木翏樞L木區樟L木章模L木莫樣L木羕樨L木犀横L木黄樯L木啬樱L木婴樵L木焦樸L木菐樹L木尌樺L木華樽L木尊樾L木越橄L木敢橇L木毳橈L木堯橋L木喬橘L木矞橙L木登橛L木厥機L木幾橡L木象橢L木隋橥B木猪橫L木黃橱L木厨橹L木鲁橼L木缘橾L木喿檀L木亶檄L木敫檎L木禽檐L木詹檑L木雷檔L木當檗B木辟檜L木會檠B木敬檢L木僉檩L木禀檫L木察檬L木蒙檮L木壽檯L木臺檳L木賓檸L木寧檻L木監櫆L木魁櫓L木魯櫚L木閭櫛L木節櫞L木緣櫟L木樂櫥L木廚櫪L木歷櫫B木豬櫱B木辥櫸L木舉櫻L木嬰欄L木闌權L木雚欖L木覽欞L木靈次R欠冫欢R欠又欣R欠斤欤R欠与欧R欠区欲R欠谷欶R欠束欷R欠希欸R欠矣欹R欠奇欺R欠其欻R欠炎欽R欠釒欿R欠臽歃R欠臿歆R欠音歇R欠曷歉R欠兼歌R欠哥歎R欠堇歐R欠區歔R欠虚歙R欠翕歛R欠僉歡R欠雚此L止匕歧L止支歪T不正歷S厤止死S歹匕歼L歹千殁L歹殳殂L歹且殃L歹央殆L歹台殉L歹旬殊L歹朱残L歹戋殍L歹孚殒L歹员殓L歹佥殖L歹直殗L歹奄殘L歹戔殚L歹单殛L歹亟殞L歹員殡L歹宾殪L歹壹殫L歹單殭L歹畺殮L歹僉殯L歹賓殲L歹韱殳T几又殴R殳区殺R殳杀殼R殳壳殽R殳肴毄R殳軎毅R殳豙毆R殳區毒B母龶比L匕匕毕T比十毖T比必毗L田比毙T比死毡W毛占毪W毛牟毯W毛炎毵R毛参毹R毛俞毽W毛建氅B毛敞氆W毛普氇W毛鲁氈R毛亶氍R毛瞿氓R民亡氖X气乃氘X气刂氙X气山氚X气川氛X气分氟X气弗氡X气冬氣X气米氤X气因氦X气亥氧X气羊氨X气安氩X气亚氪X气克氫X气巠氮X气炎氯X气录氰X气青氲X气昷氽T人水氿L氵九汀L氵丁汁L氵十汆B水入汇L氵匚汉L氵又汊L氵叉汐L氵夕汒L氵亡汔L氵乞汕L氵山汗L氵干汛L氵卂汜L氵巳汝L氵女汞B水工江L氵工池L氵也污L氵亏汤L氵昜汧L氵开汨L氵日汩L氵曰汪L氵王汰L氵太汲L氵及汴L氵卞汶L氵文汹L氵凶決L氵夬汽L氵气汾L氵分沁L氵心沂L氵斤沃L氵夭沅L氵元沆L氵亢沇L氵允沈L氵冘沉L氵冗沌L氵屯沏L氵切沐L氵木沓T水日沔L氵丏沖L氵中沙L氵少沛L氵巿沟L氵勾没L氵殳沣L氵丰沤L氵区沥L氵历沦L氵仑沧L氵仓沩L氵为沪L氵户沫L氵末沭L氵术沮L氵且沱L氵它河L氵可沸L氵弗油L氵由治L氵台沼L氵召沽L氵古沾L氵占況L氵兄泄L氵世泅L氵囚泆L氵失泉B水白泊L氵白泌L氵必泐L氵阞泓L氵弘泔L氵甘法L氵去泖L氵卯泗L氵四泙L氵平泛L氵乏泞L氵宁泠L氵令泡L氵包波L氵皮泣L氵立泥L氵尼注L氵主泪L氵目泫L氵玄泮L氵半泯L氵民泱L氵央泳L氵永泵B水石泷L氵龙泸L氵卢泺L氵乐泻L氵写泼L氵发洁L氵吉洄L氵回洇L氵因洋L氵羊洌L氵列洎L氵自洒L氵西洗L氵先洙L氵朱洚L氵夅洛L氵各洞L氵同津L氵聿洧L氵有洨L氵交洩L氵曳洪L氵共洫L氵血洮L氵兆洰L氵巨洱L氵耳洲L氵州洳L氵如洵L氵旬洶L氵匈洹L氵亘活L氵舌洼L氵圭洽L氵合浃L氵夹浅L氵戋浇L氵尧浈L氵贞浊L氵虫测L氵则浍L氵会济L氵齐浏L氵刘浑L氵军浒L氵许浓L氵农浔L氵寻浙L氵折浚L氵夋浜L氵兵浞L氵足浠L氵希浣L氵完浦L氵甫浩L氵告浪L氵良浮L氵孚浯L氵吾浴L氵谷海L氵每浹L氵夾浼L氵免浽L氵妥涂L氵余涅L氵圼涇L氵巠消L氵肖涉L氵步涌L氵甬涎L氵延涑L氵束涓L氵肙涔L氵岑涕L氵弟涛L氵寿涝L氵劳涞L氵来涟L氵连涠L氵围涡L氵呙涣L氵奂涤L氵条润L氵闰涧L氵间涨L氵张涪L氵咅涫L氵官涮L氵刷涯L氵厓液L氵夜涵L氵函涸L氵固涼L氵京涿L氵豖淀L氵定淄L氵甾淅L氵析淆L氵肴淇L氵其淋L氵林淌L氵尚淑L氵叔淒L氵妻淖L氵卓淘L氵匋淙L氵宗淚L氵戾淝L氵肥淞L氵松淠L氵畀淡L氵炎淤L氵於淥L氵彔淦L氵金淨L氵爭淩L氵夌淪L氵侖淬L氵卒淮L氵隹淯L氵育深L氵罙淳L氵享淶L氵來混L氵昆淹L氵奄淺L氵戔添L氵忝清L氵青渌L氵录渍L氵责渎L氵卖渐L氵斩渑L氵黾渔L氵鱼渖L氵审渗L氵参渙L氵奐渚L氵者減L氵咸渝L氵俞渠T洰木渡L氵度渣L氵查渤L氵勃渥L氵屋渦L氵咼温L氵昷渫L氵枼測L氵則渭L氵胃港L氵巷渲L氵宣渴L氵曷游L氵斿渺L氵眇渾L氵軍湃L氵拜湄L氵眉湉L氵恬湊L氵奏湍L氵耑湎L氵面湓L氵盆湔L氵前湖L氵胡湘L氵相湛L氵甚湞L氵貞湟L氵皇湣L氵昬湧L氵勈湫L氵秋湮L氵垔湯L氵昜湴L氵並湾L氵弯湿L氵显溃L氵贵溅L氵贱溆L氵叙溉L氵既溏L氵唐源L氵原準T淮十溘L氵盍溜L氵留溝L氵冓溟L氵冥溢L氵益溥L氵尃溪L氵奚溯L氵朔溱L氵秦溲L氵叟溴L氵臭溶L氵容溷L氵圂溺L氵弱溽L氵辱滁L氵除滂L氵旁滄L氵倉滅L氵烕滇L氵真滊L氵氣滋L氵兹滌L氵條滏L氵釜滑L氵骨滓L氵宰滔L氵舀滗L氵笔滚L氵衮滞L氵带滟L氵艳滠L氵聂滢L氵莹滤L氵虑滥L氵监滦L氵栾滨L氵宾滩L氵难滬L氵扈滯L氵帶滲L氵參滴L氵啇滷L氵鹵滸L氵許滹L氵虖滻L氵産滾L氵袞漁L氵魚漂L氵票漆L氵桼漉L氵鹿漏L氵屚漓L氵离演L氵寅漕L氵曹漚L氵區漠L氵莫漢L氵堇漣L氵連漤L氵婪漩L氵旋漪L氵猗漫L氵曼漬L氵責漭L氵莽漯L氵累漱L氵欶漲L氵張漳L氵章漵L氵敘漶L氵患漸L氵斬漼L氵崔漾L氵羕漿B水將潆L氵萦潇L氵萧潋L氵敛潍L氵维潑L氵發潔L氵絜潘L氵番潛L氵朁潜L氵替潞L氵路潟L氵舄潢L氵黄潤L氵閏潦L氵尞潭L氵覃潮L氵朝潯L氵尋潰L氵貴潲L氵稍潴L氵猪潺L氵孱潼L氵童潽L氵普澀L氵歰澄L氵登澆L氵堯澇L氵勞澉L氵敢澌L氵斯澍L氵尌澎L氵彭澗L氵間澜L氵阑澠L氵黽澡L氵喿澤L氵睪澥L氵解澧L氵豊澱L氵殿澳L氵奥澶L氵亶澹L氵詹激L氵敫濁L氵蜀濂L氵廉濃L氵農濉L氵睢濊L氵歲濑L氵赖濒L氵频濘L氵寧濛L氵蒙濞L氵鼻濟L氵齊濠L氵豪濡L氵需濤L氵壽濫L氵監濮L氵僕濯L氵翟濰L氵維濱L氵賓濺L氵賤濾L氵慮瀆L氵賣瀉L氵寫瀋L氵審瀏L氵劉瀑L氵暴瀕L氵頻瀘L氵盧瀚L氵翰瀛L氵嬴瀝L氵歷瀟L氵蕭瀣L氵韰瀧L氵龍瀨L氵賴瀰L氵彌瀵L氵糞瀹L氵龠瀾L氵闌灌L氵雚灏L氵颢灑L氵麗灘L氵難灞L氵霸灣L氵彎灯L火丁灵T彐灬灶L火土灸B灬久灼L火勺災B灬巛灾B灬宀灿L火山炀L火昜炅B灬日炆L火文炉L火户炊L火欠炎T火灬炒L火少炔L火夬炕L火亢炖L火屯炙B灬月炜L火韦炝L火仓炤L火召炫L火玄炬L火巨炭T山灰炮L火包炯L火冋炱B灬台炳L火丙炷L火主炸L火乍点B灬占炻L火石炼L火柬炽L火只烀L火乎烁L火乐烂L火兰烈B灬列烊L火羊烘L火共烙L火各烛L火虫烜L火亘烝B灬丞烟L火因烤L火考烦L火页烧L火尧烨L火华烩L火会烫B灬汤烬L火尽热B灬执烯L火希烴L火巠烷L火完烹B灬亨烽L火夆焊L火旱焌L火夋焐L火吾焓L火含焕L火奂焖L火闷焗L火局焘B灬寿焙L火咅焚B灬林焢L火空焦B灬隹焯L火卓焰L火臽然B灬肰煅L火段煆L火叚煉L火柬煊L火宣煌L火皇煎B灬前煙L火垔煜L火昱煤L火某煥L火奐煦B灬昫照B灬昭煨L火畏煩L火頁煬L火昜煮B灬者煲B灬保煳L火胡煸L火扁煺L火退煽L火扇熄L火息熊B灬能熔L火容熘L火留熙B灬巸熜L火悤熟B灬孰熠L火習熨B灬尉熬B灬敖熰L火區熱B灬埶熳L火曼熵L火商熹B灬喜熾L火戠燃L火然燅L坴炎燈L火登燉L火敦燎L火尞燒L火堯燔L火番燙B灬湯燜L火悶燠L火奥燥L火喿燦L火粲燧L火遂燬L火毁燭L火蜀燴L火會燹B灬豩燻L火熏燼L火盡燾B灬壽爆L火暴爇T艹熱爌L火廣爍L火樂爐L火盧爛L火闌爝L火爵爬W爪巴父T八乂爷T父卩爸T父巴爹T父多爺T父耶爻T乂乂爿X丩厂牆L爿嗇版L片反牌L片卑牍L片卖牒L片枼牘L片賣牚B牙尚牝L牜匕牟B牛厶牠L牜也牡L牜土牢B牛宀牦L牜毛牧L牜攵物L牜勿牮B牛代牯L牜古牲L牜生牴L牜氐牸L牜字特L牜寺牺L牜西牾L牜吾牿L牜告犀S尾牛犁B牛利犄L牜奇犊L牜卖犋L牜具犍L牜建犎B牛封犏L牜扁犒L牜高犟B牛强犢L牜賣犧L牜羲犪L牜夔犰L犭九犴L犭干状R犬丬犷L犭广犸L犭马犹L犭尤狀R犬爿狁L犭允狂L犭王狃L犭丑狄L犭火狈L犭贝狉L犭丕狊B犬目狍L犭包狎L犭甲狐L犭瓜狒L犭弗狗L犭句狙L犭且狞L犭宁狠L犭艮狡L犭交狨L犭戎狩L犭守独L犭虫狭L犭夹狮L犭师狯L犭会狰L犭争狲L犭孙狳L犭余狴L犭坒狷L犭肙狸L犭里狹L犭夾狺L犭言狻L犭夋狼L犭良狽L犭貝猁L犭利猃L犭佥猇L犭虎猊L犭兒猎L犭昔猒R犬明猓L犭果猕L犭弥猖L犭昌猗L犭奇猙L犭爭猛L犭孟猜L犭青猝L犭卒猞L犭舍猡L犭罗猢L犭胡猥L犭畏猩L犭星猪L犭者猫L犭苗猬L犭胃献R犬南猱L犭柔猲L犭曷猳L犭叚猴L犭侯猵L犭扁猶L犭酋猷R犬酋猸L犭眉猹L犭查猻L犭孫猾L犭骨猿L犭袁獅L犭師獍L犭竟獎B犬將獐L犭章獒B犬敖獗L犭厥獠L犭尞獨L犭蜀獬L犭解獭L犭赖獯L犭熏獲L犭蒦獵L犭巤獷L犭廣獸R犬嘼獻R犬鬳獾L犭雚玃L犭矍玄T亠幺玎L王丁玑L王几玓L王勺玖L王久玗L王于玛L王马玟L王文玡L王牙玢L王分玨L王王玩L王元玫L王攵玮L王韦环L王不现L王见玲L王令玳L王代玷L王占玺B玉尔玻L王皮珀L王白珂L王可珈L王加珉L王民珊L王册珏L王玉珐L王去珑L王龙珙L王共珞L王各珠L王朱珥L王耳珧L王兆珩L王行珲L王军現L王見球L王求琅L王良理L王里琊L王邪琏L王连琚L王居琛L王罙琢L王豖琥L王虎琦L王奇琨L王昆琪L王其琬L王宛琮L王宗琰L王炎琳L王林琴T玨今琵T玨比琶T玨巴琼L王京瑁L王冒瑄L王宣瑋L王韋瑕L王叚瑗L王爰瑚L王胡瑛L王英瑜L王俞瑞L王耑瑟T玨必瑪L王馬瑭L王唐瑯L王郎瑰L王鬼瑱L王真瑷L王爱瑾L王堇璀L王崔璁L王悤璃L王离璇L王旋璋L王章璎L王婴璐L王路璚L王矞璜L王黄璞L王菐璣L王幾璦L王愛璧B玉辟璨L王粲璩L王豦環L王睘璽B玉爾瓅L王樂瓊L王敻瓏L王龍瓒L王赞瓔L王嬰瓞W瓜失瓠R瓜夸瓢R瓜票瓤R瓜襄瓮B瓦公瓯R瓦区瓴R瓦令瓶R瓦并瓷B瓦次瓿R瓦咅甄R瓦垔甌R瓦區甏B瓦彭甑R瓦曾甓B瓦辟甕B瓦雍甘M卄二甙X弋甘甚T甘匹甜R甘舌甥L生男甦W更生甭B用不田M冂土男T田力甸X勹田甹T由丂町L田丁甾B田巛畀T田丌畅L申昜畈L田反畋L田攵界T田介畎L田犬畔L田半留B田卯畜B田玄畝L亩久略L田各畦L田圭畬B田余異T田共畲B田佘畴L田寿當B田尚畸L田奇畹L田宛疃L田童疇L田壽疊T畾冝疌B疋彐疔S疒丁疖S疒卩疗S疒了疙S疒乞疚S疒久疝S疒山疠S疒万疡S疒昜疣S疒尤疤S疒巴疥S疒介疫S疒殳疬S疒历疮S疒仓疯S疒风疰S疒主疱S疒包疲S疒皮疳S疒甘疴S疒可疵S疒此疸S疒旦疼S疒冬疽S疒且疾S疒矢痂S疒加痃S疒玄痄S疒乍病S疒丙症S疒正痈S疒用痊S疒全痍S疒夷痒S疒羊痔S疒寺痕S疒艮痖S疒亚痘S疒豆痙S疒巠痛S疒甬痞S疒否痢S疒利痣S疒志痤S疒坐痦S疒吾痧S疒沙痨S疒劳痪S疒奂痫S疒闲痰S疒炎痱S疒非痲S疒林痴S疒知痹S疒畀痺S疒卑痼S疒固痾S疒阿痿S疒委瘀S疒於瘁S疒卒瘃S疒豖瘅S疒单瘊S疒侯瘋S疒風瘌S疒剌瘐S疒臾瘓S疒奐瘕S疒叚瘘S疒娄瘙S疒蚤瘛S疒恝瘜S疒息瘟S疒昷瘠S疒脊瘡S疒倉瘢S疒般瘤S疒留瘥S疒差瘦S疒叟瘧S疒虐瘩S疒荅瘫S疒难瘭S疒票瘰S疒累瘲S疒從瘳S疒翏瘴S疒章瘵S疒祭瘼S疒莫瘾S疒隐瘿S疒婴癀S疒黄療S疒尞癃S疒隆癆S疒勞癇S疒閒癉S疒單癌S疒嵒癍S疒斑癒S疒愈癔S疒意癖S疒辟癘S疒萬癜S疒殿癞S疒赖癡S疒疑癢S疒養癣S疒鲜癥S疒徵癩S疒賴癫S疒颠癬S疒鮮癮S疒隱癯S疒瞿癰S疒雝癱S疒難癲S疒顛癸T癶天登T癶豆皂T白七的L白勺皆B白比皇T白王皈L白反皋T白夲皎L白交皑L白岂皒L白我皓L白告皕L百百皖L白完皙B白析皚L白豈皤L白番皦L白敫皰L皮包皱R皮刍皲R皮军皴R皮夋皺R皮芻皻R皮虘盂B皿于盃B皿不盅B皿中盆B皿分盈B皿夃益B皿水盍B皿去盎B皿央盏B皿戋盐B皿圤盒B皿合盔B皿灰盖B皿羊盗B皿次盘B皿舟盛B皿成盞B皿戔盟B皿明盤B皿般盪B皿湯目O口二盯L目丁盱L目于盲B目亡相R目木盹L目屯盼L目分省B目少眄L目丏眇L目少眈L目冘眉S尸目看B目手眍L目区眙L目台眚B目生真T直几眠L目民眢B目夗眥B目此眦L目此眨L目乏眩L目玄眭L目圭眯L目米眳L目名眵L目多眶L目匡眷B目龹眸L目牟眺L目兆眼L目艮眾T罒众着S羊目睁L目争睃L目夋睇L目弟睏L目困睐L目来睑L目佥睚L目厓睛L目青睜L目爭睞L目來睡L目垂睢L目隹督B目叔睥L目卑睦L目坴睨L目兒睪T罒幸睫L目疌睬L目采睹L目者睽L目癸睾T血幸瞀B目敄瞄L目苗瞅L目秋瞇L目迷瞈L目翁瞋L目真瞌L目盍瞍L目叟瞎L目害瞑L目冥瞜L目婁瞟L目票瞠L目堂瞥B目敝瞧L目焦瞩L目属瞪L目登瞬L目舜瞭L目尞瞰L目敢瞳L目童瞵L目粦瞻L目詹瞼L目僉瞽B目鼓矇L目蒙矍T瞿又矓L目龍矚L目屬矜L矛今矞T矛冏矣B矢厶知L矢口矧L矢引矩L矢巨矫L矢乔矬L矢坐短L矢豆矮L矢委矯L矢喬石S厂口矶L石几矸L石干矻L石乞矽L石夕矾L石凡矿L石广砀L石昜码L石马砂L石少砉B石丰砌L石切砍L石欠砑L石牙砒L石比研L石开砖L石专砗L石车砘L石屯砚L石见砜L石风砝L石去砟L石乍砣L石它砥L石氐砦B石此砧L石占砩L石弗砬L石立砭L石乏砰L石平砲L石包破L石皮砷L石申砸L石匝砹L石艾砺L石厉砻T龙石砼L石仝砾L石乐础L石出硃L石朱硅L石圭硇L石囟硌L石各硎L石刑硐L石同硒L石西硕L石页硖L石夹硗L石尧硝L石肖硪L石我硬L石更硭L石芒确L石角硯L石見硷L石佥硼L石朋碇L石定碉L石周碌L石录碎L石卒碑L石卑碓L石隹碗L石宛碘L石典碚L石咅碛L石责碜L石参碟L石枼碡L石毒碣L石曷碥L石扁碧B石珀碩L石頁碰L石並碱L石咸碲L石帝碳L石炭碴L石查碹L石宣確L石隺碼L石馬碾L石展磁L石兹磅L石旁磉L石桑磋L石差磐B石般磔L石桀磕L石盍磙L石衮磚L石專磨S麻石磬B石殸磲L石渠磴L石登磷L石粦磺L石黄礁L石焦礅L石敦礎L石楚礓L石畺礙L石疑礞L石蒙礤L石蔡礦L石廣礬B石樊礴L石薄示T二小社L礻土祀L礻巳祁L礻阝祆L礻天祇L礻氏祈L礻斤祉L礻止祓L礻犮祕L礻必祖L礻且祗L礻氐祚L礻乍祛L礻去祜L礻古祝L礻兄神L礻申祟B示出祠L礻司祢L礻尔祥L礻羊祧L礻兆票B示覀祯L礻贞祷L礻寿祸L礻呙祺L礻其祿L礻彔禁B示林禄L礻录禅L礻单禊L礻契禍L礻咼禎L礻貞福L礻畐禕L礻韋禚L礻羔禛L礻真禦B示御禧L礻喜禪L礻單禮L礻豊禰L礻爾禱L礻壽禳L礻襄禺B禸日禽T人离禿T禾儿秀T禾乃私L禾厶秃T禾几秆L禾干秋L禾火种L禾中科L禾斗秒L禾少秕L禾比秘L禾必秝L禾禾租L禾且秣L禾末秤L禾平秧L禾央秩L禾失秫L禾术积L禾只称L禾尔秸L禾吉移L禾多秽L禾岁稀L禾希稂L禾良稃L禾孚稅L禾兌稆L禾吕稈L禾旱程L禾呈稍L禾肖税L禾兑稔L禾念稗L禾卑稙L禾直稚L禾隹稜L禾夌稞L禾果稠L禾周稣L鱼禾稨L禾扁種L禾重稱L禾爯稳L禾急稷L禾畟稹L禾真稻L禾舀稼L禾家稿L禾高穌R禾魚積L禾責穑L禾啬穗L禾惠穡L禾嗇穢L禾歲穫L禾蒦穰L禾襄穴T宀八究T穴九穷T穴力穸T穴夕穹T穴弓空T穴工穿T穴牙窀T穴屯突T穴犬窃T穴切窄T穴乍窅T穴目窆T穴乏窈T穴幼窍T穴巧窑T穴缶窒T穴至窕T穴兆窖T穴告窗T穴囱窘T穴君窜T穴串窝T穴呙窟T穴屈窠T穴果窣T穴卒窥T穴规窦T穴卖窨T穴音窩T穴咼窪T穴洼窬T穴俞窭T穴娄窮T穴躬窯T穴羔窸T穴悉窺T穴規窾T穴款窿T穴隆竄T穴鼠竅T穴敫竇T穴賣竘L立句站L立占竞T立兄竟T音儿章T音十竣L立夋童T立里竦L立束竭L立曷端L立耑競L竞竞竺T⺮二竽T⺮于竿T⺮干笃T⺮马笄T⺮开笆T⺮巴笈T⺮及笊T⺮爪笋T⺮尹笏T⺮勿笑T⺮夭笔T⺮毛笕T⺮见笙T⺮生笛T⺮由笞T⺮台笠T⺮立笤T⺮召笥T⺮司符T⺮付笨T⺮本笪T⺮旦第T⺮弟笮T⺮乍笱T⺮句笳T⺮加笸T⺮叵笺T⺮戋笼T⺮龙笾T⺮边筀T⺮圭筅T⺮先筆T⺮聿筇T⺮邛等T⺮寺筊T⺮交筋T⺮肋筌T⺮全筍T⺮旬筏T⺮伐筐T⺮匡筑T⺮巩筒T⺮同答T⺮合策T⺮朿筘T⺮扣筚T⺮毕筛T⺮师筝T⺮争筠T⺮均筢T⺮把筦T⺮完筮T⺮巫筱T⺮攸筲T⺮肖筵T⺮延筷T⺮快筹T⺮寿筻T⺮更签T⺮佥简T⺮间箅T⺮畀箋T⺮戔箏T⺮爭箐T⺮青箔T⺮泊箕T⺮其算T⺮具箜T⺮空箝T⺮拑管T⺮官箢T⺮宛箦T⺮责箨T⺮择箩T⺮罗箪T⺮单箫T⺮肃箬T⺮若箭T⺮前箱T⺮相箴T⺮咸箸T⺮者節T⺮即篁T⺮皇篆T⺮彖篇T⺮扁篋T⺮匧篌T⺮侯篑T⺮贵篓T⺮娄篔T⺮員篙T⺮高篚T⺮匪篝T⺮冓篡B厶算篤T⺮馬篥T⺮栗篩T⺮師篪T⺮虒篮T⺮监篱T⺮离篳T⺮畢篷T⺮逢篼T⺮兜簇T⺮族簉T⺮造簌T⺮欶簏T⺮鹿簖T⺮断簞T⺮單簟T⺮覃簡T⺮間簣T⺮貴簦T⺮登簧T⺮黄簪T⺮朁簫T⺮肅簷T⺮詹簹T⺮當簽T⺮僉簾T⺮廉簿T⺮溥籁T⺮赖籃T⺮監籌T⺮壽籍T⺮耤籙T⺮録籟T⺮賴籠T⺮龍籤T⺮韱籬T⺮離籮T⺮羅籲T⺮龥籴B米入类B大米籼L米山籽L米子粉L米分粑L米巴粒L米立粕L米白粗L米且粘L米占粜B米出粝L米厉粞L米西粟B米覀粢B米次粪T米共粮L米良粳L米更粹L米卒粼L粦巛粽L米宗精L米青糁L米参糅L米柔糇L米侯糈L米胥糊L米胡糌L米昝糍L米兹糕L米羔糖L米唐糗L米臭糙L米造糜S麻米糞T米異糟L米曹糠L米康糢L米莫糧L米量糨L米强糬L米署糯L米需糰L米團糲L米厲糸T幺小糾L糹丩紀L糹己紂L糹寸約L糹勺紅L糹工紆L糹于紇L糹乞紈L糹丸紉L糹刃紊B糸文紋L糹文納L糹内紐L糹丑紓L糹予純L糹屯紕L糹比紗L糹少紙L糹氏級L糹及紛L糹分紜L糹云素B糸龶紡L糹方紫B糸此紮B糸札累B糸田細L糹田紳L糹申紹L糹召紺L糹甘紼L糹弗絀L糹出終L糹冬組L糹且絆L糹半絎L糹行結L糹吉絓L糹圭絘L糹次絞L糹交絡L糹各絢L糹旬給L糹合絨L糹戎絮B糸如統L糹充絲L糹糸絳L糹夅絷B糸执絹L糹肙絻L糹免綁L糹邦綏L糹妥經L糹巠綜L糹宗綠L糹彔綢L糹周綣L糹卷綦B糸其綬L糹受維L糹隹綱L糹岡網L糹罔綴L糹叕綵L糹采綷L糹卒綸L糹侖綹L糹咎綺L糹奇綻L糹定綽L糹卓綿L糹帛緄L糹昆緊B糸臤緋L糹非緒L糹者緘L糹咸線L糹泉緝L糹咠緞L糹段締L糹帝緣L糹彖編L糹扁緩L糹爰緬L糹面緯L糹韋緲L糹眇練L糹柬緻L糹致縉L糹晋縊L糹益縛L糹尃縞L糹高縟L糹辱縣L県系縩L糹祭縫L糹逢縭L糹离縮L糹宿縱L糹從縴L糹牽縵L糹曼縷L糹婁縹L糹票縻S麻糸總L糹悤績L糹責繁B糸敏繃L糹崩繆L糹翏繒L糹曾織L糹戠繕L糹善繚L糹尞繞L糹堯繡L糹肅繩L糹黽繪L糹會繫B糸毄繯L糹睘繰L糹喿繳L糹敫繹L糹睪繽L糹賓繾L糹遣纂B糸算纈L糹頡續L糹賣纍B糸畾纏L糹廛纓L糹嬰纔L糹毚纖L糹韱纛T毒縣纜L糹覽纠L纟丩纡L纟于红L纟工纣L纟寸纤L纟千纥L纟乞约L纟勺级L纟及纨L纟丸纩L纟广纪L纟己纫L纟刃纬L纟韦纭L纟云纯L纟屯纰L纟比纱L纟少纲L纟冈纳L纟内纵L纟从纶L纟仑纷L纟分纸L纟氏纹L纟文纺L纟方纽L纟丑纾L纟予线L纟戋绀L纟甘绁L纟世绂L纟犮练L纟柬组L纟且绅L纟申细L纟田织L纟只终L纟冬绉L纟刍绊L纟半绋L纟弗绌L纟出绍L纟召绐L纟台绑L纟邦绒L纟戎结L纟吉绔L纟夸绕L纟尧绗L纟行绘L纟会给L纟合绚L纟旬绛L纟夅络L纟各绝L纟色绞L纟交统L纟充绠L纟更绡L纟肖绢L纟肙绣L纟秀绥L纟妥绦L纟条绨L纟弟绩L纟责绪L纟者绫L纟夌续L纟卖绮L纟奇绯L纟非绰L纟卓绱L纟尚绲L纟昆绳L纟黾维L纟隹绵L纟帛绶L纟受绷L纟朋绸L纟周绺L纟咎绻L纟卷综L纟宗绽L纟定绾L纟官绿L纟录缀L纟叕缁L纟甾缂L纟革缃L纟相缄L纟咸缅L纟面缆L纟览缇L纟是缈L纟眇缉L纟咠缋L纟贵缌L纟思缍L纟垂缎L纟段缏L纟便缑L纟侯缒L纟追缓L纟爰缔L纟帝缕L纟娄编L纟扁缗L纟昬缘L纟彖缙L纟晋缚L纟尃缛L纟辱缜L纟真缝L纟逢缟L纟高缡L纟离缢L纟益缣L纟兼缤L纟宾缥L纟票缦L纟曼缧L纟累缨L纟婴缩L纟宿缪L纟翏缫L纟巢缬L纟颉缭L纟尞缮L纟善缯L纟曾缰L纟畺缱L纟遣缲L纟喿缳L纟睘缴L纟敫缵L纟赞缸L缶工缺L缶夬缽L缶本罄B缶殸罅L缶虖罈L缶覃罌B缶賏罐L缶雚罕T罒干罗T罒夕罘T罒不罟T罒古罡T罒正罢T罒去罨T罒奄罩T罒卓罪T罒非置T罒直罱T罒南署T罒者罴T罢灬罵T罒馬罷T罒能罹T罒惟罾T罒曾羅T罒維羆T罒熊羍B羊大美T羊大羔T羊灬羕T羊永羚L羊令羝L羊氐羞S羊丑羡T羊次群R羊君羥L羊巠羧L羊夋義T羊我羯L羊曷羰L羊炭羹T羔美羼S尸羴羽L习习羿T羽廾翁B羽公翅W支羽翊R羽立翌T羽立翎R羽令習T羽白翔R羽羊翕B羽合翘W尧羽翟T羽隹翠T羽卒翡B羽非翥B羽者翦B羽前翩R羽扁翮R羽鬲翰R羽倝翱R羽皋翳B羽殹翹W堯羽翻R羽番翼T羽異耀L光翟老T耂匕考S耂丂耄T耂毛者S耂日耆T耂日耋T耂至耍T而女耐L而寸耑B而山耔L耒子耕L耒井耖L耒少耗L耒毛耘L耒云耙L耒巴耠L耒合耢L耒劳耤L耒昔耥L耒尚耦L耒禺耧L耒娄耨L耒辱耩L耒冓耪L耒旁耱L耒磨耵L耳丁耶L耳阝耷B耳大耸B耳从耻L耳止耽L耳冘耿L耳火聂T耳双聃L耳冉聆L耳令聊L耳卯聋B耳龙职L耳只聍L耳宁聒L耳舌联L耳关聘L耳甹聚T取乑聞M門耳聩L耳贵聪L耳总聯L耳絲聰L耳悤聱B耳敖聲B耳殸聳B耳從聵L耳貴職L耳戠聾B耳龍肆R聿镸肋L月力肌L月几肓B月亡肘L月寸肙B月口肚L月土肛L月工肜L月彡肝L月干肟L月亏肠L月昜股L月殳肢L月支肤L月夫肥L月巴肪L月方肫L月屯肭L月内肮L月亢肯B月止肱L月厷肴T乂有肷L月欠肺L月巿肼L月井肽L月太肿L月中胀L月长胁L月办胂L月申胃B月田胄B月由胆L月旦背B月北胍L月瓜胎L月台胖L月半胙L月乍胚L月丕胛L月甲胜L月生胝L月氐胞L月包胠L月去胡R月古胥B月疋胧L月龙胨L月东胩L月卡胪L月卢胬B肉奴胭L月因胯L月夸胰L月夷胱L月光胲L月亥胳L月各胴L月同胶L月交胸L月匈胺L月安胼L月并脂L月旨脅B月劦脆L月危脈L月永脉L月永脍L月会脎L月杀脏L月庄脐L月齐脒L月米脓L月农脔B肉亦脖L月孛脘L月完脚L月却脛L月巠脞L月坐脢L月每脫L月兌脬L月孚脯L月甫脱L月兑脲L月尿脶L月呙脸L月佥脹L月長脾L月卑腆L月典腈L月青腊L月昔腋L月夜腌L月奄腎B月臤腑L月府腓L月非腔L月空腕L月宛腙L月宗腚L月定腠L月奏腥L月星腧L月俞腩L月南腫L月重腭L月咢腮L月思腰L月要腱L月建腳L月卻腴L月臾腸L月昜腹L月复腺L月泉腻L月贰腼L月面腽L月昷腾S朕马腿L月退膀L月旁膂B月旅膈L月鬲膊L月尃膏B月高膑L月宾膕L月國膘L月票膚S虍胃膛L月堂膜L月莫膝L月桼膠L月翏膣L月窒膦L月粦膨L月彭膩L月貳膪L月啻膫L月尞膲L月焦膳L月善膻L月亶膽L月詹膾L月會膿L月農臀B月殿臁L月廉臂B月辟臃L月雍臆L月意臉L月僉臊L月喿臌L月鼓臍L月齊臘L月巤臚L月盧臟L月藏臢L月贊臥L臣人臧M戕臣臬T自木臭T自犬臲L臬危致L至攵臻L至秦舀B臼爫舁T臼廾舅T臼男舆U舁车舉B扌與舊B臼雈舋T興且舌T千口舍B舌人舐L舌氏舒L舍予舔L舌忝舖L舍甫舞B舛無舡L舟工舢L舟山舣L舟义舨L舟反航L舟亢舫L舟方般L舟殳舭L舟比舯L舟中舰L舟见舱L舟仓舲L舟令舳L舟由舴L舟乍舵L舟它舶L舟白舷L舟玄舸L舟可舻L舟卢舾L舟西艄L舟肖艅L舟余艇L舟廷艉L舟尾艋L舟孟艎L舟皇艏L舟首艘L舟叟艙L舟倉艚L舟曹艟L舟童艦L舟監艨L舟蒙艰L又艮艱R艮堇艳R色丰艴R色弗艷R色豐艸L屮屮艽T艹九艾T艹乂艿T艹乃芄T艹丸芊T艹千芋T艹于芍T艹勺芎T艹弓芏T艹土芑T艹己芒T艹亡芗T艹乡芘T艹比芙T艹夫芜T艹无芝T艹之芟T艹殳芡T艹欠芤T艹孔芥T艹介芦T艹户芨T艹及芩T艹今芪T艹氏芫T艹元芬T艹分芭T艹巴芮T艹内芯T艹心芰T艹支花T艹化芳T艹方芴T艹勿芷T艹止芸T艹云芹T艹斤芽T艹牙芾T艹巿苁T艹从苄T艹卞苇T艹韦苈T艹历苊T艹厄苋T艹见苌T艹长苍T艹仓苏T艹办苑T艹夗苒T艹冉苓T艹令苔T艹台苕T艹召苗T艹田苘T艹冋苛T艹可苜T艹目苞T艹包苟T艹句苠T艹民苡T艹以苣T艹巨苤T艹丕若T艹右苦T艹古苧T艹宁苫T艹占苯T艹本英T艹央苲T艹乍苴T艹且苷T艹甘苹T艹平苻T艹付茀T艹弗茁T艹出茂T艹戊范T艹氾茄T艹加茅T艹矛茆T艹卯茇T艹犮茈T艹此茉T艹末茌T艹仕茏T艹龙茑T艹鸟茗T艹名茚T艹印茛T艹艮茜T艹西茧T艹虫茨T艹次茫T艹汒茬T艹在茭T艹交茯T艹伏茱T艹朱茳T艹江茴T艹回茵T艹因茸T艹耳茹T艹如茺T艹充茼T艹同荀T艹旬荃T艹全荅T艹合荇T艹行草T艹早荊T艹刑荏T艹任荐T艹存荑T艹夷荒T芒川荔T艹劦荚T艹夹荛T艹尧荜T艹毕荞T艹乔荟T艹会荠T艹齐荡T艹汤荤T艹军荨T艹寻荩T艹尽荪T艹孙荫T艹阴荬T艹买荭T艹红荮T艹纣药T艹约荷T艹何荸T艹孛荻T艹狄荼T艹余荽T艹妥莅T艹位莆T艹甫莉T艹利莊T艹壯莎T艹沙莒T艹吕莓T艹每莖T艹巠莘T艹辛莛T艹廷莜T艹攸莞T艹完莠T艹秀莢T艹夾莧T艹見莨T艹良莩T艹孚莪T艹我莫T艹旲莰T艹坎莱T艹来莲T艹连莳T艹时莴T艹呙莶T艹佥获T艹犾莸T艹犹莼T艹纯莿T艹刺菀T艹宛菁T艹青菅T艹官菇T艹姑菊T艹匊菌T艹囷菏T艹河菔T艹服菖T艹昌菘T艹松菜T艹采菝T艹拔菟T艹兔菠T艹波菡T艹函菥T艹析菩T艹咅菪T艹宕菰T艹孤菱T艹夌菲T艹非菸T艹於菹T艹沮菽T艹叔萁T艹其萃T艹卒萄T艹匋萆T艹卑萊T艹來萋T艹妻萌T艹明萍T艹泙萎T艹委萏T艹臽萑T艹隹萘T艹奈萜T艹帖萝T艹罗萧T艹肃萬T艹禺萱T艹宣萸T艹臾萼T艹咢落T艹洛葄T艹胙葆T艹保葉T艹枼葑T艹封著T艹者葙T艹相葚T艹甚葛T艹曷葜T艹契葡T艹匍董T艹重葦T艹韋葩T艹皅葫T艹胡葭T艹叚葱T艹怱葳T艹威葵T艹癸葶T艹亭葷T艹軍葸T艹思葺T艹咠蒂T艹帝蒈T艹皆蒉T艹贵蒋T艹将蒌T艹娄蒎T艹派蒐T艹鬼蒔T艹時蒗T艹浪蒙T艹冡蒜T艹祘蒞T艹涖蒟T艹竘蒡T艹旁蒯L萠刂蒲T艹浦蒴T艹朔蒸T艹烝蒹T艹兼蒺T艹疾蒻T艹弱蒼T艹倉蒽T艹恩蒿T艹高蓁T艹秦蓂T艹冥蓄T艹畜蓉T艹容蓊T艹翁蓋T艹盍蓍T艹耆蓐T艹辱蓑T艹衰蓓T艹倍蓔T艹羔蓝T艹监蓠T艹离蓣T艹预蓦B马莫蓬T艹逢蓮T艹連蓰T艹徙蓴T艹專蓼T艹翏蓽T艹畢蓿T艹宿蔌T艹欶蔓T艹曼蔔T艹匐蔗T艹庶蔚T艹尉蔟T艹族蔡T艹祭蔣T艹將蔥T艹悤蔫T艹焉蔬T艹疏蔭T艹陰蔷T艹啬蔸T艹兜蔹T艹敛蔻T艹寇蔼T艹谒蔽T艹敝蕃T艹番蕈T艹覃蕉T艹焦蕊T艹惢蕎T艹喬蕑T艹閒蕓T艹雲蕕T艹猶蕖T艹渠蕘T艹堯蕙T艹惠蕞T艹最蕠T艹絮蕢T艹貴蕤T艹甤蕨T艹厥蕩T艹湯蕪T艹無蕭T艹肅蕴T艹缊蕷T艹預蕹T艹雍蕺T艹戢蕾T艹雷薄T艹溥薅T艹媷薇T艹微薈T艹會薊T艹魝薌T艹鄉薏T艹意薑T艹畺薔T艹嗇薜T艹辟薦T艹廌薩T艹隡薪T艹新薮T艹数薯T艹署薰T艹熏薳T艹遠薶T艹貍薷T艹需薹T艹臺薺T艹齊藁T艹槀藇T艹與藉T艹耤藍T艹監藏T艹臧藐T艹貌藓T艹鲜藕T艹耦藘T艹慮藜T艹黎藤T艹滕藥T艹樂藨T艹麃藩T艹潘藪T艹數藭T艹窮藹T艹謁藺T艹閵藻T艹澡藿T艹霍蘅T艹衡蘆T艹盧蘇T艹穌蘊T艹縕蘋T艹頻蘑T艹磨蘖B木薛蘘T艹襄蘚T艹鮮蘞T艹斂蘢T艹龍蘧T艹遽蘩T艹繁蘭T艹闌蘵T艹職蘸T艹醮蘺T艹離蘼T艹靡蘿T艹羅虎S虍几虏S虍力虐S虍彐虑S虍心虒S厂虎虔S虍文處S虍処虖S虍乎虚S虍业虜S虍男虞S虍吴號R虎号虢R虎寽虧L雐亏虮L虫几虰L虫丁虹L虫工虺W兀虫虻L虫亡虼L虫乞虽B虫口虾L虫下虿B虫万蚀L饣虫蚁L虫义蚂L虫马蚊L虫文蚋L虫内蚌L虫丰蚍L虫比蚓L虫引蚕B虫天蚖L虫元蚜L虫牙蚝L虫毛蚣L虫公蚤B虫叉蚧L虫介蚨L虫夫蚪L虫斗蚬L虫见蚯L虫丘蚰L虫由蚱L虫乍蚴L虫幼蚵L虫可蚶L虫甘蚺L虫冉蛀L虫主蛄L虫古蛆L虫且蛇L虫它蛉L虫令蛊T虫皿蛋B虫疋蛎L虫厉蛏L虫圣蛐L虫曲蛑L虫牟蛔L虫回蛘L虫羊蛙L虫圭蛛L虫朱蛜L虫伊蛞L虫舌蛟L虫交蛤L虫合蛩B虫巩蛭L虫至蛮B虫亦蛰B虫执蛱L虫夹蛲L虫尧蛳L虫师蛴L虫齐蛵L虫巠蛸L虫肖蛹L虫甬蛺L虫夾蛻L虫兌蛾L虫我蜂L虫夆蜃S辰虫蜇B虫折蜈L虫吴蜉L虫孚蜊L虫利蜍L虫余蜎L虫肙蜒L虫延蜓L虫廷蜕L虫兑蜗L虫呙蜘L虫知蜚B虫非蜜B虫宓蜞L虫其蜡L虫昔蜢L虫孟蜣L虫羌蜥L虫析蜩L虫周蜮L虫或蜱L虫卑蜴L虫易蜷L虫卷蜻L虫青蜾L虫果蜿L虫宛蝇L虫黾蝈L虫国蝉L虫单蝌L虫科蝎L虫曷蝓L虫俞蝕R虫飠蝗L虫皇蝙L虫扁蝟L虫胃蝠L虫畐蝣L虫斿蝤L虫酋蝥B虫敄蝦L虫叚蝮L虫复蝰L虫奎蝴L虫胡蝶L虫枼蝸L虫咼蝻L虫南蝼L虫娄蝽L虫春蝾L虫荣螂L虫郎螃L虫旁螄L虫師螅L虫息螈L虫原螉L虫翁螋L虫叟融L鬲虫螓L虫秦螗L虫唐螞L虫馬螟L虫冥螫B虫赦螬L虫曹螭L虫离螮L虫帶螯B虫敖螳L虫堂螵L虫票螺L虫累螻L虫婁蟀L虫率蟄B虫執蟆L虫莫蟈L虫國蟋L虫悉蟑L虫章蟒L虫莽蟓L虫象蟛L虫彭蟜L虫喬蟟L虫尞蟠L虫番蟢L虫喜蟣L虫幾蟥L虫黄蟪L虫惠蟬L虫單蟭L虫焦蟮L虫善蟯L虫堯蟹B虫解蟻L虫義蟾L虫詹蠅L虫黽蠊L虫廉蠍L虫歇蠑L虫榮蠓L虫蒙蠔L虫豪蠕L虫需蠖L虫蒦蠛L虫蔑蠟L虫巤蠣L虫厲蠨L虫蕭蠮L虫翳蠱T蟲皿蠲L益蜀蠵L虫巂蠼L虫矍衄L血丑衅L血半衊L血蔑行L彳亍衝O行重补L衤卜表B衣毛衩L衤叉衫L衤彡衬L衤寸衲L衤内衹L衤氏衽L衤壬衾B衣今衿L衤今袂L衤夬袄L衤夭袅B衣鸟袈B衣加袋B衣代袍L衤包袒L衤旦袖L衤由袜L衤末袟L衤失袢L衤半被L衤皮袭T龙衣袱L衤伏袷L衤合袼L衤各裂B衣列装B衣壮裆L衤当裉L衤艮裊B衣鳥裎L衤呈裔T衣冏裕L衤谷裘B衣求裙L衤君補L衤甫裝B衣壯裟B衣沙裡L衤里裢L衤连裣L衤佥裤L衤库裥L衤间裨L衤卑裰L衤叕裱L衤表裳B衣尚裴B衣非裸L衤果裼L衤易製B衣制裾L衤居褂L衤卦複L衤复褊L衤扁褐L衤曷褓L衤保褙L衤背褚L衤者褛L衤娄褡L衤荅褥L衤辱褪L衤退褫L衤虒褲L衤庫褳L衤連褴L衤监褵L衤离褶L衤習褸L衤婁襁L衤强襖L衤奥襞B衣辟襟L衤禁襠L衤當襢L衤亶襤L衤監襦L衤需襪L衤蔑襫L衤奭襯L衤親襲B衣龍襻L衤攀要T覀女覃T覀早覆T覀復覈T覀敫見T目儿規R見夫覓B見爫視R見礻覘R見占覡R見巫覦R見俞親R見亲覬R見豈覲R見堇覷R見虚覽B見監觀R見雚见M冂儿观R见又规R见夫觅T爫见视R见礻觇R见占觊R见岂觋R见巫觌R见卖觎R见俞觏R见冓觐R见堇觑R见虚觖L角夬觚L角瓜觜B角此觥L角光触L角虫觫L角束觯L角单觱B角咸觸L角蜀訂L訁丁訃L訁卜訇X勹言計L訁十訊L訁卂訌L訁工討L訁寸訓L訁川訕L訁山訖L訁乞託L訁乇記L訁己訛L訁化訝L訁牙訟L訁公訢L訁斤訣L訁夬訥L訁内訪L訁方設L訁殳許L訁午訴L訁斥訶L訁可註L訁主訾B言此詆L訁氐詈B言罒詐L訁乍詒L訁台詔L訁召評L訁平詛L訁且詞L訁司詠L訁永詡L訁羽詢L訁旬詣L訁旨試L訁式詩L訁寺詫L訁宅詬L訁后詭L訁危詮L訁全詰L訁吉話L訁舌該L訁亥詳L訁羊詼L訁灰詿L訁圭誅L訁朱誆L訁匡誇L訁夸誉B言兴誊B言龹誌L訁志認L訁忍誑L訁狂誒L訁矣誓B言折誕L訁延誘L訁秀誙L訁巠誚L訁肖語L訁吾誠L訁成誡L訁戒誣L訁巫誤L訁吴誦L訁甬誨L訁每說L訁兌誰L訁隹課L訁果誹L訁非誼L訁宜誾M門言調L訁周諂L訁臽諄L訁享談L訁炎諉L訁委請L訁青諒L訁京論L訁侖諛L訁臾諜L訁枼諠L訁宣諢L訁軍諤L訁咢諦L訁帝諧L訁皆諫L訁柬諭L訁俞諮L訁咨諱L訁韋諳L訁音諶L訁甚諷L訁風諸L訁者諺L訁彦諾L訁若謀L訁某謁L訁曷謂L訁胃謄L月誊謅L訁芻謊L訁荒謎L訁迷謔L訁虐謗L訁旁謙L訁兼謚L訁益講L訁冓謝L訁射謦B言殸謨L訁莫謫L訁啇謬L訁翏謳L訁區謹L訁堇謾L訁曼證L訁登譎L訁矞譏L訁幾譖L訁朁識L訁戠譙L訁焦譚L訁覃譜L訁普警B言敬譫L訁詹譬B言辟譭L訁毁譯L訁睪議L訁義譴L訁遣護L訁蒦譽B言與讀L訁賣讌L訁燕讒L訁毚讓L訁襄讕L訁闌讖L訁韱讚L訁贊讞L訁獻计L讠十订L讠丁讣L讠卜认L讠人讥L讠几讦L讠干讧L讠工讨L讠寸让L讠上讪L讠山讫L讠乞训L讠川议L讠义讯L讠卂记L讠己讲L讠井讳L讠韦讴L讠区讵L讠巨讶L讠牙讷L讠内许L讠午讹L讠化论L讠仑讼L讠公讽L讠风设L讠殳访L讠方诀L讠夬证L讠正诂L讠古诃L讠可评L讠平诅L讠且识L讠只诈L讠乍诉L讠斥诋L讠氐诌L讠刍词L讠司诎L讠出诏L讠召诒L讠台诓L讠匡诔L讠耒试L讠式诖L讠圭诗L讠寺诘L讠吉诙L讠灰诚L讠成诛L讠朱诜L讠先话L讠舌诞L讠延诟L讠后诠L讠全诡L讠危询L讠旬诣L讠旨诤L讠争该L讠亥详L讠羊诧L讠宅诨L讠军诩L讠羽诫L讠戒诬L讠巫语L讠吾诮L讠肖误L讠吴诰L讠告诱L讠秀诲L讠每诳L讠狂说L讠兑诵L讠甬诶L讠矣请L讠青诸L讠者诹L讠取诺L讠若读L讠卖诼L讠豖诽L讠非课L讠果诿L讠委谀L讠臾谁L讠隹谂L讠念调L讠周谄L讠臽谅L讠京谆L讠享谇L讠卒谈L讠炎谊L讠宜谋L讠某谌L讠甚谍L讠枼谎L讠荒谏L讠柬谐L讠皆谑L讠虐谒L讠曷谓L讠胃谔L讠咢谕L讠俞谖L讠爰谘L讠咨谙L讠音谚L讠彦谛L讠帝谜L讠迷谝L讠扁谟L讠莫谠L讠党谡L讠畟谢L讠射谤L讠旁谥L讠益谦L讠兼谨L讠堇谩L讠曼谪L讠啇谫L讠剪谬L讠翏谭L讠覃谮L讠朁谯L讠焦谰L讠阑谱L讠普谲L讠矞谳L讠献谴L讠遣谵L讠詹谶L讠韱谿R谷奚豁R谷害豇L豆工豈B豆山豉L豆支豊B豆曲豌L豆宛豎B豆臤豔L豐盍豚R豕月豢B豕龹豦S虍豕豩L豕豕豪B豕高豫L予象豬L豕者豱L豕昷豸T爫犭豹L豸勺豺L豸才豻L豸干貂L豸召貅L豸休貉L豸各貊L豸百貌L豸皃貍L豸里貓L豸苗貘L豸莫貝T目八財L貝才貢B貝工貧B貝分貨B貝化販L貝反貪B貝今貫B貝毌責B貝龶貯L貝宁貲B貝此貶L貝乏買B貝罒貸B貝代費B貝弗貼L貝占貽L貝台貿B貝卯賀B貝加賁B貝卉賂L貝各賃B貝任賄L貝有賅L貝亥資B貝次賈B貝覀賊L貝戎賏L貝貝賑L貝辰賒L貝佘賙L貝周賚B貝來賜L貝易賞B貝尚賠L貝咅賢B貝臤賤L貝戔賦L貝武質B貝斦賬L貝長賭L貝者賴L束負賺L貝兼購L貝冓贄B貝執贅B貝敖贈L貝曾贊B貝兟贍L貝詹贓L貝臧贖L貝賣贗S鴈貝贝M冂人贡B贝工财L贝才责B贝龶败L贝攵账L贝长货B贝化贩L贝反贪B贝今贫B贝分贬L贝乏购L贝勾贯B贝毌贱L贝戋贲B贝卉贳B贝世贴L贝占贶L贝兄贷B贝代贸B贝卯费B贝弗贺B贝加贻L贝台贼L贝戎贽B贝执贾B贝覀贿L贝有赀B贝此赁B贝任赂L贝各赃L贝庄资B贝次赅L贝亥赆L贝尽赇L贝求赈L贝辰赉B贝来赊L贝佘赋L贝武赌L贝者赎L贝卖赏B贝尚赐L贝易赓S庚贝赔L贝咅赕L贝炎赖R贝剌赘B贝敖赙L贝尃赚L贝兼赜L臣责赝S雁贝赞B贝兟赠L贝曾赡L贝詹赤T土灬赦L赤攵赫L赤赤赭L赤者走T土止赳W走丩赴W走卜赵W走乂赶W走干起W走己赸W走山趄W走且超W走召越W走戉趋W走刍趑W走次趔W走列趕W走旱趙W走肖趟W走尚趣W走取趨W走芻趯W走翟趱W走赞趴L⻊八趵L⻊勺趸B足万趺L⻊夫趼L⻊开趾L⻊止趿L⻊及跂L⻊支跃L⻊夭跄L⻊仓跆L⻊台跋L⻊犮跌L⻊失跎L⻊它跏L⻊加跑L⻊包跖L⻊石跗L⻊付跚L⻊册跛L⻊皮距L⻊巨跞L⻊乐跟L⻊艮跡L⻊亦跣L⻊先跤L⻊交跨L⻊夸跪L⻊危跫B足巩跬L⻊圭路L⻊各跳L⻊兆践L⻊戋跷L⻊尧跸L⻊毕跹L⻊迁跺L⻊朵跻L⻊齐跽L⻊忌踅B足折踉L⻊良踊L⻊甬踌L⻊寿踏L⻊沓踐L⻊戔踔L⻊卓踘L⻊匊踝L⻊果踞L⻊居踟L⻊知踢L⻊易踣L⻊咅踥L⻊妾踩L⻊采踪L⻊宗踬L⻊质踮L⻊店踯L⻊郑踱L⻊度踴L⻊勇踵L⻊重踶L⻊是踹L⻊耑踺L⻊建踽L⻊禹蹀L⻊枼蹁L⻊扁蹂L⻊柔蹄L⻊帝蹈L⻊舀蹉L⻊差蹊L⻊奚蹌L⻊倉蹑L⻊聂蹙B足戚蹚L⻊堂蹟L⻊責蹡L⻊將蹤L⻊從蹦L⻊崩蹧L⻊曹蹩B足敝蹬L⻊登蹭L⻊曾蹯L⻊番蹰L⻊厨蹲L⻊尊蹴L⻊就蹶L⻊厥蹺L⻊堯蹼L⻊菐蹿L⻊窜躁L⻊喿躂L⻊達躅L⻊蜀躇L⻊著躉B足萬躊L⻊壽躋L⻊齊躍L⻊翟躏L⻊蔺躐L⻊巤躑L⻊鄭躓L⻊質躔L⻊廛躕L⻊廚躚L⻊遷躜L⻊赞躞L⻊燮躡L⻊聶躥L⻊竄躪L⻊藺躬L身弓躯L身区躲L身朵躺L身尚軀L身區軌L車九軍B車冖軎T車口軒L車干軔L車刃軛L車厄軟L車欠軸L車由軻L車可軼L車失軾L車式輂B車共較L車交載X哉車輊L車至輒L車耴輓L車免輔L車甫輕L車巠輛L車兩輝L光軍輟L車叕輥L車昆輩B車非輪L車侖輬L車京輯L車咠輸L車俞輻L車畐輾L車展輿U舁車轄L車害轅L車袁轆L車鹿轉L車專轎L車喬轗L車感轘L車睘轤L車盧轨L车九轩L车干轫L车刃转L车专轭L车厄轮L车仑软L车欠轰T车双轱L车古轲L车可轳L车卢轴L车由轵L车只轶L车失轷L车乎轹L车乐轺L车召轼L车式载X哉车轾L车至轿L车乔辁L车全辂L车各较L车交辄L车耴辅L车甫辆L车两辈T非车辉L光军辊L车昆辋L车罔辍L车叕辎L车甾辏L车奏辐L车畐辑L车咠输L车俞辕L车袁辖L车害辗L车展辘L车鹿辚L车粦辛T立十辜B辛古辞L舌辛辣L辛束辱S辰寸農B辰曲边W辶力辽W辶了达W辶大迁W辶千迂W辶于迄W辶乞迅W辶卂过W辶寸迈W辶万迎W辶卬运W辶云近W辶斤迓W辶牙返W辶反迕W辶午还W辶不这W辶文进W辶井远W辶元违W辶韦连W辶车迟W辶尺迢W辶召迥W辶冋迦W辶加迨W辶台迩W辶尔迪W辶由迫W辶白迭W辶失迮W辶乍述W辶术迴W辶回迶W辶有迷W辶米迸W辶并迹W辶亦退W辶艮送W辶关适W辶舌逃W辶兆逄W辶夅逅W辶后逆W辶屰选W辶先逊W辶孙逋W辶甫逍W辶肖透W辶秀逐W辶豕逑W辶求递W辶弟途W辶余逕W辶巠逖W辶狄逗W辶豆這W辶言通W辶甬逛W辶狂逝W辶折逞W辶呈速W辶束造W辶告逡W辶夋逢W辶夆連W辶車逦W辶丽逭W辶官逮W辶隶逯W辶录週W辶周進W辶隹逵W辶坴逶W辶委逸W辶兔逻W辶罗逼W辶畐逾W辶俞遁W辶盾遄W辶耑遇W辶禺遊W辶斿運W辶軍遍W辶扁過W辶咼遏W辶曷遐W辶叚遑W辶皇遒W辶酋道W辶首達W辶羍違W辶韋遗W辶贵遘W辶冓遛W辶留遜W辶孫遞W辶虒遠W辶袁遨W辶敖適W辶啇遭W辶曹遮W辶庶遲W辶犀遴W辶粦遵W辶尊選W辶巽遺W辶貴遼W辶尞遽W辶豦避W辶辟邀W辶敫邁W辶萬邂W辶解還W辶睘邇W辶爾邈W辶貌邊W辶臱邋W辶巤邏W辶羅邑T口巴邓R阝又邕B邑巛邗R阝干邘R阝于邙R阝亡邛R阝工邝R阝广邠R阝分邡R阝方邢R阝开邦R阝丰邪R阝牙邬R阝乌邮R阝由邯R阝甘邰R阝台邱R阝丘邳R阝丕邴R阝丙邵R阝召邶R阝北邸R阝氐邹R阝刍邺R阝业邻R阝令邾R阝朱郁R阝有郅R阝至郇R阝旬郊R阝交郎R阝良郏R阝夹郐R阝会郑R阝关郓R阝军郗R阝希郛R阝孚郜R阝告郝R阝赤郟R阝夾郡R阝君郢R阝呈郤R阝谷郦R阝丽郧R阝员部R阝咅郫R阝卑郭R阝享郯R阝炎郴R阝林郵R阝垂郸R阝单都R阝者郾R阝匽鄂R阝咢鄄R阝垔鄆R阝軍鄉L乡郎鄋R阝叟鄒R阝芻鄖R阝員鄙R阝啚鄞R阝堇鄢R阝焉鄣R阝章鄦R阝無鄧R阝登鄭R阝奠鄯R阝善鄰R阝粦鄱R阝番鄲R阝單鄴R阝業鄹R阝聚酃R阝霝酆R阝豐酊L酉丁酋B酉丷酌L酉勺配L酉己酎L酉寸酏L酉也酐L酉干酒R酉氵酕L酉毛酖L酉冘酗L酉凶酚L酉分酝L酉云酞L酉太酡L酉它酢L酉乍酣L酉甘酤L酉古酥L酉禾酩L酉名酪L酉各酬L酉州酮L酉同酯L酉旨酰L酉先酲L酉呈酴L酉余酵L酉孝酶L酉每酷L酉告酸L酉夋酹L酉寽酽L酉严酾L酉丽酿L酉良醃L酉奄醄L酉匋醅L酉咅醇L酉享醉L酉卒醋L酉昔醌L酉昆醍L酉是醐L酉胡醑L酉胥醒L酉星醚L酉迷醛L酉荃醜L酉鬼醣L酉唐醪L酉翏醫B酉殹醬B酉將醭L酉菐醮L酉焦醱L酉發醴L酉豊醵L酉豦醺L酉熏釀L酉襄采T爫木釉L釆由釋L釆睪里T田土野L里予量B里旦釗L釒刂釘L釒丁針L釒十釣L釒勺釦L釒口釧L釒川釩L釒凡釵L釒叉鈀L釒巴鈄L釒斗鈆L釒公鈉L釒内鈍L釒屯鈔L釒少鈕L釒丑鈞L釒匀鈣L釒丐鈦L釒太鈴L釒令鈷L釒古鈺L釒玉鈽L釒布鈾L釒由鈿L釒田鉀L釒甲鉅L釒巨鉉L釒玄鉗L釒甘鉚L釒卯鉞L釒戉鉤L釒句鉧L釒母鉸L釒交鉻L釒各鉾L釒牟銀L釒艮銃L釒充銅L釒同銎B金巩銑L釒先銓L釒全銖L釒朱銘L釒名銚L釒兆銨L釒安銬L釒考銮B金亦銲L釒旱銳L釒兌銷L釒肖銼L釒坐鋁L釒吕鋃L釒良鋅L釒辛鋇L釒貝鋈B金沃鋌L釒廷鋒L釒夆鋤L釒助鋦L釒局鋩L釒芒鋪L釒甫鋯L釒告鋰L釒里鋸L釒居鋼L釒岡錄L釒彔錐L釒隹錒L釒阿錕L釒昆錘L釒垂錙L釒甾錚L釒争錠L釒定錢L釒戔錦L釒帛錨L釒苗錫L釒易錮L釒固錯L釒昔錳L釒孟錶L釒表錾B金斩鍊L釒柬鍋L釒咼鍛L釒段鍥L釒契鍪B金敄鍬L釒秋鍵L釒建鍾L釒重鎂L釒美鎊L釒旁鎏B金流鎔L釒容鎛L釒尃鎢L釒烏鎦L釒留鎧L釒豈鎩L釒殺鎬L釒高鎮L釒真鎳L釒臬鏈L釒連鏊B金敖鏖S鹿金鏟L釒産鏡L釒竟鏢L釒票鏽L釒肅鐐L釒尞鐘L釒童鐮L釒廉鐲L釒蜀鐺L釒當鐾B金辟鑄L釒壽鑊L釒蒦鑑L釒監鑒B金監鑞L釒巤鑠L釒樂鑢L釒慮鑣L釒麃鑪L釒盧鑭L釒闌鑰L釒龠鑲L釒襄鑷L釒聶鑼L釒羅鑽L釒贊针L钅十钉L钅丁钊L钅刂钋L钅卜钌L钅了钍L钅土钎L钅千钏L钅川钐L钅彡钒L钅凡钓L钅勺钔L钅门钕L钅女钗L钅叉钙L钅丐钚L钅不钛L钅太钜L钅巨钝L钅屯钞L钅少钟L钅中钠L钅内钡L钅贝钢L钅冈钣L钅反钤L钅今钥L钅月钦L钅欠钧L钅匀钨L钅乌钩L钅勾钪L钅亢钫L钅方钬L钅火钭L钅斗钮L钅丑钯L钅巴钰L钅玉钱L钅戋钲L钅正钳L钅甘钴L钅古钵L钅本钶L钅可钷L钅叵钸L钅布钹L钅犮钺L钅戉钻L钅占钼L钅目钽L钅旦钾L钅甲钿L钅田铀L钅由铁L钅失铂L钅白铃L钅令铄L钅乐铆L钅卯铈L钅市铉L钅玄铊L钅它铋L钅必铌L钅尼铍L钅皮铐L钅考铑L钅老铒L钅耳铕L钅有铖L钅成铗L钅夹铘L钅邪铙L钅尧铛L钅当铜L钅同铝L钅吕铞L钅吊铟L钅因铠L钅岂铡L钅则铢L钅朱铣L钅先铤L钅廷铥L钅丢铧L钅华铨L钅全铩L钅杀铪L钅合铫L钅兆铬L钅各铭L钅名铮L钅争铯L钅色铰L钅交铱L钅衣铲L钅产铳L钅充铴L钅汤铵L钅安银L钅艮铷L钅如铸L钅寿铹L钅劳铺L钅甫铼L钅来铽L钅忒链L钅连铿L钅坚销L钅肖锂L钅里锃L钅呈锄L钅助锅L钅呙锆L钅告锇L钅我锈L钅秀锉L钅坐锊L钅寽锋L钅夆锌L钅辛锏L钅间锐L钅兑锑L钅弟锒L钅良锔L钅局锕L钅阿锖L钅青锗L钅者锘L钅若错L钅昔锚L钅苗锛L钅奔锞L钅果锟L钅昆锡L钅易锢L钅固锣L钅罗锤L钅垂锥L钅隹锦L钅帛锨L钅欣锩L钅卷锪L钅忽锫L钅咅锬L钅炎锭L钅定键L钅建锯L钅居锰L钅孟锱L钅甾锲L钅契锴L钅皆锵L钅将锶L钅思锷L钅咢锸L钅臿锹L钅秋锺L钅重锻L钅段锼L钅叟锾L钅爰锿L钅哀镀L钅度镁L钅美镂L钅娄镄L钅费镅L钅眉镆L钅莫镇L钅真镉L钅鬲镊L钅聂镌L钅隽镍L钅臬镎L钅拿镏L钅留镐L钅高镑L钅旁镒L钅益镓L钅家镔L钅宾镖L钅票镗L钅堂镘L钅曼镙L钅累镛L钅庸镜L钅竟镝L钅啇镞L钅族镟L钅旋镡L钅覃镢L钅厥镣L钅尞镤L钅菐镥L钅鲁镦L钅敦镧L钅阑镨L钅普镩L钅窜镪L钅强镫L钅登镬L钅蒦镭L钅雷镯L钅蜀镰L钅廉镱L钅意镲L钅察镳L钅麃镶L钅襄閃M門人閉M門才開M門开閎M門厷閏M門王閑M門木閒M門月間M門日閔M門文閘M門甲閡M門亥閣M門各閤M門合閥M門伐閨M門圭閩M門虫閫M門困閬M門良閭M門吕閱M門兌閵M門隹閶M門昌閹M門奄閻M門臽閼M門於閾M門或闃M門狊闆M門品闈M門韋闉M門垔闊M門活闌M門柬闔M門盍闕M門欮闖M門馬闞M門敢闡M門單闢M門辟闪M门人闫M门三闭M门才问M门口闯M门马闰M门王闱M门韦闲M门木闳M门厷间M门日闵M门文闶M门亢闷M门心闸M门甲闹M门市闺M门圭闻M门耳闼M门达闽M门虫闾M门吕阀M门伐阁M门各阂M门亥阃M门困阄M门龟阅M门兑阆M门良阈M门或阉M门奄阊M门昌阋M门兒阌M门受阍M门昏阎M门臽阏M门於阐M门单阑M门柬阒M门狊阔M门活阕M门癸阖M门盍阗M门真阙M门欮阚M门敢阞L阝力队L阝人阡L阝千阢L阝兀阪L阝反阮L阝元阱L阝井防L阝方阳L阝日阴L阝月阵L阝车阶L阝介阻L阝且阼L阝乍阽L阝占阿L阝可陀L阝它陂L阝皮附L阝付际L阝示陆L阝击陇L阝龙陈L阝东陌L阝百降L阝夅陏L阝有限L阝艮陔L阝亥陕L阝夹陘L阝巠陛L阝坒陜L阝夾陟L阝步陡L阝走院L阝完陣L阝車除L阝余陧L阝里陨L阝员险L阝佥陪L阝咅陬L阝取陰L阝侌陲L阝垂陳L阝東陴L阝卑陵L阝夌陶L阝匋陷L阝臽陸L阝坴陽L阝昜隄L阝是隅L阝禺隈L阝畏隍L阝皇階L阝皆随L阝迶隐L阝急隔L阝鬲隕L阝員隗L阝鬼隘L阝益際L阝祭障L阝章隡L阝産隧L阝遂隨L阝遀險L阝僉隴L阝龍隶T彐氺隸R隶柰隻T隹又隼T隹十隽T隹乃难L又隹雀B隹小雁S厂倠雄R隹厷雅R隹牙集T隹木雇S户隹雈B隹艹雉R隹矢雋T隹弓雌R隹此雎R隹且雏R隹刍雒R隹各雔L隹隹雕R隹周雖R隹虽雙T雔又雛R隹芻雝R隹邕雞R隹奚離R隹离難R隹堇雩T雨亏雪T雨彐雯T雨文雲T雨云雳T雨历零T雨令雷T雨田雹T雨包電T雨电雾T雨务需T雨而霁T雨齐霂T雨沐霄T雨肖霅T雨言霆T雨廷震T雨辰霈T雨沛霉T雨每霍T雨隹霎T雨妾霏T雨非霑T雨沾霓T雨兒霖T雨林霜T雨相霞T雨叚霢T雨脈霧T雨務霪T雨淫霭T雨谒霰T雨散露T雨路霹T雨辟霽T雨齊霾T雨貍靂T雨歷青T龶月靓L青见靖R青立静L青争靚L青見靛L青定靜L青爭靠B非告靡S麻非靥S厌面靦L面見靳L革斤靴L革化靶L革巴靼L革旦鞅L革央鞋L革圭鞍L革安鞏B革巩鞑L革达鞒L革乔鞔L革免鞘L革肖鞠L革匊鞣L革柔鞦L革秋鞫L革訇鞭L革便鞮L革是鞯L革荐鞲L革冓韁L革畺韃L革達韆L革遷韌L韋刃韓R韋龺韙W是韋韜L韋舀韧L韦刃韩R韦龺韪W是韦韫L韦昷韬L韦舀音T立日韵L音匀韶L音召韻L音員響B音鄉頂R頁丁頃R頁匕項R頁工順R頁川須R頁彡頊R頁王頌R頁公頏R頁亢預R頁予頑R頁元頒R頁分頓R頁屯頗R頁皮領R頁令頜R頁合頡R頁吉頤R頁臣頦R頁亥頭R頁豆頰R頁夾頷R頁含頸R頁巠頹R頁禿頻R頁步顆R頁果題W是頁額R頁客顎R頁咢顏R頁彥顓R頁耑顗R頁豈願R頁原顙R頁桑顛R頁真顥R頁景顧R頁雇顫R頁亶顰T頻卑顱R頁盧顳R頁聶顴R頁雚顶R页丁顷R页匕顸L干页项R页工顺R页川须L彡页顼L王页顽R页元顾R页厄顿R页屯颀L斤页颁R页分颂R页公颃R页亢预R页予颅R页卢领R页令颇R页皮颉R页吉颊R页夹颌R页合颏R页亥颐R页臣频R页步颓R页秃颔R页含颗R页果题W是页颚R页咢颛R页耑颜R页彦额R页客颞R页聂颠R页真颡R页桑颢R页景颤R页亶颥R页需颦T频卑颧R页雚風M几虫颭W風占颯R風立颱W風台颳W風舌颶W風具颼W風叟飄R風票飆R風猋风M几乂飑W风包飒R风立飓W风具飕W风叟飘R风票飙R风猋飚W风焱食T人良飢L飠几飧R食夕飨R食乡飩L飠屯飪L飠壬飫L飠夭飯L飠反飲L飠欠飴L飠台飼L飠司飽L飠包餃L飠交餅L飠并餉L飠向養B食羊餌L飠耳餍S厌食餑L飠孛餒L飠妥餓L飠我餕L飠夋餘L飠余餚L飠肴餛L飠昆餞L飠戔餡L飠臽館L飠官餬L飠胡餮B食殄餵L飠畏餼L飠氣餾L飠留餿L飠叟饃L飠莫饅L飠曼饈L飠羞饉L飠堇饋L飠貴饌L飠巽饑L飠幾饒L飠堯饔B食雍饕B食號饗B食鄉饜S厭食饞L飠毚饥L饣几饧L饣昜饨L饣屯饩L饣气饪L饣壬饫L饣夭饭L饣反饮L饣欠饯L饣戋饱L饣包饲L饣司饴L饣台饵L饣耳饶L饣尧饷L饣向饺L饣交饼L饣并饽L饣孛饿L饣我馀L饣余馁L饣妥馄L饣昆馅L饣臽馆L饣官馇L饣查馈L饣贵馊L饣叟馍L饣莫馏L饣留馐L饣羞馑L饣堇馒L饣曼馓L饣散馔L饣巽馕L饣囊首T丷自馗W九首馘L首或香T禾日馥L香复馨B香殸馭L馬又馮R馬冫馱L馬大馳L馬也馴L馬川駁L馬爻駐L馬主駑B馬奴駒L馬句駕B馬加駙L馬付駛L馬史駝L馬它駟L馬四駢L馬并駭L馬亥駮L馬交駱L馬各駿L馬夋騁L馬甹騅L馬隹騎L馬奇騖B馬敄騙L馬扁騭B馬陟騮L馬留騰S朕馬騶L馬芻騷L馬蚤騾L馬累驀B馬莫驅L馬區驊L馬華驌L馬肅驎L馬粦驕L馬喬驗L馬僉驚B馬敬驛L馬睪驟L馬聚驢L馬盧驤L馬襄驥L馬冀驦L馬霜驪L馬麗驭L马又驮L马大驯L马川驰L马也驱L马区驳L马爻驴L马户驵L马且驶L马史驷L马四驸L马付驹L马句驺L马刍驻L马主驼L马它驽B马奴驾B马加骀L马台骁L马尧骄L马乔骅L马华骆L马各骇L马亥骈L马并骊L马丽骋L马甹验L马佥骏L马夋骐L马其骑L马奇骒L马果骓L马隹骖L马参骗L马扁骘B马陟骚L马蚤骛B马敄骜B马敖骝L马留骟L马扇骠L马票骡L马累骢L马悤骣L马孱骤L马聚骥L马冀骧L马襄骯L骨亢骰L骨殳骱L骨介骶L骨氐骷L骨古骸L骨亥骺L骨后骼L骨各髀L骨卑髁L骨果髂L骨客髅L骨娄髋L骨宽髌L骨宾髑L骨蜀髒L骨葬體L骨豊髕L骨賓髖L骨寬髟L镸彡髡T髟兀髦T髟毛髫T髟召髭T髟此髮T髟犮髯T髟冉髹T髟休髻T髟吉鬃T髟宗鬄T髟易鬆T髟松鬈T髟卷鬍T髟胡鬏T髟秋鬒T髟真鬓T髟宾鬚T髟須鬟T髟睘鬢T髟賓鬣T髟巤鬧M鬥市鬨M鬥共鬩M鬥兒鬮M鬥龜鬳S虍鬲鬻B鬲粥魁W鬼斗魂R鬼云魃W鬼犮魄R鬼白魅W鬼未魆W鬼戉魇S厌鬼魈W鬼肖魉W鬼两魍W鬼罔魎W鬼兩魏R鬼委魑W鬼离魔S麻鬼魖W鬼虚魘S厭鬼魠L魚乇魯T魚日魷L魚尤鮑L魚包鮨L魚旨鮪L魚有鮫L魚交鮭L魚圭鮮L魚羊鯇L魚完鯉L魚里鯊B魚沙鯔L魚甾鯕L魚其鯖L魚青鯗B魚羊鯛L魚周鯡L魚非鯢L魚兒鯤L魚昆鯧L魚昌鯨L魚京鯪L魚夌鯫L魚取鯰L魚念鯷L魚是鯽L魚即鰆L魚春鰈L魚枼鰓L魚思鰣L魚時鰥L魚眔鰭L魚耆鰱L魚連鰲B魚敖鰹L魚堅鰻L魚曼鰾L魚票鱀B魚既鱄L魚專鱆L魚章鱈L魚雪鱉B魚敝鱒L魚尊鱔L魚善鱖L魚厥鱗L魚粦鱘L魚尋鱠L魚會鱣L魚亶鱧L魚豊鱷L魚噩鱸L魚盧鱺L魚麗鱿L鱼尤鲁T鱼日鲂L鱼方鲅L鱼犮鲆L鱼平鲇L鱼占鲈L鱼卢鲋L鱼付鲍L鱼包鲐L鱼台鲑L鱼圭鲒L鱼吉鲔L鱼有鲕L鱼而鲚L鱼齐鲛L鱼交鲜L鱼羊鲞B鱼龹鲟L鱼寻鲠L鱼更鲡L鱼丽鲢L鱼连鲣L鱼坚鲤L鱼里鲥L鱼时鲦L鱼条鲧L鱼系鲨B鱼沙鲩L鱼完鲫L鱼即鲭L鱼青鲮L鱼夌鲰L鱼取鲱L鱼非鲲L鱼昆鲳L鱼昌鲴L鱼固鲵L鱼兒鲶L鱼念鲷L鱼周鲸L鱼京鲺L鱼虱鲻L鱼甾鲼L鱼贲鲽L鱼枼鳃L鱼思鳄L鱼咢鳅L鱼秋鳆L鱼复鳇L鱼皇鳊L鱼扁鳋L鱼蚤鳌B鱼敖鳍L鱼耆鳏L鱼眔鳓L鱼勒鳔L鱼票鳕L鱼雪鳖B鱼敝鳗L鱼曼鳘B鱼敏鳙L鱼庸鳜L鱼厥鳝L鱼善鳞L鱼粦鳟L鱼尊鳢L鱼豊鳧T鳥几鳩R鳥九鳴R鳥口鳶B鳥弋鴆R鳥冘鴉R鳥牙鴒R鳥令鴔R鳥乏鴕L鳥它鴛B鳥夗鴞R鳥号鴟R鳥氐鴣R鳥古鴦B鳥央鴨R鳥甲鴯R鳥而鴰R鳥舌鴻R鳥江鴿R鳥合鵂R鳥休鵑R鳥肙鵒R鳥谷鵓R鳥孛鵜R鳥弟鵝R鳥我鵠R鳥告鵡R鳥武鵪R鳥奄鵬R鳥朋鵯R鳥卑鵰R鳥周鵲R鳥昔鶇R鳥東鶉R鳥享鶊R鳥庚鶖B鳥秋鶘R鳥胡鶚R鳥咢鶩B鳥敄鶬R鳥倉鶴R鳥隺鶹R鳥留鶺R鳥脊鶻R鳥骨鶼R鳥兼鷈L鳥虒鷓R鳥庶鷗R鳥區鷙B鳥執鷦R鳥焦鷫R鳥肅鷯R鳥尞鷲B鳥就鷸R鳥矞鷺B鳥路鷿B鳥辟鸂L氵鷄鸕R鳥盧鸚R鳥嬰鸝R鳥麗鸠R鸟九鸡R鸟又鸢B鸟弋鸣L口鸟鸥R鸟区鸦R鸟牙鸩R鸟冘鸪R鸟古鸫R鸟东鸬R鸟卢鸭R鸟甲鸯B鸟央鸱R鸟氐鸲R鸟句鸳B鸟夗鸵L鸟它鸶B鸟丝鸷B鸟执鸸R鸟而鸹R鸟舌鸺R鸟休鸽R鸟合鸾B鸟亦鸿R鸟江鹁R鸟孛鹂R鸟丽鹃R鸟肙鹄R鸟告鹅R鸟我鹆R鸟谷鹇R鸟闲鹈R鸟弟鹉R鸟武鹊R鸟昔鹋R鸟苗鹌R鸟奄鹎R鸟卑鹏R鸟朋鹑R鸟享鹕R鸟胡鹗R鸟咢鹘R鸟骨鹚R鸟兹鹛R鸟眉鹜B鸟敄鹣R鸟兼鹤R鸟隺鹦R鸟婴鹧R鸟庶鹨R鸟翏鹩R鸟尞鹪R鸟焦鹫B鸟就鹬R鸟矞鹭B鸟路鹱L鸟蒦鹳R鸟雚鹹L鹵咸鹼L鹵僉鹾L卤差麂S鹿几麃T鹿灬麇S鹿禾麈S鹿主麋S鹿米麒L鹿其麓B鹿林麗B鹿丽麝S鹿射麟L鹿粦麥T來夂麦T龶夂麩L麥夫麴L麥匊麵L麥面麸L麦夫麻S广林麼S麻幺麽S麻么麾S麻毛黏L黍占黔L黑今默L黑犬黛B黑代黜L黑出黝L黑幼點L黑占黟L黑多黠L黑吉黢L黑夋黥L黑京黨B黑尚黩L黑卖黪L黑参黯R音黑黴M微黑黷L黑賣黻L黹犮黼L黹甫黾T口电黿B黽元鼋T元黾鼐B鼎乃鼓L壴支鼕T鼓冬鼗B鼓兆鼙T鼓卑鼢L鼠分鼩L鼠句鼬L鼠由鼯L鼠吾鼱L鼠青鼴L鼠匽鼷L鼠奚鼹L鼠晏鼻T自畀鼽L鼻九鼾L鼻干齄L鼻查齋M齊小齌M齊火齎M齊貝齑M齐韭齙L齒包齜L齒此齟L齒且齡L齒令齦L齒艮齪L齒足齬L齒吾齮L齒奇齱L齒取齲L齒禹齵L齒禺齶L齒咢齷L齒屋龀L齿匕龃L齿且龄L齿令龅L齿包龆L齿召龇L齿此龈L齿艮龉L齿吾龊L齿足龋L齿禹龌L齿屋龐S广龍龔T龍共龕B龍合龚T龙共龛B龙合';
+        const TRAD_MAP = new Map();
+        const TRAD_PAIRS = new Set();
+        (function () {
+            const a = Array.from(TRAD_DECOMP_RAW);
+            for (let i = 0; i + 3 < a.length; i += 4) {
+                TRAD_MAP.set(a[i], { pc: a[i + 1], visible: a[i + 2], missing: a[i + 3] });
+                TRAD_PAIRS.add(a[i + 1] + a[i + 2] + a[i + 3]);
+            }
+        })();
+        // 包围结构：S左上包(疒广户尸) W左下包(走辶) → 偏旁放左侧；X右上包 → 放右侧；M门/U/C/O 外框铺满
+        const POS_NAME = { L: 'left', R: 'right', T: 'top', B: 'bottom', S: 'enc-l', W: 'enc-l', X: 'enc-r', M: 'natural', U: 'natural', C: 'natural', O: 'natural', N: 'natural' };
+        // 字体栈：优先台湾/繁体字体，保证 ⺮ 訁 釒 飠 糹 ⻊ 等偏旁形态有字形
+        const RADICAL_FONT = '"Noto Serif CJK TC","Source Han Serif TC","Noto Sans CJK TC","MingLiU","PMingLiU","MingLiU-ExtB","DFKai-SB","Microsoft JhengHei","PingFang TC","Heiti TC","Songti TC",serif';
+        // 这些偏旁在字体里本身就是“偏旁位置的造型”（亻在左、⺮在上…），原样铺满格子显示，不做压扁
+        const NATURAL_FORMS = new Set(Array.from('亻氵扌忄礻衤犭讠钅饣纟訁飠釒糹牜⻊⺮艹灬辶疒广廴'));
+
+        function makeRadicalItem(word, idx, en) {
+            const ch = Array.from(word)[idx];
+            const d = TRAD_MAP.get(ch);
+            if (!d) return null;
+            return { word, idx, pc: d.pc, visible: d.visible, missing: d.missing, position: POS_NAME[d.pc] || 'natural', en: en || '' };
+        }
+        // 一个词里“每一个”能拆的字都出题
+        function radicalItemsForWord(word, en) {
+            const out = [];
+            Array.from(word).forEach((ch, i) => { const it = makeRadicalItem(word, i, en); if (it) out.push(it); });
+            return out;
+        }
+        function glyphMissing(ch) {
+            try {
+                const c = document.createElement('canvas'); c.width = c.height = 48;
+                const x = c.getContext('2d');
+                const draw = s => { x.clearRect(0, 0, 48, 48); x.font = '40px ' + RADICAL_FONT; x.textBaseline = 'top'; x.fillText(s, 2, 2);
+                    const d = x.getImageData(0, 0, 48, 48).data; let h = ''; for (let i = 3; i < d.length; i += 4) h += d[i] > 0 ? '1' : '0'; return h; };
+                return draw(ch) === draw('\u{10FFFD}');
+            } catch (e) { return false; }
+        }
+
+        // ================= 繁簡轉換（OpenCC-js，按需載入） =================
+        let openccPromise = null;
+        function ensureOpenCC() {
+            if (window.OpenCC) return Promise.resolve(true);
+            if (openccPromise) return openccPromise;
+            const urls = [
+                'https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js',
+                'https://unpkg.com/opencc-js@1.0.5/dist/umd/full.js'
+            ];
+            openccPromise = (async () => {
+                for (const u of urls) {
+                    const ok = await new Promise(res => {
+                        const s = document.createElement('script');
+                        s.src = u;
+                        s.onload = () => res(!!window.OpenCC);
+                        s.onerror = () => res(false);
+                        document.head.appendChild(s);
+                    });
+                    if (ok) return true;
+                }
+                return false;
+            })();
+            openccPromise.then(ok => { if (!ok) openccPromise = null; });
+            return openccPromise;
+        }
+
+        const converterCache = {};
+        function getConverter(mode) {
+            if (!converterCache[mode]) {
+                converterCache[mode] = (mode === 's2t')
+                    ? window.OpenCC.Converter({ from: 'cn', to: 'tw' })
+                    : window.OpenCC.Converter({ from: 'tw', to: 'cn' });
+            }
+            return converterCache[mode];
+        }
+
+        async function convertBoard(mode) {
+            // 先記下當前選區（載入組件是異步的）
+            let range = null;
+            const sel = window.getSelection();
+            if (sel && sel.rangeCount && !sel.isCollapsed) {
+                const r = sel.getRangeAt(0);
+                if (whiteboard.contains(r.commonAncestorContainer)) range = r.cloneRange();
+            }
+            if (!range && !confirm('未選中文字，將轉換整個白板的內容。\n（拼音、圖片、格式不受影響，可通過「撤銷」恢復）\n\n是否繼續？')) return;
+
+            const ok = await ensureOpenCC();
+            if (!ok) { alert('繁簡轉換組件載入失敗，請檢查網絡（需能訪問 cdn.jsdelivr.net 或 unpkg.com）後重試。'); return; }
+            const conv = getConverter(mode);
+
+            saveHistoryImmediate();
+            let changed = 0;
+
+            if (range) {
+                getRangeTextParts(range).forEach(p => {
+                    const el = p.node.parentElement;
+                    if (!el || el.closest('rt, .py-top')) return;
+                    const v = p.node.nodeValue;
+                    const nv = v.slice(0, p.s) + conv(v.slice(p.s, p.e)) + v.slice(p.e);
+                    if (nv !== v) { p.node.nodeValue = nv; changed++; }
+                });
+            } else {
+                const walker = document.createTreeWalker(whiteboard, NodeFilter.SHOW_TEXT);
+                const nodes = [];
+                let n;
+                while ((n = walker.nextNode())) {
+                    const el = n.parentElement;
+                    if (el && el.closest('rt, .py-top')) continue;
+                    nodes.push(n);
+                }
+                nodes.forEach(t => {
+                    const v = t.nodeValue;
+                    const nv = conv(v);
+                    if (nv !== v) { t.nodeValue = nv; changed++; }
+                });
+            }
+
+            saveHistoryImmediate();
+            setTimeout(resizeCanvas, 100);
+            if (!changed) alert(mode === 's2t' ? '沒有需要轉換的簡體字。' : '沒有需要轉換的繁體字。');
+        }
+
+        document.getElementById('btnS2T').addEventListener('click', () => convertBoard('s2t'));
+        document.getElementById('btnT2S').addEventListener('click', () => convertBoard('t2s'));
+
+        // ================= 補全漢字（繁体优先：本地字典拆字，能拆的全部出题；AI 只给英文释义） =================
+        document.getElementById('btnRadicalExam').addEventListener('click', function() {
+            const apiKey = apiKeyInput.value.trim();
+            const corpus = getCleanBoardText().slice(0, 6000);
+            const list = getExamVocabList();
+            if (!corpus && list.length === 0) { alert('白板为空，也没有指定词汇！请先在白板输入课文，或在“指定词汇”框里填写词汇。'); return; }
+            if (!apiKey) { alert('必须填入 API Key！'); return; }
+
+            withExamLoading(this, 'AI 正在整理词语释义...', async () => {
+                const gloss = new Map();
+                let words = list.slice();
+
+                if (words.length) {
+                    // 有指定词汇：AI 只给英文释义，分批 20 个
+                    for (let i = 0; i < words.length; i += 20) {
+                        const batch = words.slice(i, i + 20);
+                        if (words.length > 20) loadingText.innerText = `AI 正在整理词语释义（第 ${Math.floor(i / 20) + 1}/${Math.ceil(words.length / 20)} 批）...`;
+                        const prompt = `给下面每个词语一个简短英文释义（2~4 个词）。word 必须与输入一字不差，原样保留简体或繁体字形，不要转换。\n词语：${batch.join('、')}\n只输出 JSON：{"items":[{"word":"頭痛","en":"headache"}]}`;
+                        try {
+                            const data = parseAIJson(await callAI(prompt, '你是国际中文教师。只输出 JSON。', null, false));
+                            (data.items || []).forEach(o => { if (o && o.word) gloss.set(String(o.word).trim(), String(o.en || '').trim()); });
+                        } catch (e) { console.warn('释义获取失败，英文释义留空', e); }
+                    }
+                } else {
+                    // 没有指定词汇：AI 从课文里挑词（只挑词，拆字交给本地字典）
+                    const prompt = `从【课文语料】中挑出所有适合做“补全汉字”练习的词语或单字（每项 1~4 个字，尽量多，最多 60 项），并给简短英文释义。word 必须是课文里原样出现的字形（简体或繁体），不要转换。\n【课文语料】\n${corpus}\n只输出 JSON：{"items":[{"word":"頭痛","en":"headache"}]}`;
+                    const data = parseAIJson(await callAI(prompt, '你是国际中文教师。只输出 JSON。', null, false));
+                    (data.items || []).forEach(o => {
+                        const w = String((o && o.word) || '').trim();
+                        if (w && !gloss.has(w)) { gloss.set(w, String(o.en || '').trim()); words.push(w); }
+                    });
+                }
+
+                const ex = makeRadicalItem('什麽', 0, 'what');
+                const seen = new Set();
+                const items = [];
+                words.forEach(w => radicalItemsForWord(w, gloss.get(w) || '').forEach(it => {
+                    const k = it.word + '#' + it.idx;
+                    if (!seen.has(k)) { seen.add(k); items.push(it); }
+                }));
+                if (!items.length) throw new Error('这些词里没有收录拆解的合体字（独体字或生僻字会自动跳过）。请换一些词再试。');
+
+                // 选项：所有答案部件 + 干扰部件（干扰项不能与题中显示的部件拼成真字）
+                const missingSet = [];
+                [ex].concat(items).forEach(o => { if (!missingSet.includes(o.missing)) missingSet.push(o.missing); });
+                const POOL = Array.from('口子馬十火寸古青貝見立日木兌又己文方反力石田車女心手').sort(() => Math.random() - 0.5);
+                const okDistractor = c => !missingSet.includes(c) && [ex].concat(items).every(o => o.visible !== c && !TRAD_PAIRS.has(o.pc + o.visible + c));
+                const total = Math.max(6, missingSet.length);
+                const extras = POOL.filter(okDistractor).slice(0, Math.max(0, total - missingSet.length));
+                const opts = missingSet.concat(extras).sort(() => Math.random() - 0.5);
+                const letter = c => String.fromCharCode(65 + opts.indexOf(c));
+
+                let html = `<div class="wp-exam" lang="zh-Hant">`;
+                html += `<h2>🧩 補全漢字 (Complete the Characters)</h2>`;
+                html += `<div class="wp-tip">Choose the correct component from A–${String.fromCharCode(64 + opts.length)} to complete each character, and write the letter in the box.</div>`;
+                html += `<div class="wp-opts">${opts.map((c, i) => `<span><b>${String.fromCharCode(65 + i)}</b>${escapeHtml(c)}</span>`).join('')}</div>`;
+
+                if (ex) {
+                    const py = getPinyinArray(ex.word);
+                    html += `<div class="wp-ex-label">例如：</div>`;
+                    html += `<div class="wp-gitem"><div class="wp-gleft"><span class="wp-gcol">${buildGridGroup(ex.word, py, ex.idx, ex.visible, ex.position, false)}<span class="wp-gen">${escapeHtml(ex.en)}</span></span><span class="wp-arrow"></span>${buildGridGroup(ex.word, py, ex.idx, ex.visible, ex.position, true)}</div><div class="wp-abox">${letter(ex.missing)}</div></div>`;
+                }
+
+                const answers = [];
+                items.forEach((o, i) => {
+                    const no = EXAM_START_NO + i;
+                    const py = getPinyinArray(o.word);
+                    answers.push(`${no}. ${letter(o.missing)}（${o.missing}）— ${Array.from(o.word)[o.idx]}（${o.visible}＋${o.missing}）${o.word}`);
+                    html += `<div class="wp-gitem"><div class="wp-gleft"><span class="wp-no">${no}.</span><span class="wp-gcol">${buildGridGroup(o.word, py, o.idx, o.visible, o.position, false)}<span class="wp-gen">${escapeHtml(o.en)}</span></span></div><div class="wp-abox"></div></div>`;
+                });
+
+                html += ANSWER_TOGGLE;
+                html += `<div class="wp-answer" style="display:none;">参考答案：<br>${answers.map(escapeHtml).join('<br>')}</div>`;
+                html += `</div>`;
+                appendExamToBoard(html);
+
+                // 字体检查：缺字形时提醒，而不是悄悄换成别的字（例如把 ⺮ 换成 竹）
+                const shown = new Set(); [ex].concat(items).forEach(o => { shown.add(o.visible); shown.add(o.missing); });
+                const lack = Array.from(shown).filter(glyphMissing);
+                if (lack.length) alert('当前电脑的字体里没有这些偏旁的字形：' + lack.join(' ') + '\n\n请安装「思源宋体 TC / Noto Serif CJK TC」或「新細明體 MingLiU」后刷新页面，否则它们会显示成方框。');
+            });
         });
     }
 
