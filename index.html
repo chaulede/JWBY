@@ -199,8 +199,6 @@
     }
 
     /* ========== 原有自定义样式 ========== */
-    #authOverlay { position: fixed; inset: 0; background: #f1f5f9; z-index: 9999; display: flex; justify-content: center; align-items: center; }
-    .auth-box { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 420px; width: 90%; }
     #whiteboardScrollContainer { position: absolute; inset: 0; overflow: auto; z-index: 10; }
     #whiteboardInnerWrapper { position: relative; min-height: 100%; width: 100%; }
     #whiteboardContent { font-family: 'KaiTi', '楷体', 'STKaiti', 'Kaiti SC', 'Songti SC', 'PingFang SC', 'Microsoft YaHei', serif; line-height: 2; outline: none; word-break: break-word; padding: 20px; position: relative; z-index: 2; }
@@ -491,22 +489,7 @@
 <body>
 
 <!-- 登录验证遮罩层 -->
-<div id="authOverlay">
-    <div class="auth-box">
-        <h1 class="text-2xl font-bold text-slate-800 mb-2">🔒 软件授权登录</h1>
-        <p class="text-sm text-slate-500 mb-4">请输入您的专属授权账号和密码</p>
-        <input type="text" id="authAccount" placeholder="教师账号 (如: teacher1)" class="w-full border border-slate-300 rounded-lg p-3 text-center text-base outline-none focus:ring-2 focus:ring-indigo-500 mb-3" autocomplete="off">
-        <input type="password" id="authPassword" placeholder="密码" class="w-full border border-slate-300 rounded-lg p-3 text-center text-base outline-none focus:ring-2 focus:ring-indigo-500 mb-4" autocomplete="off">
-        <div class="flex items-center justify-between mb-5 text-xs text-slate-600">
-            <label class="flex items-center cursor-pointer">
-                <input type="checkbox" id="rememberMe" class="mr-1.5 rounded text-indigo-600 focus:ring-indigo-500"> 记住授权状态
-            </label>
-            <span id="authTip" class="text-indigo-600 font-medium">商业授权版</span>
-        </div>
-        <button id="btnAuthLogin" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition cursor-pointer shadow-md">验证并进入系统</button>
-        <p class="text-xs text-slate-400 mt-4">如需获取授权或购买，请联系软件供应商</p>
-    </div>
-</div>
+
 
 <!-- 主体内容 -->
 <div id="appContent" class="hidden flex-col md:flex-row h-[calc(100vh-3rem)] gap-6 relative">
@@ -728,75 +711,13 @@
         if (typeof pdfjsLib === 'undefined') console.warn("⚠️ PDF.js 未加载");
         if (typeof mammoth === 'undefined') console.warn("⚠️ Mammoth.js 未加载");
         if (typeof pinyinPro === 'undefined') console.warn("⚠️ pinyin-pro 未加载");
+        const appContent = document.getElementById('appContent');
+        appContent.classList.remove('hidden');
+        appContent.classList.add('flex');
+        try { initApp(); } catch (e) { console.warn(e); }
+        setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 100);
 
-        const savedAuth = localStorage.getItem('teacher_whiteboard_auth');
-        if (savedAuth === 'true') {
-            document.getElementById('authOverlay').style.display = 'none';
-            const appContent = document.getElementById('appContent');
-            appContent.classList.remove('hidden');
-            appContent.classList.add('flex');
-            try { initApp(); } catch (e) { console.warn(e); }
-            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 100);
-        }
     });
-
-    const VALID_ACCOUNTS = [
-        { account: "admin", password: "847906a." },
-        { account: "carrotluo", password: "abc123" },
-        { account: "开场白", password: "123456" },
-        { account: "视听", password: "123456" },
-        { account: "卡卡西", password: "123456" },
-        { account: "teacher", password: "847906a." },
-        { account: "lily", password: "123456" },
-        { account: "ylps", password: "123456" },
-        { account: "qgz", password: "123456" },
-        { account: "vong", password: "1984" },
-        { account: "yang", password: "123456" },
-        { account: "yuran", password: "123456" },
-        { account: "margo", password: "123456" },
-        { account: "aurora", password: "123456" },
-        { account: "sheng", password: "123456" },
-        { account: "lynn", password: "123456" },
-        { account: "xiaoK", password: "123456" },
-        { account: "wanjun", password: "wanjun" },
-        { account: "chang", password: "chang" },
-        { account: "chenfeng", password: "chenfeng" },
-        { account: "Lyia", password: "lyia100" },
-        { account: "萱萱", password: "xuanxuan" },
-        ...Array.from({ length: 99 }, (_, i) => ({ account: `teacher${i + 2}`, password: "123" }))
-    ];
-
-    const authAccount = document.getElementById('authAccount');
-    const authPassword = document.getElementById('authPassword');
-    const rememberMe = document.getElementById('rememberMe');
-
-    document.getElementById('btnAuthLogin').addEventListener('click', () => {
-        const acc = authAccount.value.trim();
-        const pwd = authPassword.value.trim();
-        if (!acc || !pwd) { alert("请输入账号和密码！"); return; }
-
-        const isValid = VALID_ACCOUNTS.some(item => item.account === acc && item.password === pwd);
-
-        if (isValid) {
-            document.getElementById('authOverlay').style.display = 'none';
-            const appContent = document.getElementById('appContent');
-            appContent.classList.remove('hidden');
-            appContent.classList.add('flex');
-            
-            if (rememberMe.checked) localStorage.setItem('teacher_whiteboard_auth', 'true');
-            else localStorage.removeItem('teacher_whiteboard_auth');
-            
-            try { initApp(); } catch (err) { console.warn("初始化提示：", err); }
-            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 100);
-        } else {
-            alert("授权账号或密码错误，请检查输入！");
-            authPassword.value = '';
-        }
-    });
-
-    authAccount.addEventListener('keypress', (e) => { if (e.key === 'Enter') authPassword.focus(); });
-    authPassword.addEventListener('keypress', (e) => { if (e.key === 'Enter') document.getElementById('btnAuthLogin').click(); });
-
     let appInitialized = false;
 
     function escapeHtml(str) {
@@ -3726,6 +3647,111 @@ ${corpus || '（无课文，请根据词汇编写简单句子）'}
         
         alert('✅ 已清除白板上的 PPT 内容。');
     };
+</script>
+
+<style id="jwby-caption-styles">
+#jwbyCaptionPanel{position:fixed;z-index:9998;top:8px;left:50%;transform:translateX(-50%);width:min(780px,calc(100vw - 16px));max-height:180px;overflow:visible;background:rgba(15,23,42,.96);color:#f8fafc;border:1px solid #64748b;border-radius:8px;box-shadow:0 12px 36px #0f172a66;font:12px/1.35 system-ui,sans-serif}
+#jwbyCaptionPanel[hidden],#jwbyCaptionRestore[hidden]{display:none!important}
+#jwbyCaptionHeader{display:flex;align-items:center;gap:5px;padding:5px 8px;background:#1e293b;border-bottom:1px solid #475569;border-radius:8px 8px 0 0;cursor:move;touch-action:none;user-select:none;flex-wrap:nowrap}
+#jwbyCaptionHeader strong{font-size:12px;white-space:nowrap;margin-right:auto}
+#jwbyCaptionHeader label{display:flex;align-items:center;gap:4px;white-space:nowrap;font-size:10px}
+#jwbyCaptionPanel select,#jwbyCaptionPanel button{height:25px;border:0;border-radius:5px;padding:3px 6px;font:inherit}
+#jwbyCaptionPanel select{max-width:142px;background:#fff;color:#172033}
+#jwbyCaptionPanel button{background:#334155;color:white;cursor:pointer}
+#jwbyCaptionPanel button:disabled{opacity:.5;cursor:default}
+#jwbyCaptionPanel .jwby-start{background:#15803d;font-weight:700}
+#jwbyCaptionPanel .jwby-stop{background:#fee2e2;color:#991b1b}
+#jwbyCaptionPanel .jwby-icon{width:25px;padding:0;font-size:14px}
+#jwbyCaptionPanel .jwby-close{background:#7f1d1d}
+#jwbyCaptionMain{display:flex;align-items:center;gap:7px;padding:6px 9px;min-height:36px}
+.jwby-output-label{flex:none;color:#94a3b8;font-size:10px}
+.jwby-output-label.target{color:#fbbf24}
+.jwby-arrow{flex:none;color:#64748b}
+.jwby-caption-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;font-weight:600}
+#jwbySource{flex:0 1 38%;color:#f8fafc}
+#jwbyTranslation{flex:1;color:#fde68a}
+#jwbyCaptionStatus{flex:none;max-width:86px;color:#94a3b8;font-size:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#jwbyCaptionPanel details{position:relative;flex:none}
+#jwbyCaptionPanel details>summary{list-style:none;cursor:pointer}
+#jwbyCaptionPanel details>summary::-webkit-details-marker{display:none}
+#jwbyCaptionSettingsToggle,#jwbyCaptionHistoryToggle{height:25px;min-width:25px;padding:0 6px;border-radius:5px;background:#334155;color:white;text-align:center;line-height:25px;font-size:11px}
+#jwbyCaptionSettings,#jwbyCaptionHistory{position:absolute;right:0;top:30px;z-index:5;width:220px;padding:9px;background:#1e293b;border:1px solid #475569;border-radius:8px;box-shadow:0 8px 24px #0008;font-size:11px}
+#jwbyCaptionSettings label{display:flex;align-items:center;gap:5px;margin:5px 0}
+#jwbyCaptionSettings input[type=range]{width:95px}
+#jwbyCaptionSettings input[type=color]{width:25px;height:20px;padding:0}
+#jwbyCaptionHistory{width:min(360px,calc(100vw - 30px))}
+#jwbyCaptionHistoryList{max-height:230px;overflow:auto}
+.jwby-caption-history-item{padding:5px 0;border-bottom:1px solid #334155;line-height:1.4}
+#jwbyCaptionHistory button{margin:4px 4px 0 0;padding:4px 7px;font-size:10px}
+#jwbyCaptionRestore{position:fixed;top:10px;right:12px;z-index:9999;padding:7px 10px;border:0;border-radius:7px;background:#1e293b;color:#fff;cursor:pointer}
+@media(max-width:760px){#jwbyCaptionPanel{width:calc(100vw - 12px)}#jwbyCaptionHeader{flex-wrap:wrap}#jwbyCaptionHeader strong{margin-right:4px}#jwbyCaptionHeader label{flex:0 1 auto}#jwbyCaptionPanel select{max-width:110px}#jwbyCaptionMain{gap:5px}.jwby-caption-text{font-size:12px}#jwbySource{flex-basis:30%}#jwbyCaptionStatus{max-width:54px}}
+@media(max-width:480px){#jwbyCaptionHeader{gap:4px}#jwbyCaptionHeader strong{display:none}#jwbyCaptionPanel select{max-width:88px}#jwbyCaptionMain{padding:5px 7px}.jwby-output-label{font-size:9px}.jwby-caption-text{font-size:11px}}
+</style>
+<section id="jwbyCaptionPanel" aria-label="中文实时翻译" hidden>
+ <div id="jwbyCaptionHeader">
+  <strong>中文实时翻译</strong>
+  <label>识别 <select id="jwbySourceLanguage"><option value="en-US">英语（美）</option><option value="en-GB">英语（英）</option><option value="zh-CN">中文</option><option value="ja-JP">日语</option><option value="ko-KR">韩语</option><option value="fr-FR">法语</option><option value="de-DE">德语</option><option value="es-ES">西语</option></select></label>
+  <label>模型 <select id="jwbyProvider"><option value="">请选择</option><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option><option value="claude">Claude</option><option value="zhipu">智谱 GLM</option></select></label>
+  <button class="jwby-start" id="jwbyStart" type="button">开始</button><button class="jwby-stop" id="jwbyStop" type="button" disabled>停止</button>
+  <button class="jwby-icon" id="jwbyClear" type="button" title="清除字幕">⌫</button>
+  <details id="jwbySettingsPop"><summary id="jwbyCaptionSettingsToggle" title="字幕设置">⚙</summary><div id="jwbyCaptionSettings">
+   <label>字号 <input id="jwbyFontSize" type="range" min="12" max="32" value="16"><span id="jwbyFontSizeValue">16</span></label>
+   <label>字幕颜色 <input id="jwbyFontColor" type="color" value="#fde68a"></label>
+   <label>窗口颜色 <input id="jwbyPanelColor" type="color" value="#0f172a"></label>
+   <label>透明度 <input id="jwbyPanelOpacity" type="range" min="20" max="100" value="96"><span id="jwbyPanelOpacityValue">96%</span></label>
+  </div></details>
+  <details id="jwbyHistoryPop"><summary id="jwbyCaptionHistoryToggle" title="翻译记录">记录</summary><div id="jwbyCaptionHistory">
+   <div id="jwbyCaptionHistoryList">暂无记录</div>
+   <button id="jwbyRefreshHistory" type="button">刷新</button><button id="jwbyClearHistory" type="button">清除记录</button>
+  </div></details>
+  <button class="jwby-icon" id="jwbyPause" type="button" title="暂停识别" disabled>Ⅱ</button><button class="jwby-icon jwby-close" id="jwbyClose" type="button" title="关闭字幕">×</button>
+ </div>
+ <div id="jwbyCaptionMain"><span class="jwby-output-label">原文</span><div class="jwby-caption-text" id="jwbySource">等待语音输入……</div><span class="jwby-arrow">→</span><span class="jwby-output-label target">中文</span><div class="jwby-caption-text" id="jwbyTranslation">等待翻译</div><div id="jwbyCaptionStatus">就绪</div></div>
+</section>
+<button id="jwbyCaptionRestore" type="button" hidden>字幕</button>
+<script>
+(function(){
+ const $=id=>document.getElementById(id), SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+ const panel=$('jwbyCaptionPanel'), historyKey='jwby_caption_history_v1';
+ let running=false,paused=false,recognition=null,restartTimer=null,lastFinal='',queue=Promise.resolve(),drag=null;
+ function status(value){$('jwbyCaptionStatus').textContent=value}
+ function showPanel(){panel.hidden=false;$('jwbyCaptionRestore').hidden=true}
+ function syncAuth(){showPanel()} syncAuth();
+ function updateButtons(){$('jwbyStart').disabled=running;$('jwbyStop').disabled=!running;$('jwbyPause').disabled=!running;$('jwbyPause').textContent=paused?'▶':'Ⅱ';$('jwbyPause').title=paused?'继续识别':'暂停识别';$('jwbySourceLanguage').disabled=running;$('jwbyProvider').disabled=running}
+ function paintText(){const size=$('jwbyFontSize').value,color=$('jwbyFontColor').value;$('jwbyFontSizeValue').textContent=size;$('jwbySource').style.fontSize=$('jwbyTranslation').style.fontSize=size+'px';$('jwbySource').style.color='#f8fafc';$('jwbyTranslation').style.color=color}
+ function paintPanel(){const hex=$('jwbyPanelColor').value,r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16),a=Number($('jwbyPanelOpacity').value)/100;panel.style.backgroundColor='rgba('+r+','+g+','+b+','+a+')';$('jwbyPanelOpacityValue').textContent=$('jwbyPanelOpacity').value+'%'}
+ function getRecords(){try{return JSON.parse(localStorage.getItem(historyKey)||'[]')}catch{return []}}
+ function drawHistory(){const box=$('jwbyCaptionHistoryList'),items=getRecords();box.replaceChildren();if(!items.length){box.textContent='暂无记录';return}for(const item of items){const row=document.createElement('div');row.className='jwby-caption-history-item';row.textContent='['+new Date(item.time).toLocaleString()+'] 原文：'+item.source+' ｜ 中文：'+item.translation;box.append(row)}}
+ function remember(source,translation){const items=getRecords();items.unshift({time:new Date().toISOString(),source,translation});localStorage.setItem(historyKey,JSON.stringify(items.slice(0,100)));drawHistory()}
+ function translateWithModel(text,provider){
+  const selector=$('modelProvider'),keyInput=$('apiKey');if(!selector||!keyInput||!keyInput.value.trim())return Promise.reject(new Error('请先在白板 AI 设置中填入 API Key；字幕不会自动切换模型。'));
+  const previous=selector.value;selector.value=provider;
+  return Promise.resolve().then(()=>callAI(text,'请将以下内容翻译为简体中文。只返回译文，不要解释。',null,false)).finally(()=>{selector.value=previous})
+ }
+ function translateFinal(source){
+  const text=String(source||'').trim();if(!text||text===lastFinal)return;lastFinal=text;
+  const provider=$('jwbyProvider').value;if(!provider){status('先选择翻译模型');return}
+  queue=queue.then(async()=>{try{status('翻译中');const translated=await translateWithModel(text,provider);$('jwbyTranslation').textContent=translated;remember(text,translated);status('识别中')}catch(error){status('翻译失败；未切换模型');console.warn('字幕翻译失败',error)}})
+ }
+ function makeRecognition(){if(!SpeechRecognition)throw new Error('此浏览器不支持连续语音识别');const rec=new SpeechRecognition();rec.lang=$('jwbySourceLanguage').value;rec.continuous=true;rec.interimResults=true;rec.maxAlternatives=1;
+  rec.onstart=()=>status('识别中');rec.onresult=e=>{let interim='',finalText='';for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i],t=r[0]?.transcript||'';if(r.isFinal)finalText+=t;else interim+=t}if(interim)$('jwbySource').textContent=interim;if(finalText.trim()){$('jwbySource').textContent=finalText.trim();translateFinal(finalText)}};
+  rec.onerror=e=>{if(e.error==='not-allowed'||e.error==='service-not-allowed'){status('请允许麦克风');stop(false)}else if(e.error!=='no-speech'&&e.error!=='aborted')status('识别错误：'+e.error)};
+  rec.onend=()=>{recognition=null;if(running&&!paused)restartTimer=setTimeout(startRecognitionInstance,500);else updateButtons()};return rec
+ }
+ function startRecognitionInstance(){if(!running||paused)return;try{recognition=makeRecognition();recognition.start()}catch(error){status(error.message);running=false;updateButtons()}}
+ function start(){if(running)return;if(!SpeechRecognition){status('浏览器不支持语音识别');return}if(!$('jwbyProvider').value){status('请先选择翻译模型');return}if(!$('apiKey')?.value.trim()){status('请先在白板 AI 设置中填写 API Key');return}running=true;paused=false;lastFinal='';updateButtons();status('请求麦克风权限');startRecognitionInstance()}
+ function stop(show=true){running=false;paused=false;clearTimeout(restartTimer);const rec=recognition;recognition=null;if(rec){rec.onend=null;try{rec.stop()}catch{}}updateButtons();if(show)status('已停止')}
+ function togglePause(){if(!running)return;if(!paused){paused=true;clearTimeout(restartTimer);const rec=recognition;recognition=null;if(rec){rec.onend=null;try{rec.stop()}catch{}}status('已暂停')}else{paused=false;startRecognitionInstance()}updateButtons()}
+ $('jwbyStart').onclick=start;$('jwbyStop').onclick=()=>stop();$('jwbyPause').onclick=togglePause;$('jwbyClear').onclick=()=>{$('jwbySource').textContent='等待语音输入……';$('jwbyTranslation').textContent='等待翻译';lastFinal='';status('已清除')};
+ $('jwbyClose').onclick=()=>{stop(false);panel.hidden=true;$('jwbyCaptionRestore').hidden=false};$('jwbyCaptionRestore').onclick=showPanel;
+ $('jwbyRefreshHistory').onclick=drawHistory;$('jwbyClearHistory').onclick=()=>{if(confirm('清除本机字幕记录？')){localStorage.removeItem(historyKey);drawHistory()}};$('jwbyHistoryPop').addEventListener('toggle',()=>{if($('jwbyHistoryPop').open)drawHistory()});
+ $('jwbyFontSize').oninput=paintText;$('jwbyFontColor').oninput=paintText;$('jwbyPanelColor').oninput=paintPanel;$('jwbyPanelOpacity').oninput=paintPanel;
+ const savedSize=localStorage.getItem('jwby_caption_font_size'),savedTextColor=localStorage.getItem('jwby_caption_text_color'),savedBg=localStorage.getItem('jwby_caption_bg'),savedAlpha=localStorage.getItem('jwby_caption_alpha');
+ if(savedSize)$('jwbyFontSize').value=savedSize;if(savedTextColor)$('jwbyFontColor').value=savedTextColor;if(savedBg)$('jwbyPanelColor').value=savedBg;if(savedAlpha)$('jwbyPanelOpacity').value=savedAlpha;
+ $('jwbyFontSize').oninput=()=>{paintText();localStorage.setItem('jwby_caption_font_size',$('jwbyFontSize').value)};$('jwbyFontColor').oninput=()=>{paintText();localStorage.setItem('jwby_caption_text_color',$('jwbyFontColor').value)};$('jwbyPanelColor').oninput=()=>{paintPanel();localStorage.setItem('jwby_caption_bg',$('jwbyPanelColor').value)};$('jwbyPanelOpacity').oninput=()=>{paintPanel();localStorage.setItem('jwby_caption_alpha',$('jwbyPanelOpacity').value)};
+ const handle=$('jwbyCaptionHeader');handle.addEventListener('pointerdown',e=>{if(e.target.closest('button,select,input,summary'))return;const rect=panel.getBoundingClientRect();drag={x:e.clientX-rect.left,y:e.clientY-rect.top};handle.setPointerCapture(e.pointerId);panel.style.transform='none';panel.style.left=rect.left+'px';panel.style.top=rect.top+'px'});handle.addEventListener('pointermove',e=>{if(!drag)return;panel.style.left=Math.max(0,Math.min(innerWidth-panel.offsetWidth,e.clientX-drag.x))+'px';panel.style.top=Math.max(0,Math.min(innerHeight-handle.offsetHeight,e.clientY-drag.y))+'px'});handle.addEventListener('pointerup',()=>drag=null);handle.addEventListener('pointercancel',()=>drag=null);
+ paintText();paintPanel();updateButtons();drawHistory();
+})();
 </script>
 </body>
 </html>
