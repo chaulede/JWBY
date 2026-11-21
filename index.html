@@ -199,6 +199,8 @@
     }
 
     /* ========== 原有自定义样式 ========== */
+    #authOverlay { position: fixed; inset: 0; background: #f1f5f9; z-index: 9999; display: flex; justify-content: center; align-items: center; }
+    .auth-box { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 420px; width: 90%; }
     #whiteboardScrollContainer { position: absolute; inset: 0; overflow: auto; z-index: 10; }
     #whiteboardInnerWrapper { position: relative; min-height: 100%; width: 100%; }
     #whiteboardContent { font-family: 'KaiTi', '楷体', 'STKaiti', 'Kaiti SC', 'Songti SC', 'PingFang SC', 'Microsoft YaHei', serif; line-height: 2; outline: none; word-break: break-word; padding: 20px; position: relative; z-index: 2; }
@@ -206,6 +208,39 @@
     #drawCanvas.active { pointer-events: auto; cursor: crosshair; }
     
     /* ===== 修复 : 图片自由缩放包裹层样式 ===== */
+    .document-page-canvas { isolation:isolate; }\n    .page-move-handle { opacity:.35; transition:opacity .15s; }\n    .document-page-canvas:hover .page-move-handle { opacity:1; }
+    .document-page-annotation { cursor:text; white-space:pre-wrap; overflow-wrap:anywhere; }
+    .ppt-object { position:absolute; box-sizing:border-box; }
+    .ppt-image-object { border:1px solid transparent;overflow:hidden; }
+    .ppt-image-object,.ppt-text-object { resize:both;overflow:auto;min-width:28px;min-height:24px; }
+    .ppt-page-flat .ppt-image-object { z-index:1 !important; }
+    .ppt-image-object::after { content:'';position:absolute;right:0;bottom:0;width:12px;height:12px;background:#2563eb;border:1px solid #fff;cursor:se-resize; }
+    .ppt-image-object:hover,.ppt-text-object:hover { outline:1px dashed #60a5fa; }
+    .ppt-image-object img { display:block;object-fit:fill;pointer-events:none;user-select:none; }
+    .ppt-text-object { padding:2px;overflow:auto; }
+    .ppt-object-content { width:100%;height:100%;overflow:auto;outline:none;white-space:normal;overflow-wrap:anywhere;line-height:1.2; }
+    .ppt-object-content:focus { outline:1px solid rgba(37,99,235,.55); }
+    .ppt-object-move-handle { position:absolute;left:0;top:0;z-index:950;display:none;padding:0 5px;border-radius:0 0 4px 0;background:rgba(37,99,235,.92);color:#fff;font:12px Arial;line-height:16px;cursor:move;user-select:none; }
+    .ppt-group-move-handle { position:absolute;right:0;top:0;z-index:951;display:none;padding:0 5px;background:#0f766e;color:#fff;font:11px/16px Arial;cursor:move;user-select:none;border-radius:0 0 0 4px; }
+    .ppt-object:hover > .ppt-group-move-handle { display:block; }
+    /* 纯图片型 PPT：左侧图片、右侧独立课堂讲解区 */
+    .ppt-flat-layout { position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,2.5fr) minmax(180px,1fr);gap:0;padding:28px 10px 10px;box-sizing:border-box;background:#f8fafc; }
+    .ppt-flat-image-area { min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;padding:8px;border-right:1px solid #cbd5e1;overflow:auto; }
+    .ppt-flat-image-area .ppt-object { position:relative!important;left:auto!important;top:auto!important;width:100%!important;height:100%!important;max-width:100%;max-height:100%;transform:none!important;resize:both;overflow:hidden; }
+    .ppt-flat-image-area .ppt-image-object img { width:100%;height:100%;object-fit:contain;background:#fff; }
+    .ppt-flat-image-area .ppt-object-move-handle { display:none!important; }
+    .ppt-flat-notes-area { min-width:0;min-height:0;display:flex;flex-direction:column;background:#fff;border:1px solid #dbeafe;border-radius:8px;margin:8px;overflow:hidden; }
+    .ppt-flat-notes-title { flex:none;padding:9px 12px;background:#eff6ff;border-bottom:1px solid #dbeafe;color:#1e40af;font:600 13px Arial,'Microsoft YaHei',sans-serif; }
+    .ppt-flat-notes-editor { flex:1;min-height:0;padding:12px;outline:none;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.7 Arial,'Microsoft YaHei',sans-serif;color:#1e293b;cursor:text; }
+    .ppt-flat-notes-editor:empty:before { content:attr(data-placeholder);color:#94a3b8;pointer-events:none; }
+    .ppt-flat-notes-editor:focus { box-shadow:inset 0 0 0 2px rgba(59,130,246,.15); }
+    .ppt-page-flat { background:#f8fafc!important; }
+    .ppt-object:hover > .ppt-object-move-handle { display:block; }
+    .ppt-line-object { min-height:1px!important;overflow:visible!important;resize:none!important; }
+    .ppt-line-object:hover { outline:1px dashed #f59e0b; }
+    .ppt-text-object .ppt-object-content { box-sizing:border-box; }
+    .ppt-page-editable { background:#fff; }
+    .document-page-annotation:focus { box-shadow:inset 0 0 0 2px rgba(59,130,246,.25); }
     .resizable-img-wrapper {
         display: inline-block;
         position: relative;
@@ -270,7 +305,9 @@
         display: block;
     }
     
-    ruby { ruby-align: center; ruby-position: over; margin: 0 1px; white-space: nowrap; }
+    ruby { ruby-align: center; ruby-position: over; margin: 0 1px; white-space: nowrap; user-select: text; -webkit-user-select: text; }
+    /* 选词时仅选择汉字底字，避免拼音 rt 参与鼠标命中与文本选区 */
+    ruby rt { user-select: none; -webkit-user-select: none; pointer-events: none; }
     rt { font-size: 0.5em !important; color: #1d4ed8 !important; font-family: 'Arial', sans-serif !important; font-weight: bold !important; line-height: 1.2; }
     
         .english-line { display: block !important; font-size: 0.85em !important; color: #64748b; font-family: 'Arial', sans-serif; font-style: italic; border-left: 3px solid #cbd5e1; padding-left: 8px; margin: 8px 0 20px 0 !important; line-height: 1.4 !important; width: 100%; }
@@ -485,14 +522,26 @@
     }
 
 </style>
-
-<style id="jwby-static-login-style">#jwbyStaticAuth{position:fixed;inset:0;z-index:20000;display:flex;align-items:center;justify-content:center;background:rgba(15,23,42,.88);padding:18px;font-family:system-ui,sans-serif}#jwbyStaticAuth[hidden]{display:none!important}#jwbyStaticAuth .auth-box{width:min(420px,100%);background:#fff;border-radius:16px;padding:28px;box-shadow:0 24px 70px #0006;text-align:center}#jwbyStaticAuth h1{font-size:22px;color:#1e293b;margin:0 0 8px}#jwbyStaticAuth p{font-size:14px;color:#64748b;margin:0 0 18px}#jwbyStaticAuth input{display:block;width:100%;border:1px solid #cbd5e1;border-radius:9px;padding:12px;margin:10px 0;text-align:center;font-size:16px;color:#0f172a}#jwbyStaticAuth button{width:100%;background:#4f46e5;color:white;border:0;border-radius:9px;padding:12px;font-size:15px;font-weight:700;cursor:pointer}#jwbyStaticAuth button:disabled{opacity:.55;cursor:wait}#jwbyStaticAuthMessage{min-height:20px;margin-top:10px;color:#b91c1c;font-size:13px}</style>
 </head>
 <body>
-<div id="jwbyStaticAuth" role="dialog" aria-modal="true" aria-labelledby="jwbyStaticAuthTitle"><form id="jwbyStaticAuthForm" class="auth-box"><h1 id="jwbyStaticAuthTitle">🔒 软件授权登录</h1><p>请输入您的专属授权账号和密码</p><input id="jwbyStaticAccount" type="text" placeholder="教师账号" autocomplete="username" required><input id="jwbyStaticPassword" type="password" placeholder="密码" autocomplete="current-password" required><button id="jwbyStaticLoginButton" type="submit">登录</button><div id="jwbyStaticAuthMessage" role="status" aria-live="polite"></div></form></div>
 
 <!-- 登录验证遮罩层 -->
-
+<div id="authOverlay">
+    <div class="auth-box">
+        <h1 class="text-2xl font-bold text-slate-800 mb-2">🔒 软件授权登录</h1>
+        <p class="text-sm text-slate-500 mb-4">请输入您的专属授权账号和密码</p>
+        <input type="text" id="authAccount" placeholder="教师账号 (如: teacher1)" class="w-full border border-slate-300 rounded-lg p-3 text-center text-base outline-none focus:ring-2 focus:ring-indigo-500 mb-3" autocomplete="off">
+        <input type="password" id="authPassword" placeholder="密码" class="w-full border border-slate-300 rounded-lg p-3 text-center text-base outline-none focus:ring-2 focus:ring-indigo-500 mb-4" autocomplete="off">
+        <div class="flex items-center justify-between mb-5 text-xs text-slate-600">
+            <label class="flex items-center cursor-pointer">
+                <input type="checkbox" id="rememberMe" class="mr-1.5 rounded text-indigo-600 focus:ring-indigo-500"> 记住授权状态
+            </label>
+            <span id="authTip" class="text-indigo-600 font-medium">商业授权版</span>
+        </div>
+        <button id="btnAuthLogin" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition cursor-pointer shadow-md">验证并进入系统</button>
+        <p class="text-xs text-slate-400 mt-4">如需获取授权或购买，请联系软件供应商</p>
+    </div>
+</div>
 
 <!-- 主体内容 -->
 <div id="appContent" class="hidden flex-col md:flex-row h-[calc(100vh-3rem)] gap-6 relative">
@@ -666,6 +715,7 @@
 
         <div class="flex flex-col gap-1.5 mt-auto pt-1">
             <button id="btnQuiz" class="w-full bg-amber-500 text-white py-1.5 rounded-lg font-bold hover:bg-amber-600 transition text-xs cursor-pointer flex justify-center items-center shadow-sm border border-amber-600">🎯 生成课堂测验 (展示在白板)</button>
+            <button id="btnDownloadCombinedHomework" onclick="downloadCombinedHomework()" class="w-full bg-sky-700 text-white py-1.5 rounded-lg font-bold hover:bg-sky-800 transition text-xs cursor-pointer flex justify-center items-center shadow-sm border border-sky-800">📥 下载白板上的试题</button>
             
             <button id="btnGenNotes" class="w-full bg-emerald-600 text-white py-1.5 rounded-lg font-medium hover:bg-emerald-700 transition text-xs cursor-pointer flex justify-center items-center mt-1 border-t border-slate-200 pt-2">📚 一键整理白板笔记</button>
             <button id="btnDownloadNotes" class="hidden w-full bg-emerald-700 text-white py-1 rounded-lg text-xs hover:bg-emerald-800 transition cursor-pointer">📥 下载复习笔记 (Word)</button>
@@ -706,17 +756,85 @@
 </div>
 
 <script>
-    function jwbyInitializeAuthorizedApp(){
-        if(window.jwbyAppInitialized)return;window.jwbyAppInitialized=true;
-        if (typeof JSZip === 'undefined') { console.error("❌ JSZip 库未加载成功，无法解析 PPT！"); setTimeout(() => alert("⚠️ PPT 解析组件 (JSZip) 加载失败，请检查网络或关闭广告拦截插件后刷新页面。"), 500); }
+    window.addEventListener('DOMContentLoaded', () => {
+        if (typeof JSZip === 'undefined') {
+            console.error("❌ 致命错误：JSZip 库未加载成功，无法解析 PPT！");
+            setTimeout(() => alert("⚠️ PPT 解析组件 (JSZip) 加载失败，请检查您的网络或关闭广告拦截插件后刷新页面。"), 500);
+        }
         if (typeof pdfjsLib === 'undefined') console.warn("⚠️ PDF.js 未加载");
         if (typeof mammoth === 'undefined') console.warn("⚠️ Mammoth.js 未加载");
         if (typeof pinyinPro === 'undefined') console.warn("⚠️ pinyin-pro 未加载");
-        const appContent=document.getElementById('appContent');appContent.classList.remove('hidden');appContent.classList.add('flex');
-        try{initApp()}catch(e){console.warn(e)}setTimeout(()=>window.dispatchEvent(new Event('resize')),100);
-    }
-    window.jwbyInitializeAuthorizedApp=jwbyInitializeAuthorizedApp;
-    window.addEventListener('DOMContentLoaded',()=>{if(window.jwbyIsAuthenticated())jwbyInitializeAuthorizedApp();else window.addEventListener('jwby-static-authenticated',jwbyInitializeAuthorizedApp,{once:true})});
+
+        const savedAuth = localStorage.getItem('teacher_whiteboard_auth');
+        if (savedAuth === 'true') {
+            document.getElementById('authOverlay').style.display = 'none';
+            const appContent = document.getElementById('appContent');
+            appContent.classList.remove('hidden');
+            appContent.classList.add('flex');
+            try { initApp(); } catch (e) { console.warn(e); }
+            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 100);
+        }
+    });
+
+    const VALID_ACCOUNTS = [
+        { account: "admin", password: "847906a." },
+        { account: "carrotluo", password: "abc123" },
+        { account: "开场白", password: "123456" },
+        { account: "视听", password: "123456" },
+        { account: "卡卡西", password: "123456" },
+        { account: "teacher", password: "847906a." },
+        { account: "lily", password: "123456" },
+        { account: "ylps", password: "123456" },
+        { account: "qgz", password: "123456" },
+        { account: "vong", password: "1984" },
+        { account: "yang", password: "123456" },
+        { account: "yuran", password: "123456" },
+        { account: "margo", password: "123456" },
+        { account: "aurora", password: "123456" },
+        { account: "sheng", password: "123456" },
+        { account: "lynn", password: "123456" },
+        { account: "xiaoK", password: "123456" },
+        { account: "wanjun", password: "wanjun" },
+        { account: "chang", password: "chang" },
+        { account: "chenfeng", password: "chenfeng" },
+        { account: "Lyia", password: "lyia100" },
+        { account: "萱萱", password: "xuanxuan" },
+        { account: "Lemon", password: "Lemon" },
+        { account: "bobo", password: "BOBO123" },
+        ...Array.from({ length: 99 }, (_, i) => ({ account: `teacher${i + 2}`, password: "123" }))
+    ];
+
+    const authAccount = document.getElementById('authAccount');
+    const authPassword = document.getElementById('authPassword');
+    const rememberMe = document.getElementById('rememberMe');
+
+    document.getElementById('btnAuthLogin').addEventListener('click', () => {
+        const acc = authAccount.value.trim();
+        const pwd = authPassword.value.trim();
+        if (!acc || !pwd) { alert("请输入账号和密码！"); return; }
+
+        const isValid = VALID_ACCOUNTS.some(item => item.account === acc && item.password === pwd);
+
+        if (isValid) {
+            document.getElementById('authOverlay').style.display = 'none';
+            const appContent = document.getElementById('appContent');
+            appContent.classList.remove('hidden');
+            appContent.classList.add('flex');
+            
+            if (rememberMe.checked) localStorage.setItem('teacher_whiteboard_auth', 'true');
+            else localStorage.removeItem('teacher_whiteboard_auth');
+            
+            try { initApp(); } catch (err) { console.warn("初始化提示：", err); }
+            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 100);
+        } else {
+            alert("授权账号或密码错误，请检查输入！");
+            authPassword.value = '';
+        }
+    });
+
+    authAccount.addEventListener('keypress', (e) => { if (e.key === 'Enter') authPassword.focus(); });
+    authPassword.addEventListener('keypress', (e) => { if (e.key === 'Enter') document.getElementById('btnAuthLogin').click(); });
+
     let appInitialized = false;
 
     function escapeHtml(str) {
@@ -1015,7 +1133,12 @@
                     const py = (cell.querySelector('.wp-gpy')?.textContent || '').trim();
                     const partEl = cell.querySelector('.wp-part');
                     const gg = (cell.querySelector('.wp-gg')?.textContent || '').trim();
-                    let alignStyle = 'text-align:center;';
+                    const isMiGrid = !!cell.querySelector('.wp-gch.mi');
+                    // 米字格导出时补上两条对角线；田字格保留十字线。
+                    const gridBackground = isMiGrid
+                        ? 'background-image:linear-gradient(45deg, transparent 49.2%, #cbd5e1 49.2%, #cbd5e1 50.8%, transparent 50.8%),linear-gradient(-45deg, transparent 49.2%, #cbd5e1 49.2%, #cbd5e1 50.8%, transparent 50.8%),linear-gradient(#cbd5e1,#cbd5e1) center/1px 100% no-repeat,linear-gradient(#cbd5e1,#cbd5e1) center/100% 1px no-repeat;'
+                        : 'background-image:linear-gradient(#cbd5e1,#cbd5e1) center/1px 100% no-repeat,linear-gradient(#cbd5e1,#cbd5e1) center/100% 1px no-repeat;';
+                    let alignStyle = 'text-align:center;'
                     if (partEl) {
                         if (partEl.classList.contains('p-left') || partEl.classList.contains('p-enc-l')) alignStyle = 'text-align:left; padding-left:3pt;';
                         else if (partEl.classList.contains('p-right') || partEl.classList.contains('p-enc-r')) alignStyle = 'text-align:right; padding-right:3pt;';
@@ -1023,7 +1146,7 @@
                         else if (partEl.classList.contains('p-bottom')) alignStyle = 'text-align:center; vertical-align:bottom; padding-bottom:1pt;';
                     }
                     pyRow += `<td style="width:30pt; height:13pt; border:1pt solid #334155; border-bottom:1pt dashed #64748b; text-align:center; font-family:Arial,sans-serif; font-size:9.5pt; color:#1e293b;">${escapeHtml(py)}</td>`;
-                    chRow += `<td style="width:30pt; height:30pt; border:1pt solid #334155; border-top:none; font-family:'DFKai-SB','標楷體','MingLiU','PMingLiU','Noto Serif CJK TC','KaiTi',serif; font-size:18pt; color:#1e293b; vertical-align:middle; ${alignStyle}">${escapeHtml(gg)}</td>`;
+                    chRow += `<td style="width:30pt; height:30pt; border:1pt solid #334155; border-top:none; ${gridBackground} font-family:'DFKai-SB','標楷體','MingLiU','PMingLiU','Noto Serif CJK TC','KaiTi',serif; font-size:18pt; color:#1e293b; vertical-align:middle; ${alignStyle}">${escapeHtml(gg)}</td>`;
                 });
                 return `<table style="border-collapse:collapse; display:inline-table;"><tr>${pyRow}</tr><tr>${chRow}</tr></table>`;
             };
@@ -1093,6 +1216,79 @@
         return headerHtml + `<div style="font-family:'KaiTi','楷体','Microsoft YaHei',serif; font-size:14pt; line-height:1.9;">${clone.innerHTML}</div>`;
     }
 
+    // ================= 合并导出：看拼音写汉字 + 补全汉字 + 课堂测验 =================
+    // 仅从白板现有试题节点读取并克隆；所有清理、排版和导出都在副本中完成，
+    // 不修改白板 DOM、不清空课堂数据，也不影响撤销历史或课堂交互。
+    window.downloadCombinedHomework = function() {
+        const board = document.getElementById('whiteboardContent');
+        if (!board) return;
+
+        const sourceBlocks = Array.from(board.querySelectorAll('.wp-exam, .quiz-board'))
+            .filter(node => node.innerText && node.innerText.trim());
+        if (!sourceBlocks.length) {
+            alert('白板上还没有生成试题。请先生成“看拼音写汉字”“补全汉字”或“课堂测验”，再合并下载。');
+            return;
+        }
+
+        const sections = [];
+        sourceBlocks.forEach((source, index) => {
+            const clone = source.cloneNode(true);
+            // 学生版不包含参考答案、显示答案按钮和单题导出工具。
+            clone.querySelectorAll('.wp-no-export, .wp-answer-toggle, .wp-export-bar, .wp-answer').forEach(el => el.remove());
+            const h2 = clone.querySelector('h2');
+            const title = h2
+                ? h2.textContent.replace(/[📝✍️🧩]/g, '').trim()
+                : (clone.classList.contains('quiz-board') ? '课堂测验' : '汉字练习');
+
+            // 复用现有 Word 排版转换器，确保拼音、田字格/米字格和课堂测验沿用原有导出样式。
+            let sectionHtml = buildStandardWordBody(clone, title || '课后练习');
+            // buildStandardWordBody 为单题导出生成的姓名/日期表头在合并文件中只保留一次。
+            const headerEnd = sectionHtml.indexOf('</table>');
+            if (headerEnd >= 0) sectionHtml = sectionHtml.slice(headerEnd + '</table>'.length);
+
+            sections.push(
+                (index ? '<div style="height:10pt;"></div>' : '') +
+                '<h2 style="font-family:Microsoft YaHei,sans-serif;font-size:15pt;color:#1e3a8a;border-bottom:1.5pt solid #93c5fd;padding-bottom:5pt;margin:0 0 10pt 0;page-break-after:avoid;">' +
+                escapeHtml(title || '课后练习') + '</h2>' +
+                sectionHtml
+            );
+        });
+
+        const today = new Date();
+        const dateText = today.getFullYear() + '-' +
+            String(today.getMonth() + 1).padStart(2, '0') + '-' +
+            String(today.getDate()).padStart(2, '0');
+        const headerHtml = `
+            <table style="width:100%;border-collapse:collapse;margin-bottom:18pt;border-bottom:2pt solid #1e3a8a;">
+                <tr>
+                    <td style="font-family:'Microsoft YaHei',sans-serif;font-size:19pt;font-weight:bold;color:#1e3a8a;padding-bottom:7pt;">课后综合练习</td>
+                    <td style="text-align:right;font-family:Arial,sans-serif;font-size:10.5pt;color:#475569;padding-bottom:7pt;">姓名 Name: ____________ &nbsp;&nbsp; 日期 Date: ____________</td>
+                </tr>
+            </table>
+            <p style="font-family:Arial,sans-serif;font-size:9.5pt;color:#64748b;margin:0 0 16pt 0;">生成日期：${dateText}</p>
+        `;
+        const docHtml = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+        <head><meta charset="utf-8"><title>课后综合练习</title>
+        <style>
+            body{font-family:'KaiTi','楷体','Microsoft YaHei',serif;font-size:14pt;color:#1e293b;}
+            p{margin:0 0 8pt 0;}h3{color:#b45309;font-size:13pt;margin:14pt 0 6pt 0;}
+            ul,ol{margin:0 0 10pt 18pt;}li{margin-bottom:6pt;}
+            ${BOARD_EXPORT_STYLE}
+            @page{margin:15mm 14mm;}
+        </style></head><body>
+        ${headerHtml}
+        ${sections.join('')}
+        </body></html>`;
+        const blob = new Blob(['\\ufeff' + docHtml], { type: 'application/msword' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = '课后综合练习_' + dateText + '.doc';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    };
+
     window.exportBoardExamWord = function(btn) {
         const data = getCleanBoardExamClone(btn);
         if (!data) return;
@@ -1146,6 +1342,68 @@
         const whiteboard = document.getElementById('whiteboardContent');
         const scrollContainer = document.getElementById('whiteboardScrollContainer');
         const innerWrapper = document.getElementById('whiteboardInnerWrapper');
+
+        // 拖动页面顶部蓝色手柄，可移动整张导入的 PPT/PDF 页面；右下角可缩放。
+        let movingDocumentPage = null;
+        let pageDragStart = null;
+        whiteboard.addEventListener('pointerdown', function(e) {
+            const handle = e.target.closest('.page-move-handle');
+            if (!handle) return;
+            const page = handle.closest('.document-page-canvas');
+            if (!page) return;
+            e.preventDefault();
+            movingDocumentPage = page;
+            const match = (page.style.transform || '').match(/translate\\(([-\\d.]+)px,\\s*([-\\d.]+)px\\)/);
+            pageDragStart = {
+                x: e.clientX, y: e.clientY,
+                dx: match ? Number(match[1]) : 0,
+                dy: match ? Number(match[2]) : 0
+            };
+            handle.setPointerCapture(e.pointerId);
+        });
+        whiteboard.addEventListener('pointermove', function(e) {
+            if (!movingDocumentPage || !pageDragStart) return;
+            const dx = pageDragStart.dx + e.clientX - pageDragStart.x;
+            const dy = pageDragStart.dy + e.clientY - pageDragStart.y;
+            movingDocumentPage.style.transform = `translate(${dx}px, ${dy}px)`;
+        });
+        whiteboard.addEventListener('pointerup', function() {
+            if (movingDocumentPage) saveHistoryImmediate();
+            movingDocumentPage = null;
+            pageDragStart = null;
+        });
+        whiteboard.addEventListener('pointercancel', function() {
+            movingDocumentPage = null;
+            pageDragStart = null;
+        });
+
+        // PPT 对象支持单独移动；带“组”标记的对象可连同同组对象一起移动。
+        let movingPptObjects = [], pptObjectDragStart = null;
+        whiteboard.addEventListener('pointerdown', function(e) {
+            const groupHandle=e.target.closest('.ppt-group-move-handle');
+            const objectHandle=e.target.closest('.ppt-object-move-handle');
+            if(!groupHandle&&!objectHandle)return;
+            const obj=e.target.closest('.ppt-object');if(!obj)return;
+            e.preventDefault();e.stopPropagation();
+            let targets=[obj];
+            if(groupHandle && obj.dataset.groupPath){
+                const page=obj.closest('.pptx-import');
+                targets=Array.from(page.querySelectorAll('.ppt-object')).filter(el=>el.dataset.groupPath===obj.dataset.groupPath);
+            }
+            movingPptObjects=targets.map(el=>{
+                const m=(el.style.transform||'').match(/translate\((-?[\d.]+)px,\s*(-?[\d.]+)px\)/);
+                return {el,dx:m?Number(m[1]):0,dy:m?Number(m[2]):0};
+            });
+            pptObjectDragStart={x:e.clientX,y:e.clientY};
+            (groupHandle||objectHandle).setPointerCapture(e.pointerId);
+        });
+        whiteboard.addEventListener('pointermove',function(e){
+            if(!movingPptObjects.length||!pptObjectDragStart)return;
+            const dx=e.clientX-pptObjectDragStart.x,dy=e.clientY-pptObjectDragStart.y;
+            movingPptObjects.forEach(item=>{item.el.style.transform='translate('+(item.dx+dx)+'px,'+(item.dy+dy)+'px)';});
+        });
+        whiteboard.addEventListener('pointerup',function(){if(movingPptObjects.length)saveHistoryImmediate();movingPptObjects=[];pptObjectDragStart=null;});
+        whiteboard.addEventListener('pointercancel',function(){movingPptObjects=[];pptObjectDragStart=null;});
 
         // 粘贴图片功能
         whiteboard.addEventListener('paste', function(e) {
@@ -1407,7 +1665,225 @@
             }
         });
 
-        document.getElementById('docFileUpload').addEventListener('change', async function(event) {
+        // PPTX 双模式导入：扁平化整页图保留为整页图片；普通幻灯片按 OOXML 坐标拆成可编辑文字框和独立图片。
+        async function renderPptxEditableSlides(arrayBuffer, loadingTextEl) {
+            if (typeof JSZip === 'undefined') throw new Error('JSZip 库未加载。');
+            const zip = await JSZip.loadAsync(arrayBuffer);
+            const parser = new DOMParser();
+            const P = 'http://schemas.openxmlformats.org/presentationml/2006/main';
+            const A = 'http://schemas.openxmlformats.org/drawingml/2006/main';
+            const R = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships';
+            const pres = parser.parseFromString(await zip.file('ppt/presentation.xml').async('string'),'text/xml');
+            const size = pres.getElementsByTagNameNS(P,'sldSz')[0];
+            const sw = size ? Number(size.getAttribute('cx')) : 12192000;
+            const sh = size ? Number(size.getAttribute('cy')) : 6858000;
+            const ratio = sw/sh;
+            const mediaCache = {};
+            const resolveImage = async (slideNo,rid) => {
+                if (!rid) return '';
+                const relFile = zip.file('ppt/slides/_rels/slide'+slideNo+'.xml.rels');
+                if (!relFile) return '';
+                const relDoc = parser.parseFromString(await relFile.async('string'),'text/xml');
+                const rel = Array.from(relDoc.getElementsByTagName('Relationship')).find(x=>x.getAttribute('Id')===rid);
+                if (!rel) return '';
+                let path = rel.getAttribute('Target') || '';
+                if (/^https?:/i.test(path)) return path;
+                path = path.startsWith('/') ? path.slice(1) : 'ppt/slides/'+path;
+                const stack=[];
+                path.split('/').forEach(part=>{if(!part||part==='.')return;if(part==='..')stack.pop();else stack.push(part);});
+                path=stack.join('/');
+                if (mediaCache[path]) return mediaCache[path];
+                const file=zip.file(path); if(!file)return '';
+                const ext=path.split('.').pop().toLowerCase();
+                const mime={png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',gif:'image/gif',svg:'image/svg+xml',webp:'image/webp'}[ext]||'application/octet-stream';
+                mediaCache[path]=URL.createObjectURL(new Blob([await file.async('uint8array')],{type:mime}));
+                return mediaCache[path];
+            };
+            const transform = el => {
+                const x=Array.from(el.getElementsByTagNameNS(A,'xfrm')).find(n=>n.parentElement && n.parentElement.localName==='spPr') || el.getElementsByTagNameNS(P,'xfrm')[0];
+                if(!x)return null;
+                const off=x.getElementsByTagNameNS(A,'off')[0], ext=x.getElementsByTagNameNS(A,'ext')[0];
+                if(!off||!ext)return null;
+                return {x:+off.getAttribute('x'),y:+off.getAttribute('y'),cx:+ext.getAttribute('cx'),cy:+ext.getAttribute('cy'),rotation:Number(x.getAttribute('rot')||0)/60000,flipH:x.getAttribute('flipH')==='1',flipV:x.getAttribute('flipV')==='1'};
+            };
+            const themeColors = {};
+            try {
+                const tf = zip.file('ppt/theme/theme1.xml');
+                if (tf) {
+                    const td = parser.parseFromString(await tf.async('string'),'text/xml');
+                    const cs = td.getElementsByTagNameNS(A,'clrScheme')[0];
+                    if (cs) Array.from(cs.children).forEach(c => {
+                        const v = c.firstElementChild; if (!v) return;
+                        themeColors[c.localName] = v.localName==='srgbClr' ? v.getAttribute('val') : (v.getAttribute('lastClr') || '000000');
+                    });
+                }
+            } catch(themeErr) { console.warn('主题色读取失败', themeErr); }
+            const schemeMap = {tx1:'dk1',bg1:'lt1',tx2:'dk2',bg2:'lt2'};
+            const safeColor = node => {
+                if(!node)return '#222';
+                const c=node.getElementsByTagNameNS(A,'srgbClr')[0];
+                if(c)return '#'+c.getAttribute('val');
+                const sc=node.getElementsByTagNameNS(A,'schemeClr')[0];
+                if(sc){ const v=sc.getAttribute('val'); const key=schemeMap[v]||v; if(themeColors[key])return '#'+themeColors[key]; }
+                return '#222';
+            };
+            const kid = (el,name) => el ? Array.from(el.children).find(c=>c.localName===name) : null;
+            const textHtml = shape => {
+                const body=shape.getElementsByTagNameNS(P,'txBody')[0]||shape.getElementsByTagNameNS(A,'txBody')[0]; if(!body)return '';
+                const bodyPr=body.getElementsByTagNameNS(A,'bodyPr')[0];
+                const anchor=bodyPr?bodyPr.getAttribute('anchor'):'';
+                const vertical=anchor==='ctr'?'justify-content:center;':anchor==='b'?'justify-content:flex-end;':'justify-content:flex-start;';
+                const insets=bodyPr?{
+                    l:Number(bodyPr.getAttribute('lIns')||91440)/sw*100,
+                    r:Number(bodyPr.getAttribute('rIns')||91440)/sw*100,
+                    t:Number(bodyPr.getAttribute('tIns')||45720)/sh*100,
+                    b:Number(bodyPr.getAttribute('bIns')||45720)/sh*100
+                }:null;
+                const paragraphs=Array.from(body.getElementsByTagNameNS(A,'p'));
+                return '<div style="width:100%;height:100%;display:flex;flex-direction:column;font-size:'+(18/(sw/12700)*100).toFixed(4)+'cqw;'+vertical+';box-sizing:border-box;'+(insets?'padding:'+insets.t+'% '+insets.r+'% '+insets.b+'% '+insets.l+'%;':'')+'">'+paragraphs.map(p=>{
+                    const pp=p.getElementsByTagNameNS(A,'pPr')[0], alg=pp?pp.getAttribute('algn'):'';
+                    const align=alg==='ctr'?'center':alg==='r'?'right':alg==='just'?'justify':'left';
+                    const defaultRun=pp?pp.getElementsByTagNameNS(A,'defRPr')[0]:null;
+                    const paragraphStyle=[];
+                    if(pp && pp.getAttribute('marL')) paragraphStyle.push('margin-left:'+Number(pp.getAttribute('marL'))/sw*100+'%');
+                    if(pp && pp.getAttribute('indent')) paragraphStyle.push('text-indent:'+Number(pp.getAttribute('indent'))/sw*100+'%');
+                    let content='';
+                    Array.from(p.childNodes).forEach(run=>{
+                        if(run.nodeType!==1)return;
+                        if(run.localName==='br'){content+='<br>';return;}
+                        if(!['r','fld'].includes(run.localName))return;
+                        const t=run.getElementsByTagNameNS(A,'t')[0]; if(!t)return;
+                        const rp=run.getElementsByTagNameNS(A,'rPr')[0]||defaultRun, css=[];
+                        if(rp){
+                            const sz=Number(rp.getAttribute('sz'));if(sz)css.push('font-size:'+(sz/100/(sw/12700)*100).toFixed(4)+'cqw');
+                            if(rp.getAttribute('b')==='1')css.push('font-weight:bold');
+                            if(rp.getAttribute('i')==='1')css.push('font-style:italic');
+                            if(rp.getAttribute('u') && rp.getAttribute('u')!=='none')css.push('text-decoration:underline');
+                            const latin=rp.getElementsByTagNameNS(A,'latin')[0], east=rp.getElementsByTagNameNS(A,'ea')[0];
+                            const face=(east&&east.getAttribute('typeface'))||(latin&&latin.getAttribute('typeface'));
+                            if(face)css.push('font-family:'+JSON.stringify(face));
+                            const fill=rp.getElementsByTagNameNS(A,'solidFill')[0];if(fill)css.push('color:'+safeColor(fill));
+                        }
+                        content+='<span style="'+css.join(';')+'">'+escapeHtml(t.textContent)+'</span>';
+                    });
+                    if(!content)content=Array.from(p.getElementsByTagNameNS(A,'t')).map(t=>escapeHtml(t.textContent)).join('');
+                    return '<div style="text-align:'+align+';min-height:1em;'+paragraphStyle.join(';')+'">'+(content||'<br>')+'</div>';
+                }).join('')+'</div>';
+            };
+            const entries=[];
+            zip.folder('ppt/slides').forEach((path,file)=>{const m=path.match(/^slide(\d+)\.xml$/);if(m&&!file.dir)entries.push({n:+m[1],path:'ppt/slides/'+path,file});});
+            entries.sort((a,b)=>a.n-b.n);
+            try {
+                const relFile=zip.file('ppt/_rels/presentation.xml.rels');
+                const sldList=pres.getElementsByTagNameNS(P,'sldIdLst')[0];
+                if(relFile&&sldList){
+                    const relDoc=parser.parseFromString(await relFile.async('string'),'text/xml');
+                    const rels=Array.from(relDoc.getElementsByTagName('Relationship'));
+                    const ordered=[];
+                    Array.from(sldList.children).forEach(idNode=>{
+                        const rid=idNode.getAttributeNS(R,'id')||idNode.getAttribute('r:id');
+                        const rel=rels.find(x=>x.getAttribute('Id')===rid);
+                        if(!rel)return;
+                        let target=rel.getAttribute('Target')||'';
+                        target=target.startsWith('/')?target.slice(1):'ppt/'+target;
+                        const stack=[];
+                        target.split('/').forEach(part=>{if(!part||part==='.')return;if(part==='..')stack.pop();else stack.push(part);});
+                        const path=stack.join('/');
+                        const found=entries.find(x=>x.path===path);
+                        if(found)ordered.push(found);
+                    });
+                    if(ordered.length===entries.length)entries.splice(0,entries.length,...ordered);
+                }
+            } catch(orderError) { console.warn(orderError); }
+            let result='';
+            if(!entries.length)throw new Error('未找到幻灯片。');
+            for(let i=0;i<entries.length;i++){
+                if(loadingTextEl&&loadingTextEl.innerText!==undefined)loadingTextEl.innerText='正在保留第 '+(i+1)+' / '+entries.length+' 页的对象位置...';
+                const doc=parser.parseFromString(await entries[i].file.async('string'),'text/xml');
+                const bgNode=doc.getElementsByTagNameNS(P,'bg')[0];
+                const bgSolid=bgNode?bgNode.getElementsByTagNameNS(A,'srgbClr')[0]:null;
+                const slideBackground=bgSolid?'#'+bgSolid.getAttribute('val'):'#ffffff';
+                const tree=doc.getElementsByTagNameNS(P,'spTree')[0];if(!tree)continue;
+                const topNodes=Array.from(tree.children).filter(n=>['sp','pic','graphicFrame','grpSp','cxnSp'].includes(n.localName));
+                const objectEntries=[];
+                const collectObjects=(container,parent={sx:1,sy:1,tx:0,ty:0,groupPath:[]})=>{
+                    Array.from(container.children).forEach(child=>{
+                        if(child.localName==='grpSp'){
+                            const gx=Array.from(child.getElementsByTagNameNS(A,'xfrm')).find(x=>x.parentElement && x.parentElement.localName==='grpSpPr');
+                            if(!gx)return;
+                            const off=gx.getElementsByTagNameNS(A,'off')[0], ext=gx.getElementsByTagNameNS(A,'ext')[0];
+                            const chOff=gx.getElementsByTagNameNS(A,'chOff')[0], chExt=gx.getElementsByTagNameNS(A,'chExt')[0];
+                            if(!off||!ext||!chOff||!chExt)return;
+                            const sx=Number(ext.getAttribute('cx'))/(Number(chExt.getAttribute('cx'))||1);
+                            const sy=Number(ext.getAttribute('cy'))/(Number(chExt.getAttribute('cy'))||1);
+                            const tx=Number(off.getAttribute('x'))-Number(chOff.getAttribute('x'))*sx;
+                            const ty=Number(off.getAttribute('y'))-Number(chOff.getAttribute('y'))*sy;
+                            const groupNv=child.getElementsByTagNameNS(P,'cNvPr')[0]; const groupId=groupNv?(groupNv.getAttribute('id')||groupNv.getAttribute('name')):('group'+objectEntries.length); collectObjects(child,{sx:parent.sx*sx,sy:parent.sy*sy,tx:parent.tx+parent.sx*tx,ty:parent.ty+parent.sy*ty,groupPath:parent.groupPath.concat(String(groupId))});
+                            return;
+                        }
+                        if(!['sp','pic','graphicFrame','cxnSp'].includes(child.localName))return;
+                        const local=transform(child);if(!local)return;
+                        const t={x:parent.tx+local.x*parent.sx,y:parent.ty+local.y*parent.sy,cx:local.cx*parent.sx,cy:local.cy*parent.sy,rotation:local.rotation||0,flipH:local.flipH,flipV:local.flipV};
+                        if(t.cx>0&&(t.cy>0 || child.localName==='cxnSp'))objectEntries.push({node:child,t:{...t,cy:Math.max(t.cy,1)},groupPath:parent.groupPath});
+                    });
+                };
+                collectObjects(tree);
+                const objects=[];
+                for(const entry of objectEntries){
+                    const node=entry.node, t=entry.t;
+                    const groupAttr=entry.groupPath.length?' data-group-path="'+escapeHtml(entry.groupPath.join('/'))+'"':'';
+                    const groupHandle=entry.groupPath.length?'<div class="ppt-group-move-handle" contenteditable="false" title="拖动整个组合">组</div>':'';
+                    const pos='left:'+(t.x/sw*100)+'%;top:'+(t.y/sh*100)+'%;width:'+(t.cx/sw*100)+'%;height:'+(t.cy/sh*100)+'%;z-index:'+(20+objects.length)+';'+(t.rotation?'rotate:'+t.rotation+'deg;':'')+(t.flipH||t.flipV?'scale:'+ (t.flipH?-1:1)+' '+(t.flipV?-1:1)+';':'');
+                    const nv=node.getElementsByTagNameNS(P,'cNvPr')[0], name=nv?nv.getAttribute('name'):'';
+                    if(node.localName==='sp' || node.localName==='cxnSp'){
+                        const content=textHtml(node);
+                        const spPr=kid(node,'spPr');
+                        const fillNode=kid(spPr,'solidFill');
+                        const lnNode=kid(spPr,'ln');
+                        const lnFill=kid(lnNode,'solidFill');
+                        const lineColor=safeColor(lnFill||fillNode);
+                        const geom=kid(spPr,'prstGeom');
+                        const fillColor=fillNode ? safeColor(fillNode) : 'transparent';
+                        const lineWidth=lnNode ? Math.max(1,Number(lnNode.getAttribute('w')||12700)/12700) : 1;
+                        const shapeStyle='background:'+fillColor+';';
+                        if(content.replace(/<[^>]+>/g,'').trim()){
+                            objects.push('<div class="ppt-object ppt-text-object" style="'+pos+shapeStyle+'" data-object-name="'+escapeHtml(name)+'"'+groupAttr+'>'+groupHandle+'<div class="ppt-object-move-handle" contenteditable="false" title="拖动文字框">⠿</div><div class="ppt-object-content" contenteditable="true" spellcheck="false">'+content+'</div></div>');
+                        } else if(node.localName==='cxnSp'){
+                            objects.push('<div class="ppt-object ppt-line-object" style="'+pos+'border-top:'+lineWidth+'px solid '+lineColor+';pointer-events:auto;"'+groupAttr+' title="'+escapeHtml(name)+'">'+groupHandle+'</div>');
+                        } else if(geom && (fillNode || lnFill)){
+                            const radius=geom.getAttribute('prst')==='roundRect'?'border-radius:12px;':(geom.getAttribute('prst')==='ellipse'?'border-radius:50%;':'');
+                            objects.push('<div class="ppt-object ppt-line-object" style="'+pos+'background:'+fillColor+';'+(lnFill?'border:'+lineWidth+'px solid '+lineColor+';':'')+radius+'pointer-events:none;"'+groupAttr+' title="'+escapeHtml(name)+'">'+groupHandle+'</div>');
+                        }
+                    } else if(node.localName==='pic'){
+                        const blip=node.getElementsByTagNameNS(A,'blip')[0], rid=blip?(blip.getAttributeNS(R,'embed')||blip.getAttribute('r:embed')):'';
+                        const src=await resolveImage(entries[i].n,rid);if(!src)continue;
+                        const srcRect=node.getElementsByTagNameNS(A,'srcRect')[0];
+                        const cropL=srcRect?Number(srcRect.getAttribute('l')||0)/100000:0, cropR=srcRect?Number(srcRect.getAttribute('r')||0)/100000:0;
+                        const cropT=srcRect?Number(srcRect.getAttribute('t')||0)/100000:0, cropB=srcRect?Number(srcRect.getAttribute('b')||0)/100000:0;
+                        const cropW=Math.max(.01,1-cropL-cropR), cropH=Math.max(.01,1-cropT-cropB);
+                        const cropStyle='position:absolute;left:'+(-cropL/cropW*100)+'%;top:'+(-cropT/cropH*100)+'%;width:'+(100/cropW)+'%;height:'+(100/cropH)+'%;max-width:none;';
+                        objects.push('<div class="ppt-object ppt-image-object" style="'+pos+'" data-object-name="'+escapeHtml(name)+'"'+groupAttr+'>'+groupHandle+'<div class="ppt-object-move-handle" contenteditable="false" title="拖动图片">⠿</div><img src="'+src+'" draggable="false" contenteditable="false" alt="'+escapeHtml(name)+'" style="'+cropStyle+'"></div>');
+                    } else if(node.localName==='graphicFrame'){
+                        const tbl=node.getElementsByTagNameNS(A,'tbl')[0];if(!tbl)continue;
+                        let table='<table style="width:100%;height:100%;border-collapse:collapse;">';
+                        Array.from(tbl.getElementsByTagNameNS(A,'tr')).forEach(row=>{table+='<tr>';Array.from(row.getElementsByTagNameNS(A,'tc')).forEach(cell=>{table+='<td style="border:1px solid #94a3b8;padding:3px;">'+Array.from(cell.getElementsByTagNameNS(A,'t')).map(x=>escapeHtml(x.textContent)).join('')+'</td>';});table+='</tr>';});table+='</table>';
+                        objects.push('<div class="ppt-object ppt-text-object" style="'+pos+'"'+groupAttr+'>'+groupHandle+'<div class="ppt-object-move-handle" contenteditable="false">⠿</div><div class="ppt-object-content" contenteditable="true">'+table+'</div></div>');
+                    }
+                }
+                const flat = objects.length===1 && topNodes.length===1 && topNodes[0].localName==='pic' && (()=>{const t=transform(topNodes[0]);return t&&t.x<sw*.01&&t.y<sh*.01&&t.cx>sw*.98&&t.cy>sh*.98;})();
+                const flatContent = flat
+                    ? '<div class="ppt-flat-layout" contenteditable="false"><div class="ppt-flat-image-area">'+objects.join('')+'</div><div class="ppt-flat-notes-area"><div class="ppt-flat-notes-title" contenteditable="false">📝 课堂讲解 / 批注</div><div class="ppt-flat-notes-editor" contenteditable="true" spellcheck="false" data-placeholder="在这里输入讲解内容、重点提示或课堂备注……"></div></div></div>'
+                    : objects.join('');
+                result+='<div class="pptx-import document-page-canvas '+(flat?'ppt-page-flat':'ppt-page-editable')+'" contenteditable="false" style="position:relative;display:block;flex:none;box-sizing:border-box;container-type:inline-size;width:960px;max-width:calc(100% - 40px);min-width:0;height:auto;aspect-ratio:'+ratio+';margin:18px auto;background:'+slideBackground+';border:1px solid #cbd5e1;box-shadow:0 3px 12px rgba(15,23,42,.1);overflow:hidden;resize:none;">'+
+                    '<div class="page-move-handle" contenteditable="false" title="拖动整页" style="position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:900;padding:2px 10px;background:#2563eb;color:white;border-radius:0 0 6px 6px;font:11px Arial;cursor:move;">↕ 移动页面</div>'+
+                    flatContent+
+                    (flat?'':'<div class="document-page-annotation" contenteditable="true" spellcheck="false" style="position:absolute;inset:0;z-index:10;padding:12px;outline:none;pointer-events:auto;"></div>')+
+                    '<div contenteditable="false" style="position:absolute;left:8px;top:6px;z-index:901;font:11px Arial;color:#64748b;background:rgba(255,255,255,.8);padding:2px 5px;">PPT '+(i+1)+'/'+entries.length+(flat?' · 图片 + 讲解区':' · 独立对象')+'</div></div>';
+            }
+            return result;
+        }
+
+document.getElementById('docFileUpload').addEventListener('change', async function(event) {
             const file = event.target.files[0];
             if (!file) return;
 
@@ -1457,23 +1933,36 @@
                     const reader = new FileReader();
                     reader.onload = async (e) => {
                         try {
+                            if (typeof pdfjsLib === 'undefined') throw new Error('PDF 阅读组件未加载，请刷新页面后重试。');
                             const typedarray = new Uint8Array(e.target.result);
                             const pdf = await pdfjsLib.getDocument(typedarray).promise;
-                            let fullText = "";
+                            let pagesHtml = '';
                             for (let i = 1; i <= pdf.numPages; i++) {
+                                loadingText.innerText = `正在保留 PDF 原始页面：第 ${i} / ${pdf.numPages} 页...`;
                                 const page = await pdf.getPage(i);
-                                const textContent = await page.getTextContent();
-                                let pageText = "";
-                                textContent.items.forEach(item => {
-                                    pageText += item.str;
-                                    if (item.hasEOL) pageText += "\n";
-                                });
-                                fullText += pageText + "\n";
+                                const viewport = page.getViewport({ scale: 1.6 });
+                                const canvas = document.createElement('canvas');
+                                canvas.width = Math.ceil(viewport.width);
+                                canvas.height = Math.ceil(viewport.height);
+                                await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+                                const src = canvas.toDataURL('image/png');
+                                const ratio = viewport.width / viewport.height;
+                                pagesHtml += `<div class="pptx-import document-page-canvas" contenteditable="true" style="position:relative;width:min(100%,960px);aspect-ratio:${ratio};margin:18px auto;background:#fff;border:1px solid #cbd5e1;box-shadow:0 3px 12px rgba(15,23,42,.10);overflow:hidden;resize:both;min-width:320px;min-height:180px;">
+                                    <div class="page-move-handle" contenteditable="false" title="拖动移动整页" style="position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;padding:2px 10px;background:rgba(37,99,235,.88);color:white;border-radius:0 0 6px 6px;font:11px Arial;cursor:move;user-select:none;">↕ 移动页面</div>
+                                    <img src="${src}" alt="PDF 第 ${i} 页" draggable="false" contenteditable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;pointer-events:none;">
+                                    <div class="document-page-annotation" contenteditable="true" spellcheck="false" style="position:absolute;inset:0;z-index:2;padding:12px;outline:none;"></div>
+                                    <div contenteditable="false" style="position:absolute;left:8px;top:6px;z-index:3;font:11px Arial;color:#64748b;background:rgba(255,255,255,.8);padding:2px 5px;border-radius:3px;">PDF · ${i}/${pdf.numPages}</div>
+                                </div>`;
                             }
-                            renderText(fullText.replace(/\n{3,}/g, '\n\n'));
-                            loadingOverlay.classList.add('hidden');
+                            if (whiteboard.innerText.trim() !== '' && whiteboard.innerHTML !== '<p><br></p>') pagesHtml = '<hr style="border:1px dashed #cbd5e1;margin:24px 0;">' + pagesHtml;
+                            whiteboard.insertAdjacentHTML('beforeend', pagesHtml);
+                            saveHistoryImmediate();
+                            scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
+                            setTimeout(resizeCanvas, 120);
                         } catch (err) {
-                            alert("PDF 解析引擎崩溃：\n" + err.message);
+                            console.error('PDF 页面导入失败:', err);
+                            alert('PDF 导入失败：' + err.message);
+                        } finally {
                             loadingOverlay.classList.add('hidden');
                         }
                     };
@@ -1483,204 +1972,19 @@
                     const reader = new FileReader();
                     reader.onload = async (e) => {
                         try {
-                            loadingText.innerText = "正在读取 PPT 文件...";
-                            if (typeof JSZip === 'undefined') throw new Error("JSZip 库未加载，无法解析 PPT。请刷新页面重试。");
-                            
-                            const zip = await JSZip.loadAsync(e.target.result);
-                            
-                            loadingText.innerText = "正在提取 PPT 内图片...";
-                            const mediaFiles = {};
-                            const mediaFolder = zip.folder('ppt/media');
-                            if (mediaFolder) {
-                                const mediaEntries = [];
-                                mediaFolder.forEach((relativePath, file) => {
-                                    if (!file.dir) mediaEntries.push({ path: relativePath, file });
-                                });
-                                for (const entry of mediaEntries) {
-                                    try {
-                                        const base64 = await entry.file.async('base64');
-                                        const ext = entry.path.split('.').pop().toLowerCase();
-                                        if (['emf', 'wmf', 'tiff'].includes(ext)) continue; 
-                                        const mime = ext === 'png' ? 'image/png' : (ext === 'jpg' || ext === 'jpeg') ? 'image/jpeg' : ext === 'gif' ? 'image/gif' : 'image/png';
-                                        mediaFiles['ppt/media/' + entry.path.replace(/^.*\//, '')] = `data:${mime};base64,${base64}`;
-                                    } catch (imgErr) {}
-                                }
+                            loadingText.innerText = '正在按原始页面布局解析 PPT...';
+                            const html = await renderPptxEditableSlides(e.target.result, loadingText);
+                            if (whiteboard.innerText.trim() && whiteboard.innerHTML !== '<p><br></p>') {
+                                whiteboard.insertAdjacentHTML('beforeend', '<hr style="border:1px dashed #cbd5e1;margin:24px 0;">');
                             }
-
-                            const slideEntries = [];
-                            const slidesFolder = zip.folder('ppt/slides');
-                            if (slidesFolder) {
-                                slidesFolder.forEach((relativePath, file) => {
-                                    const m = relativePath.match(/^slide(\d+)\.xml$/);
-                                    if (m && !file.dir) slideEntries.push({ num: parseInt(m[1]), file });
-                                });
-                            }
-                            slideEntries.sort((a, b) => a.num - b.num);
-                            if (slideEntries.length === 0) throw new Error("未在 PPTX 中找到任何幻灯片内容。");
-
-                            const parser = new DOMParser();
-                            const A_NS = 'http://schemas.openxmlformats.org/drawingml/2006/main';
-                            let fullHtml = '';
-
-                            for (let i = 0; i < slideEntries.length; i++) {
-                                loadingText.innerText = `正在解析第 ${i + 1} / ${slideEntries.length} 页...`;
-                                await new Promise(resolve => setTimeout(resolve, 10));
-
-                                const slideEntry = slideEntries[i];
-                                const slideXml = await slideEntry.file.async('string');
-                                const xmlDoc = parser.parseFromString(slideXml, 'text/xml');
-
-                                let slideHtml = `<div class="pptx-import" style="margin: 20px auto; padding: 30px; width: 100%; max-width: 900px; min-height: 500px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: relative; display: flex; flex-direction: column;">`;
-                                slideHtml += `<div style="position: absolute; top: 15px; left: 20px; font-size: 12px; color: #94a3b8; font-weight: bold;">第 ${i + 1} 页</div>`;
-
-                                let hasText = false;
-
-                                const shapeNodes = xmlDoc.getElementsByTagNameNS(A_NS, 'sp');
-                                for (let s = 0; s < shapeNodes.length; s++) {
-                                    const shape = shapeNodes[s];
-                                    const txBody = shape.getElementsByTagNameNS(A_NS, 'txBody')[0];
-                                    if (!txBody) continue;
-
-                                    const paragraphs = txBody.getElementsByTagNameNS(A_NS, 'p');
-                                    if (paragraphs.length === 0) continue;
-
-                                    slideHtml += `<div style="margin-bottom: 15px; width: 100%;">`;
-                                    
-                                    for (let p = 0; p < paragraphs.length; p++) {
-                                        const pNode = paragraphs[p];
-                                        const runs = pNode.getElementsByTagNameNS(A_NS, 'r');
-                                        
-                                        let paraHtml = '';
-                                        for (let r = 0; r < runs.length; r++) {
-                                            const run = runs[r];
-                                            const textNode = run.getElementsByTagNameNS(A_NS, 't')[0];
-                                            if (!textNode) continue;
-                                            
-                                            let text = escapeHtml(textNode.textContent);
-                                            if (text.trim()) hasText = true;
-                                            
-                                            const rPr = run.getElementsByTagNameNS(A_NS, 'rPr')[0];
-                                            let fontSize = 18;
-                                            if (rPr) {
-                                                const sz = rPr.getAttribute('sz');
-                                                if (sz) fontSize = parseInt(sz) / 100 * 1.33;
-                                            }
-
-                                            let fontWeight = 'normal';
-                                            if (rPr) {
-                                                const b = rPr.getAttribute('b');
-                                                if (b === '1') fontWeight = 'bold';
-                                            }
-
-                                            paraHtml += `<span style="font-size: ${fontSize}px; font-weight: ${fontWeight}; color: #333; line-height: 1.5;">${text}</span>`;
-                                        }
-                                        
-                                        if (paraHtml) {
-                                            slideHtml += `<p style="margin: 4px 0; text-align: left;">${paraHtml}</p>`;
-                                        }
-                                    }
-                                    slideHtml += `</div>`;
-                                }
-
-                                const tblNodes = xmlDoc.getElementsByTagNameNS(A_NS, 'tbl');
-                                for (let t = 0; t < tblNodes.length; t++) {
-                                    const tbl = tblNodes[t];
-                                    const rows = tbl.getElementsByTagNameNS(A_NS, 'tr');
-                                    if (rows.length === 0) continue;
-                                    
-                                    slideHtml += `<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 16px; color: #333;">`;
-                                    for (let r = 0; r < rows.length; r++) {
-                                        slideHtml += `<tr>`;
-                                        const cells = rows[r].getElementsByTagNameNS(A_NS, 'tc');
-                                        for (let c = 0; c < cells.length; c++) {
-                                            const cellTexts = cells[c].getElementsByTagNameNS(A_NS, 't');
-                                            let cellText = '';
-                                            for (let ct = 0; ct < cellTexts.length; ct++) {
-                                                cellText += cellTexts[ct].textContent;
-                                            }
-                                            if (cellText.trim()) hasText = true;
-                                            slideHtml += `<td style="border: 1px solid #cbd5e1; padding: 8px; text-align: left;">${escapeHtml(cellText)}</td>`;
-                                        }
-                                        slideHtml += `</tr>`;
-                                    }
-                                    slideHtml += `</table>`;
-                                }
-
-                                if (!hasText) {
-                                    const allTexts = xmlDoc.getElementsByTagNameNS(A_NS, 't');
-                                    let fallbackText = '';
-                                    for (let ft = 0; ft < allTexts.length; ft++) {
-                                        fallbackText += allTexts[ft].textContent + ' ';
-                                    }
-                                    if (fallbackText.trim()) {
-                                        slideHtml += `<div style="font-size: 18px; line-height: 1.6; color: #333;">${escapeHtml(fallbackText)}</div>`;
-                                    } else {
-                                        slideHtml += `<div style="font-size: 16px; color: #94a3b8; font-style: italic; margin-top: 20px;">（此页可能没有文字，或是纯图片图表）</div>`;
-                                    }
-                                }
-
-                                const relPath = `ppt/slides/_rels/slide${slideEntry.num}.xml.rels`;
-                                let relsXml = null;
-                                const relFile = zip.file(relPath);
-                                if (relFile) { try { relsXml = await relFile.async('string'); } catch (_) { relsXml = null; } }
-                                
-                                const imgMap = {}; 
-                                if (relsXml) {
-                                    const relDoc = parser.parseFromString(relsXml, 'text/xml');
-                                    const rels = relDoc.getElementsByTagName('Relationship');
-                                    for (let r = 0; r < rels.length; r++) {
-                                        const rel = rels[r];
-                                        const type = rel.getAttribute('Type') || '';
-                                        const target = rel.getAttribute('Target') || '';
-                                        const id = rel.getAttribute('Id');
-                                        if (type.indexOf('/image') !== -1) {
-                                            let mp = target.replace(/^\.\.\//, '');
-                                            imgMap[id] = 'ppt/' + mp;
-                                        }
-                                    }
-                                }
-
-                                const blipNodes = xmlDoc.getElementsByTagNameNS(A_NS, 'blip');
-                                const foundImgs = [];
-                                for (let b = 0; b < blipNodes.length; b++) {
-                                    const blip = blipNodes[b];
-                                    let embedId = null;
-                                    for (let attrIdx = 0; attrIdx < blip.attributes.length; attrIdx++) {
-                                        const attr = blip.attributes[attrIdx];
-                                        if (attr.localName === 'embed') { embedId = attr.value; break; }
-                                    }
-                                    if (embedId && imgMap[embedId] && mediaFiles[imgMap[embedId]]) {
-                                        foundImgs.push(mediaFiles[imgMap[embedId]]);
-                                    }
-                                }
-
-                                if (foundImgs.length > 0) {
-                                    slideHtml += `<div style="margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">`;
-                                    foundImgs.forEach((src) => {
-                                        slideHtml += `<img src="${src}" style="max-height: 250px; max-width: 100%; object-fit: contain; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">`;
-                                    });
-                                    slideHtml += `</div>`;
-                                }
-
-                                slideHtml += `</div>`;
-                                fullHtml += slideHtml;
-                            }
-
-                            loadingText.innerText = "正在渲染到白板...";
-                            if (whiteboard.innerText.trim() !== '' && whiteboard.innerHTML !== '<p><br></p>') {
-                                fullHtml = `<hr style="border: 1px dashed #cbd5e1; margin: 30px 0;"><br>` + fullHtml;
-                            }
-                            whiteboard.innerHTML += fullHtml;
+                            whiteboard.insertAdjacentHTML('beforeend', html);
                             saveHistoryImmediate();
-                            scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' });
-                            setTimeout(resizeCanvas, 100);
-                            loadingOverlay.classList.add('hidden');
-                            
+                            scrollContainer.scrollTo({top:scrollContainer.scrollHeight,behavior:'smooth'});
+                            setTimeout(resizeCanvas,120);
                         } catch (err) {
-                            console.error("PPT解析崩溃:", err);
-                            alert("PPT 解析失败！\n具体错误：" + err.message);
-                            loadingOverlay.classList.add('hidden');
-                        }
+                            console.error('PPT 导入失败:',err);
+                            alert('PPT 导入失败：'+err.message);
+                        } finally { loadingOverlay.classList.add('hidden'); }
                     };
                     reader.readAsArrayBuffer(file);
                 } else {
@@ -1969,6 +2273,36 @@
                 }
             }
         });
+        // 编辑已注音文字时，先解除光标所在汉字的 ruby 包装，防止新字进入拼音标注层。
+        whiteboard.addEventListener('beforeinput', function(e) {
+            // 仅在输入新文字时解除 ruby；删除操作保留 DOM/选区结构，避免退格前改写选区造成误删整行。
+            if (!/^insert/.test(e.inputType || '')) return;
+            const sel = window.getSelection();
+            if (!sel || !sel.rangeCount) return;
+            const range = sel.getRangeAt(0);
+            if (!whiteboard.contains(range.startContainer)) return;
+
+            // 对选区覆盖到的拼音字，先解除注音外壳但保留汉字文本。
+            // 不阻止浏览器本次原生输入/删除，让用户的操作继续作用于已展开的纯文本。
+            const rubies = [];
+            whiteboard.querySelectorAll('ruby').forEach(ruby => {
+                let hit = false;
+                try { hit = range.collapsed
+                    ? ruby.contains(range.startContainer)
+                    : range.intersectsNode(ruby); } catch (err) {}
+                if (hit) rubies.push(ruby);
+            });
+            if (!rubies.length) return;
+
+            rubies.forEach(ruby => {
+                const base = Array.from(ruby.childNodes).find(n =>
+                    n.nodeType === Node.TEXT_NODE && n.textContent.trim()
+                );
+                if (base && ruby.parentNode) ruby.replaceWith(document.createTextNode(base.textContent));
+            });
+            saveHistoryDebounced();
+        });
+
         // ====== 边打边注音模式结束 ======
 
         document.getElementById('btnUndo').addEventListener('click', doUndo);
@@ -2415,15 +2749,37 @@
             }
         });
 
+        function rangeHasPinyin(range) {
+            let has = false;
+            whiteboard.querySelectorAll('ruby, .pinyin-inline-table').forEach(node => {
+                try { if (range.intersectsNode(node)) has = true; } catch (e) {}
+            });
+            return has;
+        }
+
         async function combinePinyinAndTranslate(range, selectedText) {
             const lang = getTargetLang();
             const plain = getSelectionPlainText(range) || selectedText;
+            if (!plain || !/[\u4e00-\u9fa5]/.test(plain)) return;
             saveHistoryImmediate();
 
-            const res = convertRangeToPinyinKeepEnd(range);
-            const block = createTranslationBlock(lang);
-            res.endMark.replaceWith(block);
+            let endMark;
+            if (!rangeHasPinyin(range)) {
+                const res = convertRangeToPinyinKeepEnd(range);
+                endMark = res.endMark;
+            } else {
+                // 已有拼音时保留原内容，只在选区末尾放置译文。
+                endMark = document.createElement('span');
+                endMark.setAttribute('data-end-mark', '1');
+                const endRange = range.cloneRange();
+                endRange.collapse(false);
+                endRange.insertNode(endMark);
+                const grp = endMark.parentElement && endMark.parentElement.closest('ruby, .pinyin-inline-table, .core-vocab');
+                if (grp && whiteboard.contains(grp)) grp.after(endMark);
+            }
 
+            const block = createTranslationBlock(lang);
+            endMark.replaceWith(block);
             const z = document.createTextNode('\u200B');
             block.after(z);
             const nr = document.createRange();
@@ -2439,7 +2795,6 @@
             setTranslationContent(block, lang, translation);
             saveAfterAsync(snap);
         }
-
         function isLineBreakNode(n) {
             if (n.nodeType !== 1) return false;
             if (n.tagName === 'BR') return true;
@@ -2450,7 +2805,8 @@
             const sc = caret.startContainer;
             const el0 = sc.nodeType === 3 ? sc.parentElement : sc;
             if (!el0 || !whiteboard.contains(el0)) return false;
-            if (el0.closest('.english-line, ruby, table, .pptx-import')) return false;
+            // 拼音 ruby 可参与当前行判断；翻译块、表格和 PPT 内容仍不触发本快捷键。
+            if (el0.closest('.english-line, table, .pptx-import')) return false;
 
             let container = el0.closest('p, div, li, h1, h2, h3, h4, h5, h6, blockquote');
             if (!container || !whiteboard.contains(container)) container = whiteboard;
@@ -2461,7 +2817,8 @@
                 nextStart = container.childNodes[caret.startOffset] || null;
             } else {
                 let top = sc;
-                while (top.parentNode !== container) top = top.parentNode;
+                while (top.parentNode && top.parentNode !== container) top = top.parentNode;
+                if (top.parentNode !== container) return false;
                 prevStart = top.previousSibling;
                 nextStart = top.nextSibling;
             }
@@ -2474,14 +2831,15 @@
             if (prev) lineRange.setStartAfter(prev); else lineRange.setStart(container, 0);
             if (next) lineRange.setEndBefore(next); else lineRange.setEnd(container, container.childNodes.length);
 
-            const lineText = lineRange.toString().replace(/\u200B/g, '').trim();
+            const lineText = getSelectionPlainText(lineRange);
             if (!/[\u4e00-\u9fa5]/.test(lineText)) return false;
             const frag = lineRange.cloneContents();
-            if (frag.querySelector('ruby, table, .english-line, img, .resizable-img-wrapper')) return false;
+            if (frag.querySelector('table, .english-line, img, .resizable-img-wrapper')) return false;
 
             const lang = getTargetLang();
+            const alreadyHasPinyin = rangeHasPinyin(lineRange);
             saveHistoryImmediate();
-            convertRangeToPinyin(lineRange);
+            if (!alreadyHasPinyin) convertRangeToPinyin(lineRange);
 
             const block = createTranslationBlock(lang);
             let caretNode, caretOffset;
@@ -2514,7 +2872,6 @@
             });
             return true;
         }
-
         function resizeSelectedText(delta) {
             const sel = window.getSelection();
             if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return false;
@@ -2578,6 +2935,37 @@
             return { range, has };
         }
 
+        // 精确按选区逐字移除拼音：每个汉字一个 ruby，只移除实际选中的字。
+        function removePinyinFromSelection(range) {
+            const targets = [];
+            whiteboard.querySelectorAll('ruby').forEach(ruby => {
+                const base = Array.from(ruby.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+                if (!base) return;
+                // 选区必须与 ruby 底字文本节点实际相交，忽略拼音 rt 及仅擦过容器边缘的选区。
+                try {
+                    if (range.intersectsNode(base)) {
+                        const probe = document.createRange();
+                        probe.selectNode(base);
+                        const overlap = range.compareBoundaryPoints(Range.END_TO_START, probe) > 0 &&
+                                       range.compareBoundaryPoints(Range.START_TO_END, probe) < 0;
+                        if (overlap) targets.push({ node: ruby, text: base.textContent });
+                    }
+                } catch (e) {}
+            });
+            // 兼容旧版拼音表格格式
+            whiteboard.querySelectorAll('.pinyin-inline-table').forEach(table => {
+                try { if (range.intersectsNode(table)) targets.push({ node: table, text: restorePinyinText(table) }); } catch (e) {}
+            });
+            if (!targets.length) return false;
+            saveHistoryImmediate();
+            targets.forEach(x => { if (x.node.parentNode) x.node.replaceWith(document.createTextNode(x.text)); });
+            const sel = window.getSelection();
+            if (sel) sel.removeAllRanges();
+            saveHistoryImmediate();
+            setTimeout(resizeCanvas, 80);
+            return true;
+        }
+
         document.getElementById('btnTogglePinyin').addEventListener('click', function() {
             const selection = window.getSelection();
             if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
@@ -2588,7 +2976,7 @@
             if (!selectedText) { alert('请先用鼠标选中文字！'); return; }
             const info = selectionHasAny('.pinyin-inline-table, ruby');
             if (info && info.has) {
-                removeSelectedElements('.pinyin-inline-table, ruby', restorePinyinText, '选中的范围内没有拼音。');
+                if (!removePinyinFromSelection(range)) alert('选中的范围内没有可移除的拼音。');
             } else {
                 addPinyinToSelection(range, selectedText);
             }
@@ -2608,8 +2996,10 @@
             } else {
                 const wrapper = document.createElement('span');
                 wrapper.className = 'core-vocab';
-                wrapper.textContent = selectedText;
-                range.deleteContents();
+                // 保留选区内部原有 DOM（尤其是 ruby/rt 拼音结构），不要用 textContent 重建。
+                // textContent 会丢失 ruby 结构，导致核心词汇标注后拼音错位或消失。
+                const selectedFragment = range.extractContents();
+                wrapper.appendChild(selectedFragment);
                 range.insertNode(wrapper);
                 const newRange = document.createRange();
                 newRange.setStartAfter(wrapper);
@@ -3647,11 +4037,566 @@ ${corpus || '（无课文，请根据词汇编写简单句子）'}
         alert('✅ 已清除白板上的 PPT 内容。');
     };
 </script>
+<!-- ============================================================
+  白板补丁 v1
+  用法：把本文件全部内容，粘贴到你主文件【最后一个 </script> 之后、</body> 之前】。
+  功能：① 修复拼音文字中间加字出错  ② 精准选词/点击去拼音  ③ 课堂演示模式(PPT/PDF 翻页+画笔)
+============================================================ -->
+<style id="wbPatchStyle">
+/* —— 拼音层不可选、不可点：光标不会再进入拼音里 —— */
+ruby rt { user-select: none; -webkit-user-select: none; pointer-events: none; }
+#whiteboardContent.eraser-on ruby { cursor: pointer; }
+#whiteboardContent.eraser-on ruby:hover { background: #fecaca; border-radius: 3px; }
 
+/* —— 页面笔迹层 —— */
+.page-ink { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 850; pointer-events: none; overflow: hidden; }
+#whiteboardContent.ink-on .page-ink { pointer-events: auto; touch-action: none; cursor: crosshair; }
+#whiteboardScrollContainer.demo-lock { overflow: hidden !important; }
+
+/* —— 演示控制条 —— */
+#demoBar { display: none; position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 120;
+  flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; max-width: 96vw;
+  background: rgba(255,255,255,.97); border: 1px solid #cbd5e1; border-radius: 12px; padding: 8px 12px;
+  box-shadow: 0 8px 24px rgba(15,23,42,.18); font: 13px 'PingFang SC','Microsoft YaHei',sans-serif; color: #334155; }
+#demoBar.on { display: flex; }
+#demoBar .db { padding: 5px 10px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f1f5f9; cursor: pointer; font-weight: 600; font-size: 13px; }
+#demoBar .db:hover { background: #e2e8f0; }
+#demoBar .db.active { background: #3b82f6; color: #fff; border-color: #2563eb; }
+#demoBar .dsep { width: 1px; height: 22px; background: #cbd5e1; margin: 0 4px; }
+#demoBar .dc { display: inline-block; width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; vertical-align: middle; margin: 0 2px; }
+#demoBar .dc.active { border-color: #0f172a; transform: scale(1.15); }
+#laserDot { position: fixed; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; pointer-events: none; z-index: 130; display: none;
+  background: radial-gradient(circle, #ff2d2d 0%, rgba(255,45,45,.55) 45%, rgba(255,45,45,0) 72%); }
+</style>
+
+<script>
+(function () {
+  'use strict';
+  const ZW = '\u200B';
+  const $ = id => document.getElementById(id);
+  const wb = $('whiteboardContent');
+  const scrollC = $('whiteboardScrollContainer');
+  if (!wb || !scrollC) return;
+
+  const saveHist = () => { try { if (typeof window.__wbSaveHistory === 'function') window.__wbSaveHistory(); } catch (e) {} };
+  const CJK = /[\u3400-\u9fff]/;
+  const elOf = n => n ? (n.nodeType === 1 ? n : n.parentElement) : null;
+  const isZW = n => n && n.nodeType === 3 && n.nodeValue.replace(/\u200B/g, '') === '';
+  const baseTextOf = ruby => { for (const c of ruby.childNodes) if (c.nodeType === 3 && c.nodeValue.trim()) return c; return null; };
+
+  /* =========================================================
+     A. 修复：在已注音文字中间加字
+        光标一旦落入 <ruby>/<rt> 内部，立即挪到字的前/后（零宽空格锚点）
+  ========================================================= */
+  let composing = false;
+  function setCaret(node, off) {
+    const r = document.createRange();
+    r.setStart(node, off); r.collapse(true);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  function normalizeCaret() {
+    const sel = getSelection();
+    if (!sel || !sel.rangeCount || !sel.isCollapsed) return;
+    const n = sel.anchorNode;
+    if (!n || !wb.contains(n)) return;
+    const el = elOf(n);
+    const ruby = el && el.closest('ruby');
+    if (!ruby || !wb.contains(ruby)) return;
+    const inRt = !!el.closest('rt');
+    const before = !inRt && sel.anchorOffset === 0;
+    const parent = ruby.parentNode;
+    if (before) {
+      const p = ruby.previousSibling;
+      if (p && p.nodeType === 3) setCaret(p, p.nodeValue.length);
+      else { const z = document.createTextNode(ZW); parent.insertBefore(z, ruby); setCaret(z, 1); }
+    } else {
+      const nx = ruby.nextSibling;
+      if (nx && nx.nodeType === 3 && nx.nodeValue.charAt(0) === ZW) setCaret(nx, 1);
+      else { const z = document.createTextNode(ZW); parent.insertBefore(z, nx); setCaret(z, 1); }
+    }
+  }
+  wb.addEventListener('compositionstart', () => { normalizeCaret(); composing = true; }, true);
+  wb.addEventListener('compositionend', () => { composing = false; }, true);
+  document.addEventListener('selectionchange', () => { if (!composing) normalizeCaret(); });
+
+  // 注音文字的自定义鼠标选区：使用鼠标坐标映射到底字，而不依赖浏览器
+  // 对 ruby/rt 的原生 hit-testing。只在起点位于 ruby 时接管拖选，普通文本仍原生选择。
+  function pointAtXY(x, y) {
+    let node = null, offset = 0;
+    if (document.caretPositionFromPoint) {
+      const pos = document.caretPositionFromPoint(x, y);
+      if (pos) { node = pos.offsetNode; offset = pos.offset; }
+    } else if (document.caretRangeFromPoint) {
+      const r = document.caretRangeFromPoint(x, y);
+      if (r) { node = r.startContainer; offset = r.startOffset; }
+    }
+    if (!node || !wb.contains(node)) return null;
+    const el = node.nodeType === 1 ? node : node.parentElement;
+    const ru = el && el.closest && el.closest('ruby');
+    if (ru && wb.contains(ru)) {
+      const base = baseTextOf(ru);
+      if (base) {
+        // 点击在拼音层/ ruby 外层时，根据底字矩形将左右半区映射到字前/字后。
+        if (node !== base || (el && el.closest('rt'))) {
+          const rect = ru.getBoundingClientRect();
+          const mid = rect.left + rect.width / 2;
+          return { node: base, offset: x < mid ? 0 : base.nodeValue.length };
+        }
+        return { node: base, offset: Math.max(0, Math.min(offset, base.nodeValue.length)) };
+      }
+    }
+    return { node, offset };
+  }
+  let rubyDrag = null;
+  wb.addEventListener('mousedown', e => {
+    if (e.button !== 0 || e.shiftKey || e.ctrlKey || e.altKey || e.metaKey) return;
+    const target = e.target;
+    if (!(target && target.closest && target.closest('ruby'))) return;
+    const pt = pointAtXY(e.clientX, e.clientY);
+    if (!pt) return;
+    rubyDrag = { anchor: pt, x: e.clientX, y: e.clientY, moved: false };
+    e.preventDefault();
+    const sel = getSelection();
+    const r = document.createRange(); r.setStart(pt.node, pt.offset); r.collapse(true);
+    sel.removeAllRanges(); sel.addRange(r);
+  }, true);
+  document.addEventListener('mousemove', e => {
+    if (!rubyDrag || !(e.buttons & 1)) return;
+    if (Math.abs(e.clientX-rubyDrag.x)+Math.abs(e.clientY-rubyDrag.y) > 2) rubyDrag.moved = true;
+    if (!rubyDrag.moved) return;
+    const pt = pointAtXY(e.clientX, e.clientY);
+    if (!pt) return;
+    try {
+      const r = document.createRange();
+      const a = rubyDrag.anchor, b = pt;
+      const cmp = a.node === b.node ? a.offset <= b.offset : (() => {
+        const t = document.createRange(); t.setStart(a.node,a.offset); t.setEnd(b.node,b.offset);
+        return !t.collapsed;
+      })();
+      if (cmp) { r.setStart(a.node,a.offset); r.setEnd(b.node,b.offset); }
+      else { r.setStart(b.node,b.offset); r.setEnd(a.node,a.offset); }
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    } catch (_) {}
+  }, true);
+  document.addEventListener('mouseup', () => { rubyDrag = null; }, true);
+
+  // 退格：光标紧跟在“字+拼音”后面时，整体删除这个字
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Backspace' || e.isComposing || e.keyCode === 229) return;
+    if (!(e.target === wb || (e.target.closest && wb.contains(e.target)))) return;
+    const sel = getSelection();
+    if (!sel || !sel.rangeCount || !sel.isCollapsed) return;
+    const r = sel.getRangeAt(0);
+    const node = r.startContainer, off = r.startOffset;
+    let prev = null;
+    if (node.nodeType === 3) {
+      if (node.nodeValue.slice(0, off).replace(/\u200B/g, '') !== '') return;
+      prev = node.previousSibling;
+      while (isZW(prev)) prev = prev.previousSibling;
+    } else {
+      prev = node.childNodes[off - 1] || null;
+    }
+    if (prev && prev.nodeType === 1 && prev.tagName === 'RUBY') {
+      e.preventDefault(); e.stopImmediatePropagation();
+      prev.remove();
+      try { sel.collapse(node, off); } catch (_) {}
+      saveHist();
+    }
+  }, true);
+
+  /* =========================================================
+     B. 精准选词 / 去拼音 / 加拼音
+  ========================================================= */
+  function selectedRubies(range) {
+    const out = [];
+    wb.querySelectorAll('ruby').forEach(ru => {
+      const base = baseTextOf(ru);
+      if (!base) return;
+      try {
+        if (range.intersectsNode(base)) {
+          const s = base === range.startContainer ? range.startOffset : 0;
+          const e = base === range.endContainer ? range.endOffset : base.nodeValue.length;
+          if (e > s) out.push(ru);          // 必须真正选中了至少一个字，只是“碰到边界”不算
+        }
+      } catch (_) {}
+    });
+    return out;
+  }
+  function unwrap(list) {
+    const nodes = [];
+    list.forEach(ru => {
+      const base = baseTextOf(ru);
+      if (!base || !ru.parentNode) return;
+      const t = document.createTextNode(base.nodeValue);
+      ru.replaceWith(t);
+      nodes.push(t);
+    });
+    return nodes;
+  }
+  function buildFrag(text) {
+    const frag = document.createDocumentFragment();
+    const chars = Array.from(text);
+    let pys = null;
+    try {
+      const a = window.pinyinPro.pinyin(text, { toneType: 'symbol', type: 'array' });
+      if (Array.isArray(a) && a.length === chars.length) pys = a;
+    } catch (_) {}
+    let buf = '';
+    chars.forEach((ch, i) => {
+      if (CJK.test(ch)) {
+        if (buf) { frag.appendChild(document.createTextNode(buf)); buf = ''; }
+        let py = '';
+        try { py = pys ? pys[i] : window.pinyinPro.pinyin(ch, { toneType: 'symbol' }); } catch (_) {}
+        const ru = document.createElement('ruby');
+        ru.appendChild(document.createTextNode(ch));
+        const rt = document.createElement('rt'); rt.textContent = py;
+        ru.appendChild(rt); frag.appendChild(ru);
+      } else buf += ch;
+    });
+    if (buf) frag.appendChild(document.createTextNode(buf));
+    return frag;
+  }
+  function addPinyin(range) {
+    const root = range.commonAncestorContainer.nodeType === 3 ? range.commonAncestorContainer.parentNode : range.commonAncestorContainer;
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const parts = []; let n;
+    while ((n = w.nextNode())) {
+      if (!range.intersectsNode(n)) continue;
+      const pe = n.parentElement;
+      if (!pe || pe.closest('rt,ruby,.english-line,.pinyin-inline-table')) continue;
+      const s = n === range.startContainer ? range.startOffset : 0;
+      const e = n === range.endContainer ? range.endOffset : n.nodeValue.length;
+      if (e > s && CJK.test(n.nodeValue.slice(s, e))) parts.push({ n, s, e });
+    }
+    if (!parts.length) { alert('选中的内容里没有汉字！'); return; }
+    saveHist();
+    let first = null, last = null;
+    parts.reverse().forEach(({ n, s, e }) => {
+      let t = n;
+      if (e < t.nodeValue.length) t.splitText(e);
+      if (s > 0) t = t.splitText(s);
+      const frag = buildFrag(t.nodeValue.replace(/\u200B/g, ''));
+      const f = frag.firstChild, l = frag.lastChild;
+      t.parentNode.replaceChild(frag, t);
+      if (!last) last = l;
+      first = f;
+    });
+    if (first && last) {
+      const r = document.createRange(); r.setStartBefore(first); r.setEndAfter(last);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    }
+    saveHist();
+  }
+
+  // 接管「✨拼音」按钮（捕获阶段，优先于原有逻辑；没选中文字时仍走原来的提示）
+  document.addEventListener('click', e => {
+    const t = e.target;
+    if (!t.closest || !t.closest('#btnTogglePinyin')) return;
+    const sel = getSelection();
+    if (!sel || !sel.rangeCount || sel.isCollapsed) return;
+    const range = sel.getRangeAt(0);
+    if (!wb.contains(range.commonAncestorContainer)) return;
+    e.stopImmediatePropagation(); e.preventDefault();
+    const hit = selectedRubies(range);
+    if (hit.length) {
+      saveHist();
+      const nodes = unwrap(hit);
+      if (nodes.length) {
+        const r = document.createRange();
+        r.setStartBefore(nodes[0]); r.setEndAfter(nodes[nodes.length - 1]);
+        sel.removeAllRanges(); sel.addRange(r);
+      }
+      saveHist();
+    } else {
+      addPinyin(range);
+    }
+  }, true);
+
+  // 取一个字所在的“词”（连续的注音字 + 中文分词）
+  function nearRuby(node, dir) {
+    let n = dir < 0 ? node.previousSibling : node.nextSibling;
+    while (isZW(n)) n = dir < 0 ? n.previousSibling : n.nextSibling;
+    return n && n.nodeType === 1 && n.tagName === 'RUBY' ? n : null;
+  }
+  function wordRun(ru) {
+    const left = [], right = [];
+    let n = ru; while ((n = nearRuby(n, -1))) left.unshift(n);
+    n = ru; while ((n = nearRuby(n, 1))) right.push(n);
+    const run = [...left, ru, ...right];
+    const texts = run.map(r => { const b = baseTextOf(r); return b ? b.nodeValue : ''; });
+    const starts = []; let acc = 0;
+    texts.forEach(t => { starts.push(acc); acc += t.length; });
+    const pos = starts[run.indexOf(ru)];
+    if (window.Intl && Intl.Segmenter) {
+      try {
+        for (const s of new Intl.Segmenter('zh', { granularity: 'word' }).segment(texts.join(''))) {
+          if (pos >= s.index && pos < s.index + s.segment.length) {
+            const list = run.filter((_, i) => starts[i] >= s.index && starts[i] < s.index + s.segment.length);
+            if (list.includes(ru)) return list;
+          }
+        }
+      } catch (_) {}
+    }
+    return [ru];
+  }
+
+  // 双击某个字：选中它所在的整个词（再点「✨拼音」即可去掉/加上）
+  wb.addEventListener('dblclick', e => {
+    const ru = e.target.closest && e.target.closest('ruby');
+    if (!ru) return;
+    const list = wordRun(ru);
+    const r = document.createRange();
+    r.setStartBefore(list[0]); r.setEndAfter(list[list.length - 1]);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    e.preventDefault();
+  });
+
+  // 「🩹 点击去拼音」模式
+  let eraser = false;
+  const eraserBtn = document.createElement('button');
+  eraserBtn.id = 'btnPinyinEraser';
+  eraserBtn.className = 'toolbar-btn';
+  eraserBtn.style.cssText = 'background:#fef2f2;color:#b91c1c;border-color:#fecaca;font-weight:700;';
+  eraserBtn.title = '开启后：点一下字，去掉它所在词的拼音；Shift+点 只去一个字';
+  eraserBtn.textContent = '🩹 点击去拼音: 关';
+  eraserBtn.addEventListener('mousedown', e => e.preventDefault());
+  eraserBtn.addEventListener('click', () => {
+    eraser = !eraser;
+    eraserBtn.textContent = '🩹 点击去拼音: ' + (eraser ? '开' : '关');
+    eraserBtn.classList.toggle('btn-draw-active', eraser);
+    wb.classList.toggle('eraser-on', eraser);
+  });
+  const pyBtn = $('btnTogglePinyin');
+  if (pyBtn) pyBtn.after(eraserBtn);
+  wb.addEventListener('mousedown', e => {
+    if (eraser && e.target.closest && e.target.closest('ruby')) e.preventDefault();
+  }, true);
+  wb.addEventListener('click', e => {
+    if (!eraser) return;
+    const ru = e.target.closest && e.target.closest('ruby');
+    if (!ru) return;
+    e.preventDefault();
+    saveHist();
+    unwrap(e.shiftKey ? [ru] : wordRun(ru));
+    wb.normalize();
+    saveHist();
+  }, true);
+
+  /* =========================================================
+     C. 课堂演示模式：一次一页 PPT/PDF + 画笔/荧光笔/激光笔
+  ========================================================= */
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const demo = { on: false, idx: 0, tool: 'none', color: '#ef4444', sbCollapsed: false };
+  const COLORS = ['#ef4444', '#2563eb', '#16a34a', '#eab308', '#111827'];
+
+  const dyn = document.createElement('style'); dyn.id = 'demoDynStyle'; document.head.appendChild(dyn);
+  const dot = document.createElement('div'); dot.id = 'laserDot'; document.body.appendChild(dot);
+
+  const bar = document.createElement('div');
+  bar.id = 'demoBar';
+  bar.innerHTML =
+    '<button class="db" data-a="prev">◀ 上一页</button>' +
+    '<span>第 <input id="demoPageInput" type="number" min="1" style="width:54px;border:1px solid #cbd5e1;border-radius:4px;text-align:center;padding:2px;"> / <b id="demoTotal">0</b> 页</span>' +
+    '<button class="db" data-a="next">下一页 ▶</button>' +
+    '<i class="dsep"></i>' +
+    '<button class="db" data-tool="none">⌨ 编辑</button>' +
+    '<button class="db" data-tool="pen">✏️ 画笔</button>' +
+    '<button class="db" data-tool="hl">🖍 荧光笔</button>' +
+    '<button class="db" data-tool="laser">🔴 激光笔</button>' +
+    '<span>' + COLORS.map(c => '<i class="dc" data-color="' + c + '" style="background:' + c + '"></i>').join('') + '</span>' +
+    '<button class="db" data-a="undo">↩ 撤销笔迹</button>' +
+    '<button class="db" data-a="clear">🧹 清空本页笔迹</button>' +
+    '<i class="dsep"></i>' +
+    '<button class="db" data-a="full">⛶ 全屏</button>' +
+    '<button class="db" data-a="exit" style="background:#fee2e2;color:#b91c1c;">✖ 退出演示</button>';
+  document.body.appendChild(bar);
+  bar.addEventListener('mousedown', e => { if (!(e.target.tagName === 'INPUT')) e.preventDefault(); });
+
+  const demoBtn = document.createElement('button');
+  demoBtn.id = 'btnDemoMode';
+  demoBtn.className = 'toolbar-btn';
+  demoBtn.style.cssText = 'background:#fef3c7;color:#92400e;border-color:#fcd34d;font-weight:700;';
+  demoBtn.textContent = '📽 课堂演示';
+  demoBtn.title = '一次显示一页 PPT/PDF，可翻页、画笔、激光笔';
+  demoBtn.addEventListener('mousedown', e => e.preventDefault());
+  demoBtn.addEventListener('click', () => demo.on ? exitDemo() : enterDemo());
+  const undoBtn = $('btnUndo');
+  if (undoBtn) undoBtn.before(demoBtn); else document.body.appendChild(demoBtn);
+
+  const pages = () => Array.from(wb.children).filter(el => el.classList && el.classList.contains('pptx-import'));
+
+  function inkLayer(page, create) {
+    let s = null;
+    for (const c of page.children) if (c.tagName && c.tagName.toLowerCase() === 'svg' && c.classList.contains('page-ink')) { s = c; break; }
+    if (!s && create) {
+      s = document.createElementNS(SVGNS, 'svg');
+      s.setAttribute('class', 'page-ink');
+      s.setAttribute('viewBox', '0 0 1000 1000');
+      s.setAttribute('preserveAspectRatio', 'none');
+      s.setAttribute('contenteditable', 'false');
+      page.appendChild(s);
+    }
+    return s;
+  }
+
+  function refreshBar() {
+    bar.querySelectorAll('[data-tool]').forEach(b => b.classList.toggle('active', b.dataset.tool === demo.tool));
+    bar.querySelectorAll('.dc').forEach(c => c.classList.toggle('active', c.dataset.color === demo.color));
+  }
+  function setTool(t) {
+    demo.tool = t;
+    wb.classList.toggle('ink-on', demo.on && t !== 'none');
+    if (t === 'none') dot.style.display = 'none';
+    const ps = pages();
+    if (demo.on && t !== 'none' && ps[demo.idx]) inkLayer(ps[demo.idx], true);
+    refreshBar();
+  }
+
+  function applyDemo() {
+    const ps = pages();
+    if (!ps.length) { exitDemo(); return; }
+    demo.idx = Math.max(0, Math.min(ps.length - 1, demo.idx));
+    const cur = ps[demo.idx];
+    const k = Array.from(wb.children).indexOf(cur) + 1;
+
+    let ratio = 16 / 9;
+    const ar = cur.style.aspectRatio;
+    if (ar) { const parts = ar.split('/').map(parseFloat); if (parts[0] > 0) ratio = parts[0] / (parts[1] || 1); }
+
+    const sr = scrollC.getBoundingClientRect(), br = bar.getBoundingClientRect();
+    const overlap = Math.max(0, sr.bottom - br.top);
+    const availW = Math.max(200, scrollC.clientWidth - 40 - 8);
+    const availH = Math.max(150, scrollC.clientHeight - 40 - 12 - overlap);
+    const BASE = 960, H = BASE / ratio;
+    const s = Math.min(availW / BASE, availH / H);
+    const left = Math.max(0, (scrollC.clientWidth - 40 - BASE * s) / 2);
+
+    dyn.textContent =
+      '#whiteboardContent.demo-on>*:not(:nth-child(' + k + ')){display:none!important}' +
+      '#whiteboardContent.demo-on>:nth-child(' + k + '){display:block!important;width:' + BASE + 'px!important;height:' + H + 'px!important;' +
+      'min-width:0!important;min-height:0!important;max-width:none!important;aspect-ratio:auto!important;resize:none!important;' +
+      'transform:scale(' + s + ')!important;transform-origin:0 0!important;margin:6px 0 ' + (-(H * (1 - s))) + 'px ' + left + 'px!important}';
+
+    $('demoTotal').textContent = ps.length;
+    $('demoPageInput').value = demo.idx + 1;
+    scrollC.scrollTop = 0;
+    dot.style.display = 'none';
+    if (demo.tool !== 'none') inkLayer(cur, true);
+  }
+  function go(i) { demo.idx = i; applyDemo(); }
+
+  function enterDemo() {
+    const ps = pages();
+    if (!ps.length) { alert('白板上还没有 PPT / PDF 页面。\n请先在右侧“上传上课文件”中选择 PPT 或 PDF。'); return; }
+    const top = scrollC.getBoundingClientRect().top;
+    let idx = 0;
+    ps.forEach((p, i) => { if (p.getBoundingClientRect().top <= top + 120) idx = i; });
+    demo.idx = idx; demo.on = true;
+    wb.classList.add('demo-on'); scrollC.classList.add('demo-lock');
+    bar.classList.add('on'); demoBtn.classList.add('btn-draw-active');
+    const sb = $('sidebarPanel');
+    demo.sbCollapsed = false;
+    if (sb && sb.classList.contains('md:w-80') && window.innerWidth >= 768 && $('btnCollapseSidebar')) {
+      $('btnCollapseSidebar').click(); demo.sbCollapsed = true;
+    }
+    refreshBar(); applyDemo();
+    setTimeout(applyDemo, 350);
+  }
+  function exitDemo() {
+    const ps = pages(), cur = ps[demo.idx];
+    demo.on = false;
+    setTool('none');
+    wb.classList.remove('demo-on', 'ink-on'); scrollC.classList.remove('demo-lock');
+    bar.classList.remove('on'); demoBtn.classList.remove('btn-draw-active');
+    dyn.textContent = ''; dot.style.display = 'none';
+    if (demo.sbCollapsed && $('btnExpandSidebar')) { $('btnExpandSidebar').click(); demo.sbCollapsed = false; }
+    if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen();
+    if (cur) setTimeout(() => cur.scrollIntoView({ block: 'start' }), 50);
+  }
+
+  bar.addEventListener('click', e => {
+    const dc = e.target.closest('.dc');
+    if (dc) { demo.color = dc.dataset.color; if (demo.tool === 'none' || demo.tool === 'laser') setTool('pen'); refreshBar(); return; }
+    const b = e.target.closest('button');
+    if (!b) return;
+    if (b.dataset.tool) { setTool(b.dataset.tool); return; }
+    const ps = pages(), cur = ps[demo.idx];
+    switch (b.dataset.a) {
+      case 'prev': go(demo.idx - 1); break;
+      case 'next': go(demo.idx + 1); break;
+      case 'undo': { const s = cur && inkLayer(cur, false); const p = s && s.querySelectorAll('path'); if (p && p.length) { p[p.length - 1].remove(); saveHist(); } break; }
+      case 'clear': { const s = cur && inkLayer(cur, false); if (s) { s.querySelectorAll('path').forEach(p => p.remove()); saveHist(); } break; }
+      case 'full': if (document.fullscreenElement) document.exitFullscreen(); else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); break;
+      case 'exit': exitDemo(); break;
+    }
+  });
+  $('demoPageInput').addEventListener('change', e => go((parseInt(e.target.value, 10) || 1) - 1));
+
+  document.addEventListener('keydown', e => {
+    if (!demo.on) return;
+    const ed = e.target.closest && e.target.closest('[contenteditable="true"],input,textarea,select');
+    const arrowOk = !ed || demo.tool !== 'none';
+    if (e.key === 'PageDown' || (arrowOk && (e.key === 'ArrowRight' || e.key === 'ArrowDown'))) { e.preventDefault(); go(demo.idx + 1); }
+    else if (e.key === 'PageUp' || (arrowOk && (e.key === 'ArrowLeft' || e.key === 'ArrowUp'))) { e.preventDefault(); go(demo.idx - 1); }
+    else if (e.key === 'Escape' && !document.fullscreenElement) { exitDemo(); }
+  });
+
+  // —— 画笔 / 荧光笔：坐标按页面 0~1000 归一化，页面缩放时笔迹跟着缩放 ——
+  const toPt = (svg, ev) => {
+    const r = svg.getBoundingClientRect();
+    return { x: +((ev.clientX - r.left) / r.width * 1000).toFixed(1), y: +((ev.clientY - r.top) / r.height * 1000).toFixed(1) };
+  };
+  let stroke = null;
+  wb.addEventListener('pointerdown', e => {
+    if (!demo.on || demo.tool === 'none' || demo.tool === 'laser') return;
+    const svg = e.target.closest && e.target.closest('svg.page-ink');
+    if (!svg) return;
+    e.preventDefault();
+    try { svg.setPointerCapture(e.pointerId); } catch (_) {}
+    const p = toPt(svg, e), hl = demo.tool === 'hl';
+    const path = document.createElementNS(SVGNS, 'path');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', demo.color);
+    path.setAttribute('stroke-width', hl ? 18 : 4);
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
+    path.setAttribute('vector-effect', 'non-scaling-stroke');
+    if (hl) path.setAttribute('stroke-opacity', '.35');
+    const d = 'M' + p.x + ' ' + p.y;
+    path.setAttribute('d', d);
+    svg.appendChild(path);
+    stroke = { svg, path, d, n: 1, id: e.pointerId };
+  });
+  wb.addEventListener('pointermove', e => {
+    if (stroke && e.pointerId === stroke.id) {
+      const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+      (evs.length ? evs : [e]).forEach(ev => { const p = toPt(stroke.svg, ev); stroke.d += ' L' + p.x + ' ' + p.y; stroke.n++; });
+      stroke.path.setAttribute('d', stroke.d);
+    }
+    // 激光笔红点
+    if (demo.on && demo.tool === 'laser' && e.target.closest && e.target.closest('svg.page-ink')) {
+      dot.style.display = 'block'; dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+    } else if (dot.style.display !== 'none') dot.style.display = 'none';
+  });
+  function endStroke() {
+    if (!stroke) return;
+    if (stroke.n === 1) stroke.path.setAttribute('d', stroke.d + ' l0.01 0');
+    stroke = null; saveHist();
+  }
+  wb.addEventListener('pointerup', endStroke);
+  wb.addEventListener('pointercancel', endStroke);
+  wb.addEventListener('pointerleave', () => { dot.style.display = 'none'; });
+
+  // 窗口/面板尺寸变化、撤销还原导致页面重建时，重新适配
+  window.addEventListener('resize', () => { if (demo.on) applyDemo(); });
+  if (window.ResizeObserver) new ResizeObserver(() => { if (demo.on) applyDemo(); }).observe(scrollC);
+  new MutationObserver(() => { if (demo.on) applyDemo(); }).observe(wb, { childList: true });
+})();
+</script>
 <style id="jwby-caption-styles">
-#jwbyCaptionPanel{position:fixed;z-index:9998;top:8px;left:50%;transform:translateX(-50%);width:min(780px,calc(100vw - 16px));max-height:180px;overflow:visible;background:rgba(15,23,42,.96);color:#f8fafc;border:1px solid #64748b;border-radius:8px;box-shadow:0 12px 36px #0f172a66;font:12px/1.35 system-ui,sans-serif}
+#jwbyCaptionPanel{position:fixed;z-index:9998;top:8px;left:50%;transform:translateX(-50%);width:min(780px,calc(100vw - 16px));max-height:180px;overflow:visible;background:rgba(15,23,42,.72);color:#f8fafc;border:1px solid #64748b;border-radius:8px;box-shadow:0 12px 36px #0f172a66;font:12px/1.35 system-ui,sans-serif}
 #jwbyCaptionPanel[hidden],#jwbyCaptionRestore[hidden]{display:none!important}
-#jwbyCaptionHeader{display:flex;align-items:center;gap:5px;padding:5px 8px;background:#1e293b;border-bottom:1px solid #475569;border-radius:8px 8px 0 0;cursor:move;touch-action:none;user-select:none;flex-wrap:nowrap}
+#jwbyCaptionHeader{display:flex;align-items:center;gap:5px;padding:5px 8px;background:rgba(30,41,59,.72);border-bottom:1px solid #475569;border-radius:8px 8px 0 0;cursor:move;touch-action:none;user-select:none;flex-wrap:nowrap}
 #jwbyCaptionHeader strong{font-size:12px;white-space:nowrap;margin-right:auto}
 #jwbyCaptionHeader label{display:flex;align-items:center;gap:4px;white-space:nowrap;font-size:10px}
 #jwbyCaptionPanel select,#jwbyCaptionPanel button{height:25px;border:0;border-radius:5px;padding:3px 6px;font:inherit}
@@ -3692,7 +4637,7 @@ color:#f8fafc;font:10px system-ui}
 <section id="jwbyCaptionPanel" aria-label="中文实时翻译" hidden>
  <div id="jwbyCaptionHeader">
   <strong>中文实时翻译</strong>
-  <label>识别 <select id="jwbySourceLanguage"><option value="en-US">英语（美）</option><option value="en-GB">英语（英）</option><option value="zh-CN">中文</option><option value="ja-JP">日语</option><option value="ko-KR">韩语</option><option value="fr-FR">法语</option><option value="de-DE">德语</option><option value="es-ES">西语</option></select></label>
+  <label>识别 <select id="jwbySourceLanguage"><option value="en-US">英语（美）</option><option value="en-GB">英语（英）</option><option value="zh-CN">中文</option><option value="ja-JP">日语</option><option value="ko-KR">韩语</option><option value="fr-FR">法语</option><option value="de-DE">德语</option><option value="es-ES">西语</option><option value="vi-VN">越南语</option><option value="ru-RU">俄语</option><option value="uk-UA">乌克兰语</option><option value="it-IT">意大利语</option><option value="th-TH">泰语</option></select></label>
   <label>翻译 <select id="jwbyProvider"><option value="">请选择</option><option value="google">Google 兼容</option><option value="ollama">Ollama</option><option value="libretranslate">LibreTranslate</option><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option><option value="claude">Claude</option><option value="zhipu">智谱 GLM</option></select></label>
   <button class="jwby-start" id="jwbyStart" type="button">开始</button><button class="jwby-stop" id="jwbyStop" type="button" disabled>停止</button>
   <button class="jwby-icon" id="jwbyClear" type="button" title="清除字幕">⌫</button>
@@ -3700,7 +4645,7 @@ color:#f8fafc;font:10px system-ui}
    <label>字号 <input id="jwbyFontSize" type="range" min="12" max="32" value="16"><span id="jwbyFontSizeValue">16</span></label>
    <label>字幕颜色 <input id="jwbyFontColor" type="color" value="#fde68a"></label>
    <label>窗口颜色 <input id="jwbyPanelColor" type="color" value="#0f172a"></label>
-   <label>透明度 <input id="jwbyPanelOpacity" type="range" min="20" max="100" value="96"><span id="jwbyPanelOpacityValue">96%</span></label>
+   <label>透明度 <input id="jwbyPanelOpacity" type="range" min="20" max="100" value="72"><span id="jwbyPanelOpacityValue">72%</span></label>
    <label class="jwby-endpoint-label">Ollama 地址 <input id="jwbyOllamaUrl" type="url" value="http://127.0.0.1:11434" placeholder="http://127.0.0.1:11434"></label><label class="jwby-endpoint-label">Ollama 模型 <input id="jwbyOllamaModel" type="text" value="qwen2.5:3b"></label><label class="jwby-endpoint-label">LibreTranslate 地址 <input id="jwbyLibreUrl" type="url" placeholder="https://你的翻译服务地址"></label><label class="jwby-endpoint-label">LibreTranslate 密钥（可选） <input id="jwbyLibreKey" type="password" autocomplete="off"></label>
   </div></details>
   <details id="jwbyHistoryPop"><summary id="jwbyCaptionHistoryToggle" title="翻译记录">记录</summary><div id="jwbyCaptionHistory">
@@ -3716,10 +4661,10 @@ color:#f8fafc;font:10px system-ui}
 (function(){
  const $=id=>document.getElementById(id), SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
  const panel=$('jwbyCaptionPanel'), historyKey='jwby_caption_history_v1';
- let running=false,paused=false,recognition=null,restartTimer=null,lastFinal='',queue=Promise.resolve(),drag=null;
+ let running=false,paused=false,recognition=null,restartTimer=null,lastFinal='',queue=Promise.resolve(),drag=null,micStream=null,startInProgress=false;
  function status(value){$('jwbyCaptionStatus').textContent=value}
  function showPanel(){panel.hidden=false;$('jwbyCaptionRestore').hidden=true}
- function syncAuth(){if(window.jwbyIsAuthenticated?.())showPanel();else{panel.hidden=true;$('jwbyCaptionRestore').hidden=true}} syncAuth();document.addEventListener('jwby-static-authenticated',syncAuth);
+ function syncAuth(){if(!window.jwbyIsAuthenticated||window.jwbyIsAuthenticated())showPanel();else{panel.hidden=true;$('jwbyCaptionRestore').hidden=true}} syncAuth();document.addEventListener('jwby-static-authenticated',syncAuth);
  function updateButtons(){$('jwbyStart').disabled=running;$('jwbyStop').disabled=!running;$('jwbyPause').disabled=!running;$('jwbyPause').textContent=paused?'▶':'Ⅱ';$('jwbyPause').title=paused?'继续识别':'暂停识别';$('jwbySourceLanguage').disabled=running;$('jwbyProvider').disabled=running}
  function paintText(){const size=$('jwbyFontSize').value,color=$('jwbyFontColor').value;$('jwbyFontSizeValue').textContent=size;$('jwbySource').style.fontSize=$('jwbyTranslation').style.fontSize=size+'px';$('jwbySource').style.color='#f8fafc';$('jwbyTranslation').style.color=color}
  function paintPanel(){const hex=$('jwbyPanelColor').value,r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16),a=Number($('jwbyPanelOpacity').value)/100;panel.style.backgroundColor='rgba('+r+','+g+','+b+','+a+')';$('jwbyPanelOpacityValue').textContent=$('jwbyPanelOpacity').value+'%'}
@@ -3744,11 +4689,12 @@ color:#f8fafc;font:10px system-ui}
  function makeRecognition(){if(!SpeechRecognition)throw new Error('此浏览器不支持连续语音识别');const rec=new SpeechRecognition();rec.lang=$('jwbySourceLanguage').value;rec.continuous=true;rec.interimResults=true;rec.maxAlternatives=1;
   rec.onstart=()=>status('识别中');rec.onresult=e=>{let interim='',finalText='';for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i],t=r[0]?.transcript||'';if(r.isFinal)finalText+=t;else interim+=t}if(interim)$('jwbySource').textContent=interim;if(finalText.trim()){$('jwbySource').textContent=finalText.trim();translateFinal(finalText)}};
   rec.onerror=e=>{if(e.error==='not-allowed'||e.error==='service-not-allowed'){status('请允许麦克风');stop(false)}else if(e.error!=='no-speech'&&e.error!=='aborted')status('识别错误：'+e.error)};
-  rec.onend=()=>{recognition=null;if(running&&!paused)restartTimer=setTimeout(startRecognitionInstance,500);else updateButtons()};return rec
+  rec.onend=()=>{recognition=null;if(running&&!paused&&!restartTimer)restartTimer=setTimeout(()=>{restartTimer=null;startRecognitionInstance()},500);else updateButtons()};return rec
  }
- function startRecognitionInstance(){if(!running||paused)return;try{recognition=makeRecognition();recognition.start()}catch(error){status(error.message);running=false;updateButtons()}}
- function start(){if(running)return;if(!SpeechRecognition){status('浏览器不支持语音识别');return}if(!$('jwbyProvider').value){status('请先选择翻译模型');return}if(['deepseek','openai','claude','zhipu'].includes($('jwbyProvider').value)&&!$('apiKey')?.value.trim()){status('请先在白板 AI 设置中填写 API Key');return}running=true;paused=false;lastFinal='';updateButtons();status('请求麦克风权限');startRecognitionInstance()}
- function stop(show=true){running=false;paused=false;clearTimeout(restartTimer);const rec=recognition;recognition=null;if(rec){rec.onend=null;try{rec.stop()}catch{}}updateButtons();if(show)status('已停止')}
+ async function ensureMicrophone(){if(micStream)return true;if(!navigator.mediaDevices?.getUserMedia)return true;try{micStream=await navigator.mediaDevices.getUserMedia({audio:true});return true}catch(error){status('请允许麦克风');return false}}
+ function startRecognitionInstance(){if(!running||paused||recognition||startInProgress)return;startInProgress=true;try{recognition=makeRecognition();recognition.start()}catch(error){recognition=null;status(error.message);running=false;updateButtons()}finally{startInProgress=false}}
+ async function start(){if(running)return;if(!SpeechRecognition){status('浏览器不支持语音识别');return}if(!$('jwbyProvider').value){status('请先选择翻译模型');return}if(['deepseek','openai','claude','zhipu'].includes($('jwbyProvider').value)&&!$('apiKey')?.value.trim()){status('请先在白板 AI 设置中填写 API Key');return}running=true;paused=false;lastFinal='';updateButtons();status('请求麦克风权限');const granted=await ensureMicrophone();if(!running){if(micStream){micStream.getTracks().forEach(track=>track.stop());micStream=null}return}if(!granted){running=false;updateButtons();return}startRecognitionInstance()}
+ function stop(show=true){running=false;paused=false;clearTimeout(restartTimer);restartTimer=null;const rec=recognition;recognition=null;if(rec){rec.onend=null;try{rec.stop()}catch{}}if(micStream){micStream.getTracks().forEach(track=>track.stop());micStream=null}updateButtons();if(show)status('已停止')}
  function togglePause(){if(!running)return;if(!paused){paused=true;clearTimeout(restartTimer);const rec=recognition;recognition=null;if(rec){rec.onend=null;try{rec.stop()}catch{}}status('已暂停')}else{paused=false;startRecognitionInstance()}updateButtons()}
  $('jwbyStart').onclick=start;$('jwbyStop').onclick=()=>stop();$('jwbyPause').onclick=togglePause;$('jwbyClear').onclick=()=>{$('jwbySource').textContent='等待语音输入……';$('jwbyTranslation').textContent='等待翻译';lastFinal='';status('已清除')};
  $('jwbyClose').onclick=()=>{stop(false);panel.hidden=true;$('jwbyCaptionRestore').hidden=false};$('jwbyCaptionRestore').onclick=showPanel;
@@ -3761,8 +4707,5 @@ color:#f8fafc;font:10px system-ui}
  paintText();paintPanel();updateButtons();drawHistory();
 })();
 </script>
-
-<script id="jwby-static-auth-script">
-(()=>{const authKey='jwby_static_auth_v1',groups=[{"digest":"367b87af90d89b0155521b8c93adebe32a5cb93e6fb6146435f2d1393a91e2fd","accounts":["wanjun"]},{"digest":"4dea5c7cb70f50322ec9d734aa4aa078be9227c05251e18991c596f387552370","accounts":["vong"]},{"digest":"6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090","accounts":["carrotluo"]},{"digest":"7febb988ccf81093cc98ef99d31c05b470b5caeafccdeeb6089eef278a377110","accounts":["admin","teacher"]},{"digest":"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92","accounts":["开场白","视听","卡卡西","lily","ylps","qgz","yang","yuran","margo","aurora","sheng","lynn","xiaoK"]},{"digest":"a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3","accounts":["teacher2","teacher3","teacher4","teacher5","teacher6","teacher7","teacher8","teacher9","teacher10","teacher11","teacher12","teacher13","teacher14","teacher15","teacher16","teacher17","teacher18","teacher19","teacher20","teacher21","teacher22","teacher23","teacher24","teacher25","teacher26","teacher27","teacher28","teacher29","teacher30","teacher31","teacher32","teacher33","teacher34","teacher35","teacher36","teacher37","teacher38","teacher39","teacher40","teacher41","teacher42","teacher43","teacher44","teacher45","teacher46","teacher47","teacher48","teacher49","teacher50","teacher51","teacher52","teacher53","teacher54","teacher55","teacher56","teacher57","teacher58","teacher59","teacher60","teacher61","teacher62","teacher63","teacher64","teacher65","teacher66","teacher67","teacher68","teacher69","teacher70","teacher71","teacher72","teacher73","teacher74","teacher75","teacher76","teacher77","teacher78","teacher79","teacher80","teacher81","teacher82","teacher83","teacher84","teacher85","teacher86","teacher87","teacher88","teacher89","teacher90","teacher91","teacher92","teacher93","teacher94","teacher95","teacher96","teacher97","teacher98","teacher99","teacher100"]},{"digest":"cee73c8fd62a897329348ab9f0a4c9339f3433705bfaf36c9fbd448fddfd6223","accounts":["chang"]}];const accounts=groups.flatMap(group=>group.accounts.map(account=>({account,digest:group.digest})));window.jwbyIsAuthenticated=()=>sessionStorage.getItem(authKey)==='1';const overlay=document.getElementById('jwbyStaticAuth'),form=document.getElementById('jwbyStaticAuthForm'),message=document.getElementById('jwbyStaticAuthMessage'),button=document.getElementById('jwbyStaticLoginButton');let attempts=0,lockedUntil=0;function reveal(){overlay.hidden=true;document.dispatchEvent(new Event('jwby-static-authenticated'));window.jwbyInitializeAuthorizedApp?.()}if(window.jwbyIsAuthenticated())reveal();form.addEventListener('submit',async event=>{event.preventDefault();if(Date.now()<lockedUntil){message.textContent='尝试次数过多，请稍后再试。';return}button.disabled=true;message.textContent='正在验证……';try{const username=document.getElementById('jwbyStaticAccount').value.trim(),password=document.getElementById('jwbyStaticPassword').value;const match=accounts.find(item=>item.account===username);const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(password));const digest=Array.from(new Uint8Array(bytes),v=>v.toString(16).padStart(2,'0')).join('');if(match&&digest===match.digest){sessionStorage.setItem(authKey,'1');message.textContent='';reveal()}else{attempts++;message.textContent='账号或密码不正确';if(attempts>=5){lockedUntil=Date.now()+30000;attempts=0}}}catch(error){message.textContent='当前浏览器无法验证，请使用最新版 Chrome 或 Edge。'}finally{button.disabled=false}})})();
-</script></body>
+</body>
 </html>
